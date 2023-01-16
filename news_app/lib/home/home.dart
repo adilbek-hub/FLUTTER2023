@@ -1,5 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/components/drawer_button.dart';
+import 'package:news_app/home/view/drawer_view.dart';
+import 'package:news_app/home/view/kaktus_view.dart';
+import 'package:news_app/models/news_model.dart';
 import 'package:news_app/theme/app_colors.dart';
+import 'package:news_app/theme/app_text.dart';
 import 'package:news_app/theme/app_text_style.dart';
 
 class NewsView extends StatefulWidget {
@@ -10,19 +16,41 @@ class NewsView extends StatefulWidget {
 }
 
 class _NewsViewState extends State<NewsView> {
+  final _Formkey = GlobalKey<FormState>();
+  final _title = TextEditingController();
+  final _description = TextEditingController();
+  final _author = TextEditingController();
+
+  Future<void> addTodo() async {
+    final db = FirebaseFirestore.instance;
+    final news = NewsModel(
+        title: _title.text,
+        description: _description.text,
+        author: _author.text);
+    await db.collection('newsCollection').add(news.toMapBol());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.forAppColorWhite,
           centerTitle: true,
           title: const Text('Жаңылыктар', style: AppTextStyle.fortextStyle),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.menu,
-              color: AppColors.forAppColorGreen,
-            ),
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: AppColors.iconColor,
+                  size: 22, // Changing Drawer Icon Size
+                ),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
           ),
           actions: [
             IconButton(
@@ -42,6 +70,7 @@ class _NewsViewState extends State<NewsView> {
           ],
           elevation: 1,
         ),
+        drawer: const DriwerVidget(),
         body: DefaultTabController(
           length: 3,
           child: Column(
@@ -75,7 +104,7 @@ class _NewsViewState extends State<NewsView> {
                   itemCount: 20,
                   itemBuilder: ((context, index) {
                     return Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           border:
                               Border(bottom: BorderSide(color: Colors.grey))),
                       child: ListTile(
@@ -93,13 +122,18 @@ class _NewsViewState extends State<NewsView> {
                   padding: const EdgeInsets.all(15),
                   itemCount: 20,
                   itemBuilder: ((context, index) {
-                    return ListTile(
-                      onTap: (() {}),
-                      leading: const Image(
-                          image: AssetImage('assets/images/googleImage.jpg')),
-                      title: Text(
-                          'Google корпорациясы дүйнөдө болуп көрбөгөндөй технология чыгарды $index'),
-                      subtitle: const Text('17.12.2022 | көрүүчү:1950'),
+                    return Container(
+                      decoration: const BoxDecoration(
+                          border:
+                              Border(bottom: BorderSide(color: Colors.grey))),
+                      child: ListTile(
+                        onTap: (() {}),
+                        leading: const Image(
+                            image: AssetImage('assets/images/googleImage.jpg')),
+                        title: Text(
+                            'Google корпорациясы дүйнөдө болуп көрбөгөндөй технология чыгарды $index'),
+                        subtitle: const Text('17.12.2022 | көрүүчү:1950'),
+                      ),
                     );
                   }),
                 ),
@@ -107,14 +141,19 @@ class _NewsViewState extends State<NewsView> {
                   padding: const EdgeInsets.all(15),
                   itemCount: 20,
                   itemBuilder: ((context, index) {
-                    return ListTile(
-                      onTap: (() {}),
-                      leading: const Image(
-                          image: AssetImage(
-                              'assets/images/ITTechnologyImage.jpg')),
-                      title: Text(
-                          'Кыргызстанда Айти окуу активдүү орун алууда $index'),
-                      subtitle: const Text('17.12.2022 | көрүүчү:12000'),
+                    return Container(
+                      decoration: const BoxDecoration(
+                          border:
+                              Border(bottom: BorderSide(color: Colors.grey))),
+                      child: ListTile(
+                        onTap: (() {}),
+                        leading: const Image(
+                            image: AssetImage(
+                                'assets/images/ITTechnologyImage.jpg')),
+                        title: Text(
+                            'Кыргызстанда Айти окуу активдүү орун алууда $index'),
+                        subtitle: const Text('17.12.2022 | көрүүчү:12000'),
+                      ),
                     );
                   }),
                 ),
