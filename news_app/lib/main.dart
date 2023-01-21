@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/app/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+bool shouldUseFirebaseEmulator = false;
 void main() async {
   //WidgetFlutterBinding ал Flutter кыймылдаткычы менен иштешүү үчүн колдонулат.
   //Firebase.initializeApp()Firebaseди инициализациялоо үчүн түпнуска кодду
@@ -12,8 +14,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // // Flutter проектиге Firebaseти инициализациялоо
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.ios,
+    options: DefaultFirebaseOptions.currentPlatform,
   );
+  if (shouldUseFirebaseEmulator) {
+    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  }
 
   runApp(const MyApp());
 }

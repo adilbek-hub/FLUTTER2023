@@ -56,11 +56,11 @@ class _GiveNewsState extends State<GiveNews> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             // NewsImageContainer(),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             CustomTextField(
@@ -74,7 +74,7 @@ class _GiveNewsState extends State<GiveNews> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             CustomTextField(
@@ -87,7 +87,7 @@ class _GiveNewsState extends State<GiveNews> {
                 return null;
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(
@@ -114,7 +114,7 @@ class _GiveNewsState extends State<GiveNews> {
                     Navigator.popUntil(context, (route) => route.isFirst);
                   }
                 }),
-                child: Icon(Icons.publish))
+                child: const Icon(Icons.publish))
           ],
         ),
       ),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/home/first_page.dart';
-import 'package:news_app/home/give_news.dart';
 import 'package:news_app/home/home.dart';
 
 class MyApp extends StatelessWidget {

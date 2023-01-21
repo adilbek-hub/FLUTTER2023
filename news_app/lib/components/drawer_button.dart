@@ -23,12 +23,12 @@ class DrawerButton extends StatelessWidget {
           Icon(
             icon,
             size: 28,
-            color: Color.fromARGB(255, 2, 152, 7),
+            color: const Color.fromARGB(255, 2, 152, 7),
           ),
           const SizedBox(width: 40), // icon
           Text(
             text,
-            style: AppTextStyle.DrawerTextStyle,
+            style: AppTextStyle.drawerTextStyle,
           ), // text
         ],
       ),

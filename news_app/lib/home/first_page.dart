@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:news_app/home/add_news_page.dart';
 import 'package:news_app/home/give_news.dart';
 
 class FirstPage extends StatelessWidget {

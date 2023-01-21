@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/components/custom_card.dart';
+import 'package:news_app/home/view/for_administrator_login_page.dart';
 import 'package:news_app/theme/app_colors.dart';
 import 'package:news_app/theme/app_text.dart';
 import 'package:news_app/theme/app_text_style.dart';
@@ -21,8 +22,8 @@ class _KaktusMediaState extends State<KaktusMedia> {
         elevation: 0,
         backgroundColor: AppColors.appBarColors,
         centerTitle: true,
-        title: const Text(AppText.AppBarText,
-            style: AppTextStyle.AppBarTextStyles),
+        title: const Text(AppText.appBarText,
+            style: AppTextStyle.appBarTextStyles),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -53,10 +54,10 @@ class _KaktusMediaState extends State<KaktusMedia> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Text(AppText.Media, style: AppTextStyle.MediaTextStyle),
+                    Text(AppText.media, style: AppTextStyle.mediaTextStyle),
                     Text(
-                      AppText.Versio,
-                      style: AppTextStyle.VersioTextStyle,
+                      AppText.versio,
+                      style: AppTextStyle.versioTextStyle,
                     )
                   ],
                 ),
@@ -65,28 +66,39 @@ class _KaktusMediaState extends State<KaktusMedia> {
             const SizedBox(height: 40),
             CustomCard(
               icon: Icons.star,
-              text: AppText.BalooText,
+              text: AppText.balooText,
               onTap: () {},
             ),
             const SizedBox(height: 14),
             CustomCard(
               icon: Icons.share,
-              text: AppText.Bolyshu,
+              text: AppText.bolyshu,
               onTap: () {},
             ),
             const SizedBox(height: 14),
             CustomCard(
               icon: Icons.chat_sharp,
-              text: AppText.Synysh,
+              text: AppText.synysh,
               onTap: () {},
             ),
             const SizedBox(height: 14),
             CustomCard(
               icon: Icons.call,
-              text: AppText.Bailanush,
+              text: AppText.bailanush,
               onTap: () {},
             ),
             const SizedBox(height: 14),
+            CustomCard(
+              icon: Icons.admin_panel_settings_outlined,
+              text: AppText.administrator,
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) =>
+                            const AdministratorLoginPage())));
+              },
+            ),
           ],
         ),
       ),

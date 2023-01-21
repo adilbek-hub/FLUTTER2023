@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,26 +25,28 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return linux;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
   }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAOFrjHxXEEnt6aJ-yyohm0ZZq29jENu6U',
+    appId: '1:39410882610:web:78aa5208eeea80ae13442b',
+    messagingSenderId: '39410882610',
+    projectId: 'newsapp-5b4bd',
+    authDomain: 'newsapp-5b4bd.firebaseapp.com',
+    databaseURL: 'https://newsapp-5b4bd-default-rtdb.firebaseio.com',
+    storageBucket: 'newsapp-5b4bd.appspot.com',
+    measurementId: 'G-RKNZWB43B1',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBOLrnZQmGtYRP1mzOnB_M-wEXIO7tX0FM',
@@ -67,5 +66,38 @@ class DefaultFirebaseOptions {
     storageBucket: 'newsapp-5b4bd.appspot.com',
     iosClientId: '39410882610-rq5m3e62lldo68ns69kc247061s12bbl.apps.googleusercontent.com',
     iosBundleId: 'com.example.newsApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyB4AKeEZFv0X9WLrUgA46-iA89u0vJsOwI',
+    appId: '1:39410882610:ios:c454dba87d73b83113442b',
+    messagingSenderId: '39410882610',
+    projectId: 'newsapp-5b4bd',
+    databaseURL: 'https://newsapp-5b4bd-default-rtdb.firebaseio.com',
+    storageBucket: 'newsapp-5b4bd.appspot.com',
+    iosClientId: '39410882610-rq5m3e62lldo68ns69kc247061s12bbl.apps.googleusercontent.com',
+    iosBundleId: 'com.example.newsApp',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAOFrjHxXEEnt6aJ-yyohm0ZZq29jENu6U',
+    appId: '1:39410882610:web:fd43f901e3553b3b13442b',
+    messagingSenderId: '39410882610',
+    projectId: 'newsapp-5b4bd',
+    authDomain: 'newsapp-5b4bd.firebaseapp.com',
+    databaseURL: 'https://newsapp-5b4bd-default-rtdb.firebaseio.com',
+    storageBucket: 'newsapp-5b4bd.appspot.com',
+    measurementId: 'G-WYK2P0LRYB',
+  );
+
+  static const FirebaseOptions linux = FirebaseOptions(
+    apiKey: 'AIzaSyAOFrjHxXEEnt6aJ-yyohm0ZZq29jENu6U',
+    appId: '1:39410882610:web:5fbaf68196521f4113442b',
+    messagingSenderId: '39410882610',
+    projectId: 'newsapp-5b4bd',
+    authDomain: 'newsapp-5b4bd.firebaseapp.com',
+    databaseURL: 'https://newsapp-5b4bd-default-rtdb.firebaseio.com',
+    storageBucket: 'newsapp-5b4bd.appspot.com',
+    measurementId: 'G-TYPJ1JVFBW',
   );
 }

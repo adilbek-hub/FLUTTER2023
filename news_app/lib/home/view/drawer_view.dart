@@ -25,7 +25,7 @@ class DriwerVidget extends StatelessWidget {
                     children: [
                       DrawerButton(
                         icon: Icons.phone,
-                        text: AppText.News,
+                        text: AppText.news,
                         onTap: () {
                           Navigator.pop(context);
                         },
@@ -35,7 +35,7 @@ class DriwerVidget extends StatelessWidget {
                       ),
                       DrawerButton(
                         icon: Icons.call,
-                        text: AppText.AppBarText,
+                        text: AppText.appBarText,
                         onTap: () {
                           Navigator.push(
                               context,
@@ -47,7 +47,7 @@ class DriwerVidget extends StatelessWidget {
                     ],
                   ),
                   decoration:
-                      const BoxDecoration(color: AppColors.backgroundColor),
+                      const BoxDecoration(color: AppColors.forAppColorGreen),
                 ),
               ),
             ]));

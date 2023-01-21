@@ -1,11 +1,12 @@
 class AppText {
-  static const AppBarText = 'Тиркеме жонундо';
-  static const Media = 'Kaktus.media';
-  static const Versio = 'версия 1.2.3';
-  static const BalooText = 'Тиркемеге баа беруу';
-  static const Bolyshu = 'Тиркемени болушу';
-  static const Synysh = 'Тиркемеге сунуш беруу';
-  static const Bailanush = 'Админ менен байланышуу';
+  static const appBarText = 'Тиркеме жонундо';
+  static const media = 'Kaktus.media';
+  static const versio = 'версия 1.2.3';
+  static const balooText = 'Тиркемеге баа беруу';
+  static const bolyshu = 'Тиркемени болушу';
+  static const synysh = 'Тиркемеге сунуш беруу';
+  static const bailanush = 'Админ менен байланышуу';
+  static const administrator = 'Администатор';
 
-  static const News = 'Жанылыктар';
+  static const news = 'Жанылыктар';
 }
