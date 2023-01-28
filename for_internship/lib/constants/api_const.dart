@@ -1,3 +1,3 @@
-class APiConst {
-  static const apiPosts = 'https://jsonplaceholder.typicode.com/posts';
+class ApiConst {
+  static const String apiKey = 'http://reqres.in/api/users?page=2';
 }
