@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
             context: context,
             builder: ((context) {
               return AlertDialog(
-                title: Text('Sizdin Joobunuz'),
+                title: const Text('Sizdin Joobunuz'),
                 content: Text(
                     'Tuura ${tuuraJoop.length} Kata Joop ${kataJoop.length}'),
               );
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 29, 29, 29),
+      backgroundColor: const Color.fromARGB(255, 29, 29, 29),
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -73,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 isTrue: true,
                 onPressed: ((value) {
                   teksher(value);
-                  print(value);
                 })),
             const SizedBox(
               height: 10,
@@ -82,7 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
               isTrue: false,
               onPressed: ((value) {
                 teksher(value);
-                print(value);
               }),
             ),
             const SizedBox(

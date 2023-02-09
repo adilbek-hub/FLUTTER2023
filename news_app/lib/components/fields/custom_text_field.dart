@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField({
+  const CustomTextField({
     Key? key,
     required this.text,
     this.labelText,
@@ -11,10 +11,13 @@ class CustomTextField extends StatelessWidget {
   final String text;
   final String? labelText;
   final TextEditingController? controller;
+  
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextFormField(onChanged: (value) {
+      
+    },
       decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),

@@ -1,13 +1,15 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:news_app/components/custom_text_field.dart';
 import 'package:news_app/models/news_model.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class GiveNews extends StatefulWidget {
-  GiveNews({super.key});
-
   @override
   State<GiveNews> createState() => _GiveNewsState();
 }
@@ -15,7 +17,6 @@ class GiveNews extends StatefulWidget {
 class _GiveNewsState extends State<GiveNews> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     addNews();
   }
@@ -25,13 +26,20 @@ class _GiveNewsState extends State<GiveNews> {
   final _descr = TextEditingController();
 
   final _author = TextEditingController();
-
+  final _image = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  String imageUrl = '';
+  XFile? imagePath;
+  final ImagePicker _picker = ImagePicker();
 
   Future<void> addNews() async {
     final db = FirebaseFirestore.instance;
     final newsModel = NewsModel(
-        title: _title.text, description: _descr.text, author: _author.text);
+        title: _title.text,
+        description: _descr.text,
+        author: _author.text,
+        image: _image.text);
     await db.collection('newsCollection').add(newsModel.toMapBol());
   }
 
@@ -47,8 +55,10 @@ class _GiveNewsState extends State<GiveNews> {
           padding: const EdgeInsets.fromLTRB(15, 20, 15, 30),
           children: [
             CustomTextField(
+              
               hintext: 'title',
               controller: _title,
+              
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter author text';
@@ -88,6 +98,33 @@ class _GiveNewsState extends State<GiveNews> {
               },
             ),
             const SizedBox(
+              height: 10,
+            ),
+            imageUrl == '' ? Container() : Text("${imageUrl}"),
+            OutlinedButton(onPressed: (() {}), child: Text('Select Image')),
+            // IconButton(
+            //     onPressed: (() async {
+            //       ImagePicker imagePicker = ImagePicker();
+            //       XFile? file = await imagePicker.pickImage(
+            //           source: ImageSource.gallery);
+            //       print('${file?.path} Сурот келди');
+            //       if (file == null) return;
+            //       String uniqueFileName =
+            //           DateTime.now().microsecondsSinceEpoch.toString();
+            //       Reference referenceRoot = FirebaseStorage.instance.ref();
+            //       Reference referenceDirImage =
+            //           referenceRoot.child('imagesForActual');
+            //       Reference referenceImageToUpload =
+            //           referenceDirImage.child(uniqueFileName);
+            //       try {
+            //         await referenceImageToUpload.putFile(File(file.path));
+            //         imageUrl = await referenceImageToUpload.getDownloadURL();
+            //       } catch (error) {
+            //         //some error
+            //       }
+            //     }),
+            //     icon: const Icon(Icons.camera_alt)),
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(
@@ -119,6 +156,15 @@ class _GiveNewsState extends State<GiveNews> {
         ),
       ),
     );
+  }
+
+  imagePicker() async {
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() {
+        imagePath = image;
+      });
+    }
   }
 }
 

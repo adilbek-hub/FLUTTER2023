@@ -13,7 +13,6 @@ import 'package:for_internship/models/user_model.dart';
 import 'package:for_internship/repo/repository.dart';
 import 'package:for_internship/theme/app_text_style.dart';
 import 'package:for_internship/theme/app_texts.dart';
-import 'package:http/http.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

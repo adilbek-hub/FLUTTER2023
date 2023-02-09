@@ -114,8 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: ((BuildContext context, int index) {
                     return jooptor[index]
-                        ? ResultIcon(true)
-                        : ResultIcon(false);
+                        ? const ResultIcon(true)
+                        : const ResultIcon(false);
                   })),
             ),
             // Row(

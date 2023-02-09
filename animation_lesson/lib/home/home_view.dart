@@ -74,13 +74,13 @@ class _HomeViewState extends State<HomeView> {
             right: 0,
             left: 0,
             child: Image(
-              image: AssetImage('assets/images/land_tree_dark.png'),
+              image: const AssetImage('assets/images/land_tree_dark.png'),
               //Сүрөт бардык экрандын 0,58 пайызында турсун.
               height: h * 0.58,
               fit: BoxFit.fitHeight,
             )),
         Container(
-          margin: EdgeInsets.fromLTRB(50, 50, 10, 0),
+          margin: const EdgeInsets.fromLTRB(50, 50, 10, 0),
           width: w * 0.7,
           height: 50,
           decoration: BoxDecoration(
@@ -92,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
               child: TabBar(
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.white,
-                  unselectedLabelStyle: TextStyle(fontSize: 12),
+                  unselectedLabelStyle: const TextStyle(fontSize: 12),
                   indicatorColor: Colors.transparent,
                   indicator: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),

@@ -20,6 +20,8 @@ class _LoginViewState extends State<LoginView> {
   final _loginController = TextEditingController();
   final _registerController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+ 
+
 
   @override
   Widget build(BuildContext context) {
