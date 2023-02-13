@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:news_app/models/news_model.dart';
 
 class DetailPage extends StatelessWidget {
@@ -13,12 +11,46 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Text(userModel.title),
-          Text(userModel.description),
-          Text(userModel.author)
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 300,
+              decoration: BoxDecoration(border: Border.all()),
+              child: Image.asset('assets/images/balastanImage.png',
+                  fit: BoxFit.cover),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                children: [
+                  Container(
+                    width: 30,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: Colors.yellow,
+                      border: Border.all(),
+                    ),
+                    child: const Text(
+                      'new',
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Center(child: Text(userModel.title)),
+            SizedBox(
+              height: 30,
+            ),
+            Text(userModel.description),
+            Text(userModel.author)
+          ],
+        ),
       ),
     );
   }
