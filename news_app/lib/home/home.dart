@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/home/detail_page.dart';
 
 import 'package:news_app/home/view/drawer_view.dart';
 
@@ -140,7 +141,13 @@ class _NewsViewState extends State<NewsView> {
                                           bottom:
                                               BorderSide(color: Colors.grey))),
                                   child: ListTile(
-                                    onTap: (() {}),
+                                    onTap: (() {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => DetailPage(
+                                                  userModel: myNews)));
+                                    }),
                                     leading: const Image(
                                         image: AssetImage(
                                             'assets/images/googleImage.jpg')),
@@ -150,7 +157,7 @@ class _NewsViewState extends State<NewsView> {
                                       child: Text(
                                         "${myNews.description}\n${myNews.author}",
                                         style: TextStyle(color: Colors.red),
-                                        maxLines: 1,
+                                        maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                         softWrap: false,
                                       ),
