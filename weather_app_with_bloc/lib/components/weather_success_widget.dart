@@ -42,6 +42,7 @@ class WeatherSuccessWidget extends StatelessWidget {
           ),
           const SizedBox(height: 40),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(padding: EdgeInsets.only(right: 5, left: 5)),
               Column(
@@ -52,10 +53,14 @@ class WeatherSuccessWidget extends StatelessWidget {
                     color: AppColors.cloudColor,
                   ),
                   Text(
-                    weatherResponse.weather[0].description,
+                    weatherResponse.weather[0].description
+                        .replaceAll(' ', '\n'),
                     style: AppTextStyle.fewCloudsTextStyle,
                   ),
                 ],
+              ),
+              const SizedBox(
+                width: 15,
               ),
               Column(
                 children: [
@@ -64,8 +69,14 @@ class WeatherSuccessWidget extends StatelessWidget {
                     size: 40,
                     color: AppColors.cloudColor,
                   ),
-                  Text("${weatherResponse.main.feelsLike},")
+                  Text(
+                    "${weatherResponse.main.feelsLike},",
+                    style: AppTextStyle.fewCloudsTextStyle,
+                  )
                 ],
+              ),
+              const SizedBox(
+                width: 15,
               ),
               Column(
                 children: [
@@ -80,6 +91,9 @@ class WeatherSuccessWidget extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(
+                width: 15,
+              ),
               Column(
                 children: [
                   const Icon(
@@ -89,6 +103,9 @@ class WeatherSuccessWidget extends StatelessWidget {
                   ),
                   Text("${weatherResponse.main.tempMax}"),
                 ],
+              ),
+              SizedBox(
+                width: 15,
               ),
               Column(
                 children: [

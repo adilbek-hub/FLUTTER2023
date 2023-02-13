@@ -1,5 +1,5 @@
 import 'package:flutter/animation.dart';
 
 class AppColors {
-  static const cloudColor = Color.fromARGB(97, 245, 141, 141);
+  static const cloudColor = Color.fromARGB(95, 250, 2, 56);
 }
