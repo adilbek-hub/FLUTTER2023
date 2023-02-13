@@ -115,7 +115,7 @@ class _NewsViewState extends State<NewsView> {
                   stream: readTodos(),
                   builder: ((context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
+                      return const Center(
                         child: CupertinoActivityIndicator(),
                       );
                     } else if (snapshot.hasError) {
@@ -141,10 +141,20 @@ class _NewsViewState extends State<NewsView> {
                                               BorderSide(color: Colors.grey))),
                                   child: ListTile(
                                     onTap: (() {}),
-                                    leading: Image(
-                                        image: NetworkImage(myNews.image)),
+                                    leading: const Image(
+                                        image: AssetImage(
+                                            'assets/images/googleImage.jpg')),
                                     title: Text(myNews.title),
-                                    subtitle: Text(myNews.description),
+                                    subtitle: SizedBox(
+                                      width: 120,
+                                      child: Text(
+                                        "${myNews.description}\n${myNews.author}",
+                                        style: TextStyle(color: Colors.red),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        softWrap: false,
+                                      ),
+                                    ),
                                   ),
                                 );
                               })),

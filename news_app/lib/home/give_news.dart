@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:news_app/components/custom_text_field.dart';
 import 'package:news_app/models/news_model.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class GiveNews extends StatefulWidget {
   @override
@@ -27,7 +27,7 @@ class _GiveNewsState extends State<GiveNews> {
 
   final _author = TextEditingController();
   final _image = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String imageUrl = '';
   XFile? imagePath;
@@ -55,13 +55,11 @@ class _GiveNewsState extends State<GiveNews> {
           padding: const EdgeInsets.fromLTRB(15, 20, 15, 30),
           children: [
             CustomTextField(
-              
               hintext: 'title',
               controller: _title,
-              
-              validator: (value) {
+              validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter author text';
+                  return 'Электрондук почтаңызды жазыңыз';
                 }
                 return null;
               },
@@ -77,9 +75,9 @@ class _GiveNewsState extends State<GiveNews> {
               hintext: 'description',
               controller: _descr,
               maxlines: 10,
-              validator: (value) {
+              validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter author text';
+                  return 'Электрондук почтаңызды жазыңыз';
                 }
                 return null;
               },
@@ -90,9 +88,9 @@ class _GiveNewsState extends State<GiveNews> {
             CustomTextField(
               hintext: 'author',
               controller: _author,
-              validator: (value) {
+              validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter author text';
+                  return 'Электрондук почтаңызды жазыңыз';
                 }
                 return null;
               },
@@ -100,8 +98,7 @@ class _GiveNewsState extends State<GiveNews> {
             const SizedBox(
               height: 10,
             ),
-            imageUrl == '' ? Container() : Text("${imageUrl}"),
-            OutlinedButton(onPressed: (() {}), child: Text('Select Image')),
+            ContainerImage(),
             // IconButton(
             //     onPressed: (() async {
             //       ImagePicker imagePicker = ImagePicker();
@@ -165,6 +162,24 @@ class _GiveNewsState extends State<GiveNews> {
         imagePath = image;
       });
     }
+  }
+}
+
+class ContainerImage extends StatelessWidget {
+  const ContainerImage({
+    Key? key,
+    this.images,
+  }) : super(key: key);
+  final List<dynamic>? images;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 300,
+      decoration: BoxDecoration(
+          border: Border.all(), borderRadius: BorderRadius.circular(20)),
+    );
   }
 }
 

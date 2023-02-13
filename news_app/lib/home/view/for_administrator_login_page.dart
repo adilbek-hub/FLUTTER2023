@@ -46,26 +46,14 @@ class _AdministratorLoginPageState extends State<AdministratorLoginPage> {
               ),
               CustomButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const LoginView())));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => LoginView())));
                 },
-                text: 'Login',
+                text: 'Администратор гана кирет',
                 backgroundColor: Colors.blue,
               ),
               const SizedBox(
                 height: 20,
-              ),
-              CustomButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: ((context) => const RegisterView())));
-                },
-                text: 'Password',
-                backgroundColor: Colors.green,
               ),
             ],
           ),
