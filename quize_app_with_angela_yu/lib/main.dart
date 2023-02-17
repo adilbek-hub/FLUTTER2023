@@ -49,8 +49,8 @@ class _QuizzyState extends State<Quizzy> {
         // Анда алерт чыгар
         Alert(
           context: context,
-          title: "Finished!",
-          desc: "You\'ve reached the end of the quiz.",
+          title: "Оюн бүттү!",
+          desc: "Энтерди басып кайра башынан ойноңуз",
         ).show();
         // Алерттен кийин лиссти перезагрузка кылып башкы абалга кайтарып кой.
         quizbrain.reset();
@@ -111,6 +111,7 @@ class _QuizzyState extends State<Quizzy> {
                 foregroundColor: MaterialStateProperty.all<Color>(
                     const Color.fromARGB(255, 252, 216, 56)),
               ),
+              // Баскычты басканда checkAnswer(true) функциясынын условиясы иштесин
               onPressed: () {
                 checkAnswer(true);
               },
@@ -130,6 +131,7 @@ class _QuizzyState extends State<Quizzy> {
                 foregroundColor: MaterialStateProperty.all<Color>(
                     const Color.fromARGB(255, 245, 48, 34)),
               ),
+              // Баскычты басканда checkAnswer(false) функциясынын условиясы иштесин
               onPressed: () {
                 checkAnswer(false);
               },
@@ -140,6 +142,8 @@ class _QuizzyState extends State<Quizzy> {
             ),
           ),
         ),
+        // иконка алган лист толгон сайын горизонтальный абалда чегине чейин
+        //толуп кете бирсин.
         SizedBox(
           width: double.infinity,
           height: 25,
