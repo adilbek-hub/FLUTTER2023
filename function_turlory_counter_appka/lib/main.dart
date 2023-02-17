@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         count(1);
                       },
                       child: const FaIcon(FontAwesomeIcons.plus)),
-                  SizedBox(
+                 const SizedBox(
                     width: 5,
                   ),
                   ElevatedButton(

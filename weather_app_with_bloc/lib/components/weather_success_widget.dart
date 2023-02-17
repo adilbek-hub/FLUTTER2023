@@ -25,7 +25,7 @@ class WeatherSuccessWidget extends StatelessWidget {
                 "${weatherResponse.main.temp}",
                 style: AppTextStyle.tempTextStyle,
               ),
-              Image.network(ApiConst.getIcon('11n', 2)),
+              Image.network(ApiConst.getIcon('11n', 4)),
             ],
           ),
           Padding(
