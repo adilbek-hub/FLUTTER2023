@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quize_app_with_angela_yu/quize_brain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+// QuizBrain() ды quizbrain га жарыялап алдык, эми ушул пейджте колдоно беребиз.
 QuizBrain quizbrain = QuizBrain();
 
 void main() {
@@ -35,38 +36,48 @@ class Quizzy extends StatefulWidget {
 }
 
 class _QuizzyState extends State<Quizzy> {
+  // Иконка алуучу ичи бош болгон лист
   List<Icon> scorekeeper = [];
-
+// Функция булен тибиндеги колдонуучуТандаганЖооп параметрин алат,
   void checkAnswer(bool userPickedAnswer) {
+    // булен болгон correctAnswer ге жооптордун фукциясын барабарлап койдук
     bool correctAnswer = quizbrain.getCorrectAnswer();
-
+// кайра курулат
     setState(() {
+      // Эгер isFinished тин условиясы труга барабар болсо
       if (quizbrain.isFinished() == true) {
+        // Анда алерт чыгар
         Alert(
           context: context,
           title: "Finished!",
           desc: "You\'ve reached the end of the quiz.",
         ).show();
-
+        // Алерттен кийин лиссти перезагрузка кылып башкы абалга кайтарып кой.
         quizbrain.reset();
-
+        // иконкаларды да тазалап жаңыртып кой.
         scorekeeper = [];
+        // Же
       } else {
+        // Эгер суроожооптордогу жазылган боюнчага, колдонуучунун басканы барабар болсо
         if (correctAnswer == userPickedAnswer) {
+          // анда иконка алуучу бош лист scorekeeperге chek иконкасын чыгар
           scorekeeper.add(
-            Icon(
+            const Icon(
               Icons.check,
-              color: Colors.green,
+              color: Colors.yellow,
             ),
           );
+          // Же
         } else {
+          // анда иконка алуучу бош лист scorekeeperге close иконкасын чыгар
           scorekeeper.add(
-            Icon(
+            const Icon(
               Icons.close,
               color: Colors.red,
             ),
           );
         }
+        // Кийинки суроого өт
         quizbrain.nextQuestion();
       }
     });
@@ -84,7 +95,7 @@ class _QuizzyState extends State<Quizzy> {
             child: Text(
               quizbrain.getQuestionText(),
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25.0,
                 color: Colors.white,
               ),
@@ -95,14 +106,15 @@ class _QuizzyState extends State<Quizzy> {
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: TextButton(
+            child: ElevatedButton(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                foregroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromARGB(255, 252, 216, 56)),
               ),
               onPressed: () {
                 checkAnswer(true);
               },
-              child: Text(
+              child: const Text(
                 'True',
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
@@ -113,14 +125,15 @@ class _QuizzyState extends State<Quizzy> {
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
-            child: TextButton(
+            child: ElevatedButton(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                foregroundColor: MaterialStateProperty.all<Color>(
+                    const Color.fromARGB(255, 245, 48, 34)),
               ),
               onPressed: () {
                 checkAnswer(false);
               },
-              child: Text(
+              child: const Text(
                 'False',
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
@@ -137,9 +150,6 @@ class _QuizzyState extends State<Quizzy> {
                 return scorekeeper[index];
               })),
         )
-        // Row(
-        //   children: scorekeeper,
-        // ),
       ],
     );
   }
