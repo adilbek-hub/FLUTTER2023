@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quize_app_somostoyatelno2/model/model.dart';
+
 import 'package:quize_app_somostoyatelno2/quize_brain.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -93,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         ElevatedButton.styleFrom(backgroundColor: Colors.green),
                     onPressed: () {
                       teksher(true);
-                      print("true");
                     },
                     child: const Text(
                       'Туура',
@@ -110,7 +109,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     onPressed: () {
                       teksher(false);
-                      print("false");
                     },
                     child: const Text(
                       'Туура эмес',
