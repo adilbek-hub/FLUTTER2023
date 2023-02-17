@@ -47,11 +47,21 @@ class _QuizzyState extends State<Quizzy> {
       // Эгер isFinished тин условиясы труга барабар болсо
       if (quizbrain.isFinished() == true) {
         // Анда алерт чыгар
-        Alert(
-          context: context,
-          title: "Оюн бүттү!",
-          desc: "Энтерди басып кайра башынан ойноңуз",
-        ).show();
+        // Alert(
+        //   context: context,
+        //   title: "Оюн бүттү!",
+        //   desc: "Энтерди басып кайра башынан ойноңуз",
+        // ).show();
+        // Анда Алерт Диалог чыгар.
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: Colors.white,
+                title: Text('Оюн аяктады'),
+                icon: Icon(Icons.next_plan),
+              );
+            });
         // Алерттен кийин лиссти перезагрузка кылып башкы абалга кайтарып кой.
         quizbrain.reset();
         // иконкаларды да тазалап жаңыртып кой.

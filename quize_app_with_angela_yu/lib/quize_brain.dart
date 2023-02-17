@@ -33,10 +33,10 @@ class QuizBrain {
     return questionBank[_questionNumber].questionAnswer;
   }
 
-// Эгер сан сурообанктын узундугунан чоң же барабар болсо
+// Эгер сурообанктын индекси сурообанктын аяккы чегине барабар болсо
 // тру кайтар эгер ал болбосо фолс кайтаруу булен функциясы.
   bool isFinished() {
-    if (_questionNumber >= questionBank.length - 1) {
+    if (questionBank[_questionNumber] == questionBank.last) {
       return true;
     } else {
       return false;
