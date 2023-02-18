@@ -135,3 +135,39 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(''),
+      ),
+    );
+  }
+}
+
+class Custom extends StatefulWidget {
+  const Custom({super.key});
+
+  @override
+  State<Custom> createState() => _CustomState();
+}
+
+class _CustomState extends State<Custom> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Custom'),
+      ),
+    );
+  }
+}
