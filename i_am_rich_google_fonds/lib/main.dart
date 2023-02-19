@@ -30,10 +30,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Color.fromARGB(255, 253, 233, 47),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 253, 233, 47),
         centerTitle: true,
-        title: Text('I\'m rich'.toUpperCase()),
+        title: Text(
+          'Тапшырма - 3'.toUpperCase(),
+          style:
+              const TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
+        ),
       ),
       body: Center(
         child: Column(
@@ -43,6 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
               'I\'m rich',
               style: TextStyle(
                   color: Colors.black,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w100,
+                  fontFamily: 'AlumniSansCollegiateOne'),
+            ),
+            Text(
+              'I\'m rich',
+              style: TextStyle(
+                  color: Colors.pink,
                   fontSize: 40,
                   fontWeight: FontWeight.w100,
                   fontFamily: 'AlumniSansCollegiateOne'),
