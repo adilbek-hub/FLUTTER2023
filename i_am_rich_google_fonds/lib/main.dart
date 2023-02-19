@@ -30,9 +30,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 253, 233, 47),
+      backgroundColor: const Color.fromARGB(255, 253, 233, 47),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 253, 233, 47),
+        backgroundColor: const Color.fromARGB(255, 253, 233, 47),
         centerTitle: true,
         title: Text(
           'Тапшырма - 3'.toUpperCase(),
