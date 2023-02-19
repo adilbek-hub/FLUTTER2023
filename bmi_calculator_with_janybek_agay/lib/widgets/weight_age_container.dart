@@ -38,25 +38,38 @@ class WeightAgeContainer extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             Row(
-              children: [
-                Icon(
-                  iconMinus,
-                  size: 40,
-                  color: Colors.grey,
+              children: const [
+                RemoveAddButton(
+                  iconData: Icons.remove,
                 ),
-                const SizedBox(
-                  width: 5,
+                SizedBox(
+                  width: 10,
                 ),
-                Icon(
-                  iconPlus,
-                  size: 40,
-                  color: Colors.grey,
+                RemoveAddButton(
+                  iconData: Icons.add,
                 ),
               ],
             )
           ],
         ),
       ),
+    );
+  }
+}
+
+class RemoveAddButton extends StatelessWidget {
+  const RemoveAddButton({
+    Key? key,
+    required this.iconData,
+  }) : super(key: key);
+  final IconData iconData;
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.small(
+      backgroundColor: Colors.grey,
+      onPressed: () {},
+      child: Icon(iconData),
     );
   }
 }

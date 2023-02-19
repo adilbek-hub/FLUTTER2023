@@ -1,3 +1,4 @@
+import 'package:bmi_calculator_with_janybek_agay/widgets/calculator_container_widget.dart';
 import 'package:bmi_calculator_with_janybek_agay/widgets/gender_container.dart';
 import 'package:bmi_calculator_with_janybek_agay/widgets/weight_age_container.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                     textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
-                        _currentSliderValue.toStringAsFixed(0),
+                        "${_currentSliderValue.toInt()}",
                         style: TextStyle(
                             color: Colors.white.withOpacity(0.8),
                             fontSize: 55,
@@ -90,8 +91,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                     thumbColor: Colors.purple,
                     // togoloktun bashtaluu maanisi 30
                     value: _currentSliderValue,
-                    onChanged:
-                        (/*koldonuuchunun bergen maanisi*/ double userValue) {
+                    onChanged: (/*koldonuuchunun bergen maanisi*/ userValue) {
                       // setState bul sandy kayra kuruuga
                       setState(() {
                         //maani koldonuuchunun jyldyruusuna baylandy.
@@ -133,22 +133,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              width: double.infinity,
-              height: 40,
-              decoration: const BoxDecoration(color: Colors.pink),
-              child: Text(
-                'calculate'.toUpperCase(),
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
-            ),
           ],
         ),
       ),
+      bottomNavigationBar: const CalculatorWidget(),
     );
   }
 }
