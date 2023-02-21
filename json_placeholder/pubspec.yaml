@@ -38,7 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   bloc_concurrency: ^0.2.0
   equatable: ^2.0.5
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
   http: ^0.13.5
   stream_transform: ^2.1.0
   intl: ^0.18.0

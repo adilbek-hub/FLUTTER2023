@@ -9,7 +9,7 @@ import 'package:news_app/theme/app_colors.dart';
 
 import 'package:news_app/theme/app_text_style.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 
 class NewsView extends StatefulWidget {
   const NewsView({super.key});

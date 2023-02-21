@@ -1,7 +1,7 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -98,7 +98,7 @@ class _GiveNewsState extends State<GiveNews> {
             const SizedBox(
               height: 10,
             ),
-            ContainerImage(),
+            const ContainerImage(),
             // IconButton(
             //     onPressed: (() async {
             //       ImagePicker imagePicker = ImagePicker();
@@ -145,6 +145,7 @@ class _GiveNewsState extends State<GiveNews> {
                       },
                     );
                     await addNews();
+                    // ignore: use_build_context_synchronously
                     Navigator.popUntil(context, (route) => route.isFirst);
                   }
                 }),
