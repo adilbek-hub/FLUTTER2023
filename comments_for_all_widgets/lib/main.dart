@@ -59,13 +59,20 @@ class MyHomePage extends StatefulWidget {
 // title өзгөрмөнүн аты
   final String title;
 //  @override атасындагы функцияны кайра жазуу. Мисалы: build методу MyApp та бар жана StatelessWidget те да бар.
-  // а биз айтабыз ооба бул метод атасында бар бирок сен аны кылба муну кыл деп @overrideты берип build методунун ичине
-  ////өзүбүз каалаган виджеттерди колдоно беребиз.
+// а биз айтабыз ооба бул метод атасында бар бирок сен аны кылба муну кыл деп @overrideты берип build методунун ичине
+//өзүбүз каалаган виджеттерди колдоно беребиз.
   @override
+  // State кийин окуйбуз
+  // createState() => бул функция 
+  // _MyHomePageState(); 
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // int өзгөрүлмө тиби
+  // = өзгөрүлмөгө маани атайт
+  // 0 өзгөрмөнүн мааниси
+  //  _counter маанинин аталышы
   int _counter = 0;
 
   void _incrementCounter() {
