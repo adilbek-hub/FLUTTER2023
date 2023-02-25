@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        //первичный образец
           primarySwatch: Colors.blue,
           appBarTheme: const AppBarTheme(color: Colors.red)),
       home: const MyHomePage(),
