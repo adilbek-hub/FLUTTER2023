@@ -131,6 +131,19 @@ class _SecondPageState extends State<SecondPage> {
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 175, 7, 241)),
+            ),
+            const Text.rich(
+              TextSpan(
+                text: 'Hello', // default text style
+                children: <TextSpan>[
+                  TextSpan(
+                      text: ' beautiful ',
+                      style: TextStyle(fontStyle: FontStyle.italic)),
+                  TextSpan(
+                      text: 'world',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ),
             )
           ],
         ),
