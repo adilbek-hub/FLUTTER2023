@@ -33,20 +33,34 @@ class MyApp extends StatelessWidget {
   // build(BuildContext context): Адрес. Тиркеменин ичиндеги виджет дарагынын маршрутун көзөмөлдөөчү вектор.
   Widget build(BuildContext context) {
     return MaterialApp(
+      //String  тибиндеги MaterialAppтин пропертиси
       title: 'Flutter Demo',
+      //MaterialAppтин пропертиси
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      //home MaterialAppтин пропертиси
+      //MyHomePage бул виджет
+      // title бул String тибиндеги MyHomePageтин пропертиси себеби MyHomePageтин кашасынын ичинде турат.
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
+// StatefulWidget ?
 class MyHomePage extends StatefulWidget {
+  // MyHomePageтин конструктору
+  //super Атасына бериле турган пропертини берүү үчүн (chilтан parentке берет)
+  //required this.title конструктор соссуз title алуу керек
   const MyHomePage({super.key, required this.title});
-
+// final  бул бир жолу маани берем. Мисалы titleга мен String тибинде бир эле жолу маани берем.
+// Бул дегеним MyHomePageке бир эле жолу бир сринг аталыш берем жана аны кийин өзгөртпөйм дегенди билдирет.
+// String  саптарды билдирет.
+// title өзгөрмөнүн аты
   final String title;
-
+//  @override атасындагы функцияны кайра жазуу. Мисалы: build методу MyApp та бар жана StatelessWidget те да бар.
+  // а биз айтабыз ооба бул метод атасында бар бирок сен аны кылба муну кыл деп @overrideты берип build методунун ичине
+  ////өзүбүз каалаган виджеттерди колдоно беребиз.
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
