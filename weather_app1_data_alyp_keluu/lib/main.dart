@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //FutureBuilder бул setStateсиз тиркемеге датаны алып келүү үчүн колдонууга болот.
       body: FutureBuilder(
         future: fetchData(),
         builder: (context, snapshot) {
