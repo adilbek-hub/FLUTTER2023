@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app_ui_tuzuu/components/custom_icon_button.dart';
@@ -106,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerRight,
               child: Text(
                 "Bishkek",
