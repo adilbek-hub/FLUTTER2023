@@ -46,7 +46,7 @@ class _IamRichState extends State<IamRich> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'i\'m rich',
+              'I\'m rich',
               style: TextStyle(fontSize: 48, fontFamily: "Sofia-Regular"),
             ),
             SizedBox(
