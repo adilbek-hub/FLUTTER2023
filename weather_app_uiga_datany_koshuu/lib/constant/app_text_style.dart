@@ -14,7 +14,7 @@ class AppTextStyle {
 
   static const description = TextStyle(
       color: AppColors.numberWeatherColor,
-      fontSize: 75,
+      fontSize: 100,
       fontWeight: FontWeight.w300);
 
   static const cityName = TextStyle(

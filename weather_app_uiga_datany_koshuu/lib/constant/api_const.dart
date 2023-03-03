@@ -7,4 +7,7 @@ class ApiConst {
     // чакырылган сайттын ичиндеги wn аба ырайынын иконкасын жана @${iconSize}x аба ырайы иконканын размерин 4х кылуу үчүн жазылды.
     return "http://openweathermap.org/img/wn/$iconData@${iconSize}x.png";
   }
+
+  static String latLongaddres(double lat, double long) =>
+      'https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$long&exclude=hourly,daily,minutely&appid=41aa18abb8974c0ea27098038f6feb1b';
 }
