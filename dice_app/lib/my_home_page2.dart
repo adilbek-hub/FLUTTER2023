@@ -14,8 +14,8 @@ class _MyHomePage2State extends State<MyHomePage2> {
   int dice2 = 2;
   void change() {
     setState(() {
-      dice1 = Random().nextInt(7);
-      dice2 = Random().nextInt(7);
+      dice1 = Random().nextInt(6) + 1;
+      dice2 = Random().nextInt(6) + 1;
     });
   }
 
@@ -40,14 +40,14 @@ class _MyHomePage2State extends State<MyHomePage2> {
           child: Row(
             children: [
               DiceImage2(
-                index: dice1 == 0 ? 1 : dice1,
+                index: dice1,
                 onTap: change,
               ),
               const SizedBox(
                 width: 25,
               ),
               DiceImage2(
-                index: dice2 == 0 ? 1 : dice2,
+                index: dice2,
                 onTap: change,
               ),
             ],
