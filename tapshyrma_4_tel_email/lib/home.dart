@@ -10,9 +10,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final String assetName1 = 'assets/icons/Vector.svg';
   final String assetName2 = 'assets/icons/Vector.svg';
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  bool disable = true;
+
+  bool isActive = false;
+  String? phone;
+  String? email;
+
+  void _activate() {
+    if (phone != null && email != null) {
+      if (phone!.isEmpty || email!.isEmpty) {
+        isActive = false;
+      } else {
+        isActive = true;
+      }
+    }
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               color: Colors.white,
               child: TextFormField(
-                controller: nameController,
                 style: const TextStyle(
                     fontSize: 22,
                     color: Color(0xff056C5C),
                     fontWeight: FontWeight.w400),
-                onChanged: (value) {},
+                onChanged: (String? value) {
+                  phone = value;
+                  _activate();
+                },
                 decoration: const InputDecoration(
                   hintText: "phone number",
                   focusColor: Colors.white,
@@ -89,7 +104,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 20,
                     color: Color(0xff056C5C),
                     fontWeight: FontWeight.w400),
-                onChanged: (value) {},
+                onChanged: (String? value) {
+                  email = value;
+                  _activate();
+                },
                 decoration: const InputDecoration(
                   focusColor: Colors.white,
                   hintText: "gmail address",
@@ -116,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 1.5,
                       color: Colors.white,
                     )),
-                onPressed: () {},
+                onPressed: isActive ? () {} : null,
                 child: const Text(
                   "sign in",
                   style: TextStyle(
