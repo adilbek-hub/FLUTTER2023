@@ -8,9 +8,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final String assetName1 = 'assets/icons/Vector.svg';
-  final String assetName2 = 'assets/icons/Vector.svg';
-
   bool isActive = false;
   String? phone;
   String? email;
