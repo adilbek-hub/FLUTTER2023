@@ -46,8 +46,10 @@ class _AdministratorLoginPageState extends State<AdministratorLoginPage> {
               ),
               CustomButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => LoginView())));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const LoginView())));
                 },
                 text: 'Администратор гана кирет',
                 backgroundColor: Colors.blue,

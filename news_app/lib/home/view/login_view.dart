@@ -9,59 +9,95 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool isActive = false;
+  String? name;
+  String? password;
+
+  // void startWork() {
+  //   if (name != null && password != null) {
+  //     if (name!.isEmpty || password!.isEmpty) {
+  //       isActive = false;
+  //     } else {
+  //       isActive = true;
+  //     }
+  //   }
+  //   setState(() {});
+  // }
+
+  void startWork() {
+    if (name!.isEmpty || password!.isEmpty) {
+      isActive = false;
+    } else {
+      isActive = true;
+    }
+
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Form(
-          key: _formKey,
+        backgroundColor: Colors.grey,
+        body: Center(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Электрондук почтаңыз',
-                ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Электрондук почтаңызды жазыңыз';
-                  }
-                  return null;
-                },
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const FlutterLogo(
+                size: 100,
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Электрондук почтаңыздын сыр сөзү',
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'User Name',
+                      hintText: 'Enter valid mail id as abc@gmail.com'),
+                  onChanged: (String? value) {
+                    name = value;
+                    startWork();
+                  },
                 ),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Электрондук почтаңыздын сыр сөзү жазылуучу керек';
-                  }
-                  return null;
-                },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Password',
+                      hintText: 'Enter your secure password'),
+                  onChanged: (String? value) {
+                    password = value;
+                    startWork();
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: ElevatedButton(
-                  onPressed: () {
-                    // Эгерде форма жарактуу болсо, Validate чындыкты кайтарат, эгерде форма туура болсо, жалганды кайтарат
-                    // форма жараксыз.
-                    if (_formKey.currentState!.validate()) {
-                      // Маалыматтарды иштетүү.
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => GiveNews()));
-                    }
-                  },
-                  child: const Text('Кирүү'),
+                  style: ElevatedButton.styleFrom(
+                    side: const BorderSide(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: isActive
+                      ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GiveNews(),
+                            ),
+                          );
+                        }
+                      : null,
+                  child: const Text(
+                    'Кирүү',
+                    style: TextStyle(),
+                  ),
                 ),
               ),
             ],
           ),
-        ),
-      ],
-    ));
+        ));
   }
 }
