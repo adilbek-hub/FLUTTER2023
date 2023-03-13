@@ -4,7 +4,7 @@ import 'package:news_app/app/app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-bool shouldUseFirebaseEmulator = true;
+bool shouldUseFirebaseEmulator = false;
 void main() async {
   //WidgetFlutterBinding ал Flutter кыймылдаткычы менен иштешүү үчүн колдонулат.
   //Firebase.initializeApp()Firebaseди инициализациялоо үчүн түпнуска кодду

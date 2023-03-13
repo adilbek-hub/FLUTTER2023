@@ -1,5 +1,7 @@
 // import 'dart:io';
 
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:news_app/components/custom_text_field.dart';
 import 'package:news_app/models/news_model.dart';
+import 'package:news_app/services/image_picker_service.dart';
 
 class GiveNews extends StatefulWidget {
   @override
@@ -98,7 +101,9 @@ class _GiveNewsState extends State<GiveNews> {
             const SizedBox(
               height: 10,
             ),
-            const ContainerImage(),
+            ContainerImage(
+              images: const <XFile>[],
+            ),
             // IconButton(
             //     onPressed: (() async {
             //       ImagePicker imagePicker = ImagePicker();
@@ -124,6 +129,40 @@ class _GiveNewsState extends State<GiveNews> {
             const SizedBox(
               height: 20,
             ),
+            CustomTextField(
+              onTap: () {
+                CupertinoModalPopupRoute<void>(
+                  builder: (BuildContext context) {
+                    return CupertinoActionSheet(
+                      title: const Text('Title'),
+                      message: const Text('Message'),
+                      actions: <CupertinoActionSheetAction>[
+                        CupertinoActionSheetAction(
+                          child: const Text('Action One'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                        CupertinoActionSheetAction(
+                          child: const Text('Action Two'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              hintext: 'date time',
+              validator: (String string) {
+                if (string == null || string.isEmpty) {
+                  return "жаңылыктын убактысын коюуу шарт";
+                } else {
+                  return null;
+                }
+              },
+            ),
             ElevatedButton(
                 onPressed: (() async {
                   if (_formKey.currentState!.validate()) {
@@ -145,6 +184,7 @@ class _GiveNewsState extends State<GiveNews> {
                       },
                     );
                     await addNews();
+
                     // ignore: use_build_context_synchronously
                     Navigator.popUntil(context, (route) => route.isFirst);
                   }
@@ -166,50 +206,51 @@ class _GiveNewsState extends State<GiveNews> {
   }
 }
 
-class ContainerImage extends StatelessWidget {
-  const ContainerImage({
+class ContainerImage extends StatefulWidget {
+  ContainerImage({
     Key? key,
-    this.images,
+    required this.images,
   }) : super(key: key);
-  final List<dynamic>? images;
+  List<XFile> images;
 
+  @override
+  State<ContainerImage> createState() => _ContainerImageState();
+}
+
+class _ContainerImageState extends State<ContainerImage> {
+  final service = PickerService();
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: 300,
-      decoration: BoxDecoration(
-          border: Border.all(), borderRadius: BorderRadius.circular(20)),
-    );
+        width: double.infinity,
+        height: 300,
+        decoration: BoxDecoration(
+            border: Border.all(), borderRadius: BorderRadius.circular(20)),
+        child: widget.images.isNotEmpty
+            ? Wrap(
+                children: widget.images
+                    .map(
+                      (e) => Expanded(
+                        child: Image.file(
+                          File(e.path),
+                        ),
+                      ),
+                    )
+                    .toList(),
+              )
+            : Center(
+                child: FloatingActionButton(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  onPressed: () async {
+                    final value = await service.pickImages();
+                    if (value != null) {
+                      widget.images = value;
+                      setState(() {});
+                    }
+                  },
+                  child: const Icon(Icons.camera_enhance),
+                ),
+              ));
   }
 }
-
-// class NewsImageContainer extends StatelessWidget {
-//   const NewsImageContainer({
-//     Key? key,
-//     this.image,
-//   }) : super(key: key);
-//   final List<dynamic>? image;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         width: double.infinity,
-//         height: 300,
-//         decoration: BoxDecoration(
-//             border: Border.all(), borderRadius: BorderRadius.circular(20)),
-//         child: image != null
-//             ? Wrap(
-//                 children: image!
-//                     .map((e) => Expanded(child: Image.file(File(e))))
-//                     .toList(),
-//               )
-//             : Center(
-//                 child: IconButton(
-//                     onPressed: (() {}),
-//                     icon: const Icon(
-//                       Icons.camera,
-//                       size: 50,
-//                     )),
-//               ));
-//   }
-// }

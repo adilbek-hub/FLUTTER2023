@@ -190,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 10,
                       ),
                       Text(
-                        "${(weather!.temp - 273.15).floorToDouble()}",
+                        "${(weather!.temp - 273.15).toInt()}",
                         style: AppTextStyle.numberStyle,
                       ),
                       Image.network(

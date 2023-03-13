@@ -82,12 +82,19 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   onPressed: isActive
                       ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => GiveNews(),
-                            ),
-                          );
+                          if (name == "a" && password == "a") {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => GiveNews(),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        "Сиздин логин же пароль туура эмес")));
+                          }
                         }
                       : null,
                   child: const Text(
