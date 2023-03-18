@@ -45,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0,
         leading: Builder(builder: (context) {
           return IconButton(
+            // ignore: prefer_const_constructors
             icon: Padding(
               padding: const EdgeInsets.only(left: 20),
               child: const Icon(Icons.menu),
