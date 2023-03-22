@@ -79,11 +79,3 @@ final aybek = Student(
   gender: 'male',
   address: 'Bishkek',
 );
-
-List studentter = <Student>[
-  daniar,
-  dinara,
-  hanzada,
-  mirbek,
-  aybek,
-];

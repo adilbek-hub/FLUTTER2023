@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:login_page_with_for_loop/model.dart';
 import 'package:login_page_with_for_loop/second_page.dart';
 
+final studentter = <Student>[daniar, dinara, hanzada, mirbek, aybek];
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -12,7 +14,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String? _name;
   String? _email;
-  void controlNameEmail(String name, String email) {
+  /*void controlNameEmail(String name, String email) {
     //name == Aybek
     //email == aybek@mail
     int index = 0;
@@ -40,6 +42,34 @@ class _LoginPageState extends State<LoginPage> {
           ));
         } else {
           continue;
+        }
+      }
+    }
+  }*/
+// Логиканын экинчи ваианты
+  void controlNameEmail2(String name, String email) {
+    //phone  = 05000000             // email = aybek@email
+    // i = 0;            studentter.length = 5
+    for (int i = 0; i <= studentter.length; i++) {
+      //i = 0
+      if (name == studentter[i].name && email == studentter[i].email) {
+        //studentter[0] =  daniar(0500544554, daniar@mail)
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SecondPage(
+              student: studentter[i],
+            ),
+          ),
+        );
+        break;
+      } else {
+        // i == 0   studentter.length = 7
+        if (i == studentter.length - 1) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text('Kechiresiz atyniz je pochta tuura emes'),
+          ));
+          break;
         }
       }
     }
@@ -110,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               onPressed: () {
                 if (_name != null && _email != null) {
-                  controlNameEmail(_name!, _email!);
+                  controlNameEmail2(_name!, _email!);
                 }
               },
               child: const Text('Login'),
