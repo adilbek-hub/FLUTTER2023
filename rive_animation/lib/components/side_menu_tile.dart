@@ -26,7 +26,7 @@ class SideMenuTile extends StatelessWidget {
           ),
         ),
         ListTile(
-          onTap: () {},
+          onTap: press,
           leading: SizedBox(
             height: 34,
             width: 34,
@@ -36,8 +36,9 @@ class SideMenuTile extends StatelessWidget {
               onInit: riveonInit,
             ),
           ),
-          title: const Text(
-            'Home',
+          title: Text(
+            menu.title,
+            // ignore: prefer_const_constructors
             style: TextStyle(color: Colors.white),
           ),
         ),
