@@ -15,11 +15,11 @@ class InfoCart extends StatelessWidget {
       ),
       title: Text(
         name,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
       subtitle: Text(
         profession,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

@@ -54,6 +54,9 @@ class _SideMenuState extends State<SideMenu> {
                   },
                   press: () {
                     menu.input!.change(true);
+                    Future.delayed(const Duration(seconds: 5), () {
+                      menu.input!.change(false);
+                    });
                   },
                   isActive: false,
                 ),
