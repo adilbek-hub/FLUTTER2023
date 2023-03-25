@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 // final bul men bir gana jolu atalam boldu ozgorboym
 // ? Meni koldonso bolot koldonboso da bolot
 class Student {
-  Student(
-      {required this.id,
-      required this.name,
-      required this.surName,
-      required this.age,
-      this.phone,
-      required this.email,
-      this.address,
-      required this.group,
-      this.gender,
-      this.marriage});
+  Student({
+    required this.id,
+    required this.name,
+    required this.surName,
+    required this.age,
+    this.phone = 'Айтылбайт',
+    required this.email,
+    this.address = 'Айтылбайт',
+    required this.group,
+    this.gender = 'Айтылбайт',
+    this.marriage = 'Айтылбайт',
+    this.image,
+  });
   final int id;
   final String name;
   final String surName;
@@ -24,10 +26,12 @@ class Student {
   int group;
   final String? gender;
   String? marriage;
+  String? image;
 }
 
 final daniar = Student(
     id: 1,
+    image: 'images/daniar.jpg',
     name: 'Danyar',
     surName: 'Askarov',
     age: 18,
@@ -38,6 +42,7 @@ final daniar = Student(
 
 final dinara = Student(
   id: 2,
+  image: 'images/dinara.jpeg',
   name: 'Dinara',
   surName: 'Akulova',
   age: 19,
@@ -49,6 +54,7 @@ final dinara = Student(
 
 final hanzada = Student(
   id: 3,
+  image: 'images/hanzada.jpeg',
   name: 'Hanzada',
   surName: 'Taalaybekova',
   age: 22,
@@ -61,6 +67,7 @@ final hanzada = Student(
 
 final mirbek = Student(
   id: 4,
+  image: 'images/mirbek.png',
   name: 'Mirbek',
   surName: 'Djoldoshbekov',
   age: 21,
@@ -71,6 +78,7 @@ final mirbek = Student(
 final aybek = Student(
   id: 5,
   name: 'Aybek',
+  image: 'images/aybek.jpg',
   surName: 'Kerimov',
   age: 19,
   email: 'aybek@mail',
