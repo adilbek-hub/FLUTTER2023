@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:piano_app_new/components/piano_button.dart';
 import 'package:piano_app_new/theme/app_colors.dart';
 
 class PianoApp extends StatefulWidget {
@@ -9,6 +10,14 @@ class PianoApp extends StatefulWidget {
 }
 
 class _PianoAppState extends State<PianoApp> {
+  Color _iconColor = Colors.blue;
+
+  void _onPressed() {
+    setState(() {
+      _iconColor = Colors.red;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,33 +36,23 @@ class _PianoAppState extends State<PianoApp> {
           ),
           Expanded(
               flex: 2,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 11,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                        left: 2,
-                        top: 0,
-                        right: 2,
-                        bottom: 5,
-                      ),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          padding: EdgeInsets.only(bottom: 20),
-                        ),
-                        onPressed: () {},
-                        child: const Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Text(
-                            'do',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ),
-                    );
-                  })),
+              child: Stack(children: [
+                ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 11,
+                    itemBuilder: (context, index) {
+                      return PianoWhiteButton(Colors.white, 're');
+                    }),
+                SizedBox(
+                  height: 150,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 11,
+                      itemBuilder: (context, index) {
+                        return PianoWhiteButton(Colors.black, 'do');
+                      }),
+                ),
+              ])),
         ],
       ),
     );
