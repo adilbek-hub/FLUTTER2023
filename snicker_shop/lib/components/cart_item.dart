@@ -33,7 +33,7 @@ class _CartItemState extends State<CartItem> {
             onPressed: () {
               removeItemFromCart();
             },
-            icon: Icon(Icons.delete)),
+            icon: const Icon(Icons.delete)),
       ),
     );
   }

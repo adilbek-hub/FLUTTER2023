@@ -25,7 +25,7 @@ class CardPage extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                   itemCount: value.getUserCart().length,
-                  scrollDirection: Axis.vertical,
+                  scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     //get individual shoe
                     Shoes individualShoe = value.getUserCart()[index];
