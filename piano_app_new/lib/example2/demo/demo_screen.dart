@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '';
-import '../contains/sizes.dart';
 
-List<double> blackKeyPositions = [1, 2, 3, 5, 6];
+import '../contains/sizes.dart';
 
 class PianoApp2 extends StatefulWidget {
   const PianoApp2({super.key});
@@ -15,46 +13,88 @@ class _PianoApp2State extends State<PianoApp2> {
   //анткени 7 ак баскычтын үстүнө 5 кара баскыч коюлган
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: w,
-      height: h,
-      child: Stack(
-        children: [
-          ListView.builder(
-              itemCount: 7,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (BuildContext contex, index) {
-                return DemoWhiteKey();
-              }),
-          //Кара кнопка
-          ...List.generate(blackKeyPositions.length, (index) {
-            return DemoBlackKeyWidget(index);
-          })
-        ],
+    return SafeArea(
+      child: SizedBox(
+        width: w,
+        height: h,
+        child: Stack(
+          children: [
+            ListView.builder(
+                itemCount: 7,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext contex, index) {
+                  return const DemoWhiteKey();
+                }),
+            Row(
+              children: const [
+                SizedBox(
+                  width: 50,
+                ),
+                DemoBlackKey(),
+                SizedBox(
+                  width: 16,
+                ),
+                DemoBlackKey(),
+                SizedBox(
+                  width: 175,
+                ),
+                DemoBlackKey(),
+                SizedBox(
+                  width: 16,
+                ),
+                DemoBlackKey(),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
 }
-//Кара кнопканын баскычы
 
-class DemoBlackKeyWidget extends StatefulWidget {
-  const DemoBlackKeyWidget(this.index, {super.key});
-  final int index;
+//Кара кнопканын баскычы
+class DemoBlackKey extends StatefulWidget {
+  const DemoBlackKey({super.key});
 
   @override
-  State<DemoBlackKeyWidget> createState() => _DemoBlackKeyWidgetState();
+  State<DemoBlackKey> createState() => _DemoBlackKeyState();
 }
 
-class _DemoBlackKeyWidgetState extends State<DemoBlackKeyWidget> {
+class _DemoBlackKeyState extends State<DemoBlackKey> {
+  bool isPressed = false;
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        left: blackKeyPositions[widget.index] * 50,
+    return GestureDetector(
+      onTapDown: (details) {
+        setState(() {
+          isPressed = true;
+        });
+      },
+      onTapUp: (details) {
+        setState(() {
+          isPressed = false;
+        });
+      },
+      child: Transform(
+        transform: Matrix4.rotationX(isPressed ? 0.2 : 0.0),
         child: Container(
-          width: 50,
-          height: 200,
-          decoration: BoxDecoration(color: Colors.black),
-        ));
+            color: isPressed ? Colors.grey[300] : Colors.black,
+            width: 63,
+            height: 200,
+            child: Stack(
+              children: [
+                AnimatedPositioned(
+                    duration: const Duration(milliseconds: 100),
+                    left: 10,
+                    height: isPressed ? 10 * 15 : 10 * 20,
+                    child: const CircleAvatar(
+                      radius: 10,
+                      backgroundColor: Colors.white60,
+                    ))
+              ],
+            )),
+      ),
+    );
   }
 }
 
@@ -87,7 +127,7 @@ class _DemoWhiteKeyState extends State<DemoWhiteKey> {
           decoration: BoxDecoration(
               border: Border.all(color: Colors.black, width: 3),
               color: isPressed ? Colors.grey[300] : Colors.white),
-          width: 80,
+          width: whiteKeyWidth,
           height: whiteKeyHeight,
         ),
       ),

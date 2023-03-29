@@ -4,7 +4,7 @@ double h = 500;
 
 double w = 400;
 
-double whiteKeyWidth = 25;
+double whiteKeyWidth = 80;
 
 double blackKeyWidth = 10;
 

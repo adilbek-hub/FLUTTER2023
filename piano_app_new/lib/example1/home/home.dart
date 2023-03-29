@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:piano_app_new/example1/components/piano_button.dart';
 
-import 'package:piano_app_new/example1/theme/app_colors.dart';
-
 class PianoApp extends StatefulWidget {
   const PianoApp({super.key});
 
@@ -11,14 +9,6 @@ class PianoApp extends StatefulWidget {
 }
 
 class _PianoAppState extends State<PianoApp> {
-  Color _iconColor = Colors.blue;
-
-  void _onPressed() {
-    setState(() {
-      _iconColor = Colors.red;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
