@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:piano_app_new/home/home.dart';
+import 'package:piano_app_new/example2/demo/demo_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
-      home: const PianoApp(),
+      home: const PianoApp2(),
     );
   }
 }

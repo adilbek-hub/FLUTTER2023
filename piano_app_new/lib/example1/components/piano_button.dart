@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PianoWhiteButton extends StatelessWidget {
-  PianoWhiteButton(
-    this.color,
-    this.text, {
-    super.key,
-  });
-  Color color;
-  String text;
+  const PianoWhiteButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +15,7 @@ class PianoWhiteButton extends StatelessWidget {
       child: ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateColor.resolveWith(
-              (states) => color,
+              (states) => Colors.black,
             ),
             overlayColor: MaterialStateColor.resolveWith(
               (states) => states.contains(MaterialState.pressed)
@@ -28,13 +23,13 @@ class PianoWhiteButton extends StatelessWidget {
                   : Colors.white,
             )),
         onPressed: () {},
-        child: Align(
+        child: const Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 20),
+            padding: EdgeInsets.only(bottom: 20),
             child: Text(
-              text,
-              style: TextStyle(color: Colors.black),
+              'do',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ),

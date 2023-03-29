@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:piano_app_new/app/app.dart';
+import 'package:piano_app_new/app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
