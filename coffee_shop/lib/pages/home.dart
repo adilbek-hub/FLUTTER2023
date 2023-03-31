@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Function(int)? onTabChange;
 //Бул тандалган индекс эки астыңкы навигация тилкесин
 // көзөмөлдөйт
   int _selectedIndex = 0;
@@ -36,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: Container(
         margin: const EdgeInsets.all(20),
         child: GNav(
-            onTabChange: (index) => navigateBottomBar(index),
+            onTabChange: (value) => navigateBottomBar(value),
             color: Colors.grey[400],
             activeColor: Colors.grey[200],
             tabBorderRadius: 25,
