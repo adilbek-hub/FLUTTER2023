@@ -104,7 +104,7 @@ class WeatherSuccessWidget extends StatelessWidget {
                   Text("${weatherResponse.main.tempMax}"),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
               Column(
