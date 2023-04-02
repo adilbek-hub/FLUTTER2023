@@ -1,104 +1,56 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:piano_app_new/example2/contains/classFor.dart';
 
-import '../contains/sizes.dart';
+final List<String> notes = [
+  "do1.mp3",
+  "fa4.mp3",
+  "lya6.mp3",
+  "mi3.mp3",
+  "re2.mp3",
+  "si7.mp3",
+  "sol5.mp3",
+];
 
 class PianoApp2 extends StatefulWidget {
-  const PianoApp2({super.key});
+  PianoApp2({super.key});
+
+  final AudioCache audioCache = AudioCache();
 
   @override
   State<PianoApp2> createState() => _PianoApp2State();
 }
 
 class _PianoApp2State extends State<PianoApp2> {
-  //анткени 7 ак баскычтын үстүнө 5 кара баскыч коюлган
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SizedBox(
-        width: w,
-        height: h,
-        child: Stack(
-          children: [
-            ListView.builder(
-                itemCount: 7,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext contex, index) {
-                  return const DemoWhiteKey();
-                }),
-            Row(
-              children: const [
-                SizedBox(
-                  width: 50,
+        child: ListView.builder(
+            itemCount: notes.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext contex, index) {
+              return GestureDetector(
+                onTap: () {
+                  AudioPlayer().play(AssetSource(notes[index]));
+                },
+                child: Container(
+                  margin: EdgeInsets.only(left: 5),
+                  height: 80,
+                  color: Colors.green,
+                  child: Text('go'),
                 ),
-                DemoBlackKey(),
-                SizedBox(
-                  width: 16,
-                ),
-                DemoBlackKey(),
-                SizedBox(
-                  width: 175,
-                ),
-                DemoBlackKey(),
-                SizedBox(
-                  width: 16,
-                ),
-                DemoBlackKey(),
-              ],
-            )
-          ],
-        ),
+              );
+            }),
       ),
     );
   }
 }
 
 //Кара кнопканын баскычы
-class DemoBlackKey extends StatefulWidget {
-  const DemoBlackKey({super.key});
-
-  @override
-  State<DemoBlackKey> createState() => _DemoBlackKeyState();
-}
-
-class _DemoBlackKeyState extends State<DemoBlackKey> {
-  bool isPressed = false;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: (details) {
-        setState(() {
-          isPressed = true;
-        });
-      },
-      onTapUp: (details) {
-        setState(() {
-          isPressed = false;
-        });
-      },
-      child: Transform(
-        transform: Matrix4.rotationX(isPressed ? 0.2 : 0.0),
-        child: Container(
-            color: isPressed ? Colors.grey[300] : Colors.black,
-            width: 63,
-            height: 200,
-            child: Stack(
-              children: [
-                AnimatedPositioned(
-                    duration: const Duration(milliseconds: 100),
-                    left: 10,
-                    height: isPressed ? 10 * 15 : 10 * 20,
-                    child: const CircleAvatar(
-                      radius: 10,
-                      backgroundColor: Colors.white60,
-                    ))
-              ],
-            )),
-      ),
-    );
-  }
-}
 
 // Ак Кнопканын баскычы
+/*
 class DemoWhiteKey extends StatefulWidget {
   const DemoWhiteKey({super.key});
 
@@ -108,6 +60,7 @@ class DemoWhiteKey extends StatefulWidget {
 
 class _DemoWhiteKeyState extends State<DemoWhiteKey> {
   bool isPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -121,16 +74,23 @@ class _DemoWhiteKeyState extends State<DemoWhiteKey> {
           isPressed = false;
         });
       },
+      onTap: () {
+        playNoteAudio(context, note.asset);
+        //  AudioPlayer().play(AssetSource('$nota.mp3'));
+        // final player = AudioPlayer();
+        // player.play(AssetSource(''));
+      },
       child: Transform(
         transform: Matrix4.rotationX(isPressed ? 0.2 : 0),
         child: Container(
           decoration: BoxDecoration(
               border: Border.all(color: Colors.black, width: 3),
               color: isPressed ? Colors.grey[300] : Colors.white),
-          width: whiteKeyWidth,
-          height: whiteKeyHeight,
+          width: 80,
+          height: double.infinity,
         ),
       ),
     );
   }
 }
+*/
