@@ -15,33 +15,36 @@ class SubjectsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: color,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 6),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              text1,
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width * 0.05,
-                fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: () {},
+      child: Card(
+        color: color,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 6),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                text1,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(text2),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 10,
-                left: 70,
+              const SizedBox(
+                height: 5,
               ),
-              child: Image.asset(image),
-            )
-          ],
+              Text(text2),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  left: 70,
+                ),
+                child: Image.asset(image),
+              )
+            ],
+          ),
         ),
       ),
     );
