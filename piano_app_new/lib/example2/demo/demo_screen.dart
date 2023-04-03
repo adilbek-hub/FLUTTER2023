@@ -55,7 +55,6 @@ class _PianoApp2State extends State<PianoApp2> {
                       height: 80,
                       width: 70,
                       color: Colors.white,
-                      // child: const Text('go'),
                     ),
                   );
                 }),
