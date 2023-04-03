@@ -2,6 +2,7 @@ import 'package:education/components/custom_clipper_path.dart';
 import 'package:education/components/custom_corner_shape.dart';
 import 'package:education/components/custom_triangle.dart';
 import 'package:education/constants/app_color.dart';
+import 'package:education/pages/after_loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -52,8 +53,8 @@ class LandingPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Stack(
-                        children: const [
-                          Image(
+                        children: [
+                          const Image(
                               width: 150,
                               height: 150,
                               image: AssetImage(
@@ -61,12 +62,22 @@ class LandingPage extends StatelessWidget {
                           Positioned(
                             left: 25,
                             top: 15,
-                            child: Image(
-                              width: 100,
-                              height: 100,
-                              color: Color.fromARGB(255, 26, 208, 190),
-                              image: AssetImage(
-                                'assets/icons/icon/group.png',
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AfterLoading(),
+                                  ),
+                                );
+                              },
+                              child: const Image(
+                                width: 100,
+                                height: 100,
+                                color: Color.fromARGB(255, 26, 208, 190),
+                                image: AssetImage(
+                                  'assets/icons/icon/group.png',
+                                ),
                               ),
                             ),
                           ),
