@@ -1,6 +1,6 @@
 import 'package:education/components/subject_card.dart';
+import 'package:education/pages/geography.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AfterLoading extends StatefulWidget {
   const AfterLoading({super.key});
@@ -10,7 +10,7 @@ class AfterLoading extends StatefulWidget {
 }
 
 class _AfterLoadingState extends State<AfterLoading> {
-  String _searchText = '';
+  String searchText = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +40,7 @@ class _AfterLoadingState extends State<AfterLoading> {
                   cursorColor: Colors.grey,
                   onChanged: (value) {
                     setState(() {
-                      _searchText = value;
+                      searchText = value;
                     });
                   },
                   decoration: InputDecoration(
@@ -70,26 +70,33 @@ class _AfterLoadingState extends State<AfterLoading> {
                 padding: const EdgeInsets.all(16),
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
-                children: const [
-                  SubjectsCard(
+                children: [
+                  const SubjectsCard(
                     color: Color(0xffFAADAD),
                     text1: 'МАТЕМАТИКА',
                     image: 'assets/images/capitals/mathimatic.png',
                     text2: 'ТЕМАЛАР 40',
                   ),
                   SubjectsCard(
-                    color: Color(0xffe4c9f9),
-                    text1: 'ГЕОГРАФИЯ',
-                    text2: '40 темалар',
-                    image: 'assets/images/capitals/geography.png',
-                  ),
-                  SubjectsCard(
+                      color: const Color(0xffe4c9f9),
+                      text1: 'ГЕОГРАФИЯ',
+                      text2: '40 темалар',
+                      image: 'assets/images/capitals/geography.png',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Geography(),
+                          ),
+                        );
+                      }),
+                  const SubjectsCard(
                     color: Color(0xffAAF1CB),
                     text1: 'ТАРЫХ',
                     text2: '40 темалар',
                     image: 'assets/images/capitals/history.png',
                   ),
-                  SubjectsCard(
+                  const SubjectsCard(
                     color: Color(0xffFFE99D),
                     text1: 'БИОЛОГИЯ',
                     text2: '40 темалар',

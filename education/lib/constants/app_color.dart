@@ -8,6 +8,11 @@ class AppColors {
   static const Color appforegroundColor = Color(0xff000000);
   static const Color tipsAndUpdatesColor = Color(0xfff4c277);
   static const Color addCircleColor = Color(0xff40a043);
+  static const Color orangeTopics = Color.fromARGB(255, 244, 192, 119);
+  static const Color redTopic = Color.fromARGB(255, 245, 130, 130);
+  static const Color blueTopics = Color.fromARGB(255, 131, 201, 247);
+  static const Color yellowTopics = Color.fromARGB(255, 248, 243, 153);
+  static const Color greenTopics = Color.fromARGB(255, 164, 245, 167);
 }
 
 class ContinentsColor {

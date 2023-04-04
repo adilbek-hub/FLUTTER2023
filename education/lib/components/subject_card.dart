@@ -1,4 +1,3 @@
-import 'package:education/model/continent.dart';
 import 'package:flutter/material.dart';
 
 class SubjectsCard extends StatelessWidget {
@@ -8,15 +7,17 @@ class SubjectsCard extends StatelessWidget {
     required this.text1,
     required this.text2,
     required this.image,
+    this.onTap,
   });
   final Color color;
   final String text1, text2;
   final String image;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Card(
         color: color,
         child: Padding(
