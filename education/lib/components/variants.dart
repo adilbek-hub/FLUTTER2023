@@ -14,7 +14,7 @@ class Variants extends StatelessWidget {
     return Expanded(
         // flex: 2,
         child: GridView.builder(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 5,
               right: 5,
             ),

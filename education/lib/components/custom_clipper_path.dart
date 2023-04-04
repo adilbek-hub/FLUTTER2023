@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CustomClipperPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    print(size.width.toString());
     var path = Path();
     path.lineTo(0, size.height); //Start path with this if you are making
     var firstStart = Offset(size.width / 5, size.height);

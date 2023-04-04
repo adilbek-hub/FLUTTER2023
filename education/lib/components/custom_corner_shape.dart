@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomCornerShape extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Color.fromARGB(255, 163, 209, 246);
+    Paint paint = Paint()..color = const Color.fromARGB(255, 163, 209, 246);
     Path path = Path()
       ..moveTo(0, size.height) // start at bottom left corner
       ..lineTo(size.width - 20,
