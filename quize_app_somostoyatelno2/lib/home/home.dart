@@ -86,18 +86,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const Spacer(),
             SizedBox(
-                width: double.infinity,
-                height: 38,
-                child: ElevatedButton(
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                    onPressed: () {
-                      teksher(true);
-                    },
-                    child: const Text(
-                      'Туура',
-                      style: TextStyle(fontSize: 20),
-                    ))),
+              width: double.infinity,
+              height: 38,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                onPressed: () {
+                  teksher(true);
+                },
+                child: const Text(
+                  'Туура',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
             const SizedBox(
               height: 15,
             ),
