@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const Spacer(),
             Text(
-              '${quizeBrine.suroolor()}',
+              quizeBrine.suroolor(),
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.white, fontSize: 25),
             ),
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () {},
                 child: const Text(
-                  'Туура эмес',
+                  'Туура',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
