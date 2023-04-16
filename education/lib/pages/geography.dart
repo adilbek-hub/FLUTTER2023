@@ -1,3 +1,4 @@
+import 'package:education/components/full_information.dart';
 import 'package:flutter/material.dart';
 
 class Geography extends StatefulWidget {
@@ -233,39 +234,49 @@ class GeographyTopics extends StatelessWidget {
           final colorIndex = index % colors.length;
           return Padding(
             padding: const EdgeInsets.all(10),
-            child: Container(
-              height: 150,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: colors[colorIndex],
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FullInformation(),
+                  ),
+                );
+              },
+              child: Container(
+                height: 150,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: colors[colorIndex],
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
                 ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Text(
-                      getTextForIndex(index),
-                      style: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w300),
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            getTextForIndex2(index),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        getTextForIndex(index),
+                        style: const TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.w300),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              getTextForIndex2(index),
+                            ),
                           ),
-                        ),
-                        Image.asset(
-                          getTextForIndex3(index),
-                        ),
-                      ],
-                    ),
-                  ],
+                          Image.asset(
+                            getTextForIndex3(index),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
