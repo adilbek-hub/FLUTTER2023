@@ -18,7 +18,7 @@ class Subjects {
 }
 
 final borborShaarlar = Subjects(
-  title: 'Борбор шаарлар',
+  title: 'Европа өлкөлөрүнүн борбор шаарлары',
   description:
       'Кымбаттуу окуучу, биз жашап жаткан жер плантетабыздагы ар бир өлкөнүн борбор шаарларын сизге тааныштырабыз.',
   image: 'assets/images/capitals/globe.png',

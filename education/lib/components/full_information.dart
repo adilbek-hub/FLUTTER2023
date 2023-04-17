@@ -11,10 +11,18 @@ class FullInformation extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
       ),
-      body: Column(
-        children: [
-          Text('${subjectsFull.subject}'),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              subjectsFull.title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 15),
+            Text('${subjectsFull.subject}'),
+          ],
+        ),
       ),
     );
   }
