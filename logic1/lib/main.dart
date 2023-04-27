@@ -53,6 +53,7 @@ class _LogicPage1State extends State<LogicPage1> {
               keyboardType: TextInputType.phone,
               onChanged: (value) {
                 setState(() {
+                  // Жаңы текстти _phoneNumber өзгөрмөсүнө дайындоо.
                   _phoneNumber = value;
                 });
               },
@@ -60,7 +61,7 @@ class _LogicPage1State extends State<LogicPage1> {
             const SizedBox(height: 20),
             //Эгерде _canSubmit чын болсо,onPressed кайра чалуусу (){} каалаган
             //аракетти аткарууга коюлган.
-            FloatingActionButton(onPressed: canSubmit() ? () {} : null)
+            FloatingActionButton(onPressed: canSubmit() ? () {} : null),
           ],
         ),
       ),

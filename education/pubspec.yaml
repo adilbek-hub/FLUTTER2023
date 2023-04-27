@@ -38,6 +38,7 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_svg: ^2.0.4
   float_column: ^1.4.1
+  new_gradient_app_bar: ^0.2.0
 
 dev_dependencies:
   flutter_test:
