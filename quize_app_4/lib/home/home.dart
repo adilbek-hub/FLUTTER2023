@@ -9,7 +9,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  QuizeBrain quizeBrine = QuizeBrain();
+  QuizeBrain quizeBrain = QuizeBrain();
+  void teksher() {
+    setState(() {
+      if (quizeBrain.ind <= quizeBrain.surooJoop.length) {
+        quizeBrain.ind++;
+        quizeBrain.finishQuestion();
+  
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const Spacer(),
             Text(
-              quizeBrine.suroolor(),
+              quizeBrain.suroolor(),
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.white, fontSize: 25),
             ),
@@ -39,7 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 38,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                onPressed: () {},
+                onPressed: () {
+                  teksher();
+                },
                 child: const Text(
                   'Туура',
                   style: TextStyle(fontSize: 20),
