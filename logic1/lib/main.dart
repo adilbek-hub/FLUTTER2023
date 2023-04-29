@@ -28,7 +28,7 @@ class LogicPage1 extends StatefulWidget {
 
 class _LogicPage1State extends State<LogicPage1> {
   //_phoneNumber өзгөрмө, TextFieldке киргизилген текстти сактоо үчүн колдонулат.
-  String _phoneNumber = '';
+   
   //_canSubmit алуучусу FloatingActionButton киргизилген телефон номеринин узундугуна
   //жараша иштетилиши же өчүрүлүшү керек экендигин аныктоо үчүн колдонулат.
 

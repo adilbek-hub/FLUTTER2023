@@ -13,6 +13,7 @@ class Continent {
   final String icon;
   final Color color;
   final List<Suroo>? suroo;
+  
 }
 
 const asia = Continent(

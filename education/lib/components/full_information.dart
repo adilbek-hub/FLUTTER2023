@@ -1,7 +1,9 @@
 import 'package:education/components/table_east.dart';
 import 'package:education/components/table_north_balkan.dart';
-import 'package:education/constants/app_color.dart';
+import 'package:education/model/continent.dart';
 import 'package:education/model/subjects.dart';
+import 'package:education/pages/home_page.dart';
+import 'package:education/pages/test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
@@ -152,7 +154,13 @@ class _FullInformationState extends State<FullInformation> {
                             ),
                           ),
                           onPressed: () {
-                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>MyTestPage(),),);
+                            Navigator.push<void>(
+                              context,
+                              MaterialPageRoute<void>(
+                                builder: (BuildContext context) =>
+                                    const MyHomePage(),
+                              ),
+                            );
                           },
                           child: Text('ТЕСТ'),
                         ),
