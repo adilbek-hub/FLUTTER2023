@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+//Биринчи InkWell виджетинде, isTrue чын болгондо контейнердин фон түсү Colors.red болуп коюлат.
+// Бул контейнерди таптаганда кызарып кетет дегенди билдирет.Ошо сыяктуу эле, экинчи InkWell виджетинде, 
+//isTrue жалган болгондо контейнердин фон түсү Colors.red болуп коюлат. Бул контейнерди таптаганда 
+//кызарып кетет дегенди билдирет.
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
