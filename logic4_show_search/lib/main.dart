@@ -64,7 +64,9 @@ class CustomSearchDelegate extends SearchDelegate {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          query = '';
+        },
         icon: Icon(Icons.clear),
       ),
     ];
