@@ -33,6 +33,7 @@ class _AdaptiveSliderAndSwitchState extends State<AdaptiveSliderAndSwitch> {
   double slider = 0;
   bool isTrue = false;
   bool isTrue2 = false;
+  bool isTrue3 = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +74,39 @@ class _AdaptiveSliderAndSwitchState extends State<AdaptiveSliderAndSwitch> {
           ),
           const SizedBox(height: 20),
           Icon(Icons.adaptive.share),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    isTrue3 = true;
+                    print(isTrue3);
+                  });
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  color: isTrue3 == true ? Colors.red : Colors.grey[300],
+                ),
+              ),
+              const SizedBox(width: 20),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    isTrue3 = false;
+                    print(!isTrue3);
+                  });
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  color: isTrue3 == false ? Colors.red : Colors.grey[300],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
