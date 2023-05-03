@@ -10,7 +10,6 @@ class AfterLoading extends StatefulWidget {
 }
 
 class _AfterLoadingState extends State<AfterLoading> {
-  String searchText = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,52 +17,27 @@ class _AfterLoadingState extends State<AfterLoading> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text(
-            'Саламатсыңбы, Кутман таң 😊'.toUpperCase(),
-            style: const TextStyle(fontSize: 15, color: Colors.black),
+          actions: [
+            IconButton(
+              onPressed: () {
+                showSearch(
+                  context: context,
+                  delegate: CustomSearchDelegate(),
+                );
+              },
+              icon: const Icon(Icons.search),
+            ),
+          ],
+          title: Center(
+            child: Text(
+              'Саламатсыңбы 😊'.toUpperCase(),
+              style: const TextStyle(fontSize: 15, color: Colors.black),
+            ),
           ),
           elevation: 0,
         ),
         body: Column(
           children: [
-            const SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              child: SizedBox(
-                width: 320,
-                height: 53,
-                child: TextField(
-                  cursorColor: Colors.grey,
-                  onChanged: (value) {
-                    setState(() {
-                      searchText = value;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.grey[300],
-                    suffixIcon: const Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey.shade300),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey.shade300),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    hintText: 'издөө...',
-                    hintStyle: const TextStyle(color: Colors.grey),
-                  ),
-                ),
-              ),
-            ),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -109,5 +83,72 @@ class _AfterLoadingState extends State<AfterLoading> {
         ),
       ),
     );
+  }
+}
+
+class CustomSearchDelegate extends SearchDelegate {
+  List<String> searchTerms = [
+    'МАТЕМАТИКА',
+    'ГЕОГРАФИЯ',
+    'ТАРЫХ',
+    'БИОЛОГИЯ',
+  ];
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        onPressed: () {
+          query = '';
+        },
+        icon: Icon(Icons.clear),
+      ),
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        close(context, null);
+      },
+      icon: Icon(Icons.arrow_back),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var fruit in searchTerms) {
+      if (fruit.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(fruit);
+      }
+    }
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index) {
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<String> matchQuery = [];
+    for (var fruit in searchTerms) {
+      if (fruit.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(fruit);
+      }
+    }
+    return ListView.builder(
+        itemCount: matchQuery.length,
+        itemBuilder: (context, index) {
+          var result = matchQuery[index];
+          return ListTile(
+            title: Text(result),
+          );
+        });
   }
 }
