@@ -2,6 +2,7 @@ import 'package:education/components/table_east.dart';
 import 'package:education/components/table_north_balkan.dart';
 import 'package:education/model/continent.dart';
 import 'package:education/model/subjects.dart';
+import 'package:education/model/suroo.dart';
 import 'package:education/pages/home_page.dart';
 import 'package:education/pages/test_page.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class _FullInformationState extends State<FullInformation> {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 15),
-              Text('${widget.subjectsFull.subject}'),
+              Text('${widget.subjectsFull.description}'),
               const Text(
                 'Европанын Түндүк жана Балкан өлкөлөрү жана борборлору.',
                 style: TextStyle(color: Color(0xff813597)),
@@ -158,7 +159,7 @@ class _FullInformationState extends State<FullInformation> {
                               context,
                               MaterialPageRoute<void>(
                                 builder: (BuildContext context) =>
-                                    const MyHomePage(),
+                                    MyTestPage(suroo: europeQuestion),
                               ),
                             );
                           },

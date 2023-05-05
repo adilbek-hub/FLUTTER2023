@@ -1,6 +1,6 @@
 import 'package:education/components/full_information.dart';
 import 'package:education/components/geography_topics.dart';
-import 'package:education/model/subjects.dart';
+
 import 'package:flutter/material.dart';
 
 class Geography extends StatelessWidget {
@@ -12,10 +12,13 @@ class Geography extends StatelessWidget {
       body: Column(
         children: [
           Image.asset('assets/images/capitals/geographyTeather.jpg'),
+          GestureDetector(
+            onTap: () => Navigator.pop(context),
+            child: Icon(Icons.adaptive.arrow_back),
+          ),
           const Expanded(child: GeographyTopics()),
         ],
       ),
     );
   }
 }
-
