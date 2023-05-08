@@ -9,12 +9,16 @@ class WeightAge extends StatelessWidget {
     required this.san,
     required this.addBasuu,
     required this.removeBasuu,
+    required this.heroTag1,
+    required this.heroTag2,
   });
 
   final String text;
   final String san;
   final void Function() addBasuu;
   final void Function() removeBasuu;
+  final Object heroTag1;
+  final Object heroTag2;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +39,13 @@ class WeightAge extends StatelessWidget {
             CircularButton(
               icon: Icons.remove,
               basuu: removeBasuu,
+              heroTag: heroTag1,
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             CircularButton(
               icon: Icons.add,
               basuu: addBasuu,
+              heroTag: heroTag2,
             ),
           ],
         ),

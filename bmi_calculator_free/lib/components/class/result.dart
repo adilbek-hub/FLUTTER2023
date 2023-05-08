@@ -1,7 +1,7 @@
 import 'dart:math';
 
 class Resultattar {
-  double calculateBmi(double height, int weight) {
+  double calculateBmi({required double height, required int weight}) {
     final bmiJoop = weight / pow(height / 100, 2);
     return bmiJoop;
   }
