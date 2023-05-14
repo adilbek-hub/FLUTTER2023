@@ -41,7 +41,7 @@ class _FullInformationState extends State<FullInformation> {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 15),
-              Text('${widget.subjectsFull.description}'),
+              Text(widget.subjectsFull.description),
               const Text(
                 'Европанын Түндүк жана Балкан өлкөлөрү жана борборлору.',
                 style: TextStyle(color: Color(0xff813597)),
