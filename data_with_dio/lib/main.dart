@@ -1,3 +1,4 @@
+import 'package:data_with_dio/second_variant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -15,11 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const SecondMyHomePage(),
     );
   }
 }
 
+//  Бул жерде Датаны функция менен алып келип initState менен иштеттик
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -29,14 +31,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   dynamic res;
-
+// Асинхронный fetchData объекттиси менен датаны алып келдик
   fetchData() async {
     final dio = Dio();
     await Future.delayed(Duration(seconds: 6));
-    res = await dio.get('https://jsonplaceholder.typicode.com/posts');
+    res = await dio.get('sabak10_end_for_loop/lib/app/app.dart');
     setState(() {});
   }
 
+// initState бул State классындагы метод ,бул методго fetchData()ны чакырганда анан
+//fetchData объектиси биздин MyHomePage баракчада иштейт.
   @override
   void initState() {
     super.initState();
