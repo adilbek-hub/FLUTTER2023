@@ -1,4 +1,5 @@
 import 'package:data_with_dio/second_variant.dart';
+import 'package:data_with_dio/third_variant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SecondMyHomePage(),
+      home: const ThirdMyHomePage(),
     );
   }
 }
