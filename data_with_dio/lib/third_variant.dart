@@ -17,11 +17,11 @@ class ThirdMyHomePage extends StatefulWidget {
 
 class _ThirdMyHomePageState extends State<ThirdMyHomePage> {
 // Асинхронный fetchData объекттиси менен датаны алып келдик
-  Future<Weather?>? fetchData() async {
+  Future<Weather?> fetchData() async {
     final dio = Dio();
 
     final res = await dio.get(
-        'https://api.openweathermap.org/data/2.5/weather?q=bishkek,&appid=41aa18abb8974c0ea27098038f6feb1b');
+        'https://api.openweathermap.org/data/2.5/weather?q=naryn,&appid=41aa18abb8974c0ea27098038f6feb1b');
     if (res.statusCode == 200) {
       final Weather weather = Weather(
         id: res.data['weather'][0]['id'],
