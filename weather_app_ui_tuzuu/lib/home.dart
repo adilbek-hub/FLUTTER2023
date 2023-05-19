@@ -29,6 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       );
       return weather;
     }
+    return null;
   }
 
   // @override
@@ -65,9 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: Column(
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 CustomIconButton(
                   icon: Icons.near_me,
                 ),
