@@ -10,17 +10,18 @@ class TimerPage extends StatefulWidget {
 }
 
 class _TimerPageState extends State<TimerPage> {
+  // Бул өзгөрмөтү колдонуш үчүн түзүп алдым
   int timeLeft = 5;
-
+// Таймер үчүн функция
   void startCountDown() {
     Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        if (timeLeft > 0) {
+      if (timeLeft > 0) {
+        setState(() {
           timeLeft--;
-        } else {
-          timer.cancel();
-        }
-      });
+        });
+      } else {
+        timer.cancel();
+      }
     });
   }
 
