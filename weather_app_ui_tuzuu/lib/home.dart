@@ -28,8 +28,9 @@ class _MyHomePageState extends State<MyHomePage> {
         country: result.data["sys"]["country"],
       );
       return weather;
+    } else {
+      return null;
     }
-    return null;
   }
 
   // @override
