@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:data_with_dio/model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +29,7 @@ class _SecondMyHomePageState extends State<SecondMyHomePage> {
       );
       return weather;
     }
+    return null;
   }
 
   @override
@@ -42,7 +41,7 @@ class _SecondMyHomePageState extends State<SecondMyHomePage> {
         title: const Text('MyHomePage'),
       ),
       body: Center(
-        child: FutureBuilder(
+        child: FutureBuilder<Weather?>(
           future: fetchData(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -53,7 +52,6 @@ class _SecondMyHomePageState extends State<SecondMyHomePage> {
                   Text(snapshot.data!.main),
                   Text(snapshot.data!.description),
                   Text(snapshot.data!.icon),
-                  Text(snapshot.data!.country),
                   Text(snapshot.data!.city),
                   Text(
                     snapshot.data!.temp.toString(),

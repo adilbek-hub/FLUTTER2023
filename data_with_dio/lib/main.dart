@@ -1,7 +1,9 @@
-import 'package:data_with_dio/second_variant.dart';
+import 'package:data_with_dio/fourth_variant_geolocator.dart';
+import 'package:data_with_dio/geolocator_example.dart';
 import 'package:data_with_dio/third_variant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ThirdMyHomePage(),
+      home: const FourthVariantGeolocator(),
     );
   }
 }
@@ -35,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 // Асинхронный fetchData объекттиси менен датаны алып келдик
   fetchData() async {
     final dio = Dio();
-    await Future.delayed(Duration(seconds: 6));
+    await Future.delayed(const Duration(seconds: 6));
     res = await dio.get('sabak10_end_for_loop/lib/app/app.dart');
     setState(() {});
   }
@@ -58,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            res == null ? CircularProgressIndicator() : Text('$res'),
+            res == null ? const CircularProgressIndicator() : Text('$res'),
           ],
         ),
       ),

@@ -5,7 +5,7 @@ class Weather {
     required this.description,
     required this.icon,
     required this.temp,
-    required this.country,
+    this.country,
     required this.city,
   });
   final int id;
@@ -13,6 +13,6 @@ class Weather {
   final String description;
   final String icon;
   final double temp;
-  final String country;
+  final String? country;
   final String city;
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:data_with_dio/constants/api_const.dart';
 import 'package:data_with_dio/constants/app_colors.dart';
 import 'package:data_with_dio/constants/app_text_styles.dart';
@@ -34,6 +32,7 @@ class _ThirdMyHomePageState extends State<ThirdMyHomePage> {
       );
       return weather;
     }
+    return null;
   }
 
   @override
@@ -68,11 +67,11 @@ class _ThirdMyHomePageState extends State<ThirdMyHomePage> {
                   ),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             Icon(Icons.near_me, color: AppColors.iconColor),
                             Icon(Icons.location_city,
                                 color: AppColors.iconColor),
