@@ -1,4 +1,5 @@
 import 'package:coin_app/features/cripto_list/widgets/widgets.dart';
+import 'package:coin_app/repositories/cripto_coins/cripto_coins_repasitory.dart';
 import 'package:flutter/material.dart';
 
 class CriptoListScreen extends StatefulWidget {
@@ -19,8 +20,14 @@ class _CriptoListScreenState extends State<CriptoListScreen> {
           itemCount: 10,
           separatorBuilder: (context, index) => const Divider(),
           itemBuilder: (context, index) {
-            return CriptoCoinTile();
+            return const CriptoCoinTile();
           }),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.download),
+        onPressed: () {
+          CriptoCoinRepositories().getCoinsList();
+        },
+      ),
     );
   }
 }
