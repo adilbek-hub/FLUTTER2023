@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
         title: const Text('HomeView'),
       ),
       body: topNews == null
-          ? CircularProgressIndicator()
+          ? const CircularProgressIndicator()
           : Column(
               children: [
                 Text(topNews!.status),
