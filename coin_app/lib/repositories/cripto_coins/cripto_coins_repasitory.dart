@@ -1,11 +1,10 @@
 import 'package:coin_app/repositories/cripto_coins/models/cripto_coin.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 class CriptoCoinRepositories {
   Future<List<CriptoCoin>> getCoinsList() async {
     final response = await Dio().get(
-        'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR');
+        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR');
     // Сделаем переменную data /  внутри data будет Стринг и Дайнемик /
     //Теперь дату нужно перенести к криптокоину
     final data = response.data as Map<String, dynamic>;
