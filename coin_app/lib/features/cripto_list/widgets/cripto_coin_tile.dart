@@ -14,7 +14,7 @@ class CriptoCoinTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return ListTile(
-      leading: SvgPicture.asset('assets/images/bitcoin.svg'),
+      leading: Image.network(coin.imageUrl),
       title: Text(
         coin.name,
         style: theme.textTheme.titleMedium,
@@ -25,7 +25,7 @@ class CriptoCoinTile extends StatelessWidget {
       ),
       trailing: const Icon(Icons.arrow_forward_ios),
       onTap: () =>
-          Navigator.of(context).pushNamed('/coin-screen', arguments: coin),
+          Navigator.of(context).pushNamed('/coin-screen', arguments: coin.name),
     );
   }
 }

@@ -4,6 +4,32 @@ import 'package:dio/dio.dart';
 class CriptoCoinRepositories {
   Future<List<CriptoCoin>> getCoinsList() async {
     final response = await Dio().get(
+        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,BNB,AVAX,SOL,AID,CAG,DOV&tsyms=USD');
+
+    final data = response.data as Map<String, dynamic>;
+    final dataRow = data['RAW'] as Map<String, dynamic>;
+    final criptoCoinList = dataRow.entries.map((e) {
+      final usdData =
+          (e.value as Map<String, dynamic>)['USD'] as Map<String, dynamic>;
+      final price = usdData['PRICE'];
+      final imageUrl = usdData['IMAGEURL'];
+      return CriptoCoin(
+        name: e.key,
+        priceInUSD: price,
+        imageUrl: 'https://www.cryptocompare.com/$imageUrl',
+      );
+    }).toList();
+    return criptoCoinList;
+  }
+}
+
+
+
+
+/*
+class CriptoCoinRepositories {
+  Future<List<CriptoCoin>> getCoinsList() async {
+    final response = await Dio().get(
         'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR');
     // Сделаем переменную data /  внутри data будет Стринг и Дайнемик /
     //Теперь дату нужно перенести к криптокоину
@@ -29,3 +55,4 @@ class CriptoCoinRepositories {
     return criptoCoinsList;
   }
 }
+*/

@@ -13,12 +13,18 @@ class CriptoListScreen extends StatefulWidget {
 class _CriptoListScreenState extends State<CriptoListScreen> {
   List<CriptoCoin>? _criptoCoinsList;
   @override
+  void initState() {
+    _loadCriptoCoints();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('COIN')),
       ),
-      body: _criptoCoinsList == null
+      body: (_criptoCoinsList == null)
           ? const Center(child: CircularProgressIndicator())
           : ListView.separated(
               itemCount: _criptoCoinsList!.length,
@@ -29,14 +35,11 @@ class _CriptoListScreenState extends State<CriptoListScreen> {
                   coin: coin,
                 );
               }),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.download),
-        onPressed: () async {
-          _criptoCoinsList = await CriptoCoinRepositories().getCoinsList();
-          // Экран список келгенде обнавляйтетилиш үчүн   setState(() {});
-          setState(() {});
-        },
-      ),
     );
+  }
+
+  Future<void> _loadCriptoCoints() async {
+    _criptoCoinsList = await CriptoCoinRepositories().getCoinsList();
+    setState(() {});
   }
 }
