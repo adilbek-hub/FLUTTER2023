@@ -32,6 +32,7 @@ class _HomeViewState extends State<HomeView> {
       );
     }
     setState(() {});
+    return topNews;
   }
 
   @override
