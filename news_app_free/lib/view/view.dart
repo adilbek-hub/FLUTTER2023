@@ -12,6 +12,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+//TopNewsRepo классынан fetchTopNews() функциясын чакырат, ал Future<TopNews?> кайтарат.
+// Күтүүчү оператор бул функциянын аягына чыгышын күтөт жана эң башкы жаңылыктар
+// маалыматтарын алгандан кийин, натыйжа topNews өзгөрмөсүнө дайындалат.Андан кийин,
+// кодуңуздагы башкы жаңылыктар маалыматтарына кирүү үчүн topNews өзгөрмөсүн колдоно
+// аласыз. Мисалы, сиз аны виджетке өткөрүп же анын касиеттерин жаңылык маалыматын
+//көрсөтүү үчүн колдоно аласыз.
   TopNews? topNews;
   Future<TopNews?> fetchData() async {
     Dio dio = Dio();

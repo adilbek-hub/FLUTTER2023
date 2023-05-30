@@ -139,7 +139,7 @@ class Dob {
 
 class Id {
   String name;
-  String value;
+  String? value;
 
   Id({
     required this.name,
@@ -162,7 +162,7 @@ class Location {
   String city;
   String state;
   String country;
-  String postcode;
+  int postcode;
   Coordinates coordinates;
   Timezone timezone;
 

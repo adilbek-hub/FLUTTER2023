@@ -44,6 +44,12 @@ final dio = Dio();
 
 class _RandomUserState extends State<RandomUser> {
   @override
+  void initState() {
+    generateRandomUser();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +60,7 @@ class _RandomUserState extends State<RandomUser> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Mr Jennie Nichols'),
+            const Text(''),
             const SizedBox(height: 10),
             const Text('male'),
             const SizedBox(height: 10),
@@ -68,6 +74,7 @@ class _RandomUserState extends State<RandomUser> {
                 color: const Color.fromARGB(255, 246, 157, 157),
                 onPressed: () {
                   generateRandomUser();
+                  setState(() {});
                 })
           ],
         ),
