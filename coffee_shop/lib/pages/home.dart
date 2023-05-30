@@ -11,8 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-//Бул тандалган индекс эки астыңкы навигация тилкесин
-// көзөмөлдөйт
+//_selectedIndex бүтүн өзгөрмө учурда тандалган өтмөк
+// индексине көз салып турат
   int _selectedIndex = 0;
 //Бул ыкма биздин тандалган индексти жаңылайт
   // колдонуучу ылдыйкы тилкеде өтмөктөр болгондо
@@ -25,8 +25,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List<Widget> pages = [
-    CartPage(),
-    ShopPage(),
+    const CartPage(),
+   const ShopPage(),
   ];
   @override
   Widget build(BuildContext context) {

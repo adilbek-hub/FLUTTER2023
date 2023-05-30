@@ -43,6 +43,7 @@ class RandomUser extends StatefulWidget {
 final dio = Dio();
 
 class _RandomUserState extends State<RandomUser> {
+  
   @override
   void initState() {
     generateRandomUser();
@@ -60,7 +61,7 @@ class _RandomUserState extends State<RandomUser> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(''),
+            const Text( 'user'),
             const SizedBox(height: 10),
             const Text('male'),
             const SizedBox(height: 10),
