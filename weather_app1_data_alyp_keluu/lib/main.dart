@@ -36,11 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return result;
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   fetchData();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
