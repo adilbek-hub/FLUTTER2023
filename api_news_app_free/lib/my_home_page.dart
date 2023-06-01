@@ -1,4 +1,4 @@
-import 'package:api_news_app_free/api_const.dart';
+import 'package:api_news_app_free/components/news_card.dart';
 import 'package:api_news_app_free/model/top_news.dart';
 import 'package:api_news_app_free/service.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +13,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TopNews? topNew;
   Future<void> fetchNews() async {
+    topNew = null;
+    setState(() {});
     topNew = await TopNewsRepo().fetchData();
     setState(() {});
   }
@@ -36,24 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
               itemCount: topNew!.article.length,
               itemBuilder: (context, index) {
                 final news = topNew!.article[index];
-                return Card(
-                  color: Colors.grey[300],
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Image.network(
-                          news.urlToImage ?? ApiConst.newsImage,
-                          fit: BoxFit.fitWidth,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 5,
-                        child: Text(news.title),
-                      ),
-                    ],
-                  ),
-                );
+                return NewsCard(news: news);
               }),
     );
   }
