@@ -1,6 +1,6 @@
 import 'package:api_json_playsholder2/constants.dart';
 import 'package:api_json_playsholder2/model/post_model.dart';
-import 'package:api_json_playsholder2/model/services/remote_services.dart';
+import 'package:api_json_playsholder2/services/remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 

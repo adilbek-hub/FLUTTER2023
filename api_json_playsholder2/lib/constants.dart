@@ -11,7 +11,11 @@ class Constants {
   static TextStyle postPageBody =
       const TextStyle(fontStyle: FontStyle.italic, fontSize: 14.0);
 
-//For Users Container
+  static SizedBox height10 = const SizedBox(height: 10);
+
+//UserPage constants -- //TextStyle  //decoration
+  static TextStyle userPageText = const TextStyle(fontSize: 16.0);
+  static SizedBox height20 = const SizedBox(height: 20);
   static BoxDecoration usersPageContainer = const BoxDecoration(
     color: Color(0XFFdddddd),
     borderRadius: BorderRadius.all(
