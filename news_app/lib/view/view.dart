@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/constants/api_const.dart';
+import 'package:news_app/model/countries.dart';
 import 'package:news_app/model/top_news.dart';
 import 'package:news_app/services/fetch_service.dart';
 import 'package:news_app/view/detail_view.dart';
@@ -14,8 +15,10 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   TopNews? topNews;
-  fetchNews() async {
-    topNews = await TopNewsRepo().fetchTopNews();
+  fetchNews([String? domain]) async {
+    topNews = null;
+    setState(() {});
+    topNews = await TopNewsRepo().fetchTopNews(domain);
     setState(() {});
   }
 
@@ -34,11 +37,23 @@ class _HomeViewState extends State<HomeView> {
           'News Agregator',
           style: TextStyle(color: Colors.white),
         ),
-        actions: const [
-          Icon(
-            Icons.more_vert,
-            color: Colors.white,
-          )
+        actions: [
+          PopupMenuButton<Countries>(
+              color: Colors.orange,
+              onSelected: (Countries item) async {
+                await fetchNews(item.domain);
+                setState(() {});
+              },
+              itemBuilder: (BuildContext context) {
+                return countriesSet
+                    .map(
+                      (e) => PopupMenuItem<Countries>(
+                        value: e,
+                        child: Text(e.name),
+                      ),
+                    )
+                    .toList();
+              })
         ],
       ),
       body: topNews == null
