@@ -16,8 +16,6 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   TopNews? topNews;
   fetchNews([String? domain]) async {
-    topNews = null;
-    setState(() {});
     topNews = await TopNewsRepo().fetchTopNews(domain);
     setState(() {});
   }
