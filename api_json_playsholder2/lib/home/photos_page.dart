@@ -54,7 +54,7 @@ class _PhotoPageState extends State<PhotoPage> {
                 crossAxisCount: 2,
               ),
               itemBuilder: (context, index) {
-                return Text(photoModel![index].albumId.toString());
+                return Image.network(photoModel![index].thumbnailUrl);
               },
             )));
   }

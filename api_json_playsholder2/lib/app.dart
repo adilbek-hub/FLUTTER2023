@@ -1,6 +1,4 @@
-import 'package:api_json_playsholder2/home/photos_page.dart';
-import 'package:api_json_playsholder2/home/posts_page.dart';
-import 'package:api_json_playsholder2/home/users_page.dart';
+import 'package:api_json_playsholder2/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,7 +11,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PhotoPage(),
+      home: const HomePage(),
     );
   }
 }

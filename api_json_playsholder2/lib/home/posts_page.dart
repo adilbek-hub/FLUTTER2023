@@ -4,14 +4,14 @@ import 'package:api_json_playsholder2/services/remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class PostPage extends StatefulWidget {
+  const PostPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PostPage> createState() => _PostPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PostPageState extends State<PostPage> {
   List<PostsModel>? postsModel;
   bool isLoaded = false;
   Future<void> fetchData() async {
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('HomePage'),
+        title: const Text('PostsPage'),
       ),
       body: Visibility(
         visible: isLoaded,

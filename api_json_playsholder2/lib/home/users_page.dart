@@ -38,10 +38,11 @@ class _UsersPageState extends State<UsersPage> {
       body: Visibility(
           visible: isLoaded,
           replacement: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text('Загрузка'),
               Constants.height10,
-              const CircularProgressIndicator(),
+              const Center(child: CircularProgressIndicator()),
             ],
           ),
           child: ListView.builder(
