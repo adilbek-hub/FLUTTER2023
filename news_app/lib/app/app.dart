@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/view/view.dart';
+import 'package:sabak28_news_app_04/view/view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

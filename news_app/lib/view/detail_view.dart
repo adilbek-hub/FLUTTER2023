@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'package:news_app/components/cashed_network_image.dart';
-import 'package:news_app/components/detail_time.dart';
-import 'package:news_app/components/to_site_button.dart';
-
-import 'package:news_app/model/article.dart';
+import 'package:intl/intl.dart';
+import 'package:sabak28_news_app_04/components/detail-desctription.dart';
+import 'package:sabak28_news_app_04/components/detail_divider.dart';
+import 'package:sabak28_news_app_04/components/detail_news_time.dart';
+import 'package:sabak28_news_app_04/components/detail_site_button.dart';
+import 'package:sabak28_news_app_04/components/detail_title.dart';
+import 'package:sabak28_news_app_04/model/article.dart';
 import 'package:share_plus/share_plus.dart';
 
 class DetailView extends StatelessWidget {
@@ -13,44 +14,43 @@ class DetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Uri uri = Uri.parse(article.url!);
+    final newsTime = DateFormat('d MMMM y H:m:s').format(
+      DateTime.parse(article.publishedAt),
+    );
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.orange,
         centerTitle: true,
         title: Text(article.title),
-        actions: article.url != null
+        actions: article.url.isNotEmpty
             ? [
                 IconButton(
                   onPressed: () {
-                    Share.share(article.url!);
+                    Share.share(article.url);
                   },
                   icon: const Icon(Icons.share),
-                )
+                ),
               ]
             : null,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              article.title,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const Divider(),
-            DetailTime(article: article),
-            CashedNetworkImage(article: article),
-            Text(
-              article.description.toString(),
-              textAlign: TextAlign.center,
-            ),
-            if (article.url != null)
-              ToSiteButton(uri: uri)
-            else
-              const SizedBox(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              DetailTitle(article: article),
+              const SizedBox(height: 10),
+              const DetailDivider(),
+              DetailNewsTime(newsTime: newsTime),
+              const SizedBox(height: 15),
+              Image.network(
+                article.urlToImage.toString(),
+              ),
+              const SizedBox(height: 15),
+              DetailDesctription(article: article),
+              DetailSiteButton(article: article),
+            ],
+          ),
         ),
       ),
     );

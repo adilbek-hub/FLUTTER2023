@@ -1,4 +1,4 @@
-import 'package:news_app/model/source.dart';
+import 'package:sabak28_news_app_04/model/source.dart';
 
 class Article {
   Article({
@@ -7,15 +7,15 @@ class Article {
     required this.title,
     required this.description,
     required this.url,
-    this.urlToImage,
+    required this.urlToImage,
     required this.publishedAt,
     required this.content,
   });
   final Source source;
   final String? autor;
   final String title;
-  final String? description;
-  final String? url;
+  final String description;
+  final String url;
   final String? urlToImage;
   final String publishedAt;
   final String? content;

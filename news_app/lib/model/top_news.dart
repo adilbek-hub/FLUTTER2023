@@ -1,4 +1,4 @@
-import 'package:news_app/model/article.dart';
+import 'package:sabak28_news_app_04/model/article.dart';
 
 class TopNews {
   TopNews({
@@ -8,7 +8,7 @@ class TopNews {
   });
   final String status;
   final int totalResults;
-  final List<Article?> article;
+  final List<Article> article;
   factory TopNews.fromJson(Map<String, dynamic> json) {
     return TopNews(
         status: json['status'],
