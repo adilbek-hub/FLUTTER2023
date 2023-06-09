@@ -10,7 +10,7 @@ class TestPageAppBarTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Card(
           shape: RoundedRectangleBorder(
@@ -19,46 +19,34 @@ class TestPageAppBarTitle extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
                   '$kataJooptor',
-                  style: const TextStyle(color: AppColors.red, fontSize: 16),
+                  style: const TextStyle(
+                      color: AppColors.red,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ),
                 const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     child: Text(
-                      '32',
+                      '|',
                       style: TextStyle(fontSize: 17),
                     )),
                 Text(
                   '$tuuraJooptor',
-                  style: const TextStyle(color: Colors.green, fontSize: 16),
+                  style: const TextStyle(
+                      color: Colors.green,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ),
         ),
-        const Text('3'),
-        Row(
-          children: [
-            SizedBox(
-              height: 70,
-              width: 70,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: ((context, index) {
-                    return const Icon(
-                      Icons.favorite,
-                      color: AppColors.red,
-                    );
-                  })),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            const Icon(Icons.more_vert),
-          ],
+        const SizedBox(
+          width: 5,
         ),
       ],
     );

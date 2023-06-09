@@ -14,7 +14,6 @@ class _AfterLoadingState extends State<AfterLoading> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 168, 212, 252),
         appBar: AppBar(
           backgroundColor: Colors.white,
           actions: [

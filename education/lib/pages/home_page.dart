@@ -1,7 +1,7 @@
 import 'package:education/constants/app_text.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:education/model/continent.dart';
-import 'package:education/pages/test_page.dart';
+import 'package:education/pages/europe_test_page.dart';
 import 'package:flutter/material.dart';
 import '../components/continents_card.dart';
 
