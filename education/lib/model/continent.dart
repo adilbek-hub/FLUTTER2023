@@ -1,6 +1,6 @@
 import 'package:education/constants/app_color.dart';
 import 'package:education/constants/app_text.dart';
-import 'package:education/model/suroo.dart';
+import 'package:education/model/europe_suroo.dart';
 import 'package:flutter/material.dart';
 
 class Continent {
@@ -12,8 +12,7 @@ class Continent {
   final String name;
   final String icon;
   final Color color;
-  final List<Suroo>? suroo;
-  
+  final List<EuropeSuroo>? suroo;
 }
 
 const asia = Continent(

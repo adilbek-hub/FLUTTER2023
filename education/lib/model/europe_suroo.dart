@@ -1,5 +1,6 @@
-class Suroo {
-  const Suroo({required this.text, required this.jooptor, required this.image});
+class EuropeSuroo {
+  const EuropeSuroo(
+      {required this.text, required this.jooptor, required this.image});
   final String text;
   final List<Joop> jooptor;
   final String image;
@@ -11,8 +12,8 @@ class Joop {
   final bool isTrue;
 }
 
-List<Suroo> europeQuestion = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
-const s1 = Suroo(
+List<EuropeSuroo> europeQuestion = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
+const s1 = EuropeSuroo(
     text: 'Parice',
     jooptor: [
       Joop(text: 'Germany'),
@@ -22,7 +23,7 @@ const s1 = Suroo(
     ],
     image: 'Parice');
 
-const s2 = Suroo(
+const s2 = EuropeSuroo(
     text: 'Berlin',
     jooptor: [
       Joop(text: 'Germany', isTrue: true),
@@ -32,7 +33,7 @@ const s2 = Suroo(
     ],
     image: 'Berlin');
 
-const s3 = Suroo(
+const s3 = EuropeSuroo(
     text: 'Bern',
     jooptor: [
       Joop(text: 'Germany'),
@@ -42,7 +43,7 @@ const s3 = Suroo(
     ],
     image: 'BernSwitzerland');
 
-const s4 = Suroo(
+const s4 = EuropeSuroo(
     text: 'Brusel',
     jooptor: [
       Joop(text: 'Germany'),
@@ -52,7 +53,7 @@ const s4 = Suroo(
     ],
     image: 'BruselBelgium');
 
-const s5 = Suroo(
+const s5 = EuropeSuroo(
     text: 'Copenhagen',
     jooptor: [
       Joop(text: 'Denmark', isTrue: true),
@@ -62,7 +63,7 @@ const s5 = Suroo(
     ],
     image: 'CopenhagenDenmark');
 
-const s6 = Suroo(
+const s6 = EuropeSuroo(
     text: 'Helsinki',
     jooptor: [
       Joop(text: 'Germany'),
@@ -72,7 +73,7 @@ const s6 = Suroo(
     ],
     image: 'HelsinkiFinnin');
 
-const s7 = Suroo(
+const s7 = EuropeSuroo(
     text: 'Lisbon',
     jooptor: [
       Joop(text: 'Germany'),
@@ -82,7 +83,7 @@ const s7 = Suroo(
     ],
     image: 'LisbonPortugal');
 
-const s8 = Suroo(
+const s8 = EuropeSuroo(
     text: 'Madrid',
     jooptor: [
       Joop(text: 'Greece'),
@@ -92,7 +93,7 @@ const s8 = Suroo(
     ],
     image: 'Madrid');
 
-const s9 = Suroo(
+const s9 = EuropeSuroo(
     text: 'Stockholm',
     jooptor: [
       Joop(text: 'Sweden', isTrue: true),
@@ -102,7 +103,7 @@ const s9 = Suroo(
     ],
     image: 'StockholmSweden');
 
-const s10 = Suroo(
+const s10 = EuropeSuroo(
     text: 'Viena',
     jooptor: [
       Joop(text: 'Ukrain'),

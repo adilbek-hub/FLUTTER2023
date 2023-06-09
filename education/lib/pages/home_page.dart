@@ -56,7 +56,8 @@ class MyHomePage extends StatelessWidget {
                             Navigator.push<void>(
                               context,
                               MaterialPageRoute<void>(
-                                builder: (BuildContext context) => MyTestPage(
+                                builder: (BuildContext context) =>
+                                    EuropeTestPage(
                                   suroo: continentList[index].suroo!,
                                 ),
                               ),

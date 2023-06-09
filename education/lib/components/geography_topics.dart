@@ -1,5 +1,7 @@
-import 'package:education/components/full_information.dart';
 import 'package:education/model/subjects.dart';
+import 'package:education/topic_pages_about_geography/asia_continent.dart';
+import 'package:education/topic_pages_about_geography/europe_continent.dart';
+import 'package:education/topic_pages_about_geography/usa.dart';
 import 'package:flutter/material.dart';
 
 class GeographyTopics extends StatelessWidget {
@@ -15,14 +17,30 @@ class GeographyTopics extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FullInformation(
-                      subjectsFull: subjecstList[index],
+                if (subjects == borborShaarlar) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EuropeContinenti(
+                        subjectsFull: subjects,
+                      ),
                     ),
-                  ),
-                );
+                  );
+                } else if (subjects == usa) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Usa(),
+                    ),
+                  );
+                } else if (subjects == asia) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AsiaContinenti(),
+                    ),
+                  );
+                }
               },
               child: Container(
                 height: 150,

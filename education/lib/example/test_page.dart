@@ -2,12 +2,12 @@ import 'package:education/components/test_page_appbar_title.dart';
 import 'package:education/components/test_slider.dart';
 import 'package:education/components/variants.dart';
 import 'package:education/constants/app_color.dart';
-import 'package:education/model/suroo.dart';
+import 'package:education/model/europe_suroo.dart';
 import 'package:flutter/material.dart';
 
 class MyTestPage extends StatefulWidget {
   const MyTestPage({super.key, required this.suroo});
-  final List<Suroo> suroo;
+  final List<EuropeSuroo> suroo;
 
   @override
   State<MyTestPage> createState() => _MyTestPageState();

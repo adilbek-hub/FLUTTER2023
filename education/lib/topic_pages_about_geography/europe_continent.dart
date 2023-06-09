@@ -1,31 +1,28 @@
 import 'package:education/components/table_east.dart';
 import 'package:education/components/table_north_balkan.dart';
-import 'package:education/model/continent.dart';
 import 'package:education/model/subjects.dart';
-import 'package:education/model/suroo.dart';
-import 'package:education/pages/home_page.dart';
+import 'package:education/model/europe_suroo.dart';
 import 'package:education/pages/test_page.dart';
 import 'package:flutter/material.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
-class FullInformation extends StatelessWidget {
-  const FullInformation({super.key, required this.subjectsFull});
+class EuropeContinenti extends StatelessWidget {
+  const EuropeContinenti({super.key, required this.subjectsFull});
   final Subjects subjectsFull;
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewGradientAppBar(
-        gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple, Colors.red]),
-        title: Center(
-          child: Text(
-            'Европа'.toUpperCase(),
-            style: const TextStyle(fontWeight: FontWeight.w800),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: SweepGradient(
+              colors: [Colors.red, Colors.blue, Colors.pink],
+              startAngle: 10,
+              endAngle: 30,
+              tileMode: TileMode.repeated,
+            ),
           ),
         ),
-        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -155,7 +152,7 @@ class FullInformation extends StatelessWidget {
                               context,
                               MaterialPageRoute<void>(
                                 builder: (BuildContext context) =>
-                                    MyTestPage(suroo: europeQuestion),
+                                    EuropeTestPage(suroo: europeQuestion),
                               ),
                             );
                           },

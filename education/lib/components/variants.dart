@@ -1,4 +1,4 @@
-import 'package:education/model/suroo.dart';
+import 'package:education/model/europe_suroo.dart';
 import 'package:flutter/material.dart';
 
 class Variants extends StatelessWidget {
