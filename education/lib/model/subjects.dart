@@ -76,3 +76,52 @@ List<Subjects> subjecstList = [
   subject2,
   subject3,
 ];
+
+///Биология үчүн класс
+class SubjectsBiology {
+  SubjectsBiology(
+      {required this.bgColor,
+      required this.title,
+      required this.description,
+      this.subject,
+      required this.image});
+
+  final String title;
+  final String description;
+  final String? subject;
+  final String image;
+  final Color bgColor;
+}
+
+final teeriler1 = SubjectsBiology(
+  title: 'Сиз теерилер1 тууралуу кызыктуу темалар менен тааныша аласыз',
+  description:
+      'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+final teeriler2 = SubjectsBiology(
+  title: 'Сиз теерилер2 тууралуу кызыктуу темалар менен тааныша аласыз',
+  description:
+      'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+final teeriler3 = SubjectsBiology(
+  title: 'Сиз теерилер3 тууралуу кызыктуу темалар менен тааныша аласыз',
+  description:
+      'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+List<SubjectsBiology> subjectsBiology = [
+  teeriler1,
+  teeriler2,
+  teeriler3,
+];

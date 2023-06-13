@@ -1,5 +1,3 @@
-import 'package:education/model/europe_suroo.dart';
-import 'package:education/pages/home_page.dart';
 import 'package:education/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 

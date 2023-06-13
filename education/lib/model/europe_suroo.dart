@@ -27,9 +27,9 @@ const s2 = EuropeSuroo(
     text: 'Berlin',
     jooptor: [
       Joop(text: 'Germany', isTrue: true),
-      Joop(text: 'France'),
-      Joop(text: 'Italy'),
-      Joop(text: 'Austria')
+      Joop(text: 'France', isTrue: false),
+      Joop(text: 'Italy', isTrue: false),
+      Joop(text: 'Austria', isTrue: false)
     ],
     image: 'Berlin');
 

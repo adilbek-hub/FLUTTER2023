@@ -156,7 +156,7 @@ class EuropeContinenti extends StatelessWidget {
                               ),
                             );
                           },
-                          child: Text('ТЕСТ'),
+                          child: const Text('ТЕСТ'),
                         ),
                       )
                     ],

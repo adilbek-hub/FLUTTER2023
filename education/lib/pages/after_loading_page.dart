@@ -1,5 +1,7 @@
+import 'package:education/components/biologgy.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';
+
 import 'package:flutter/material.dart';
 
 class AfterLoading extends StatefulWidget {
@@ -76,11 +78,19 @@ class _AfterLoadingState extends State<AfterLoading> {
                       text2: '40 темалар',
                       image: 'assets/images/capitals/history.png',
                     ),
-                    const SubjectsCard(
-                      color: Color(0xffFFE99D),
+                    SubjectsCard(
+                      color: const Color(0xffFFE99D),
                       text1: 'БИОЛОГИЯ',
                       text2: '40 темалар',
                       image: 'assets/images/capitals/biologe.png',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Biologgy(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -107,7 +117,7 @@ class CustomSearchDelegate extends SearchDelegate {
         onPressed: () {
           query = '';
         },
-        icon: Icon(Icons.clear),
+        icon: const Icon(Icons.clear),
       ),
     ];
   }
@@ -118,7 +128,7 @@ class CustomSearchDelegate extends SearchDelegate {
       onPressed: () {
         close(context, null);
       },
-      icon: Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back),
     );
   }
 
