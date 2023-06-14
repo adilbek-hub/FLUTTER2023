@@ -56,10 +56,12 @@ class GeographyTopics extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      Text(
-                        subjects.title,
-                        style: const TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w300),
+                      FittedBox(
+                        child: Text(
+                          subjects.title,
+                          style: const TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w300),
+                        ),
                       ),
                       const SizedBox(height: 10),
                       Row(
