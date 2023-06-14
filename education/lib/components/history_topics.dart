@@ -1,44 +1,44 @@
 import 'package:education/model/subjects.dart';
+import 'package:education/topic_pages_about_geography/Tema_1_h.dart';
 import 'package:education/topic_pages_about_geography/asia_continent.dart';
 import 'package:education/topic_pages_about_geography/europe_continent.dart';
-import 'package:education/topic_pages_about_geography/teeri_1.dart';
-import 'package:education/topic_pages_about_geography/teeri_2.dart';
-import 'package:education/topic_pages_about_geography/teeri_3.dart';
+import 'package:education/topic_pages_about_geography/tema_2_h.dart';
+import 'package:education/topic_pages_about_geography/tema_3_h.dart';
 import 'package:education/topic_pages_about_geography/usa.dart';
 import 'package:flutter/material.dart';
 
-class BiologyTopics extends StatelessWidget {
-  const BiologyTopics({super.key});
+class HistoryTopics extends StatelessWidget {
+  const HistoryTopics({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: subjectsBiology.length,
+        itemCount: subjectsHistory.length,
         itemBuilder: (BuildContext context, int index) {
-          SubjectsHistory subjectsB = subjectsBiology[index];
+          SubjectsHistory subjectsH = subjectsHistory[index];
           return Padding(
             padding: const EdgeInsets.all(10),
             child: InkWell(
               onTap: () {
-                if (subjectsB == teeriler1) {
+                if (subjectsH == tema1) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Teeri1(),
+                      builder: (context) => const TemaH1(),
                     ),
                   );
-                } else if (subjectsB == teeriler2) {
+                } else if (subjectsH == tema2) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Teeri2(),
+                      builder: (context) => const TemaH2(),
                     ),
                   );
-                } else if (subjectsB == teeriler3) {
+                } else if (subjectsH == tema3) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Teeri3(),
+                      builder: (context) => const TemaH3(),
                     ),
                   );
                 }
@@ -47,7 +47,7 @@ class BiologyTopics extends StatelessWidget {
                 height: 150,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: subjectsB.bgColor,
+                  color: subjectsH.bgColor, //butur
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -58,7 +58,7 @@ class BiologyTopics extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        subjectsB.title,
+                        subjectsH.title,
                         style: const TextStyle(
                             color: Colors.black, fontWeight: FontWeight.w300),
                       ),
@@ -67,11 +67,11 @@ class BiologyTopics extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              subjectsB.description,
+                              subjectsH.description,
                             ),
                           ),
                           Image.asset(
-                            subjectsB.image,
+                            subjectsH.image,
                           ),
                         ],
                       ),

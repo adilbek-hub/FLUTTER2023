@@ -93,7 +93,7 @@ class SubjectsBiology {
   final Color bgColor;
 }
 
-final teeriler1 = SubjectsBiology(
+final teeriler1 = SubjectsHistory(
   title: 'Сиз теерилер1 тууралуу кызыктуу темалар менен тааныша аласыз',
   description:
       'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
@@ -102,7 +102,7 @@ final teeriler1 = SubjectsBiology(
   subject: AppText.capitals,
 );
 
-final teeriler2 = SubjectsBiology(
+final teeriler2 = SubjectsHistory(
   title: 'Сиз теерилер2 тууралуу кызыктуу темалар менен тааныша аласыз',
   description:
       'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
@@ -111,7 +111,7 @@ final teeriler2 = SubjectsBiology(
   subject: AppText.capitals,
 );
 
-final teeriler3 = SubjectsBiology(
+final teeriler3 = SubjectsHistory(
   title: 'Сиз теерилер3 тууралуу кызыктуу темалар менен тааныша аласыз',
   description:
       'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
@@ -120,8 +120,57 @@ final teeriler3 = SubjectsBiology(
   subject: AppText.capitals,
 );
 
-List<SubjectsBiology> subjectsBiology = [
+List<SubjectsHistory> subjectsBiology = [
   teeriler1,
   teeriler2,
   teeriler3,
+];
+
+//////Тарых үчүн класс
+class SubjectsHistory {
+  SubjectsHistory(
+      {required this.bgColor,
+      required this.title,
+      required this.description,
+      this.subject,
+      required this.image});
+
+  final String title;
+  final String description;
+  final String? subject;
+  final String image;
+  final Color bgColor;
+}
+
+final tema1 = SubjectsHistory(
+  title: 'tema1де сиз тарых тууралуу билесиз',
+  description:
+      'Кымбаттуу окуучу, биз тарыхтын кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+final tema2 = SubjectsHistory(
+  title: 'Сиз tema2 тууралуу кызыктуу темалар менен тааныша аласыз',
+  description:
+      'Кымбаттуу окуучу, биз тарыхтын кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+final tema3 = SubjectsHistory(
+  title: 'Сиз tema3 тууралуу кызыктуу темалар менен тааныша аласыз',
+  description:
+      'Кымбаттуу окуучу, биз тарыхтын кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+List<SubjectsHistory> subjectsHistory = [
+  tema1,
+  tema2,
+  tema3,
 ];

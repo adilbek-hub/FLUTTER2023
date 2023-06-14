@@ -1,4 +1,6 @@
 import 'package:education/components/biologgy.dart';
+import 'package:education/components/history.dart';
+import 'package:education/components/history_topics.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';
 
@@ -72,11 +74,19 @@ class _AfterLoadingState extends State<AfterLoading> {
                             ),
                           );
                         }),
-                    const SubjectsCard(
-                      color: Color(0xffAAF1CB),
+                    SubjectsCard(
+                      color: const Color(0xffAAF1CB),
                       text1: 'ТАРЫХ',
                       text2: '40 темалар',
                       image: 'assets/images/capitals/history.png',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const History(),
+                          ),
+                        );
+                      },
                     ),
                     SubjectsCard(
                       color: const Color(0xffFFE99D),
