@@ -1,6 +1,8 @@
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/history_question.dart';
+import 'package:education/model/usa_suroo.dart';
 import 'package:education/pages/history_test_page.dart';
+import 'package:education/pages/usa_test_page.dart';
 import 'package:flutter/material.dart';
 
 final TextStyle initialStyle = TextStyle(
@@ -423,8 +425,8 @@ class Usa extends StatelessWidget {
                         Navigator.push<void>(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => HistoryTestPage(
-                              historySuroo: historyQuestions,
+                            builder: (BuildContext context) => UsaTestPage(
+                              usaSuroo: usaSuroo,
                             ),
                           ),
                         );
