@@ -1,10 +1,9 @@
 import 'package:education/model/subjects.dart';
-import 'package:education/topic_pages_about_geography/Tema_1_h.dart';
-import 'package:education/topic_pages_about_geography/asia_continent.dart';
-import 'package:education/topic_pages_about_geography/europe_continent.dart';
+
+import 'package:education/topic_pages_about_geography/tema_1_h.dart';
 import 'package:education/topic_pages_about_geography/tema_2_h.dart';
 import 'package:education/topic_pages_about_geography/tema_3_h.dart';
-import 'package:education/topic_pages_about_geography/usa.dart';
+
 import 'package:flutter/material.dart';
 
 class HistoryTopics extends StatelessWidget {

@@ -5,19 +5,6 @@ import 'package:education/pages/history_test_page.dart';
 import 'package:education/pages/usa_test_page.dart';
 import 'package:flutter/material.dart';
 
-final TextStyle initialStyle = TextStyle(
-  fontSize: 20.0,
-  color: Colors.grey,
-  fontWeight: FontWeight.bold,
-);
-
-final TextStyle finalStyle = TextStyle(
-  fontSize: 22.0,
-  color: Colors.black,
-  fontWeight: FontWeight.bold,
-);
-var isTapped = false;
-
 class Usa extends StatelessWidget {
   const Usa({super.key});
 
