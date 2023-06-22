@@ -44,7 +44,7 @@ final asia = Subjects(
   bgColor: const Color.fromARGB(255, 154, 247, 157),
 );
 
-final subject1 = Subjects(
+final worldCapitals = Subjects(
   title: 'Борбор шаарлар',
   description:
       'Кымбаттуу окуучу, биз жашап жаткан жер плантетабыздагы ар бир өлкөнүн борбор шаарларын сизге тааныштырабыз.',
@@ -72,7 +72,7 @@ List<Subjects> subjecstList = [
   borborShaarlar,
   usa,
   asia,
-  subject1,
+  worldCapitals,
   subject2,
   subject3,
 ];

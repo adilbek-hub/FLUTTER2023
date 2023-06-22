@@ -2,6 +2,7 @@ import 'package:education/model/subjects.dart';
 import 'package:education/topic_pages_about_geography/asia_continent.dart';
 import 'package:education/topic_pages_about_geography/europe_continent.dart';
 import 'package:education/topic_pages_about_geography/usa.dart';
+import 'package:education/topic_pages_about_geography/world_capitals.dart';
 import 'package:flutter/material.dart';
 
 class GeographyTopics extends StatelessWidget {
@@ -38,6 +39,13 @@ class GeographyTopics extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const AsiaContinenti(),
+                    ),
+                  );
+                } else if (subjects == worldCapitals) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const WorldCapitals(),
                     ),
                   );
                 }

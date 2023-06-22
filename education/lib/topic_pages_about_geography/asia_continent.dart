@@ -1,3 +1,7 @@
+import 'package:education/model/asia_suroo.dart';
+import 'package:education/model/europe_suroo.dart';
+import 'package:education/pages/asia_test_page.dart';
+import 'package:education/pages/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
 class AsiaContinenti extends StatelessWidget {
@@ -104,8 +108,9 @@ class AsiaContinenti extends StatelessWidget {
                           Navigator.push<void>(
                             context,
                             MaterialPageRoute<void>(
-                              builder: (BuildContext context) =>
-                                  const AsiaContinenti(),
+                              builder: (BuildContext context) => AsiaTestPage(
+                                asiaSuroo: asiaSuroo,
+                              ),
                             ),
                           );
                         },

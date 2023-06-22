@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:education/components/test_page_appbar_title.dart';
-import 'package:education/components/test_slider.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:education/model/usa_suroo.dart';
 
