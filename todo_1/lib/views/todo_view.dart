@@ -92,7 +92,9 @@ class _TodoViewState extends State<TodoView> {
                           context: context,
                           builder: (context) {
                             return const CupertinoAlertDialog(
-                              content: CupertinoActivityIndicator(),
+                              content: SizedBox(
+                                  height: 50,
+                                  child: CupertinoActivityIndicator()),
                             );
                           });
                       // await addTodo();

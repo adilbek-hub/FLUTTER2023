@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "144913655626",
+    "project_id": "flutter-d4409",
+    "storage_bucket": "flutter-d4409.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144913655626:android:90cb8d33bf33897dd703b3",
+        "android_client_info": {
+          "package_name": "com.example.flesh_chat_j"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144913655626-a515ou7t3gj9p3a8d96jsof3tfur1j3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBei0AVPn-RTURlDqU5DC8wqOylUr7pWxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "144913655626-a515ou7t3gj9p3a8d96jsof3tfur1j3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
