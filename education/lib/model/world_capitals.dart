@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'dart:developer';
-import 'dart:io';
-
-class WorldCapitals {
-  const WorldCapitals(
+class AllWorldCapitals {
+  const AllWorldCapitals(
       {required this.name, required this.country, required this.continent});
   final String name;
   final String country;
@@ -12,424 +8,430 @@ class WorldCapitals {
 
 //a
 const abudabi =
-    WorldCapitals(name: "Абу-Даби", country: "ОАЭ", continent: "Азия");
+    AllWorldCapitals(name: "Абу-Даби", country: "ОАЭ", continent: "Азия");
 const abudja =
-    WorldCapitals(name: "Абуджа", country: "Нигерия", continent: "Африка");
-const adisabebe =
-    WorldCapitals(name: "Аддис-Абеба", country: "Эфиопия", continent: "Африка");
+    AllWorldCapitals(name: "Абуджа", country: "Нигерия", continent: "Африка");
+const adisabebe = AllWorldCapitals(
+    name: "Аддис-Абеба", country: "Эфиопия", continent: "Африка");
 const akkra =
-    WorldCapitals(name: "Аккра", country: "Гана", continent: "Африка");
+    AllWorldCapitals(name: "Аккра", country: "Гана", continent: "Африка");
 const aljir =
-    WorldCapitals(name: "Алжир", country: "Алжир", continent: "Африка");
+    AllWorldCapitals(name: "Алжир", country: "Алжир", continent: "Африка");
 const amman =
-    WorldCapitals(name: "Амман", country: "Иордания", continent: "Азия");
-const amsterdam = WorldCapitals(
+    AllWorldCapitals(name: "Амман", country: "Иордания", continent: "Азия");
+const amsterdam = AllWorldCapitals(
     name: "Амстердам", country: "Нидерланды", continent: "Европа");
-const andorra = WorldCapitals(
+const andorra = AllWorldCapitals(
     name: "Андорра-ла-Велья", country: "Алжир", continent: "Африка");
 const ankara =
-    WorldCapitals(name: "Анкаpа", country: "Турция", continent: "Азия");
-const antananarivu = WorldCapitals(
+    AllWorldCapitals(name: "Анкаpа", country: "Турция", continent: "Азия");
+const antananarivu = AllWorldCapitals(
     name: "Антананариву", country: "Мадагаскар", continent: "Африка");
 const apia =
-    WorldCapitals(name: "Апиа", country: "Самоа", continent: "Австралия");
+    AllWorldCapitals(name: "Апиа", country: "Самоа", continent: "Австралия");
 const asmera =
-    WorldCapitals(name: "Асмэра", country: "Эритрея", continent: "Африка");
+    AllWorldCapitals(name: "Асмэра", country: "Эритрея", continent: "Африка");
 const astana =
-    WorldCapitals(name: "Астана", country: "Казахстан", continent: "Азия");
-const asunson = WorldCapitals(
+    AllWorldCapitals(name: "Астана", country: "Казахстан", continent: "Азия");
+const asunson = AllWorldCapitals(
     name: "Асунсьон", country: "Парагвай", continent: "Түштүк Америка");
 const afiny =
-    WorldCapitals(name: "Афины", country: "Греция", continent: "Европа");
+    AllWorldCapitals(name: "Афины", country: "Греция", continent: "Европа");
 const ashhabat =
-    WorldCapitals(name: "Ашхабад", country: "Туркмения", continent: "Азия");
+    AllWorldCapitals(name: "Ашхабад", country: "Туркмения", continent: "Азия");
 //b
 const bagdad =
-    WorldCapitals(name: "Багдад", country: "Ирак", continent: "Азия");
+    AllWorldCapitals(name: "Багдад", country: "Ирак", continent: "Азия");
 const baku =
-    WorldCapitals(name: "Баку", country: "Азербайджан", continent: "Азия");
+    AllWorldCapitals(name: "Баку", country: "Азербайджан", continent: "Азия");
 const bamako =
-    WorldCapitals(name: "Бамако", country: "Мали", continent: "Африка");
-const bangi = WorldCapitals(
+    AllWorldCapitals(name: "Бамако", country: "Мали", continent: "Африка");
+const bangi = AllWorldCapitals(
     name: "Банги",
     country: "Борбордукафрика Республикасы",
     continent: "Африка");
 const bangog =
-    WorldCapitals(name: "Бангкок", country: "Таиланд", continent: "Азия");
-const bandar = WorldCapitals(
+    AllWorldCapitals(name: "Бангкок", country: "Таиланд", continent: "Азия");
+const bandar = AllWorldCapitals(
     name: "Бандар-Сери-Бегаван", country: "Бруней", continent: "Азия");
 const banjul =
-    WorldCapitals(name: "Банжул", country: "Гамбия", continent: "Африка");
-const baster = WorldCapitals(
+    AllWorldCapitals(name: "Банжул", country: "Гамбия", continent: "Африка");
+const baster = AllWorldCapitals(
     name: "Бастер",
     country: "Сент-Кристофер жана Невис",
     continent: "Түндүк Америка");
 const beyrut =
-    WorldCapitals(name: "Бейрут", country: "Ливан", continent: "Азия");
+    AllWorldCapitals(name: "Бейрут", country: "Ливан", continent: "Азия");
 const belgrad =
-    WorldCapitals(name: "Белград", country: "Сербия", continent: "Европа");
-const beliz = WorldCapitals(
+    AllWorldCapitals(name: "Белград", country: "Сербия", continent: "Европа");
+const beliz = AllWorldCapitals(
     name: "Бельмопан", country: "Белиз", continent: "Түндүк Америка");
 const berlin =
-    WorldCapitals(name: "Берлин", country: "Германия", continent: "Европа");
+    AllWorldCapitals(name: "Берлин", country: "Германия", continent: "Европа");
 const bern =
-    WorldCapitals(name: "Берн", country: "Швейцария", continent: "Европа");
-const bisau =
-    WorldCapitals(name: "Бисау", country: "Гвинея-Бисау", continent: "Африка");
+    AllWorldCapitals(name: "Берн", country: "Швейцария", continent: "Европа");
+const bisau = AllWorldCapitals(
+    name: "Бисау", country: "Гвинея-Бисау", continent: "Африка");
 const bishkek =
-    WorldCapitals(name: "Бишкек", country: "Киргизия", continent: "Азия");
-const bogota = WorldCapitals(
+    AllWorldCapitals(name: "Бишкек", country: "Киргизия", continent: "Азия");
+const bogota = AllWorldCapitals(
     name: "Богота", country: "Колумбия", continent: "Түштүк Америка");
 const brazzavil =
-    WorldCapitals(name: "Браззавиль", country: "Конго", continent: "Африка");
-const brazilia = WorldCapitals(
+    AllWorldCapitals(name: "Браззавиль", country: "Конго", continent: "Африка");
+const brazilia = AllWorldCapitals(
     name: "Бразилиа", country: "Бразилия", continent: "Түштүк Америка");
-const bratislava =
-    WorldCapitals(name: "Братислава", country: "Словакия", continent: "Европа");
-const barbados = WorldCapitals(
+const bratislava = AllWorldCapitals(
+    name: "Братислава", country: "Словакия", continent: "Европа");
+const barbados = AllWorldCapitals(
     name: "Бриджтаун", country: "Барбадос", continent: "Түштүк Америка");
 const brussel =
-    WorldCapitals(name: "Брюссель", country: "Бельгия", continent: "Европа");
+    AllWorldCapitals(name: "Брюссель", country: "Бельгия", continent: "Европа");
 const budapesht =
-    WorldCapitals(name: "Будапешт", country: "Венгрия", continent: "Европа");
-const bujumbura =
-    WorldCapitals(name: "Бужумбура", country: "Бурунди", continent: "Африка");
+    AllWorldCapitals(name: "Будапешт", country: "Венгрия", continent: "Европа");
+const bujumbura = AllWorldCapitals(
+    name: "Бужумбура", country: "Бурунди", continent: "Африка");
 const buharest =
-    WorldCapitals(name: "Бухарест", country: "Румыния", continent: "Европа");
-const buenos = WorldCapitals(
+    AllWorldCapitals(name: "Бухарест", country: "Румыния", continent: "Европа");
+const buenos = AllWorldCapitals(
     name: "Буэнос-Айрес", country: "Аргентина", continent: "Түштүк Америка");
 //v
-const vaduts =
-    WorldCapitals(name: "Вадуц", country: "Лихтенштейн", continent: "Европа");
+const vaduts = AllWorldCapitals(
+    name: "Вадуц", country: "Лихтенштейн", continent: "Европа");
 const valetta =
-    WorldCapitals(name: "Валетта", country: "Мальта", continent: "Европа");
+    AllWorldCapitals(name: "Валетта", country: "Мальта", continent: "Европа");
 const varshava =
-    WorldCapitals(name: "Варшава", country: "Польша", continent: "Европа");
+    AllWorldCapitals(name: "Варшава", country: "Польша", continent: "Европа");
 const vatican =
-    WorldCapitals(name: "Ватикан", country: "Ватикан", continent: "Европа");
-const vashinkton = WorldCapitals(
+    AllWorldCapitals(name: "Ватикан", country: "Ватикан", continent: "Европа");
+const vashinkton = AllWorldCapitals(
     name: "Вашингтон", country: "США", continent: "Түндүк Америка");
-const vellinkton = WorldCapitals(
+const vellinkton = AllWorldCapitals(
     name: "Веллингтон", country: "Новая Зеландия", continent: "Австралия");
 const vena =
-    WorldCapitals(name: "Вена", country: "Австрия", continent: "Европа");
-const victoria = WorldCapitals(
+    AllWorldCapitals(name: "Вена", country: "Австрия", continent: "Европа");
+const victoria = AllWorldCapitals(
     name: "Виктория", country: "Сейшельс аралдары", continent: "Африка");
 const villa =
-    WorldCapitals(name: "Вила", country: "Вануату", continent: "Австралия");
+    AllWorldCapitals(name: "Вила", country: "Вануату", continent: "Австралия");
 const vilnus =
-    WorldCapitals(name: "Вильнюс", country: "Литва", continent: "Европа");
+    AllWorldCapitals(name: "Вильнюс", country: "Литва", continent: "Европа");
 const vetyan =
-    WorldCapitals(name: "Вьентьян", country: "Лаос", continent: "Азия");
+    AllWorldCapitals(name: "Вьентьян", country: "Лаос", continent: "Азия");
 
 //g
-const gabarone =
-    WorldCapitals(name: "Габороне", country: "Ботсвана", continent: "Африка");
-const gavana =
-    WorldCapitals(name: "Гавана", country: "Куба", continent: "Түндүк Америка");
-const gvatemala = WorldCapitals(
+const gabarone = AllWorldCapitals(
+    name: "Габороне", country: "Ботсвана", continent: "Африка");
+const gavana = AllWorldCapitals(
+    name: "Гавана", country: "Куба", continent: "Түндүк Америка");
+const gvatemala = AllWorldCapitals(
     name: "Гватемала", country: "Гватемала", continent: "Түндүк Америка");
 //d
 const dakar =
-    WorldCapitals(name: "Дакар", country: "Сенегал", continent: "Африка");
+    AllWorldCapitals(name: "Дакар", country: "Сенегал", continent: "Африка");
 const dakka =
-    WorldCapitals(name: "Дакка", country: "Бангладеш", continent: "Азия");
+    AllWorldCapitals(name: "Дакка", country: "Бангладеш", continent: "Азия");
 const damask =
-    WorldCapitals(name: "Дамаск", country: "Сирия", continent: "Азия");
-const deli = WorldCapitals(name: "Дели", country: "Индия", continent: "Азия");
+    AllWorldCapitals(name: "Дамаск", country: "Сирия", continent: "Азия");
+const deli =
+    AllWorldCapitals(name: "Дели", country: "Индия", continent: "Азия");
 const djakarta =
-    WorldCapitals(name: "Джакарта", country: "Индонезия", continent: "Азия");
+    AllWorldCapitals(name: "Джакарта", country: "Индонезия", continent: "Азия");
 const djibuti =
-    WorldCapitals(name: "Джибути", country: "Джибути", continent: "Африка");
-const djorjtown = WorldCapitals(
+    AllWorldCapitals(name: "Джибути", country: "Джибути", continent: "Африка");
+const djorjtown = AllWorldCapitals(
     name: "Джорджтаун", country: "Гайана", continent: "Түштүк Америка");
-const djuba =
-    WorldCapitals(name: "Джуба", country: "Түштүк Судан", continent: "Африка");
-const dili =
-    WorldCapitals(name: "Дили", country: "Восточный Тимор", continent: "Азия");
+const djuba = AllWorldCapitals(
+    name: "Джуба", country: "Түштүк Судан", continent: "Африка");
+const dili = AllWorldCapitals(
+    name: "Дили", country: "Восточный Тимор", continent: "Азия");
 const dodoma =
-    WorldCapitals(name: "Додома", country: "Танзания", continent: "Африка");
-const doha = WorldCapitals(name: "Доха", country: "Катар", continent: "Азия");
+    AllWorldCapitals(name: "Додома", country: "Танзания", continent: "Африка");
+const doha =
+    AllWorldCapitals(name: "Доха", country: "Катар", continent: "Азия");
 const dublin =
-    WorldCapitals(name: "Дублин", country: "Ирландия", continent: "Европа");
-const dushanbe =
-    WorldCapitals(name: "Душанбе", country: "Таджикистан", continent: "Азия");
+    AllWorldCapitals(name: "Дублин", country: "Ирландия", continent: "Европа");
+const dushanbe = AllWorldCapitals(
+    name: "Душанбе", country: "Таджикистан", continent: "Азия");
 const erevan =
-    WorldCapitals(name: "Ереван", country: "Армения", continent: "Азия");
+    AllWorldCapitals(name: "Ереван", country: "Армения", continent: "Азия");
 const zagreb =
-    WorldCapitals(name: "Загреб", country: "Хорватия", continent: "Европа");
+    AllWorldCapitals(name: "Загреб", country: "Хорватия", continent: "Европа");
 //i
 const ierusalim =
-    WorldCapitals(name: "Иерусалим", country: "Израиль", continent: "Азия");
+    AllWorldCapitals(name: "Иерусалим", country: "Израиль", continent: "Азия");
 const islamabad =
-    WorldCapitals(name: "Исламабад", country: "Пакистан", continent: "Азия");
+    AllWorldCapitals(name: "Исламабад", country: "Пакистан", continent: "Азия");
 //k
 const kabul =
-    WorldCapitals(name: "Кабул", country: "Афганистан", continent: "Азия");
+    AllWorldCapitals(name: "Кабул", country: "Афганистан", continent: "Азия");
 const kair =
-    WorldCapitals(name: "Каир", country: "Египет", continent: "Африка");
+    AllWorldCapitals(name: "Каир", country: "Египет", continent: "Африка");
 const kampala =
-    WorldCapitals(name: "Кампала", country: "Уганда", continent: "Африка");
-const kanberra = WorldCapitals(
+    AllWorldCapitals(name: "Кампала", country: "Уганда", continent: "Африка");
+const kanberra = AllWorldCapitals(
     name: "Канберра", country: "Австралия", continent: "Австралия");
-const karakas = WorldCapitals(
+const karakas = AllWorldCapitals(
     name: "Каракас", country: "Венесуэла", continent: "Түштүк Америка");
-const kastri = WorldCapitals(
+const kastri = AllWorldCapitals(
     name: "Кастри", country: "Сент-Люсия", continent: "Түштүк Америка");
-const katmandu = WorldCapitals(
+const katmandu = AllWorldCapitals(
     name: "Катманду", country: "Австралия", continent: "Австралия");
 const kigali =
-    WorldCapitals(name: "Кигали", country: "Руанда", continent: "Африка");
+    AllWorldCapitals(name: "Кигали", country: "Руанда", continent: "Африка");
 const kiev =
-    WorldCapitals(name: "Киев", country: "Украина", continent: "Европа");
-const kingstaun = WorldCapitals(
+    AllWorldCapitals(name: "Киев", country: "Украина", continent: "Европа");
+const kingstaun = AllWorldCapitals(
     name: "Кингстаун",
     country: "Сент-Винсент и Гренадины",
     continent: "Түндүк Америка");
-const kingston = WorldCapitals(
+const kingston = AllWorldCapitals(
     name: "Кингстон", country: "Ямайка", continent: "Түндүк Америка");
-const kishasa = WorldCapitals(
+const kishasa = AllWorldCapitals(
     name: "Киншаса", country: "Конго (Дем. Република)", continent: "Африка");
 const kishinev =
-    WorldCapitals(name: "Кишинев", country: "Молдавия", continent: "Европа");
+    AllWorldCapitals(name: "Кишинев", country: "Молдавия", continent: "Европа");
 const kolombo =
-    WorldCapitals(name: "Коломбо", country: "Шри-Ланка", continent: "Азия");
+    AllWorldCapitals(name: "Коломбо", country: "Шри-Ланка", continent: "Азия");
 const konagri =
-    WorldCapitals(name: "Конакри", country: "Гвинея", continent: "Африка");
+    AllWorldCapitals(name: "Конакри", country: "Гвинея", continent: "Африка");
 const kopengagen =
-    WorldCapitals(name: "Копенгаген", country: "Дания", continent: "Европа");
+    AllWorldCapitals(name: "Копенгаген", country: "Дания", continent: "Европа");
 const koror =
-    WorldCapitals(name: "Корор", country: "Палау", continent: "Австралия");
-const kuala =
-    WorldCapitals(name: "Куала-Лумпур", country: "Малайзия", continent: "Азия");
+    AllWorldCapitals(name: "Корор", country: "Палау", continent: "Австралия");
+const kuala = AllWorldCapitals(
+    name: "Куала-Лумпур", country: "Малайзия", continent: "Азия");
 const konakri =
-    WorldCapitals(name: "Конакри", country: "Гвинея", continent: "Африка");
+    AllWorldCapitals(name: "Конакри", country: "Гвинея", continent: "Африка");
 
 //l
-const lapas = WorldCapitals(
+const lapas = AllWorldCapitals(
     name: "Ла-Пас", country: "Боливия", continent: "Түштүк Америка");
 const libreval =
-    WorldCapitals(name: "Либревиль", country: "Габон", continent: "Африка");
+    AllWorldCapitals(name: "Либревиль", country: "Габон", continent: "Африка");
 const lilongve =
-    WorldCapitals(name: "Лилонгве", country: "Малави", continent: "Африка");
-const lima =
-    WorldCapitals(name: "Лима", country: "Перу", continent: "Түштүк Америка");
-const lissabon =
-    WorldCapitals(name: "Лиссабон", country: "Португалия", continent: "Европа");
-const lome = WorldCapitals(name: "Ломе", country: "Того", continent: "Африка");
-const london = WorldCapitals(
+    AllWorldCapitals(name: "Лилонгве", country: "Малави", continent: "Африка");
+const lima = AllWorldCapitals(
+    name: "Лима", country: "Перу", continent: "Түштүк Америка");
+const lissabon = AllWorldCapitals(
+    name: "Лиссабон", country: "Португалия", continent: "Европа");
+const lome =
+    AllWorldCapitals(name: "Ломе", country: "Того", continent: "Африка");
+const london = AllWorldCapitals(
     name: "Лондон", country: "Великобритания", continent: "Европа");
 const luanda =
-    WorldCapitals(name: "Луанда", country: "Ангола", continent: "Африка");
+    AllWorldCapitals(name: "Луанда", country: "Ангола", continent: "Африка");
 const lusaka =
-    WorldCapitals(name: "Лусака", country: "Замбия", continent: "Африка");
+    AllWorldCapitals(name: "Лусака", country: "Замбия", continent: "Африка");
 const jublana =
-    WorldCapitals(name: "Любляна", country: "Словения", continent: "Европа");
-const luksemburg = WorldCapitals(
+    AllWorldCapitals(name: "Любляна", country: "Словения", continent: "Европа");
+const luksemburg = AllWorldCapitals(
     name: "Люксембург", country: "Люксембург", continent: "Европа");
 
 //m
-const madjuro = WorldCapitals(
+const madjuro = AllWorldCapitals(
     name: "Маджуро", country: "Маршалловы острова", continent: "Австралия");
 const madrid =
-    WorldCapitals(name: "Мадрид", country: "Испания", continent: "Европа");
-const malabo = WorldCapitals(
+    AllWorldCapitals(name: "Мадрид", country: "Испания", continent: "Европа");
+const malabo = AllWorldCapitals(
     name: "Малабо", country: "Экваториал Гвинея", continent: "Африка");
 const male =
-    WorldCapitals(name: "Мале", country: "Мальдивы", continent: "Азия");
-const managua = WorldCapitals(
+    AllWorldCapitals(name: "Мале", country: "Мальдивы", continent: "Азия");
+const managua = AllWorldCapitals(
     name: "Манагуа", country: "Никарагуа", continent: "Түндүк Америка");
 const manama =
-    WorldCapitals(name: "Манама", country: "Бахрейн", continent: "Азия");
+    AllWorldCapitals(name: "Манама", country: "Бахрейн", continent: "Азия");
 const manila =
-    WorldCapitals(name: "Манила", country: "Филиппины", continent: "Азия");
+    AllWorldCapitals(name: "Манила", country: "Филиппины", continent: "Азия");
 const maputu =
-    WorldCapitals(name: "Мапуту", country: "Мозамбик", continent: "Африка");
+    AllWorldCapitals(name: "Мапуту", country: "Мозамбик", continent: "Африка");
 const maseru =
-    WorldCapitals(name: "Масеру", country: "Лесото", continent: "Африка");
+    AllWorldCapitals(name: "Масеру", country: "Лесото", continent: "Африка");
 const maskat =
-    WorldCapitals(name: "Маскат", country: "Оман", continent: "Азия");
+    AllWorldCapitals(name: "Маскат", country: "Оман", continent: "Азия");
 const mbabane =
-    WorldCapitals(name: "Мбабане", country: "Эсватини", continent: "Африка");
-const mehico = WorldCapitals(
+    AllWorldCapitals(name: "Мбабане", country: "Эсватини", continent: "Африка");
+const mehico = AllWorldCapitals(
     name: "Мехико", country: "Мексика", continent: "Түштүк Америка");
 const minsk =
-    WorldCapitals(name: "Минск", country: "Белоруссия", continent: "Европа");
+    AllWorldCapitals(name: "Минск", country: "Белоруссия", continent: "Европа");
 const mogadisho =
-    WorldCapitals(name: "Могадишо", country: "Сомали", continent: "Африка");
+    AllWorldCapitals(name: "Могадишо", country: "Сомали", continent: "Африка");
 const monako =
-    WorldCapitals(name: "Монако", country: "Монако", continent: "Европа");
+    AllWorldCapitals(name: "Монако", country: "Монако", continent: "Европа");
 const monrovia =
-    WorldCapitals(name: "Монровия", country: "Либерия", continent: "Африка");
-const montevodeo = WorldCapitals(
+    AllWorldCapitals(name: "Монровия", country: "Либерия", continent: "Африка");
+const montevodeo = AllWorldCapitals(
     name: "Монтевидео", country: "Уругвай", continent: "Түштүк Америка");
-const moroni = WorldCapitals(
+const moroni = AllWorldCapitals(
     name: "Морони", country: "Комор аралдары", continent: "Африка");
 const moskwa =
-    WorldCapitals(name: "Москва", country: "Орусия", continent: "Европа");
+    AllWorldCapitals(name: "Москва", country: "Орусия", continent: "Европа");
 //n
 const nayrobi =
-    WorldCapitals(name: "Найроби", country: "Кения", continent: "Африка");
-const nassau = WorldCapitals(
+    AllWorldCapitals(name: "Найроби", country: "Кения", continent: "Африка");
+const nassau = AllWorldCapitals(
     name: "Нассау", country: "Багам аралдары", continent: "Түштүк Америка");
 const ndjamena =
-    WorldCapitals(name: "Нджамена", country: "Чад", continent: "Африка");
+    AllWorldCapitals(name: "Нджамена", country: "Чад", continent: "Африка");
 const neipido =
-    WorldCapitals(name: "Нейпьидо", country: "Мьянма", continent: "Азия");
+    AllWorldCapitals(name: "Нейпьидо", country: "Мьянма", continent: "Азия");
 const niamey =
-    WorldCapitals(name: "Ниамей", country: "Нигер", continent: "Африка");
+    AllWorldCapitals(name: "Ниамей", country: "Нигер", continent: "Африка");
 const nicosia =
-    WorldCapitals(name: "Никосия", country: "Кипр", continent: "Азия");
-const nuakshot =
-    WorldCapitals(name: "Нуакшот", country: "Мавритания", continent: "Африка");
-const nukualofa =
-    WorldCapitals(name: "Нукуалофа", country: "Тонга", continent: "Австралия");
+    AllWorldCapitals(name: "Никосия", country: "Кипр", continent: "Азия");
+const nuakshot = AllWorldCapitals(
+    name: "Нуакшот", country: "Мавритания", continent: "Африка");
+const nukualofa = AllWorldCapitals(
+    name: "Нукуалофа", country: "Тонга", continent: "Австралия");
 //o
 const oslo =
-    WorldCapitals(name: "Осло", country: "Норвегия", continent: "Европа");
-const ottava = WorldCapitals(
+    AllWorldCapitals(name: "Осло", country: "Норвегия", continent: "Европа");
+const ottava = AllWorldCapitals(
     name: "Оттава", country: "Канада", continent: "Түндүк Америка");
 //p
-const surinam = WorldCapitals(
+const surinam = AllWorldCapitals(
     name: "Паpамаpибо", country: "Суринам", continent: "Түштүк Америка");
-const palikir = WorldCapitals(
+const palikir = AllWorldCapitals(
     name: "Паликир", country: "Микронезия", continent: "Австралия");
-const panama = WorldCapitals(
+const panama = AllWorldCapitals(
     name: "Панама", country: "Панама", continent: "Түндүк Америка");
 const parij =
-    WorldCapitals(name: "Париж", country: "Франция", continent: "Европа");
-const pekin = WorldCapitals(name: "Пекин", country: "Китай", continent: "Азия");
+    AllWorldCapitals(name: "Париж", country: "Франция", continent: "Европа");
+const pekin =
+    AllWorldCapitals(name: "Пекин", country: "Китай", continent: "Азия");
 const pnompen =
-    WorldCapitals(name: "Пномпень", country: "Камбоджа", continent: "Азия");
-const podgorisa = WorldCapitals(
+    AllWorldCapitals(name: "Пномпень", country: "Камбоджа", continent: "Азия");
+const podgorisa = AllWorldCapitals(
     name: "Подгорица", country: "Черногория", continent: "Европа");
-const portlui =
-    WorldCapitals(name: "Порт-Луи", country: "Маврикий", continent: "Африка");
-const portmorsbi = WorldCapitals(
+const portlui = AllWorldCapitals(
+    name: "Порт-Луи", country: "Маврикий", continent: "Африка");
+const portmorsbi = AllWorldCapitals(
     name: "Порт-Морсби",
     country: "Папуа - Жаңы Гвинея",
     continent: "Австралия");
-const portoprent = WorldCapitals(
+const portoprent = AllWorldCapitals(
     name: "Порт-о-Пренс", country: "Гаити", continent: "Түндүк Америка");
-const portofspeys = WorldCapitals(
+const portofspeys = AllWorldCapitals(
     name: "Порт-оф-Спейн",
     country: "Тринидад и Тобаго",
     continent: "Түндүк Америка");
 const portnovo =
-    WorldCapitals(name: "Порто-Ново", country: "Бенин", continent: "Африка");
+    AllWorldCapitals(name: "Порто-Ново", country: "Бенин", continent: "Африка");
 const praga =
-    WorldCapitals(name: "Прага", country: "Чехия", continent: "Европа");
+    AllWorldCapitals(name: "Прага", country: "Чехия", continent: "Европа");
 const praia =
-    WorldCapitals(name: "Прая", country: "Кабо-Верде", continent: "Африка");
+    AllWorldCapitals(name: "Прая", country: "Кабо-Верде", continent: "Африка");
 const pretoria =
-    WorldCapitals(name: "Претория", country: "ЮАР", continent: "Африка");
-const phenian =
-    WorldCapitals(name: "Пхеньян", country: "Түндүк Корея", continent: "Азия");
+    AllWorldCapitals(name: "Претория", country: "ЮАР", continent: "Африка");
+const phenian = AllWorldCapitals(
+    name: "Пхеньян", country: "Түндүк Корея", continent: "Азия");
 //r
 const rabat =
-    WorldCapitals(name: "Рабат", country: "Марокко", continent: "Африка");
+    AllWorldCapitals(name: "Рабат", country: "Марокко", continent: "Африка");
 const ramala =
-    WorldCapitals(name: "Рамалла", country: "Палестина", continent: "Азия");
-const reykaivik =
-    WorldCapitals(name: "Рейкьявик", country: "Исландия", continent: "Европа");
+    AllWorldCapitals(name: "Рамалла", country: "Палестина", continent: "Азия");
+const reykaivik = AllWorldCapitals(
+    name: "Рейкьявик", country: "Исландия", continent: "Европа");
 const riga =
-    WorldCapitals(name: "Рига", country: "Латвия", continent: "Европа");
-const roma = WorldCapitals(name: "Рим", country: "Италия", continent: "Европа");
-const pozo = WorldCapitals(
+    AllWorldCapitals(name: "Рига", country: "Латвия", continent: "Европа");
+const roma =
+    AllWorldCapitals(name: "Рим", country: "Италия", continent: "Европа");
+const pozo = AllWorldCapitals(
     name: "Розо", country: "Доминика", continent: "Түндүк Америка");
 //s
-const sanmarino = WorldCapitals(
+const sanmarino = AllWorldCapitals(
     name: "Сан-Марино", country: "Сан-Марино", continent: "Европа");
-const sanslavador = WorldCapitals(
+const sanslavador = AllWorldCapitals(
     name: "Сан-Сальвадор", country: "Сальвадор", continent: "Түндүк Америка");
-const santome = WorldCapitals(
+const santome = AllWorldCapitals(
     name: "Сан-Томе", country: "Сан-Томе и Принсипи", continent: "Африка");
-const sanhose = WorldCapitals(
+const sanhose = AllWorldCapitals(
     name: "Сан-Хосе", country: "Коста-Рика", continent: "Түндүк Америка");
-const sana = WorldCapitals(name: "Сана", country: "Йемен", continent: "Азия");
-const santo = WorldCapitals(
+const sana =
+    AllWorldCapitals(name: "Сана", country: "Йемен", continent: "Азия");
+const santo = AllWorldCapitals(
     name: "Санто-Доминго",
     country: "Доминикан Республикасы",
     continent: "Түндүк Америка");
-const santiago = WorldCapitals(
+const santiago = AllWorldCapitals(
     name: "Сантьяго", country: "Чили", continent: "Түштүк Америка");
-const saraevo = WorldCapitals(
+const saraevo = AllWorldCapitals(
     name: "Сараево", country: "Босния жана Герцеговина", continent: "Европа");
-const sent = WorldCapitals(
+const sent = AllWorldCapitals(
     name: "Сент-Джонс",
     country: "Антигуа жана Барбуда",
     continent: "Түндүк Америка");
-const sentdj = WorldCapitals(
+const sentdj = AllWorldCapitals(
     name: "Сент-Джорджес", country: "Гренада", continent: "Түндүк Америка");
 const seul =
-    WorldCapitals(name: "Сеул", country: "Түштүк корея", continent: "Азия");
+    AllWorldCapitals(name: "Сеул", country: "Түштүк корея", continent: "Азия");
 const singapur =
-    WorldCapitals(name: "Сингапур", country: "Сингапур", continent: "Азия");
-const skope = WorldCapitals(
+    AllWorldCapitals(name: "Сингапур", country: "Сингапур", continent: "Азия");
+const skope = AllWorldCapitals(
     name: "Скопье", country: "Түндүк Македония", continent: "Европа");
 const sofia =
-    WorldCapitals(name: "София", country: "Болгария", continent: "Европа");
+    AllWorldCapitals(name: "София", country: "Болгария", continent: "Европа");
 const stokgolm =
-    WorldCapitals(name: "Стокгольм", country: "Швеция", continent: "Европа");
+    AllWorldCapitals(name: "Стокгольм", country: "Швеция", continent: "Европа");
 const suva =
-    WorldCapitals(name: "Сува", country: "Фиджи", continent: "Австралия");
+    AllWorldCapitals(name: "Сува", country: "Фиджи", continent: "Австралия");
 //t
 const taybey =
-    WorldCapitals(name: "Тайпей", country: "Тайвань", continent: "Азия");
+    AllWorldCapitals(name: "Тайпей", country: "Тайвань", continent: "Азия");
 const tallin =
-    WorldCapitals(name: "Таллинн", country: "Эстония", continent: "Европа");
-const tarava =
-    WorldCapitals(name: "Тарава", country: "Кирибати", continent: "Австралия");
+    AllWorldCapitals(name: "Таллинн", country: "Эстония", continent: "Европа");
+const tarava = AllWorldCapitals(
+    name: "Тарава", country: "Кирибати", continent: "Австралия");
 const tashkent =
-    WorldCapitals(name: "Ташкент", country: "Узбекистан", continent: "Азия");
+    AllWorldCapitals(name: "Ташкент", country: "Узбекистан", continent: "Азия");
 const tbilisi =
-    WorldCapitals(name: "Тбилиси", country: "Грузия", continent: "Азия");
+    AllWorldCapitals(name: "Тбилиси", country: "Грузия", continent: "Азия");
 const tegeran =
-    WorldCapitals(name: "Тегеран", country: "Иран", continent: "Азия");
-const tegusigalpe = WorldCapitals(
+    AllWorldCapitals(name: "Тегеран", country: "Иран", continent: "Азия");
+const tegusigalpe = AllWorldCapitals(
     name: "Тегусигальпа", country: "Гондурас", continent: "Түндүк Америка");
 const tirana =
-    WorldCapitals(name: "Тирана", country: "Албания", continent: "Европа");
+    AllWorldCapitals(name: "Тирана", country: "Албания", continent: "Европа");
 const tokio =
-    WorldCapitals(name: "Токио", country: "Япония", continent: "Азия");
+    AllWorldCapitals(name: "Токио", country: "Япония", continent: "Азия");
 const tripoli =
-    WorldCapitals(name: "Триполи", country: "Триполи", continent: "Африка");
+    AllWorldCapitals(name: "Триполи", country: "Триполи", continent: "Африка");
 const tunis =
-    WorldCapitals(name: "Тунис", country: "Тунис", continent: "Африка");
+    AllWorldCapitals(name: "Тунис", country: "Тунис", continent: "Африка");
 const thimphu =
-    WorldCapitals(name: "Тхимпху", country: "Бутан", continent: "Азия");
+    AllWorldCapitals(name: "Тхимпху", country: "Бутан", continent: "Азия");
 
 //u
-const uagadugu = WorldCapitals(
+const uagadugu = AllWorldCapitals(
     name: "Уагадугу", country: "Буркина-Фасо", continent: "Африка");
-const ulabbator =
-    WorldCapitals(name: "Улан-Батор", country: "Монголия", continent: "Азия");
+const ulabbator = AllWorldCapitals(
+    name: "Улан-Батор", country: "Монголия", continent: "Азия");
 
 //f
-const funafuti =
-    WorldCapitals(name: "Фунафути", country: "Тувалу", continent: "Австралия");
+const funafuti = AllWorldCapitals(
+    name: "Фунафути", country: "Тувалу", continent: "Австралия");
 const hartum =
-    WorldCapitals(name: "Хаpтум", country: "Судан", continent: "Африка");
+    AllWorldCapitals(name: "Хаpтум", country: "Судан", continent: "Африка");
 const hanoy =
-    WorldCapitals(name: "Ханой", country: "Вьетнам", continent: "Азия");
+    AllWorldCapitals(name: "Ханой", country: "Вьетнам", continent: "Азия");
 const harare =
-    WorldCapitals(name: "Хараре", country: "Зимбабве", continent: "Африка");
-const helsinki =
-    WorldCapitals(name: "Хельсинки", country: "Финляндия", continent: "Европа");
-const honiaka = WorldCapitals(
+    AllWorldCapitals(name: "Хараре", country: "Зимбабве", continent: "Африка");
+const helsinki = AllWorldCapitals(
+    name: "Хельсинки", country: "Финляндия", continent: "Европа");
+const honiaka = AllWorldCapitals(
     name: "Хониаpа", country: "Соломон аралдары", continent: "Австралия");
 const elkuveyt =
-    WorldCapitals(name: "Эль-Кувейт", country: "Кувейт", continent: "Азия");
-const erriad =
-    WorldCapitals(name: "Эр-Рияд", country: "Сауд Аравиясы", continent: "Азия");
-const yamusukro = WorldCapitals(
+    AllWorldCapitals(name: "Эль-Кувейт", country: "Кувейт", continent: "Азия");
+const erriad = AllWorldCapitals(
+    name: "Эр-Рияд", country: "Сауд Аравиясы", continent: "Азия");
+const yamusukro = AllWorldCapitals(
     name: "Ямусукро", country: "Кот-д'Ивуар", continent: "Африка");
 const yaren =
-    WorldCapitals(name: "Ярен", country: "Науру", continent: "Австралия");
+    AllWorldCapitals(name: "Ярен", country: "Науру", continent: "Австралия");
 const yaunde =
-    WorldCapitals(name: "Яунде", country: "Камерун", continent: "Африка");
+    AllWorldCapitals(name: "Яунде", country: "Камерун", continent: "Африка");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-Set<WorldCapitals> a = {
+Set<AllWorldCapitals> a = {
   abudabi,
   abudja,
   adisabebe,
@@ -447,7 +449,7 @@ Set<WorldCapitals> a = {
   astana
 };
 
-Set<WorldCapitals> b = {
+Set<AllWorldCapitals> b = {
   bagdad,
   baku,
   bamako,
@@ -462,7 +464,7 @@ Set<WorldCapitals> b = {
   berlin,
   bern
 };
-Set<WorldCapitals> v = {
+Set<AllWorldCapitals> v = {
   vaduts,
   valetta,
   varshava,
@@ -475,12 +477,12 @@ Set<WorldCapitals> v = {
   villa,
   vilnus
 };
-Set<WorldCapitals> g = {
+Set<AllWorldCapitals> g = {
   gabarone,
   gavana,
   gvatemala,
 };
-Set<WorldCapitals> d = {
+Set<AllWorldCapitals> d = {
   dakar,
   dakka,
   damask,
@@ -495,11 +497,11 @@ Set<WorldCapitals> d = {
   dublin,
   dushanbe
 };
-Set<WorldCapitals> i = {
+Set<AllWorldCapitals> i = {
   ierusalim,
   islamabad,
 };
-Set<WorldCapitals> k = {
+Set<AllWorldCapitals> k = {
   kabul,
   kair,
   kampala,
@@ -519,7 +521,7 @@ Set<WorldCapitals> k = {
   koror,
   kuala
 };
-Set<WorldCapitals> l = {
+Set<AllWorldCapitals> l = {
   lapas,
   libreval,
   lilongve,
@@ -531,7 +533,7 @@ Set<WorldCapitals> l = {
   luksemburg,
   lusaka
 };
-Set<WorldCapitals> m = {
+Set<AllWorldCapitals> m = {
   madjuro,
   madrid,
   malabo,
@@ -552,7 +554,7 @@ Set<WorldCapitals> m = {
   moroni,
   moskwa
 };
-Set<WorldCapitals> n = {
+Set<AllWorldCapitals> n = {
   nassau,
   nayrobi,
   ndjamena,
@@ -562,11 +564,11 @@ Set<WorldCapitals> n = {
   nuakshot,
   nukualofa
 };
-Set<WorldCapitals> o = {
+Set<AllWorldCapitals> o = {
   oslo,
   ottava,
 };
-Set<WorldCapitals> p = {
+Set<AllWorldCapitals> p = {
   palikir,
   panama,
   parij,
@@ -584,14 +586,14 @@ Set<WorldCapitals> p = {
   praia,
   pretoria
 };
-Set<WorldCapitals> r = {
+Set<AllWorldCapitals> r = {
   rabat,
   ramala,
   reykaivik,
   riga,
   roma,
 };
-Set<WorldCapitals> s = {
+Set<AllWorldCapitals> s = {
   sana,
   sanhose,
   sanmarino,
@@ -609,7 +611,7 @@ Set<WorldCapitals> s = {
   surinam,
   suva
 };
-Set<WorldCapitals> t = {
+Set<AllWorldCapitals> t = {
   tallin,
   tarava,
   tashkent,
@@ -623,11 +625,11 @@ Set<WorldCapitals> t = {
   tripoli,
   tunis
 };
-Set<WorldCapitals> u = {
+Set<AllWorldCapitals> u = {
   uagadugu,
   ulabbator,
 };
-Set<WorldCapitals> fhy = {
+Set<AllWorldCapitals> fhy = {
   funafuti,
   hanoy,
   harare,
@@ -638,329 +640,470 @@ Set<WorldCapitals> fhy = {
   yaren,
   yaunde
 };
-Set<WorldCapitals> e = {
+Set<AllWorldCapitals> e = {
   elkuveyt,
   erevan,
   erriad,
 };
+Set<Set<AllWorldCapitals>> capitals = {
+  a,
+  b,
+  v,
+  g,
+  d,
+  i,
+  k,
+  l,
+  m,
+  n,
+  o,
+  p,
+  r,
+  s,
+  t,
+  u,
+  fhy
+};
 
-List<Set> capitals = [a, b, v, g, d, i, k, l, m, n, o, p, r, s, t, u, fhy];
+List<AllWorldCapitals> aList = [
+  const AllWorldCapitals(name: "Абу-Даби", country: "ОАЭ", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Абуджа", country: "Нигерия", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Аддис-Абеба", country: "Эфиопия", continent: "Африка"),
+  const AllWorldCapitals(name: "Аккра", country: "Гана", continent: "Африка"),
+  const AllWorldCapitals(name: "Алжир", country: "Алжир", continent: "Африка"),
+  const AllWorldCapitals(name: "Амман", country: "Иордания", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Амстердам", country: "Нидерланды", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Андорра-ла-Велья", country: "Алжир", continent: "Африка"),
+  const AllWorldCapitals(name: "Анкаpа", country: "Турция", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Антананариву", country: "Мадагаскар", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Апиа", country: "Самоа", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Асмэра", country: "Эритрея", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Астана", country: "Казахстан", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Асунсьон", country: "Парагвай", continent: "Түштүк Америка"),
+  const AllWorldCapitals(name: "Афины", country: "Греция", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Ашхабад", country: "Туркмения", continent: "Азия"),
+];
 
-// List<WorldCapitals> a = [
-//   WorldCapitals(name: "Абу-Даби", country: "ОАЭ", continent: "Азия"),
-//   WorldCapitals(name: "Абуджа", country: "Нигерия", continent: "Африка"),
-//   WorldCapitals(name: "Аддис-Абеба", country: "Эфиопия", continent: "Африка"),
-//   WorldCapitals(name: "Аккра", country: "Гана", continent: "Африка"),
-//   WorldCapitals(name: "Алжир", country: "Алжир", continent: "Африка"),
-//   WorldCapitals(name: "Амман", country: "Иордания", continent: "Азия"),
-//   WorldCapitals(name: "Амстердам", country: "Нидерланды", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Андорра-ла-Велья", country: "Алжир", continent: "Африка"),
-//   WorldCapitals(name: "Анкаpа", country: "Турция", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Антананариву", country: "Мадагаскар", continent: "Африка"),
-//   WorldCapitals(name: "Апиа", country: "Самоа", continent: "Австралия"),
-//   WorldCapitals(name: "Асмэра", country: "Эритрея", continent: "Африка"),
-//   WorldCapitals(name: "Астана", country: "Казахстан", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Асунсьон", country: "Парагвай", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Афины", country: "Греция", continent: "Европа"),
-//   WorldCapitals(name: "Ашхабад", country: "Туркмения", continent: "Азия"),
-// ];
+List<AllWorldCapitals> bList = [
+  const AllWorldCapitals(name: "Багдад", country: "Ирак", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Баку", country: "Азербайджан", continent: "Азия"),
+  const AllWorldCapitals(name: "Бамако", country: "Мали", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Банги",
+      country: "Борбордукафрика Республикасы",
+      continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Бангкок", country: "Таиланд", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Бандар-Сери-Бегаван", country: "Бруней", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Банжул", country: "Гамбия", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Бастер",
+      country: "Сент-Кристофер жана Невис",
+      continent: "Түндүк Америка"),
+  const AllWorldCapitals(name: "Бейрут", country: "Ливан", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Белград", country: "Сербия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Бельмопан", country: "Белиз", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Берлин", country: "Германия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Берн", country: "Швейцария", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Бисау", country: "Гвинея-Бисау", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Бишкек", country: "Киргизия", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Богота", country: "Колумбия", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Браззавиль", country: "Конго", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Бразилиа", country: "Бразилия", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Братислава", country: "Словакия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Бриджтаун", country: "Барбадос", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Брюссель", country: "Бельгия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Будапешт", country: "Венгрия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Бужумбура", country: "Бурунди", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Бухарест", country: "Румыния", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Буэнос-Айрес", country: "Аргентина", continent: "Түштүк Америка"),
+];
 
-// List<WorldCapitals> b = [
-//   WorldCapitals(name: "Багдад", country: "Ирак", continent: "Азия"),
-//   WorldCapitals(name: "Баку", country: "Азербайджан", continent: "Азия"),
-//   WorldCapitals(name: "Бамако", country: "Мали", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Банги",
-//       country: "Борбордукафрика Республикасы",
-//       continent: "Африка"),
-//   WorldCapitals(name: "Бангкок", country: "Таиланд", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Бандар-Сери-Бегаван", country: "Бруней", continent: "Азия"),
-//   WorldCapitals(name: "Банжул", country: "Гамбия", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Бастер",
-//       country: "Сент-Кристофер жана Невис",
-//       continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Бейрут", country: "Ливан", continent: "Азия"),
-//   WorldCapitals(name: "Белград", country: "Сербия", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Бельмопан", country: "Белиз", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Берлин", country: "Германия", continent: "Европа"),
-//   WorldCapitals(name: "Берн", country: "Швейцария", continent: "Европа"),
-//   WorldCapitals(name: "Бисау", country: "Гвинея-Бисау", continent: "Африка"),
-//   WorldCapitals(name: "Бишкек", country: "Киргизия", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Богота", country: "Колумбия", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Браззавиль", country: "Конго", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Бразилиа", country: "Бразилия", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Братислава", country: "Словакия", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Бриджтаун", country: "Барбадос", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Брюссель", country: "Бельгия", continent: "Европа"),
-//   WorldCapitals(name: "Будапешт", country: "Венгрия", continent: "Европа"),
-//   WorldCapitals(name: "Бужумбура", country: "Бурунди", continent: "Африка"),
-//   WorldCapitals(name: "Бухарест", country: "Румыния", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Буэнос-Айрес", country: "Аргентина", continent: "Түштүк Америка"),
-// ];
+List<AllWorldCapitals> vList = [
+  const AllWorldCapitals(
+      name: "Вадуц", country: "Лихтенштейн", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Валетта", country: "Мальта", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Варшава", country: "Польша", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Ватикан", country: "Ватикан", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Вашингтон", country: "США", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Веллингтон", country: "Новая Зеландия", continent: "Австралия"),
+  const AllWorldCapitals(name: "Вена", country: "Австрия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Виктория", country: "Сейшельс аралдары", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Вила", country: "Вануату", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Вильнюс", country: "Литва", continent: "Европа"),
+  const AllWorldCapitals(name: "Вьентьян", country: "Лаос", continent: "Азия"),
+];
 
-// List<WorldCapitals> v = [
-//   WorldCapitals(name: "Вадуц", country: "Лихтенштейн", continent: "Европа"),
-//   WorldCapitals(name: "Валетта", country: "Мальта", continent: "Европа"),
-//   WorldCapitals(name: "Варшава", country: "Польша", continent: "Европа"),
-//   WorldCapitals(name: "Ватикан", country: "Ватикан", continent: "Европа"),
-//   WorldCapitals(name: "Вашингтон", country: "США", continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Веллингтон", country: "Новая Зеландия", continent: "Австралия"),
-//   WorldCapitals(name: "Вена", country: "Австрия", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Виктория", country: "Сейшельс аралдары", continent: "Африка"),
-//   WorldCapitals(name: "Вила", country: "Вануату", continent: "Австралия"),
-//   WorldCapitals(name: "Вильнюс", country: "Литва", continent: "Европа"),
-//   WorldCapitals(name: "Вьентьян", country: "Лаос", continent: "Азия"),
-// ];
+List<AllWorldCapitals> vgList = [
+  const AllWorldCapitals(
+      name: "Вадуц", country: "Лихтенштейн", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Валетта", country: "Мальта", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Варшава", country: "Польша", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Ватикан", country: "Ватикан", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Вашингтон", country: "США", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Веллингтон", country: "Новая Зеландия", continent: "Австралия"),
+  const AllWorldCapitals(name: "Вена", country: "Австрия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Виктория", country: "Сейшельс аралдары", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Вила", country: "Вануату", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Вильнюс", country: "Литва", continent: "Европа"),
+  const AllWorldCapitals(name: "Вьентьян", country: "Лаос", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Габороне", country: "Ботсвана", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Гавана", country: "Куба", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Гватемала", country: "Гватемала", continent: "Түндүк Америка"),
+];
 
-// List<WorldCapitals> vg = [
-//   WorldCapitals(name: "Вадуц", country: "Лихтенштейн", continent: "Европа"),
-//   WorldCapitals(name: "Валетта", country: "Мальта", continent: "Европа"),
-//   WorldCapitals(name: "Варшава", country: "Польша", continent: "Европа"),
-//   WorldCapitals(name: "Ватикан", country: "Ватикан", continent: "Европа"),
-//   WorldCapitals(name: "Вашингтон", country: "США", continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Веллингтон", country: "Новая Зеландия", continent: "Австралия"),
-//   WorldCapitals(name: "Вена", country: "Австрия", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Виктория", country: "Сейшельс аралдары", continent: "Африка"),
-//   WorldCapitals(name: "Вила", country: "Вануату", continent: "Австралия"),
-//   WorldCapitals(name: "Вильнюс", country: "Литва", continent: "Европа"),
-//   WorldCapitals(name: "Вьентьян", country: "Лаос", continent: "Азия"),
-//   WorldCapitals(name: "Габороне", country: "Ботсвана", continent: "Африка"),
-//   WorldCapitals(name: "Гавана", country: "Куба", continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Гватемала", country: "Гватемала", continent: "Түндүк Америка"),
-// ];
+List<AllWorldCapitals> dezList = [
+  const AllWorldCapitals(
+      name: "Дакар", country: "Сенегал", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Дакка", country: "Бангладеш", continent: "Азия"),
+  const AllWorldCapitals(name: "Дамаск", country: "Сирия", continent: "Азия"),
+  const AllWorldCapitals(name: "Дели", country: "Индия", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Джакарта", country: "Индонезия", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Джибути", country: "Джибути", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Джорджтаун", country: "Гайана", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Джуба", country: "Түштүк Судан", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Дили", country: "Восточный Тимор", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Додома", country: "Танзания", continent: "Африка"),
+  const AllWorldCapitals(name: "Доха", country: "Катар", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Дублин", country: "Ирландия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Душанбе", country: "Таджикистан", continent: "Азия"),
+  const AllWorldCapitals(name: "Ереван", country: "Армения", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Загреб", country: "Хорватия", continent: "Европа"),
+];
 
-// List<WorldCapitals> dez = [
-//   WorldCapitals(name: "Дакар", country: "Сенегал", continent: "Африка"),
-//   WorldCapitals(name: "Дакка", country: "Бангладеш", continent: "Азия"),
-//   WorldCapitals(name: "Дамаск", country: "Сирия", continent: "Азия"),
-//   WorldCapitals(name: "Дели", country: "Индия", continent: "Азия"),
-//   WorldCapitals(name: "Джакарта", country: "Индонезия", continent: "Азия"),
-//   WorldCapitals(name: "Джибути", country: "Джибути", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Джорджтаун", country: "Гайана", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Джуба", country: "Түштүк Судан", continent: "Африка"),
-//   WorldCapitals(name: "Дили", country: "Восточный Тимор", continent: "Азия"),
-//   WorldCapitals(name: "Додома", country: "Танзания", continent: "Африка"),
-//   WorldCapitals(name: "Доха", country: "Катар", continent: "Азия"),
-//   WorldCapitals(name: "Дублин", country: "Ирландия", continent: "Европа"),
-//   WorldCapitals(name: "Душанбе", country: "Таджикистан", continent: "Азия"),
-//   WorldCapitals(name: "Ереван", country: "Армения", continent: "Азия"),
-//   WorldCapitals(name: "Загреб", country: "Хорватия", continent: "Европа"),
-// ];
+List<AllWorldCapitals> iList = [
+  const AllWorldCapitals(
+      name: "Иерусалим", country: "Израиль", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Исламабад", country: "Пакистан", continent: "Азия"),
+];
 
-// List<WorldCapitals> i = [
-//   WorldCapitals(name: "Иерусалим", country: "Израиль", continent: "Азия"),
-//   WorldCapitals(name: "Исламабад", country: "Пакистан", continent: "Азия"),
-// ];
+List<AllWorldCapitals> kList = [
+  const AllWorldCapitals(
+      name: "Кабул", country: "Афганистан", continent: "Азия"),
+  const AllWorldCapitals(name: "Каир", country: "Египет", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Кампала", country: "Уганда", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Канберра", country: "Австралия", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Каракас", country: "Венесуэла", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Кастри", country: "Сент-Люсия", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Катманду", country: "Австралия", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Кигали", country: "Руанда", continent: "Африка"),
+  const AllWorldCapitals(name: "Киев", country: "Украина", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Кингстаун",
+      country: "Сент-Винсент и Гренадины",
+      continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Кингстон", country: "Ямайка", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Катманду", country: "Австралия", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Киншаса", country: "Конго (Дем. Република)", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Кишинев", country: "Молдавия", continent: "Европа"),
+  const AllWorldCapitals(name: "Каир", country: "Египет", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Коломбо", country: "Шри-Ланка", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Конакри", country: "Гвинея", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Копенгаген", country: "Дания", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Корор", country: "Палау", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Куала-Лумпур", country: "Малайзия", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Конакри", country: "Гвинея", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Копенгаген", country: "Дания", continent: "Европа"),
+];
 
-// List<WorldCapitals> k = [
-//   WorldCapitals(name: "Кабул", country: "Афганистан", continent: "Азия"),
-//   WorldCapitals(name: "Каир", country: "Египет", continent: "Африка"),
-//   WorldCapitals(name: "Кампала", country: "Уганда", continent: "Африка"),
-//   WorldCapitals(name: "Канберра", country: "Австралия", continent: "Австралия"),
-//   WorldCapitals(
-//       name: "Каракас", country: "Венесуэла", continent: "Түштүк Америка"),
-//   WorldCapitals(
-//       name: "Кастри", country: "Сент-Люсия", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Катманду", country: "Австралия", continent: "Австралия"),
-//   WorldCapitals(name: "Кигали", country: "Руанда", continent: "Африка"),
-//   WorldCapitals(name: "Киев", country: "Украина", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Кингстаун",
-//       country: "Сент-Винсент и Гренадины",
-//       continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Кингстон", country: "Ямайка", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Катманду", country: "Австралия", continent: "Австралия"),
-//   WorldCapitals(
-//       name: "Киншаса", country: "Конго (Дем. Република)", continent: "Африка"),
-//   WorldCapitals(name: "Кишинев", country: "Молдавия", continent: "Европа"),
-//   WorldCapitals(name: "Каир", country: "Египет", continent: "Африка"),
-//   WorldCapitals(name: "Коломбо", country: "Шри-Ланка", continent: "Азия"),
-//   WorldCapitals(name: "Конакри", country: "Гвинея", continent: "Африка"),
-//   WorldCapitals(name: "Копенгаген", country: "Дания", continent: "Европа"),
-//   WorldCapitals(name: "Корор", country: "Палау", continent: "Австралия"),
-//   WorldCapitals(name: "Куала-Лумпур", country: "Малайзия", continent: "Азия"),
-//   WorldCapitals(name: "Конакри", country: "Гвинея", continent: "Африка"),
-//   WorldCapitals(name: "Копенгаген", country: "Дания", continent: "Европа"),
-// ];
+List<AllWorldCapitals> lList = [
+  const AllWorldCapitals(
+      name: "Ла-Пас", country: "Боливия", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Либревиль", country: "Габон", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Лилонгве", country: "Малави", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Лима", country: "Перу", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Лиссабон", country: "Португалия", continent: "Европа"),
+  const AllWorldCapitals(name: "Ломе", country: "Того", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Лондон", country: "Великобритания", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Луанда", country: "Ангола", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Лусака", country: "Замбия", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Любляна", country: "Словения", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Люксембург", country: "Люксембург", continent: "Европа"),
+];
 
-// List<WorldCapitals> l = [
-//   WorldCapitals(
-//       name: "Ла-Пас", country: "Боливия", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Либревиль", country: "Габон", continent: "Африка"),
-//   WorldCapitals(name: "Лилонгве", country: "Малави", continent: "Африка"),
-//   WorldCapitals(name: "Лима", country: "Перу", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Лиссабон", country: "Португалия", continent: "Европа"),
-//   WorldCapitals(name: "Ломе", country: "Того", continent: "Африка"),
-//   WorldCapitals(name: "Лондон", country: "Великобритания", continent: "Европа"),
-//   WorldCapitals(name: "Луанда", country: "Ангола", continent: "Африка"),
-//   WorldCapitals(name: "Лусака", country: "Замбия", continent: "Африка"),
-//   WorldCapitals(name: "Любляна", country: "Словения", continent: "Европа"),
-//   WorldCapitals(name: "Люксембург", country: "Люксембург", continent: "Европа"),
-// ];
+List<AllWorldCapitals> mlList = [
+  const AllWorldCapitals(
+      name: "Маджуро", country: "Маршалловы острова", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Мадрид", country: "Испания", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Малабо", country: "Экваториал Гвинея", continent: "Африка"),
+  const AllWorldCapitals(name: "Мале", country: "Мальдивы", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Манагуа", country: "Никарагуа", continent: "Түндүк Америка"),
+  const AllWorldCapitals(name: "Манама", country: "Бахрейн", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Манила", country: "Филиппины", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Мапуту", country: "Мозамбик", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Масеру", country: "Лесото", continent: "Африка"),
+  const AllWorldCapitals(name: "Маскат", country: "Оман", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Мбабане", country: "Эсватини", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Мехико", country: "Мексика", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Минск", country: "Белоруссия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Могадишо", country: "Сомали", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Монако", country: "Монако", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Монровия", country: "Либерия", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Монтевидео", country: "Уругвай", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Морони", country: "Комор аралдары", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Москва", country: "Орусия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Луанда", country: "Ангола", continent: "Африка"),
+];
 
-// List<WorldCapitals> ml = [
-//   WorldCapitals(
-//       name: "Маджуро", country: "Маршалловы острова", continent: "Австралия"),
-//   WorldCapitals(name: "Мадрид", country: "Испания", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Малабо", country: "Экваториал Гвинея", continent: "Африка"),
-//   WorldCapitals(name: "Мале", country: "Мальдивы", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Манагуа", country: "Никарагуа", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Манама", country: "Бахрейн", continent: "Азия"),
-//   WorldCapitals(name: "Манила", country: "Филиппины", continent: "Азия"),
-//   WorldCapitals(name: "Мапуту", country: "Мозамбик", continent: "Африка"),
-//   WorldCapitals(name: "Масеру", country: "Лесото", continent: "Африка"),
-//   WorldCapitals(name: "Маскат", country: "Оман", continent: "Азия"),
-//   WorldCapitals(name: "Мбабане", country: "Эсватини", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Мехико", country: "Мексика", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Минск", country: "Белоруссия", continent: "Европа"),
-//   WorldCapitals(name: "Могадишо", country: "Сомали", continent: "Африка"),
-//   WorldCapitals(name: "Монако", country: "Монако", continent: "Европа"),
-//   WorldCapitals(name: "Монровия", country: "Либерия", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Монтевидео", country: "Уругвай", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Морони", country: "Комор аралдары", continent: "Африка"),
-//   WorldCapitals(name: "Москва", country: "Орусия", continent: "Европа"),
-//   WorldCapitals(name: "Луанда", country: "Ангола", continent: "Африка"),
-// ];
+List<AllWorldCapitals> nList = [
+  const AllWorldCapitals(
+      name: "Найроби", country: "Кения", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Нассау", country: "Багам аралдары", continent: "Түштүк Америка"),
+  const AllWorldCapitals(name: "Нджамена", country: "Чад", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Нейпьидо", country: "Мьянма", continent: "Азия"),
+  const AllWorldCapitals(name: "Ниамей", country: "Нигер", continent: "Африка"),
+  const AllWorldCapitals(name: "Никосия", country: "Кипр", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Нуакшот", country: "Мавритания", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Нукуалофа", country: "Тонга", continent: "Австралия"),
+];
 
-// List<WorldCapitals> n = [
-//   WorldCapitals(name: "Найроби", country: "Кения", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Нассау", country: "Багам аралдары", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Нджамена", country: "Чад", continent: "Африка"),
-//   WorldCapitals(name: "Нейпьидо", country: "Мьянма", continent: "Азия"),
-//   WorldCapitals(name: "Ниамей", country: "Нигер", continent: "Африка"),
-//   WorldCapitals(name: "Никосия", country: "Кипр", continent: "Азия"),
-//   WorldCapitals(name: "Нуакшот", country: "Мавритания", continent: "Африка"),
-//   WorldCapitals(name: "Нукуалофа", country: "Тонга", continent: "Австралия"),
-// ];
+List<AllWorldCapitals> oList = [
+  const AllWorldCapitals(
+      name: "Осло", country: "Норвегия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Оттава", country: "Канада", continent: "Түндүк Америка"),
+];
 
-// List<WorldCapitals> o = [
-//   WorldCapitals(name: "Осло", country: "Норвегия", continent: "Европа"),
-//   WorldCapitals(name: "Оттава", country: "Канада", continent: "Түндүк Америка"),
-// ];
+List<AllWorldCapitals> pList = [
+  const AllWorldCapitals(
+      name: "Паpамаpибо", country: "Суринам", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Паликир", country: "Микронезия", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Панама", country: "Панама", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Париж", country: "Франция", continent: "Европа"),
+  const AllWorldCapitals(name: "Пекин", country: "Китай", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Пномпень", country: "Камбоджа", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Подгорица", country: "Черногория", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Порт-Луи", country: "Маврикий", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Порт-Морсби",
+      country: "Папуа - Жаңы Гвинея",
+      continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Порт-о-Пренс", country: "Гаити", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Порт-оф-Спейн",
+      country: "Тринидад и Тобаго",
+      continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Порто-Ново", country: "Бенин", continent: "Африка"),
+  const AllWorldCapitals(name: "Прага", country: "Чехия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Прая", country: "Кабо-Верде", continent: "Африка"),
+  const AllWorldCapitals(name: "Претория", country: "ЮАР", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Пхеньян", country: "Түндүк Корея", continent: "Азия"),
+];
 
-// List<WorldCapitals> p = [
-//   WorldCapitals(
-//       name: "Паpамаpибо", country: "Суринам", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Паликир", country: "Микронезия", continent: "Австралия"),
-//   WorldCapitals(name: "Панама", country: "Панама", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Париж", country: "Франция", continent: "Европа"),
-//   WorldCapitals(name: "Пекин", country: "Китай", continent: "Азия"),
-//   WorldCapitals(name: "Пномпень", country: "Камбоджа", continent: "Азия"),
-//   WorldCapitals(name: "Подгорица", country: "Черногория", continent: "Европа"),
-//   WorldCapitals(name: "Порт-Луи", country: "Маврикий", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Порт-Морсби",
-//       country: "Папуа - Жаңы Гвинея",
-//       continent: "Австралия"),
-//   WorldCapitals(
-//       name: "Порт-о-Пренс", country: "Гаити", continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Порт-оф-Спейн",
-//       country: "Тринидад и Тобаго",
-//       continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Порто-Ново", country: "Бенин", continent: "Африка"),
-//   WorldCapitals(name: "Прага", country: "Чехия", continent: "Европа"),
-//   WorldCapitals(name: "Прая", country: "Кабо-Верде", continent: "Африка"),
-//   WorldCapitals(name: "Претория", country: "ЮАР", continent: "Африка"),
-//   WorldCapitals(name: "Пхеньян", country: "Түндүк Корея", continent: "Азия"),
-// ];
+List<AllWorldCapitals> rList = [
+  const AllWorldCapitals(
+      name: "Рабат", country: "Марокко", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Рамалла", country: "Палестина", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Рейкьявик", country: "Исландия", continent: "Европа"),
+  const AllWorldCapitals(name: "Рига", country: "Латвия", continent: "Европа"),
+  const AllWorldCapitals(name: "Рим", country: "Италия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Розо", country: "Доминика", continent: "Түндүк Америка"),
+];
 
-// List<WorldCapitals> r = [
-//   WorldCapitals(name: "Рабат", country: "Марокко", continent: "Африка"),
-//   WorldCapitals(name: "Рамалла", country: "Палестина", continent: "Азия"),
-//   WorldCapitals(name: "Рейкьявик", country: "Исландия", continent: "Европа"),
-//   WorldCapitals(name: "Рига", country: "Латвия", continent: "Европа"),
-//   WorldCapitals(name: "Рим", country: "Италия", continent: "Европа"),
-//   WorldCapitals(name: "Розо", country: "Доминика", continent: "Түндүк Америка"),
-// ];
+List<AllWorldCapitals> sList = [
+  const AllWorldCapitals(
+      name: "Сан-Марино", country: "Сан-Марино", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Сан-Сальвадор", country: "Сальвадор", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Сан-Томе", country: "Сан-Томе и Принсипи", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Сан-Хосе", country: "Коста-Рика", continent: "Түндүк Америка"),
+  const AllWorldCapitals(name: "Сана", country: "Йемен", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Санто-Доминго",
+      country: "Доминикан Республикасы",
+      continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Сантьяго", country: "Чили", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Сараево", country: "Босния жана Герцеговина", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Сент-Джонс",
+      country: "Антигуа жана Барбуда",
+      continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Сент-Джорджес", country: "Гренада", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Сантьяго", country: "Чили", continent: "Түштүк Америка"),
+  const AllWorldCapitals(
+      name: "Сеул", country: "Түштүк корея", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Сингапур", country: "Сингапур", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Скопье", country: "Түндүк Македония", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "София", country: "Болгария", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Стокгольм", country: "Швеция", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Сува", country: "Фиджи", continent: "Австралия"),
+];
 
-// List<WorldCapitals> s = [
-//   WorldCapitals(name: "Сан-Марино", country: "Сан-Марино", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Сан-Сальвадор", country: "Сальвадор", continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Сан-Томе", country: "Сан-Томе и Принсипи", continent: "Африка"),
-//   WorldCapitals(
-//       name: "Сан-Хосе", country: "Коста-Рика", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Сана", country: "Йемен", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Санто-Доминго",
-//       country: "Доминикан Республикасы",
-//       continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Сантьяго", country: "Чили", continent: "Түштүк Америка"),
-//   WorldCapitals(
-//       name: "Сараево", country: "Босния жана Герцеговина", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Сент-Джонс",
-//       country: "Антигуа жана Барбуда",
-//       continent: "Түндүк Америка"),
-//   WorldCapitals(
-//       name: "Сент-Джорджес", country: "Гренада", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Сантьяго", country: "Чили", continent: "Түштүк Америка"),
-//   WorldCapitals(name: "Сеул", country: "Түштүк корея", continent: "Азия"),
-//   WorldCapitals(name: "Сингапур", country: "Сингапур", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Скопье", country: "Түндүк Македония", continent: "Европа"),
-//   WorldCapitals(name: "София", country: "Болгария", continent: "Европа"),
-//   WorldCapitals(name: "Стокгольм", country: "Швеция", continent: "Европа"),
-//   WorldCapitals(name: "Сува", country: "Фиджи", continent: "Австралия"),
-// ];
+List<AllWorldCapitals> tList = [
+  const AllWorldCapitals(name: "Тайпей", country: "Тайвань", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Таллинн", country: "Эстония", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Тарава", country: "Кирибати", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Ташкент", country: "Узбекистан", continent: "Азия"),
+  const AllWorldCapitals(name: "Тбилиси", country: "Грузия", continent: "Азия"),
+  const AllWorldCapitals(name: "Тегеран", country: "Иран", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Тегусигальпа", country: "Гондурас", continent: "Түндүк Америка"),
+  const AllWorldCapitals(
+      name: "Тирана", country: "Албания", continent: "Европа"),
+  const AllWorldCapitals(name: "Токио", country: "Япония", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Триполи", country: "Триполи", continent: "Африка"),
+  const AllWorldCapitals(name: "Тунис", country: "Тунис", continent: "Африка"),
+  const AllWorldCapitals(name: "Тхимпху", country: "Бутан", continent: "Азия"),
+];
 
-// List<WorldCapitals> t = [
-//   WorldCapitals(name: "Тайпей", country: "Тайвань", continent: "Азия"),
-//   WorldCapitals(name: "Таллинн", country: "Эстония", continent: "Европа"),
-//   WorldCapitals(name: "Тарава", country: "Кирибати", continent: "Австралия"),
-//   WorldCapitals(name: "Ташкент", country: "Узбекистан", continent: "Азия"),
-//   WorldCapitals(name: "Тбилиси", country: "Грузия", continent: "Азия"),
-//   WorldCapitals(name: "Тегеран", country: "Иран", continent: "Азия"),
-//   WorldCapitals(
-//       name: "Тегусигальпа", country: "Гондурас", continent: "Түндүк Америка"),
-//   WorldCapitals(name: "Тирана", country: "Албания", continent: "Европа"),
-//   WorldCapitals(name: "Токио", country: "Япония", continent: "Азия"),
-//   WorldCapitals(name: "Триполи", country: "Триполи", continent: "Африка"),
-//   WorldCapitals(name: "Тунис", country: "Тунис", continent: "Африка"),
-//   WorldCapitals(name: "Тхимпху", country: "Бутан", continent: "Азия"),
-// ];
-
-// List<WorldCapitals> u = [
-//   WorldCapitals(name: "Уагадугу", country: "Буркина-Фасо", continent: "Африка"),
-//   WorldCapitals(name: "Улан-Батор", country: "Монголия", continent: "Азия"),
-// ];
-// List<WorldCapitals> fhey = [
-//   WorldCapitals(name: "Фунафути", country: "Тувалу", continent: "Австралия"),
-//   WorldCapitals(name: "Хаpтум", country: "Судан", continent: "Африка"),
-//   WorldCapitals(name: "Ханой", country: "Вьетнам", continent: "Азия"),
-//   WorldCapitals(name: "Хараре", country: "Зимбабве", continent: "Африка"),
-//   WorldCapitals(name: "Хельсинки", country: "Финляндия", continent: "Европа"),
-//   WorldCapitals(
-//       name: "Хониаpа", country: "Соломон аралдары", continent: "Австралия"),
-//   WorldCapitals(name: "Эль-Кувейт", country: "Кувейт", continent: "Азия"),
-//   WorldCapitals(name: "Эр-Рияд", country: "Сауд Аравиясы", continent: "Азия"),
-//   WorldCapitals(name: "Ямусукро", country: "Кот-д'Ивуар", continent: "Африка"),
-//   WorldCapitals(name: "Ярен", country: "Науру", continent: "Австралия"),
-//   WorldCapitals(name: "Яунде", country: "Камерун", continent: "Африка"),
-// ];
-
-// List worldCapitals = [a,b,v,vg,dez,i,k,l,ml,n,o,p,r,s,t,u,fhey];
+List<AllWorldCapitals> uList = [
+  const AllWorldCapitals(
+      name: "Уагадугу", country: "Буркина-Фасо", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Улан-Батор", country: "Монголия", continent: "Азия"),
+];
+List<AllWorldCapitals> fheyList = [
+  const AllWorldCapitals(
+      name: "Фунафути", country: "Тувалу", continent: "Австралия"),
+  const AllWorldCapitals(name: "Хаpтум", country: "Судан", continent: "Африка"),
+  const AllWorldCapitals(name: "Ханой", country: "Вьетнам", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Хараре", country: "Зимбабве", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Хельсинки", country: "Финляндия", continent: "Европа"),
+  const AllWorldCapitals(
+      name: "Хониаpа", country: "Соломон аралдары", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Эль-Кувейт", country: "Кувейт", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Эр-Рияд", country: "Сауд Аравиясы", continent: "Азия"),
+  const AllWorldCapitals(
+      name: "Ямусукро", country: "Кот-д'Ивуар", continent: "Африка"),
+  const AllWorldCapitals(
+      name: "Ярен", country: "Науру", continent: "Австралия"),
+  const AllWorldCapitals(
+      name: "Яунде", country: "Камерун", continent: "Африка"),
+];
