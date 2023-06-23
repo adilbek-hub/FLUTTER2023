@@ -47,28 +47,123 @@ class _WorldCapitalsState extends State<WorldCapitals> {
             ),
           ),
           const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  displayedCities(a);
-                },
-                child: Text('A'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  displayedCities(b);
-                },
-                child: Text('Б'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  displayedCities(v);
-                },
-                child: Text('В'),
-              ),
-            ],
+          SizedBox(
+            height: 50,
+            width: 50,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.all(8),
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(a);
+                  },
+                  child: Text('A'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(b);
+                  },
+                  child: Text('Б'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(v);
+                  },
+                  child: Text('В'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(g);
+                  },
+                  child: Text('Г'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(d);
+                  },
+                  child: Text('Д'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(i);
+                  },
+                  child: Text('И'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(k);
+                  },
+                  child: Text('К'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(l);
+                  },
+                  child: Text('Л'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(m);
+                  },
+                  child: Text('М'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(n);
+                  },
+                  child: Text('Н'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(o);
+                  },
+                  child: Text('О'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(p);
+                  },
+                  child: Text('П'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(r);
+                  },
+                  child: Text('Р'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(s);
+                  },
+                  child: Text('С'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(t);
+                  },
+                  child: Text('Т'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(u);
+                  },
+                  child: Text('У'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(fhy);
+                  },
+                  child: Text('ФХЯ'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    displayedCities(e);
+                  },
+                  child: Text('Е'),
+                ),
+              ],
+            ),
           ),
           Table(
             textDirection: TextDirection.rtl,
@@ -116,7 +211,7 @@ class _WorldCapitalsState extends State<WorldCapitals> {
               }).toList(),
             ],
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 240),
           SizedBox(
             height: 80,
             width: 300,
@@ -129,9 +224,10 @@ class _WorldCapitalsState extends State<WorldCapitals> {
                     'Урматтуу окуучу!! Тест сынагынан өтүңүз.',
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 2),
                   SizedBox(
-                    width: 100,
+                    height: 30,
+                    width: 200,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xff42d792),
