@@ -1,3 +1,4 @@
+import 'package:education/app/example.dart';
 import 'package:education/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: /*MyHomePage(),*/ const LandingPage(),
+      home: /*MyHomePage(),*/ /*const CityList()*/ const LandingPage(),
     );
   }
 }
