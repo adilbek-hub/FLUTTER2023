@@ -8,7 +8,7 @@ class AllWorldCapitals {
 
 //a
 const abudabi =
-    AllWorldCapitals(name: "Абу-Даби", country: "ОАЭ", continent: "Азия");
+    AllWorldCapitals(name: "Абу-Даби", country: "БАЭ", continent: "Азия");
 const abudja =
     AllWorldCapitals(name: "Абуджа", country: "Нигерия", continent: "Африка");
 const adisabebe = AllWorldCapitals(
@@ -22,7 +22,7 @@ const amman =
 const amsterdam = AllWorldCapitals(
     name: "Амстердам", country: "Нидерланды", continent: "Европа");
 const andorra = AllWorldCapitals(
-    name: "Андорра-ла-Велья", country: "Алжир", continent: "Африка");
+    name: "Андорра-ла-Велья", country: "Андорра", continent: "Африка");
 const ankara =
     AllWorldCapitals(name: "Анкаpа", country: "Турция", continent: "Азия");
 const antananarivu = AllWorldCapitals(
@@ -37,8 +37,8 @@ const asunson = AllWorldCapitals(
     name: "Асунсьон", country: "Парагвай", continent: "Түштүк Америка");
 const afiny =
     AllWorldCapitals(name: "Афины", country: "Греция", continent: "Европа");
-const ashhabat =
-    AllWorldCapitals(name: "Ашхабад", country: "Туркмения", continent: "Азия");
+const ashhabat = AllWorldCapitals(
+    name: "Ашхабад", country: "Туркменистан", continent: "Азия");
 //b
 const bagdad =
     AllWorldCapitals(name: "Багдад", country: "Ирак", continent: "Азия");
