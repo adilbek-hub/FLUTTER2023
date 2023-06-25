@@ -64,7 +64,7 @@ class _AfterLoadingState extends State<AfterLoading> {
                     SubjectsCard(
                         color: const Color(0xffe4c9f9),
                         text1: 'ГЕОГРАФИЯ',
-                        text2: '40 темалар',
+                        text2: '4 темалар',
                         image: 'assets/images/capitals/geography.png',
                         onTap: () {
                           Navigator.push(
@@ -145,9 +145,9 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     List<String> matchQuery = [];
-    for (var fruit in searchTerms) {
-      if (fruit.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(fruit);
+    for (var subject in searchTerms) {
+      if (subject.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(subject);
       }
     }
     return ListView.builder(
@@ -164,17 +164,43 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<String> matchQuery = [];
-    for (var fruit in searchTerms) {
-      if (fruit.toLowerCase().contains(query.toLowerCase())) {
-        matchQuery.add(fruit);
+    for (var subject in searchTerms) {
+      if (subject.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(subject);
       }
     }
     return ListView.builder(
         itemCount: matchQuery.length,
         itemBuilder: (context, index) {
           var result = matchQuery[index];
-          return ListTile(
-            title: Text(result),
+          return InkWell(
+            onTap: () {
+              if (result == searchTerms[1]) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Geography(),
+                  ),
+                );
+              } else if (result == searchTerms[2]) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const History(),
+                  ),
+                );
+              } else if (result == searchTerms[3]) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Biologgy(),
+                  ),
+                );
+              }
+            },
+            child: ListTile(
+              title: Text(result),
+            ),
           );
         });
   }
