@@ -1,5 +1,7 @@
 import 'package:education/model/usa_suroo.dart';
+import 'package:education/model/world_capitals_suroo.dart';
 import 'package:education/pages/usa_test_page.dart';
+import 'package:education/pages/world_capitals_test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:education/model/world_capitals.dart';
 
@@ -160,58 +162,63 @@ class _WorldCapitalsState extends State<WorldCapitals> {
                   onPressed: () {
                     displayedCities(e);
                   },
-                  child: Text('Е'),
+                  child: const Text('Е'),
                 ),
               ],
             ),
           ),
-          Table(
-            textDirection: TextDirection.rtl,
-            defaultVerticalAlignment: TableCellVerticalAlignment.top,
-            border: TableBorder.all(width: 0.2, color: Colors.black),
-            children: [
-              const TableRow(children: [
-                Text(
-                  "Континент",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  "Өлкө",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  "Борбор шаарлар",
-                  textScaleFactor: 1,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-              ...displayedCity.map((city) {
-                return TableRow(children: [
-                  Text(city.continent, textScaleFactor: 1),
-                  Text(city.country, textScaleFactor: 1),
-                  Text(city.name, textScaleFactor: 1),
-                ]);
-              }).toList(),
-            ],
+          Expanded(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Table(
+                textDirection: TextDirection.rtl,
+                defaultVerticalAlignment: TableCellVerticalAlignment.top,
+                border: TableBorder.all(width: 0.2, color: Colors.black),
+                children: [
+                  const TableRow(children: [
+                    Text(
+                      "Континент",
+                      textScaleFactor: 1,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "Өлкө",
+                      textScaleFactor: 1,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "Борбор шаарлар",
+                      textScaleFactor: 1,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ]),
+                  ...displayedCity.map((city) {
+                    return TableRow(children: [
+                      Text(city.continent, textScaleFactor: 1),
+                      Text(city.country, textScaleFactor: 1),
+                      Text(city.name, textScaleFactor: 1),
+                    ]);
+                  }).toList(),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(height: 240),
           SizedBox(
             height: 80,
             width: 300,
@@ -239,8 +246,9 @@ class _WorldCapitalsState extends State<WorldCapitals> {
                         Navigator.push<void>(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => UsaTestPage(
-                              usaSuroo: usaSuroo,
+                            builder: (BuildContext context) =>
+                                WorldCapitalsTestPage(
+                              worldCapitalsList: capitalsWorld,
                             ),
                           ),
                         );

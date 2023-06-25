@@ -20,7 +20,7 @@ const capitalsWorld1 = WorldCapitalsSuroo(
       Joop(text: 'Абу-Даби', isBool: true),
       Joop(text: 'Токио', isBool: false),
     ],
-    image: 'state');
+    image: 'баэ');
 const capitalsWorld2 = WorldCapitalsSuroo(
     text: 'Эфиопия борбор шаары',
     jooptor: [
@@ -29,7 +29,7 @@ const capitalsWorld2 = WorldCapitalsSuroo(
       Joop(text: 'Андорра-ла-Велья', isBool: false),
       Joop(text: 'Аддис-Абеба', isBool: true),
     ],
-    image: 'flag_usa');
+    image: 'эфиопия');
 
 const capitalsWorld3 = WorldCapitalsSuroo(
     text: 'Гана борбор шаары',
@@ -39,7 +39,7 @@ const capitalsWorld3 = WorldCapitalsSuroo(
       Joop(text: 'Аккра', isBool: true),
       Joop(text: 'Банги', isBool: false),
     ],
-    image: 'money_simbols');
+    image: 'гана');
 
 const capitalsWorld4 = WorldCapitalsSuroo(
     text: 'Алжир борбор шаары',
@@ -49,7 +49,7 @@ const capitalsWorld4 = WorldCapitalsSuroo(
       Joop(text: 'Алжир', isBool: true),
       Joop(text: 'Берн', isBool: false),
     ],
-    image: 'alaska_state');
+    image: 'алжир');
 
 const capitalsWorld5 = WorldCapitalsSuroo(
     text: 'Иордания борбор шаары',
@@ -59,7 +59,7 @@ const capitalsWorld5 = WorldCapitalsSuroo(
       Joop(text: 'Ереван', isBool: false),
       Joop(text: 'Иерусалим', isBool: false),
     ],
-    image: 'viermont');
+    image: 'иордания');
 
 const capitalsWorld6 = WorldCapitalsSuroo(
     text: 'Нидерландтар борбор шаары',
@@ -69,7 +69,7 @@ const capitalsWorld6 = WorldCapitalsSuroo(
       Joop(text: 'Богота', isBool: false),
       Joop(text: 'Амстердам', isBool: true),
     ],
-    image: 'boyse');
+    image: 'нидерланд');
 
 const capitalsWorld7 = WorldCapitalsSuroo(
     text: 'Андорра борбор шаары',
@@ -79,7 +79,7 @@ const capitalsWorld7 = WorldCapitalsSuroo(
       Joop(text: 'Андорра-ла-Велья', isBool: true),
       Joop(text: 'Бойс', isBool: false),
     ],
-    image: 'de_moyn');
+    image: 'андорра');
 
 const capitalsWorld8 = WorldCapitalsSuroo(
     text: 'Турция борбор шаары',
@@ -89,7 +89,7 @@ const capitalsWorld8 = WorldCapitalsSuroo(
       Joop(text: 'Вадуц', isBool: false),
       Joop(text: 'Каир', isBool: false),
     ],
-    image: 'alabama');
+    image: 'турция');
 
 const capitalsWorld9 = WorldCapitalsSuroo(
     text: 'Мадагаскар борбор шаары',
@@ -99,7 +99,7 @@ const capitalsWorld9 = WorldCapitalsSuroo(
       Joop(text: 'Багдад', isBool: false),
       Joop(text: 'Антананариву', isBool: true),
     ],
-    image: 'eefb8a268f18f7ae87899d4ad03f1fd1');
+    image: 'мадагаскар');
 
 const capitalsWorld10 = WorldCapitalsSuroo(
     text: 'Самоа борбор шаары',
@@ -109,7 +109,7 @@ const capitalsWorld10 = WorldCapitalsSuroo(
       Joop(text: 'Ашхабад', isBool: false),
       Joop(text: 'Жуно', isBool: false),
     ],
-    image: 'arizona');
+    image: 'самоа');
 
 const capitalsWorld11 = WorldCapitalsSuroo(
     text: 'Эритрея борбор шаары',
@@ -119,7 +119,7 @@ const capitalsWorld11 = WorldCapitalsSuroo(
       Joop(text: 'Тирана', isBool: false),
       Joop(text: 'Фунафути', isBool: false),
     ],
-    image: 'Doubletree-By-Hilton-Little-Rock-Hotel-Exterior');
+    image: 'эритрея');
 
 const capitalsWorld12 = WorldCapitalsSuroo(
     text: 'Казакстан борбор шаары',
@@ -129,7 +129,7 @@ const capitalsWorld12 = WorldCapitalsSuroo(
       Joop(text: 'Монтевидео', isBool: false),
       Joop(text: 'Нассау', isBool: false),
     ],
-    image: 'Top-Attractions-to-Experience-in-Charleston-SC-2');
+    image: 'казакстан');
 
 const capitalsWorld13 = WorldCapitalsSuroo(
     text: 'Парагвай борбор шаары',
@@ -139,7 +139,7 @@ const capitalsWorld13 = WorldCapitalsSuroo(
       Joop(text: 'Банжул', isBool: false),
       Joop(text: 'Варшава', isBool: false),
     ],
-    image: 'state');
+    image: 'парагвай');
 
 const capitalsWorld14 = WorldCapitalsSuroo(
     text: 'Греция борбор шаары',
@@ -149,7 +149,7 @@ const capitalsWorld14 = WorldCapitalsSuroo(
       Joop(text: 'Хельсинки', isBool: false),
       Joop(text: 'Ямусукро', isBool: false),
     ],
-    image: '1200px-White_House_Washington');
+    image: 'греция');
 
 const capitalsWorld15 = WorldCapitalsSuroo(
     text: 'Туркменистан борбор шаары',
@@ -159,7 +159,7 @@ const capitalsWorld15 = WorldCapitalsSuroo(
       Joop(text: 'Ашхабад', isBool: true),
       Joop(text: 'Пхеньян', isBool: false),
     ],
-    image: 'MainStMontpelier');
+    image: 'туркменистан');
 
 const capitalsWorld16 = WorldCapitalsSuroo(
     text: 'Ирак борбор шаары',
@@ -169,7 +169,7 @@ const capitalsWorld16 = WorldCapitalsSuroo(
       Joop(text: 'Гавана', isBool: false),
       Joop(text: 'Дакар', isBool: false),
     ],
-    image: 'richmond');
+    image: 'ирак');
 
 const capitalsWorld17 = WorldCapitalsSuroo(
     text: 'Азербайджан борбор шаары',
@@ -179,7 +179,7 @@ const capitalsWorld17 = WorldCapitalsSuroo(
       Joop(text: 'Сейлем', isBool: false),
       Joop(text: 'Баку', isBool: true),
     ],
-    image: 'madison');
+    image: 'азербайжан');
 
 const capitalsWorld18 = WorldCapitalsSuroo(
     text: 'Мали борбор шаары',
@@ -189,7 +189,7 @@ const capitalsWorld18 = WorldCapitalsSuroo(
       Joop(text: 'Дакка', isBool: false),
       Joop(text: 'Дили', isBool: false),
     ],
-    image: 'gonolulu');
+    image: 'мали');
 
 const capitalsWorld19 = WorldCapitalsSuroo(
     text: 'Борбордукафрика Республикасынын борбор шаары',
@@ -199,7 +199,7 @@ const capitalsWorld19 = WorldCapitalsSuroo(
       Joop(text: 'Банги', isBool: true),
       Joop(text: 'Франкфорт', isBool: false),
     ],
-    image: '190_Atlanta,_GA');
+    image: 'бар');
 
 const capitalsWorld20 = WorldCapitalsSuroo(
     text: 'Таиланд борбор шаары',
@@ -209,7 +209,7 @@ const capitalsWorld20 = WorldCapitalsSuroo(
       Joop(text: 'Бриджтаун', isBool: false),
       Joop(text: 'Вадуц', isBool: false),
     ],
-    image: '03');
+    image: 'таиланд');
 
 const capitalsWorld21 = WorldCapitalsSuroo(
     text: 'Бруней борбор шаары',
@@ -219,7 +219,7 @@ const capitalsWorld21 = WorldCapitalsSuroo(
       Joop(text: 'Виктория', isBool: false),
       Joop(text: 'Бишкек', isBool: false),
     ],
-    image: 'istoriya-chikago-cover');
+    image: 'бруней');
 
 const capitalsWorld22 = WorldCapitalsSuroo(
     text: 'Гамбия борбор шаары',
@@ -229,7 +229,7 @@ const capitalsWorld22 = WorldCapitalsSuroo(
       Joop(text: 'Белиз', isBool: false),
       Joop(text: 'Банжул', isBool: true),
     ],
-    image: 'constitution');
+    image: 'гамбия');
 
 const capitalsWorld23 = WorldCapitalsSuroo(
     text: 'Сент-Кристофер жана Невис борбору',
@@ -239,7 +239,7 @@ const capitalsWorld23 = WorldCapitalsSuroo(
       Joop(text: 'Бельмопан', isBool: false),
       Joop(text: 'Богота', isBool: false),
     ],
-    image: 'congress');
+    image: 'сентКристоНевис');
 
 const capitalsWorld24 = WorldCapitalsSuroo(
     text: 'Ливан борбор шаары',
@@ -249,7 +249,7 @@ const capitalsWorld24 = WorldCapitalsSuroo(
       Joop(text: 'Бейрут', isBool: true),
       Joop(text: 'Веллингтон', isBool: false),
     ],
-    image: 'state');
+    image: 'ливан');
 
 const capitalsWorld25 = WorldCapitalsSuroo(
     text: 'Сербия борбор шаары',
@@ -259,7 +259,7 @@ const capitalsWorld25 = WorldCapitalsSuroo(
       Joop(text: 'Загреб', isBool: false),
       Joop(text: 'Канберра', isBool: false),
     ],
-    image: 'mack_cinli');
+    image: 'сербия');
 
 const capitalsWorld26 = WorldCapitalsSuroo(
     text: 'Белиз борбор шаары',
@@ -269,8 +269,8 @@ const capitalsWorld26 = WorldCapitalsSuroo(
       Joop(text: 'Бельмопан', isBool: true),
       Joop(text: 'София', isBool: false),
     ],
-    image: '842_88963');
-List<WorldCapitalsSuroo> usaSuroo = [
+    image: 'белиз');
+List<WorldCapitalsSuroo> capitalsWorld = [
   capitalsWorld1,
   capitalsWorld2,
   capitalsWorld3,

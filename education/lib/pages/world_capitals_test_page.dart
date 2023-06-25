@@ -1,19 +1,25 @@
+import 'dart:math';
+
+import 'package:education/model/subjects.dart';
+import 'package:education/model/world_capitals_suroo.dart';
 import 'package:flutter/material.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:education/model/usa_suroo.dart';
 
-class UsaTestPage extends StatefulWidget {
-  const UsaTestPage({Key? key, required this.usaSuroo}) : super(key: key);
-  final List<UsaSuroo> usaSuroo;
+class WorldCapitalsTestPage extends StatefulWidget {
+  const WorldCapitalsTestPage({Key? key, required this.worldCapitalsList})
+      : super(key: key);
+  final List<WorldCapitalsSuroo> worldCapitalsList;
 
   @override
-  State<UsaTestPage> createState() => _UsaTestPageState();
+  State<WorldCapitalsTestPage> createState() => _WorldCapitalsTestPageState();
 }
 
-class _UsaTestPageState extends State<UsaTestPage> {
-  int indexUsaSurooJoop = 0;
+class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
+  int indexWorldCapitals = 0;
   int tuuraJooptor = 0;
   int kataJooptor = 0;
+  int aralash = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -82,13 +88,13 @@ class _UsaTestPageState extends State<UsaTestPage> {
             child: Slider(
               min: 0,
               max: 26,
-              value: indexUsaSurooJoop.toDouble(),
+              value: indexWorldCapitals.toDouble(),
               onChanged: (value) {},
             ),
           ),
           Center(
             child: Text(
-              widget.usaSuroo[indexUsaSurooJoop].text,
+              widget.worldCapitalsList[indexWorldCapitals].text,
               style: const TextStyle(fontSize: 20, height: 2),
               textAlign: TextAlign.center,
             ),
@@ -98,7 +104,7 @@ class _UsaTestPageState extends State<UsaTestPage> {
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Image.asset(
-                'assets/images/usa/${widget.usaSuroo[indexUsaSurooJoop].image}.jpeg',
+                'assets/images/world_capitals/${widget.worldCapitalsList[indexWorldCapitals].image}.jpg',
               ),
             ),
           ),
@@ -119,8 +125,11 @@ class _UsaTestPageState extends State<UsaTestPage> {
                   color: Colors.grey[400],
                   child: InkWell(
                     onTap: () {
-                      // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
-                      if (indexUsaSurooJoop + 1 == widget.usaSuroo.length) {
+                      // setState(() {
+                      //   indexWorldCapitals = Random().nextInt(26) + 1;
+                      // });
+                      if (indexWorldCapitals + 1 ==
+                          widget.worldCapitalsList.length) {
                         showDialog<String>(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
@@ -130,7 +139,7 @@ class _UsaTestPageState extends State<UsaTestPage> {
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () {
-                                  indexUsaSurooJoop = 0;
+                                  indexWorldCapitals = 0;
                                   kataJooptor = 0;
                                   tuuraJooptor = 0;
                                   setState(() {});
@@ -142,21 +151,21 @@ class _UsaTestPageState extends State<UsaTestPage> {
                           ),
                         );
                       } else {
-                        if (widget.usaSuroo[indexUsaSurooJoop].jooptor[index]
-                                .isBool ==
+                        if (widget.worldCapitalsList[indexWorldCapitals]
+                                .jooptor[index].isBool ==
                             true) {
                           tuuraJooptor++;
                         } else {
                           kataJooptor++;
                         }
                         setState(() {
-                          indexUsaSurooJoop++;
+                          indexWorldCapitals++; /*= Random().nextInt(aralash++) + 1;*/
                         });
                       }
                     },
                     child: Center(
-                      child:
-                          Text(usaSuroo[indexUsaSurooJoop].jooptor[index].text),
+                      child: Text(widget.worldCapitalsList[indexWorldCapitals]
+                          .jooptor[index].text),
                     ),
                   ),
                 );
