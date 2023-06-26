@@ -10,7 +10,7 @@ class Geography extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Image.asset('assets/images/capitals/geographyTeather.jpg'),
+          Image.asset('assets/images/capitals/map.jpg'),
           GestureDetector(
             onTap: () => Navigator.pop(context),
             child: Icon(Icons.adaptive.arrow_back),

@@ -1,9 +1,9 @@
 import 'package:education/components/test_page_appbar_title.dart';
 import 'package:education/components/test_slider.dart';
-import 'package:education/components/variants.dart';
+
 import 'package:education/components/variants_history.dart';
 import 'package:education/constants/app_color.dart';
-import 'package:education/model/europe_suroo.dart';
+
 import 'package:education/model/history_question.dart';
 import 'package:flutter/material.dart';
 

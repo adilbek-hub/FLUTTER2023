@@ -1,4 +1,3 @@
-import 'package:education/app/example.dart';
 import 'package:education/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 

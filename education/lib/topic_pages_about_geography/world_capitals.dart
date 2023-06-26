@@ -1,6 +1,4 @@
-import 'package:education/model/usa_suroo.dart';
 import 'package:education/model/world_capitals_suroo.dart';
-import 'package:education/pages/usa_test_page.dart';
 import 'package:education/pages/world_capitals_test_page.dart';
 import 'package:flutter/material.dart';
 import 'package:education/model/world_capitals.dart';
@@ -168,7 +166,6 @@ class _WorldCapitalsState extends State<WorldCapitals> {
             ),
           ),
           Expanded(
-            flex: 1,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Table(

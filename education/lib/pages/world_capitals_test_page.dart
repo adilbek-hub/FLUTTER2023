@@ -1,10 +1,6 @@
-import 'dart:math';
-
-import 'package:education/model/subjects.dart';
 import 'package:education/model/world_capitals_suroo.dart';
 import 'package:flutter/material.dart';
 import 'package:education/constants/app_color.dart';
-import 'package:education/model/usa_suroo.dart';
 
 class WorldCapitalsTestPage extends StatefulWidget {
   const WorldCapitalsTestPage({Key? key, required this.worldCapitalsList})

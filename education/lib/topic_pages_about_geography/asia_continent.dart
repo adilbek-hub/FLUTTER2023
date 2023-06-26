@@ -1,7 +1,7 @@
 import 'package:education/model/asia_suroo.dart';
-import 'package:education/model/europe_suroo.dart';
+
 import 'package:education/pages/asia_test_page.dart';
-import 'package:education/pages/europe_test_page.dart';
+
 import 'package:flutter/material.dart';
 
 class AsiaContinenti extends StatelessWidget {
@@ -12,7 +12,7 @@ class AsiaContinenti extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('AsiaContinenti'),
+        title: const Text('Азия Континенти'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -47,10 +47,8 @@ class AsiaContinenti extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             const SizedBox(height: 5),
-            Expanded(
-              child: Image.asset(
-                'assets/images/asia_continenti/azija.jpg',
-              ),
+            Image.asset(
+              'assets/images/asia_continenti/azija.jpg',
             ),
             const SizedBox(height: 5),
             const Text(

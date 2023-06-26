@@ -52,7 +52,7 @@ class _CityListState extends State<CityList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('City List'),
+        title: const Text('City List'),
       ),
       body: Column(
         children: [
@@ -69,23 +69,23 @@ class _CityListState extends State<CityList> {
                 onPressed: () {
                   displayCities(citiesB);
                 },
-                child: Text('B'),
+                child: const Text('B'),
               ),
               ElevatedButton(
                 onPressed: () {
                   displayCities(citiesC);
                 },
-                child: Text('C'),
+                child: const Text('C'),
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Table(
             textDirection: TextDirection.rtl,
             defaultVerticalAlignment: TableCellVerticalAlignment.top,
             border: TableBorder.all(width: 0.2, color: Colors.black),
             children: [
-              TableRow(children: [
+              const TableRow(children: [
                 Text(
                   "Континент",
                   textScaleFactor: 1,

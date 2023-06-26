@@ -1,10 +1,7 @@
 import 'package:education/model/subjects.dart';
-import 'package:education/topic_pages_about_geography/asia_continent.dart';
-import 'package:education/topic_pages_about_geography/europe_continent.dart';
 import 'package:education/topic_pages_about_geography/teeri_1.dart';
 import 'package:education/topic_pages_about_geography/teeri_2.dart';
 import 'package:education/topic_pages_about_geography/teeri_3.dart';
-import 'package:education/topic_pages_about_geography/usa.dart';
 import 'package:flutter/material.dart';
 
 class BiologyTopics extends StatelessWidget {

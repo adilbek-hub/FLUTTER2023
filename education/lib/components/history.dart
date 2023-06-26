@@ -1,4 +1,3 @@
-import 'package:education/components/geography_topics.dart';
 import 'package:education/components/history_topics.dart';
 
 import 'package:flutter/material.dart';
