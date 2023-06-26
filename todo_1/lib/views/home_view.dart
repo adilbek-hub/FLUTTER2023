@@ -1,5 +1,8 @@
+import 'dart:js_interop';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_1/model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -9,19 +12,15 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  Future<void> readTodos() async {
+  Stream<QuerySnapshot> readTodos() {
     final db = FirebaseFirestore.instance;
-    await db.collection("flutter").get().then((event) {
-      for (var doc in event.docs) {
-        print("${doc.id} => ${doc.data()}");
-      }
-    });
+    return db.collection('flutter').snapshots();
   }
 
   @override
   void initState() {
-    readTodos();
     super.initState();
+    readTodos();
   }
 
   @override
@@ -29,26 +28,49 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(''),
+        title: const Text(''),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      body: StreamBuilder(
+        stream: readTodos(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator.adaptive());
+          } else if (snapshot.hasError) {
+            return Text(snapshot.error.toString());
+          } else if (snapshot.hasData) {
+            final List<Todo> todos = snapshot.data!.docs
+                .map(
+                    (e) => Todo.fromFirestore(e.data() as Map<String, dynamic>))
+                .toList();
+            return ListView.builder(
+                itemCount: todos.length,
+                itemBuilder: (context, index) {
+                  final todo = todos[index];
+                  return Card(
+                    color: Colors.red,
+                    child: ListTile(
+                      leading: Text(todo.author),
+                      title: Text(todo.title),
+                      trailing: Checkbox(
+                        value: todo.isComplated,
+                        onChanged: (v) {},
+                      ),
+                      subtitle: Text(
+                        todo.description ?? '',
+                      ),
+                    ),
+                  );
+                });
+          } else {
+            return const Text('Some error');
+          }
+        },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).pushNamed('/todo_view'),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/todo_view');
+        },
+        label: const Text('TodoPage'),
       ),
     );
   }

@@ -29,6 +29,13 @@
             {
               "client_id": "913467711681-kermujrh10ojuad0j8o1o8qdv7mobcqg.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "913467711681-g96a5abg9kf3pjmamq5o4uc16kflipee.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.todo1"
+              }
             }
           ]
         }

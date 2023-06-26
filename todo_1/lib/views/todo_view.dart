@@ -97,9 +97,9 @@ class _TodoViewState extends State<TodoView> {
                                   child: CupertinoActivityIndicator()),
                             );
                           });
-                      // await addTodo();
+                      await addTodo();
                       // ignore: use_build_context_synchronously
-                      // Navigator.popUntil(context, (route) => route.isFirst);
+                      Navigator.popUntil(context, (route) => route.isFirst);
                     }
                   },
                   icon: const Icon(Icons.publish),

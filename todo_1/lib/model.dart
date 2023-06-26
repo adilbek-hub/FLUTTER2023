@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Todo {
-  Todo({
+  const Todo({
     required this.title,
     this.description,
     required this.isComplated,
@@ -21,16 +23,17 @@ class Todo {
     };
   }
 
-  factory Todo.fromMap(Map<String, dynamic> map) {
+  factory Todo.fromFirestore(Map<String, dynamic> data) {
     return Todo(
-      title: map['title'] ?? '',
-      description: map['description'],
-      isComplated: map['isComplated'] ?? false,
-      author: map['author'] ?? '',
+      title: data['title'] ?? '',
+      description: data['description'],
+      isComplated: data['isComplated'] ?? false,
+      author: data['author'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Todo.fromJson(String source) => Todo.fromMap(json.decode(source));
+  factory Todo.fromJson(String source) =>
+      Todo.fromFirestore(json.decode(source));
 }
