@@ -17,6 +17,20 @@ class _HomeViewState extends State<HomeView> {
     return db.collection('flutter').snapshots();
   }
 
+  Future<void> updateTodo(Todo todo) async {
+    final db = FirebaseFirestore.instance;
+    await db.collection('flutter').doc(todo.id).update(
+      {
+        'isComplated': !todo.isComplated,
+      },
+    );
+  }
+
+  Future<void> deleteTodo(Todo todo) async {
+    final db = FirebaseFirestore.instance;
+    await db.collection('flutter').doc(todo.id).delete();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -40,7 +54,9 @@ class _HomeViewState extends State<HomeView> {
           } else if (snapshot.hasData) {
             final List<Todo> todos = snapshot.data!.docs
                 .map(
-                    (e) => Todo.fromFirestore(e.data() as Map<String, dynamic>))
+                  (e) => Todo.fromFirestore(e.data() as Map<String, dynamic>)
+                    ..id = e.id,
+                )
                 .toList();
             return ListView.builder(
                 itemCount: todos.length,
@@ -50,10 +66,25 @@ class _HomeViewState extends State<HomeView> {
                     color: Colors.red,
                     child: ListTile(
                       leading: Text(todo.author),
-                      title: Text(todo.title),
-                      trailing: Checkbox(
-                        value: todo.isComplated,
-                        onChanged: (v) {},
+                      title: Text(
+                        todo.title,
+                      ),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Checkbox(
+                            value: todo.isComplated,
+                            onChanged: (v) async {
+                              await updateTodo(todo);
+                            },
+                          ),
+                          IconButton(
+                            onPressed: () async {
+                              await deleteTodo(todo);
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
+                        ],
                       ),
                       subtitle: Text(
                         todo.description ?? '',

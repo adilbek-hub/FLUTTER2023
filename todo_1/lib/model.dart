@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class Todo {
-  const Todo({
+  Todo({
     required this.title,
     this.description,
     required this.isComplated,
     required this.author,
+    this.id,
   });
+  String? id;
   final String title;
   final String? description;
   final bool isComplated;
