@@ -2,8 +2,8 @@ import 'package:education/model/europe_suroo.dart';
 import 'package:education/pages/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
-class KishiJanaJanybar extends StatelessWidget {
-  const KishiJanaJanybar({super.key});
+class NervSistemasy extends StatelessWidget {
+  const NervSistemasy({super.key});
 
   @override
   Widget build(BuildContext context) {

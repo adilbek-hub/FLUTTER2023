@@ -61,7 +61,6 @@ List<Subjects> subjecstList = [
 ];
 
 ///Биология үчүн объекттер
-
 const manAndanimal = Subjects(
   title: 'Кишинин сүт эмүүчү жаныбарлар менен окшоштугу жана айырмачылыгы',
   description:
