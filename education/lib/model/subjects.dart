@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 import 'package:education/constants/app_text.dart';
 
 class Subjects {
@@ -182,4 +184,113 @@ List<Subjects> subjectsInformaticaList = [
   personalComputer,
   computerTarmaktary,
   spk,
+];
+
+// Информатикадагы компьютердин тетиктери үчүн класс
+class ComputerStructur {
+  ComputerStructur({
+    required this.name,
+    required this.image,
+    required this.text,
+    this.text2,
+  });
+  final String name;
+
+  final String text;
+  final String image;
+  final String? text2;
+}
+
+ComputerStructur negizgiPlata = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Негизги плата',
+    image: 'nagizgi-plata',
+    text: 'Толук маалымат');
+
+ComputerStructur prossesor = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Процессор',
+    image: 'processor',
+    text: 'Толук маалымат');
+
+ComputerStructur videoKarta = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Негизги плата',
+    image: 'video-karta',
+    text: 'Толук маалымат');
+
+ComputerStructur operativka = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Оперативдүү эс',
+    image: 'operativdik-es',
+    text: 'Толук маалымат');
+
+ComputerStructur hhdSsdDisk = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Оперативдүү эс',
+    image: 'hdd-ssd',
+    text: 'Толук маалымат');
+
+ComputerStructur diskovod = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Дисковод',
+    image: 'cd-dvd-rom',
+    text: 'Толук маалымат');
+
+ComputerStructur soundCard = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Үн картасы',
+    image: 'sound-card',
+    text: 'Толук маалымат');
+
+ComputerStructur powerSupplies = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Компютердин кубат алуучу блогу',
+    image: 'power-supplies',
+    text: 'Толук маалымат');
+
+ComputerStructur computerCase = ComputerStructur(
+    text2: 'Системдик блок',
+    name: 'Компютердин кейс',
+    image: 'computer-case',
+    text: 'Толук маалымат');
+
+ComputerStructur manitor = ComputerStructur(
+    text2: 'Перифериялык түзүлүштөр',
+    name: 'Монитор',
+    image: 'monitor',
+    text: 'Толук маалымат');
+
+ComputerStructur keyBoard = ComputerStructur(
+    text2: 'Перифериялык түзүлүштөр',
+    name: 'Клавиатура',
+    image: 'keyboard',
+    text: 'Толук маалымат');
+
+ComputerStructur pcMouse = ComputerStructur(
+    text2: 'Перифериялык түзүлүштөр',
+    name: 'Компьютердик чычкан',
+    image: 'pc-mouse',
+    text: 'Толук маалымат');
+
+ComputerStructur colonka = ComputerStructur(
+    text2: 'Перифериялык түзүлүштөр',
+    name: 'Компьютердик үн чыгаргыч',
+    image: 'pc-speakers',
+    text: 'Толук маалымат');
+
+List<ComputerStructur> computerStructurList = [
+  negizgiPlata,
+  prossesor,
+  videoKarta,
+  operativka,
+  hhdSsdDisk,
+  diskovod,
+  soundCard,
+  powerSupplies,
+  computerCase,
+  manitor,
+  keyBoard,
+  pcMouse,
+  colonka,
 ];

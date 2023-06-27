@@ -25,7 +25,9 @@ class InformaticaTopics extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ComputerFunksialary(),
+                      builder: (context) => ComputerFunksialary(
+                        computerStructur: computerStructurList,
+                      ),
                     ),
                   );
                 } else if (subjectsI == personalComputer) {
