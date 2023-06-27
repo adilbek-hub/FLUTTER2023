@@ -2,8 +2,8 @@ import 'package:education/model/history_question.dart';
 import 'package:education/pages/history_test_page.dart';
 import 'package:flutter/material.dart';
 
-class TemaH1 extends StatelessWidget {
-  const TemaH1({super.key});
+class Rim extends StatelessWidget {
+  const Rim({super.key});
 
   @override
   Widget build(BuildContext context) {

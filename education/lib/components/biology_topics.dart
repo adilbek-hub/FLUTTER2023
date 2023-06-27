@@ -1,5 +1,5 @@
 import 'package:education/model/subjects.dart';
-import 'package:education/topic_pages_about_geography/teeri_1.dart';
+import 'package:education/topic_pages_about_geography/kishsi_jana_janybar.dart';
 import 'package:education/topic_pages_about_geography/teeri_2.dart';
 import 'package:education/topic_pages_about_geography/teeri_3.dart';
 import 'package:flutter/material.dart';
@@ -10,28 +10,35 @@ class BiologyTopics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: subjectsBiology.length,
+        itemCount: subjectsBiologyList.length,
         itemBuilder: (BuildContext context, int index) {
-          SubjectsHistory subjectsB = subjectsBiology[index];
+          Subjects subjectsB = subjectsBiologyList[index];
           return Padding(
             padding: const EdgeInsets.all(10),
             child: InkWell(
               onTap: () {
-                if (subjectsB == teeriler1) {
+                if (subjectsB == manAndanimal) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Teeri1(),
+                      builder: (context) => const KishiJanaJanybar(),
                     ),
                   );
-                } else if (subjectsB == teeriler2) {
+                } else if (subjectsB == kletka) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const Teeri2(),
                     ),
                   );
-                } else if (subjectsB == teeriler3) {
+                } else if (subjectsB == nervSistemasy) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Teeri3(),
+                    ),
+                  );
+                } else if (subjectsB == mee) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -51,15 +58,16 @@ class BiologyTopics extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(left: 8, top: 5, right: 8),
                   child: Column(
                     children: [
                       Text(
                         subjectsB.title,
                         style: const TextStyle(
                             color: Colors.black, fontWeight: FontWeight.w300),
+                        textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
                           Expanded(

@@ -29,7 +29,7 @@ class SubjectsCard extends StatelessWidget {
               Text(
                 text1,
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   fontWeight: FontWeight.bold,
                 ),
               ),

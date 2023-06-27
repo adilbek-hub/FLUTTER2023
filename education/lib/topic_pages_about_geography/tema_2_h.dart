@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TemaH2 extends StatelessWidget {
-  const TemaH2({super.key});
+class Germandyktar extends StatelessWidget {
+  const Germandyktar({super.key});
 
   @override
   Widget build(BuildContext context) {

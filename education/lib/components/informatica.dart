@@ -1,9 +1,8 @@
-import 'package:education/components/history_topics.dart';
-
+import 'package:education/components/informatica_topics.dart';
 import 'package:flutter/material.dart';
 
-class History extends StatelessWidget {
-  const History({super.key});
+class Informatica extends StatelessWidget {
+  const Informatica({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class History extends StatelessWidget {
             onTap: () => Navigator.pop(context),
             child: Icon(Icons.adaptive.arrow_back),
           ),
-          const Expanded(child: HistoryTopics()),
+          const Expanded(child: InformaticaTopics()),
         ],
       ),
     );

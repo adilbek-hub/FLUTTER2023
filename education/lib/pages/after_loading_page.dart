@@ -1,5 +1,7 @@
 import 'package:education/components/biologgy.dart';
 import 'package:education/components/history.dart';
+import 'package:education/components/informatica.dart';
+import 'package:education/components/informatica_topics.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';
 
@@ -54,11 +56,17 @@ class _AfterLoadingState extends State<AfterLoading> {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   children: [
-                    const SubjectsCard(
-                      color: Color(0xffFAADAD),
-                      text1: 'МАТЕМАТИКА',
-                      image: 'assets/images/capitals/mathimatic.png',
+                    SubjectsCard(
+                      color: const Color(0xffFAADAD),
+                      text1: 'ИНФОРМАТИКА',
+                      image: 'assets/images/capitals/informatica.png',
                       text2: 'ТЕМАЛАР 40',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Informatica(),
+                        ),
+                      ),
                     ),
                     SubjectsCard(
                         color: const Color(0xffe4c9f9),

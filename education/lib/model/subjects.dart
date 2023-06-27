@@ -17,6 +17,7 @@ class Subjects {
   final Color bgColor;
 }
 
+//География үчүн объекттер
 const borborShaarlar = Subjects(
   title: 'Европа өлкөлөрүнүн борбор шаарлары',
   description:
@@ -59,100 +60,127 @@ List<Subjects> subjecstList = [
   worldCapitals,
 ];
 
-///Биология үчүн класс
-class SubjectsBiology {
-  SubjectsBiology(
-      {required this.bgColor,
-      required this.title,
-      required this.description,
-      this.subject,
-      required this.image});
+///Биология үчүн объекттер
 
-  final String title;
-  final String description;
-  final String? subject;
-  final String image;
-  final Color bgColor;
-}
-
-final teeriler1 = SubjectsHistory(
-  title: 'Сиз теерилер1 тууралуу кызыктуу темалар менен тааныша аласыз',
+const manAndanimal = Subjects(
+  title: 'Кишинин сүт эмүүчү жаныбарлар менен окшоштугу жана айырмачылыгы',
   description:
-      'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+      '<Биологияда адам менен жарыбардын окшоштуктары жана айырмачылыктары тууралуу кыскача билип алыңыз',
   image: 'assets/images/capitals/globe.png',
   bgColor: const Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
-final teeriler2 = SubjectsHistory(
-  title: 'Сиз теерилер2 тууралуу кызыктуу темалар менен тааныша аласыз',
+const kletka = Subjects(
+  title: 'Клетка жөнүндө түшүнүк',
   description:
-      'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+      'Кымбаттуу окуучу, клетка деген эмне? ушул тууралуу маалымат алыңыз.',
   image: 'assets/images/capitals/globe.png',
   bgColor: const Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
-final teeriler3 = SubjectsHistory(
-  title: 'Сиз теерилер3 тууралуу кызыктуу темалар менен тааныша аласыз',
-  description:
-      'Кымбаттуу окуучу, биз терилердин кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+const nervSistemasy = Subjects(
+  title: 'Нерв системасынын түзүлүшү жана анын кызматы',
+  description: 'Кымбаттуу окуучу, нерв системалары жөнүндө окуп билип алыңыз.',
   image: 'assets/images/capitals/globe.png',
   bgColor: const Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
-List<SubjectsHistory> subjectsBiology = [
-  teeriler1,
-  teeriler2,
-  teeriler3,
+const mee = Subjects(
+  title: 'Мээ',
+  description: 'Кымбаттуу окуучу, мээ тууралуу маалымат алыңыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+List<Subjects> subjectsBiologyList = [
+  manAndanimal,
+  kletka,
+  nervSistemasy,
+  mee,
 ];
 
-//////Тарых үчүн класс
-class SubjectsHistory {
-  SubjectsHistory(
-      {required this.bgColor,
-      required this.title,
-      required this.description,
-      this.subject,
-      required this.image});
-
-  final String title;
-  final String description;
-  final String? subject;
-  final String image;
-  final Color bgColor;
-}
-
-final tema1 = SubjectsHistory(
-  title: 'tema1де сиз тарых тууралуу билесиз',
-  description:
-      'Кымбаттуу окуучу, биз тарыхтын кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+//////Тарых үчүн objects
+const roma = Subjects(
+  title: 'Рим империясы',
+  description: 'Тарыхта Рим империясы жөнүндө таанышыңыз.',
   image: 'assets/images/capitals/globe.png',
   bgColor: const Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
-final tema2 = SubjectsHistory(
-  title: 'Сиз tema2 тууралуу кызыктуу темалар менен тааныша аласыз',
-  description:
-      'Кымбаттуу окуучу, биз тарыхтын кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+const germandyktar = Subjects(
+  title: 'Байыркы Германдыктар',
+  description: 'Кымбаттуу окуучу, байыркы германдыктар тууралуу окуп билиңиз.',
   image: 'assets/images/capitals/globe.png',
   bgColor: const Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
-final tema3 = SubjectsHistory(
-  title: 'Сиз tema3 тууралуу кызыктуу темалар менен тааныша аласыз',
+const italia = Subjects(
+  title: 'Италия 5 10 кылымдарда',
   description:
-      'Кымбаттуу окуучу, биз тарыхтын кандай өзгөчөлүктөрү бар экендиги тууралуу сизге тааныштырабыз.',
+      'Кымбаттуу окуучу, биз байыркы Италиянын өзгөчөлүктөрү тууралуу сизге тааныштырабыз.',
   image: 'assets/images/capitals/globe.png',
   bgColor: const Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
-List<SubjectsHistory> subjectsHistory = [
-  tema1,
-  tema2,
-  tema3,
+const nemisKoroldugu = Subjects(
+  title: 'Немис королдугунун жаралышы',
+  description: 'Немис королдугунун жаралышы тууралуу билип алыңыз',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+List<Subjects> subjectsHistoryList = [
+  roma,
+  germandyktar,
+  italia,
+  nemisKoroldugu,
+];
+
+//////Информатика үчүн objects
+const computer = Subjects(
+  title: 'Компьютердин негизги бөлүктөрү жана алардын функциялары',
+  description:
+      'Кымбаттуу окуучу, сиз компьютер деген эмне жана анын функцияларын окуп үйрөнүңүз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+const personalComputer = Subjects(
+  title: 'Персонал компьютер',
+  description: 'Кымбаттуу окуучу, Персонал компьютер тууралуу окуп билиңиз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+const computerTarmaktary = Subjects(
+  title: 'Компьютердик тармактар',
+  description: 'Кымбаттуу окуучу, компьютердин тармактары менен таанышыңыз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+const spk = Subjects(
+  title: 'Системалык программалык камсыздоо',
+  description: 'Системалык программалык камсыздоо тууралуу окуңуз.',
+  image: 'assets/images/capitals/globe.png',
+  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  subject: AppText.capitals,
+);
+
+List<Subjects> subjectsInformaticaList = [
+  computer,
+  personalComputer,
+  computerTarmaktary,
+  spk,
 ];

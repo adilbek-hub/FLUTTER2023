@@ -54,7 +54,7 @@ class _HistoryTestPageState extends State<HistoryTestPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/capitals/${widget.historySuroo[index].images}.jpeg'),
+                    'assets/images/history/${widget.historySuroo[index].images}.jpg'),
               ),
             ),
             VariantsHistory(
