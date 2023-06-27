@@ -1,7 +1,8 @@
 import 'package:education/model/subjects.dart';
-import 'package:education/topic_pages_about_geography/kishsi_jana_janybar.dart';
-import 'package:education/topic_pages_about_geography/kletka.dart';
-import 'package:education/topic_pages_about_geography/nerv_sistemasy.dart';
+import 'package:education/pages/topic_pages_about_biology/kishsi_jana_janybar.dart';
+import 'package:education/pages/topic_pages_about_biology/kletka.dart';
+import 'package:education/pages/topic_pages_about_biology/mee.dart';
+import 'package:education/pages/topic_pages_about_biology/nerv_sistemasy.dart';
 import 'package:flutter/material.dart';
 
 class BiologyTopics extends StatelessWidget {
@@ -35,14 +36,14 @@ class BiologyTopics extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Teeri3(),
+                      builder: (context) => const NervSistemasy(),
                     ),
                   );
                 } else if (subjectsB == mee) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Teeri3(),
+                      builder: (context) => const Mee(),
                     ),
                   );
                 }

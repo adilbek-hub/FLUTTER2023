@@ -1,8 +1,10 @@
 import 'package:education/model/subjects.dart';
 
-import 'package:education/topic_pages_about_geography/tema_1_h.dart';
-import 'package:education/topic_pages_about_geography/tema_2_h.dart';
-import 'package:education/topic_pages_about_geography/tema_3_h.dart';
+import 'package:education/pages/topic_pages_about_history/rim.dart';
+
+import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
+import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
+import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
 
 import 'package:flutter/material.dart';
 
@@ -23,7 +25,7 @@ class InformaticaTopics extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Rim(),
+                      builder: (context) => const ComputerFunksialary(),
                     ),
                   );
                 } else if (subjectsI == personalComputer) {
