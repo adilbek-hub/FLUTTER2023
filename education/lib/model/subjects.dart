@@ -151,7 +151,7 @@ const computer = Subjects(
   description:
       'Кымбаттуу окуучу, сиз компьютер деген эмне жана анын функцияларын окуп үйрөнүңүз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Colors.blue,
   subject: AppText.capitals,
 );
 
@@ -159,7 +159,7 @@ const personalComputer = Subjects(
   title: 'Персонал компьютер',
   description: 'Кымбаттуу окуучу, Персонал компьютер тууралуу окуп билиңиз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Colors.white,
   subject: AppText.capitals,
 );
 
@@ -167,7 +167,7 @@ const computerTarmaktary = Subjects(
   title: 'Компьютердик тармактар',
   description: 'Кымбаттуу окуучу, компьютердин тармактары менен таанышыңыз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Colors.orange,
   subject: AppText.capitals,
 );
 
@@ -175,7 +175,7 @@ const spk = Subjects(
   title: 'Системалык программалык камсыздоо',
   description: 'Системалык программалык камсыздоо тууралуу окуңуз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Colors.green,
   subject: AppText.capitals,
 );
 

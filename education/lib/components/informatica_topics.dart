@@ -57,29 +57,66 @@ class InformaticaTopics extends StatelessWidget {
                 height: 150,
                 width: double.infinity,
                 decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0xFF101012),
+                      offset: Offset(-12, 12),
+                      blurRadius: 8,
+                    ),
+                  ],
                   color: subjectsI.bgColor,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       FittedBox(
+                          child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.blue.withOpacity(0.4),
+                              blurRadius: 4,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                          gradient: const LinearGradient(
+                            colors: [Colors.purple, Colors.blue],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
                         child: Text(
                           subjectsI.title,
                           style: const TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w300),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
+                      )),
                       const SizedBox(height: 10),
                       Row(
                         children: [
                           Expanded(
                             child: Text(
                               subjectsI.description,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic,
+                                letterSpacing: 1.5,
+                                shadows: [
+                                  Shadow(
+                                    color: Color.fromARGB(255, 255, 68, 0),
+                                    blurRadius: 30,
+                                    offset: Offset(1, 1),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           Image.asset(
