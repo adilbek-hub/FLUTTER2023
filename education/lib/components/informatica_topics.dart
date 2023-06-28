@@ -5,6 +5,9 @@ import 'package:education/pages/topic_pages_about_history/rim.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
 import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
+import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
+import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
+import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 
 import 'package:flutter/material.dart';
 
@@ -34,21 +37,22 @@ class InformaticaTopics extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Germandyktar(),
+                      builder: (context) => const PersonalComputer(),
                     ),
                   );
                 } else if (subjectsI == computerTarmaktary) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Italia(),
+                      builder: (context) => const ComputerdicTarmaktar(),
                     ),
                   );
                 } else if (subjectsI == spk) {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Italia(),
+                      builder: (context) =>
+                          const SistemalykProgrammalykKamsyzdoo(),
                     ),
                   );
                 }
