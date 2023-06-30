@@ -1,5 +1,7 @@
 import 'package:education/model/europe_suroo.dart';
+import 'package:education/model/history_question.dart';
 import 'package:education/pages/europe_test_page.dart';
+import 'package:education/pages/history_test/rim_imperiasy_test_page.dart';
 import 'package:flutter/material.dart';
 
 class Rim extends StatelessWidget {
@@ -106,7 +108,9 @@ class Rim extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      EuropeTestPage(suroo: europeQuestion),
+                                      RimImperiasyTestPage(
+                                    pimImperiasy: pimImperiasy,
+                                  ),
                                 ),
                               );
                             },

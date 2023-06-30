@@ -89,7 +89,7 @@ class _BayrkyGermandyktarTestPageState
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 10,
                 value: indexbairkyGermandyktar.toDouble(),
                 onChanged: (value) {},
               ),
@@ -106,7 +106,7 @@ class _BayrkyGermandyktarTestPageState
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computer_structures/${widget.bairkyGermandyktar[indexbairkyGermandyktar].images}.jpg'),
+                    'assets/images/history/bayrky_germandyktar/${widget.bairkyGermandyktar[indexbairkyGermandyktar].images}.jpg'),
               ),
             ),
             Expanded(
@@ -164,7 +164,7 @@ class _BayrkyGermandyktarTestPageState
                       },
                       child: Center(
                         child: AutoSizeText(
-                          personalComputer[indexbairkyGermandyktar]
+                          bairkyGermandyktar[indexbairkyGermandyktar]
                               .jooptor[index]
                               .text,
                           textAlign: TextAlign.center,

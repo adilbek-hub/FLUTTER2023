@@ -104,7 +104,7 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computer_structures/${widget.pimImperiasy[indexpimImperiasy].images}.jpg'),
+                    'assets/images/history/rim/${widget.pimImperiasy[indexpimImperiasy].images}.jpg'),
               ),
             ),
             Expanded(
@@ -162,9 +162,7 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                       },
                       child: Center(
                         child: AutoSizeText(
-                          personalComputer[indexpimImperiasy]
-                              .jooptor[index]
-                              .text,
+                          pimImperiasy[indexpimImperiasy].jooptor[index].text,
                           textAlign: TextAlign.center,
                           maxLines: 5,
                         ),
