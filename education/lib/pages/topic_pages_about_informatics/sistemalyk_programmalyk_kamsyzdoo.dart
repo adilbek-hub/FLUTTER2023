@@ -1,5 +1,7 @@
 import 'package:education/model/europe_suroo.dart';
+import 'package:education/model/informatica_suroo.dart';
 import 'package:education/pages/europe_test_page.dart';
+import 'package:education/pages/informatica_test/sistemalyk_programmalyk_kamsyzdoo.dart';
 import 'package:flutter/material.dart';
 
 class SistemalykProgrammalykKamsyzdoo extends StatelessWidget {
@@ -133,7 +135,9 @@ class SistemalykProgrammalykKamsyzdoo extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      EuropeTestPage(suroo: europeQuestion),
+                                      SistemalykProgrammalykKamsyzdooTestPage(
+                                    sistemalykKamsyzdoo: sistemalykKamsyzdoo,
+                                  ),
                                 ),
                               );
                             },
