@@ -15,55 +15,57 @@ class InformaticaAnswer {
   final bool isTrue;
 }
 
-const h1 = InformaticaQuestions(
+const personalComputer1 = InformaticaQuestions(
     text: 'Компьютердик кейс деген эмне?',
-    images: 'петроглифтер',
+    images: 'computer-case',
     jooptor: [
       InformaticaAnswer(
           text:
               'Компьютердин компоненттердин камтыган жана коргогон физикалык кабык',
           isTrue: true),
-      InformaticaAnswer(text: 'б.з.ч. 30000-жылга жакын', isTrue: false),
-      InformaticaAnswer(text: 'б.з.ч. 10000-жылга жакын', isTrue: false),
-      InformaticaAnswer(text: 'б.з.ч. 25000-жылга жакын', isTrue: false),
+      InformaticaAnswer(text: 'Программдоо тили', isTrue: false),
+      InformaticaAnswer(text: 'Компьютердин чубалгылары', isTrue: false),
+      InformaticaAnswer(text: 'Маалымат топтоочу жай', isTrue: false),
     ]);
 //////////////////////////////////////////////////////
-const h2 = InformaticaQuestions(
-    text:
-        'Тундүк кыргызстан толугу менен Россия империясынын курамына качан өткорүлгөн?',
-    images: 'tunduk_kyrgyzdar',
+const personalComputer2 = InformaticaQuestions(
+    text: 'Процессор бул ...',
+    images: 'processor',
     jooptor: [
-      InformaticaAnswer(text: '1861-1865', isTrue: false),
-      InformaticaAnswer(text: '1855-1868', isTrue: true),
-      InformaticaAnswer(text: '1862-1866', isTrue: false),
-      InformaticaAnswer(text: '1859-1864', isTrue: false),
+      InformaticaAnswer(text: 'Компьютер үчүн стол', isTrue: false),
+      InformaticaAnswer(text: 'Компьютердин мээси', isTrue: true),
+      InformaticaAnswer(text: 'Клавиатуранын бир түрү', isTrue: false),
+      InformaticaAnswer(text: 'Ноудбуктун акыркы версиясы', isTrue: false),
     ]);
 /////////////////////////////////////////////////////////
-const h3 = InformaticaQuestions(
-    text:
-        'Монголдордун эзүүсуно каршы кыргыздар менен туматтардын көтөрүлүшу болгон',
-    images: 'монголдор_эзүүсү',
+const personalComputer3 = InformaticaQuestions(
+    text: 'Оперативдүү эс кандай кызмат аткарат',
+    images: 'operativdik-es',
     jooptor: [
-      InformaticaAnswer(text: '1218', isTrue: false),
-      InformaticaAnswer(text: '1224', isTrue: true),
-      InformaticaAnswer(text: '1269', isTrue: false),
-      InformaticaAnswer(text: '1220', isTrue: false),
+      InformaticaAnswer(
+          text: 'Сайт жана веб тиркемелерде иштөө үчүн браузер', isTrue: false),
+      InformaticaAnswer(
+          text: 'Маалыматтарды убактылуу сактап турат', isTrue: true),
+      InformaticaAnswer(
+          text: 'Компьтердин экранын көзөмөлдөп турат', isTrue: false),
+      InformaticaAnswer(
+          text: 'Маалыматтардын толуп кетүүсүн алдын алат', isTrue: false),
     ]);
 //////////////////////////////////////////////////////
-const h4 = InformaticaQuestions(
-    text:
-        'VII-кылымдын башында байыркы Түрк мамлекетинин бири "Он ок "эли деп аталган .Бул кайсы кагандык болгон?',
-    images: 'он_ок_эл',
+const personalComputer4 = InformaticaQuestions(
+    text: 'HDD деп эмнени түшүнөсүз?',
+    images: 'hdd-ssd',
     jooptor: [
-      InformaticaAnswer(text: 'Кыргыз', isTrue: false),
-      InformaticaAnswer(text: 'Батыш-Түрк', isTrue: false),
-      InformaticaAnswer(text: 'Түркөш', isTrue: true),
-      InformaticaAnswer(text: 'Чыгыш-Түрк', isTrue: false),
+      InformaticaAnswer(text: 'Кадимки дисктин өзү', isTrue: false),
+      InformaticaAnswer(text: 'Виндовс жана Линукс программасы', isTrue: false),
+      InformaticaAnswer(
+          text: 'Маалыматты туруктуу сактоо үчүн колдонулат', isTrue: true),
+      InformaticaAnswer(text: 'Аудио сигналын иштетет', isTrue: false),
     ]);
 //////////////////////////////////////////////////////
-const h5 = InformaticaQuestions(
-    text: 'Улуу Кыргыз Дөөлөтү  ...........кийин башталган',
-    images: 'кыргыз_каганаты',
+const personalComputer5 = InformaticaQuestions(
+    text: 'Видео картанын кызматы?',
+    images: 'video-karta',
     jooptor: [
       InformaticaAnswer(text: 'Барсбек кагандын бийлигинен', isTrue: false),
       InformaticaAnswer(
@@ -71,7 +73,24 @@ const h5 = InformaticaQuestions(
       InformaticaAnswer(
           text: '751-ж. Талас дарыясындагы согуштан', isTrue: false),
       InformaticaAnswer(
-          text: 'Темучин-Чыңгыз хан деп жарыялангандан', isTrue: true),
+          text:
+              'Графиканы иштетүү жана монитордогу сүрөттү көрсөтүү үчүн жооптуу',
+          isTrue: true),
     ]);
+
+const personalComputer6 =
+    InformaticaQuestions(text: 'Үн картасы', images: 'sound-card', jooptor: [
+  InformaticaAnswer(text: 'Компьютерди блокко коюуучу функция', isTrue: false),
+  InformaticaAnswer(text: 'Процессордун бир түрү', isTrue: false),
+  InformaticaAnswer(text: 'Маалымат жогултуп кэшке сактайт', isTrue: false),
+  InformaticaAnswer(text: 'Аудио сигналдары иштетет', isTrue: true),
+]);
 ////////////////////////////////////////////////////////
-List<InformaticaQuestions> historyQuestions = [h1, h2, h3, h4, h5];
+List<InformaticaQuestions> personalComputer = [
+  personalComputer1,
+  personalComputer2,
+  personalComputer3,
+  personalComputer4,
+  personalComputer5,
+  personalComputer6
+];
