@@ -77,8 +77,8 @@ flutter:
     - assets/images/informatica/computer_structures/
     - assets/images/informatica/computerdik_tarmaktar/
     - assets/images/informatica/sistemalyk_programmalyk_kamsyzdoo/
-    
-
+    - assets/images/history/rim/
+    - assets/images/history/bayrky_germandyktar/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

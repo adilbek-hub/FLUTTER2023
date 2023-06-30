@@ -18,7 +18,7 @@ class HistoryAnswer {
 // Рим империясы
 const pimImperiasy1 = HistoryQuestions(
     text: 'Рим империясы деген эмне жана кайсыл жылдан бери жашап келген?',
-    images: 'петроглифтер',
+    images: 'рим',
     jooptor: [
       HistoryAnswer(text: '400-жылдарда курулуп баштаган шаар', isTrue: false),
       HistoryAnswer(
@@ -31,7 +31,7 @@ const pimImperiasy1 = HistoryQuestions(
 //////////////////////////////////////////////////////
 const pimImperiasy2 = HistoryQuestions(
     text: 'Октавиан деген ким болгон?',
-    images: 'tunduk_kyrgyzdar',
+    images: 'октавиан',
     jooptor: [
       HistoryAnswer(
           text: 'Римдин кулашын алдын алган согушкер баатыр', isTrue: false),
@@ -44,7 +44,7 @@ const pimImperiasy2 = HistoryQuestions(
 /////////////////////////////////////////////////////////
 const pimImperiasy3 = HistoryQuestions(
     text: 'Рим империясы камтыган аймак',
-    images: 'монголдор_эзүүсү',
+    images: 'рим_империясынын_афмагы',
     jooptor: [
       HistoryAnswer(text: 'Африка', isTrue: false),
       HistoryAnswer(text: 'Чыгыш Азия жана Батыш Европа аймагы', isTrue: false),
@@ -57,7 +57,7 @@ const pimImperiasy3 = HistoryQuestions(
 //////////////////////////////////////////////////////
 const pimImperiasy4 = HistoryQuestions(
     text: 'Рим империясы кандай мурастары менен белгилүү болгон?',
-    images: 'он_ок_эл',
+    images: '19781236',
     jooptor: [
       HistoryAnswer(
           text: 'Ат чабуу, олимпиада оюндарын уюштуруу', isTrue: false),
@@ -72,7 +72,7 @@ const pimImperiasy4 = HistoryQuestions(
 const pimImperiasy5 = HistoryQuestions(
     text:
         'Рим империясы башка аймактарды ийгиликтүү басып алуусуна эмне түрткү болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'pimImperiasy5',
     jooptor: [
       HistoryAnswer(text: 'Кулдарды багып согушка салган', isTrue: false),
       HistoryAnswer(
@@ -86,7 +86,7 @@ const pimImperiasy5 = HistoryQuestions(
 ////////////////////////////////////////////////////////
 const pimImperiasy6 = HistoryQuestions(
     text: 'Рим империясынын ыдырашына кандай көйгөйлөр түрткү болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'pimImperiasy6',
     jooptor: [
       HistoryAnswer(
           text:
@@ -102,7 +102,7 @@ const pimImperiasy6 = HistoryQuestions(
 ////////////////////////////////////////////////////////
 const pimImperiasy7 = HistoryQuestions(
     text: 'Цицерон, Вирджил, Овид жана Тацит булар ким болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'pimImperiasy7',
     jooptor: [
       HistoryAnswer(text: 'Согуш стратегияларын түзгөн', isTrue: false),
       HistoryAnswer(
@@ -130,7 +130,7 @@ List<HistoryQuestions> pimImperiasy = [
 const bairkyGermandyktar1 = HistoryQuestions(
     text:
         'Байыркы немистердин биздин заманга чейинки кайсы жылдардан бери келген?',
-    images: 'петроглифтер',
+    images: 'ьайыркы_германдыктар_кайсыл_топко_кирген',
     jooptor: [
       HistoryAnswer(text: '2000 жылдыкта', isTrue: true),
       HistoryAnswer(text: '4000 жылдыкта', isTrue: false),
@@ -140,7 +140,7 @@ const bairkyGermandyktar1 = HistoryQuestions(
 //////////////////////////////////////////////////////
 const bairkyGermandyktar2 = HistoryQuestions(
     text: 'Байыркы немистер кайсыл чоң топко кирген?',
-    images: 'tunduk_kyrgyzdar',
+    images: 'байыркы_германдыктар',
     jooptor: [
       HistoryAnswer(
           text: 'Байыркы Римден бөлүнүп чыккан эл болгон', isTrue: false),
@@ -151,7 +151,7 @@ const bairkyGermandyktar2 = HistoryQuestions(
 /////////////////////////////////////////////////////////
 const bairkyGermandyktar3 = HistoryQuestions(
     text: 'Байыркы немистер байырлаган аймактар',
-    images: 'монголдор_эзүүсү',
+    images: 'экономика_др_германцев',
     jooptor: [
       HistoryAnswer(text: 'азыркы Канада, Иран, Ирак', isTrue: false),
       HistoryAnswer(
@@ -163,7 +163,7 @@ const bairkyGermandyktar3 = HistoryQuestions(
 const bairkyGermandyktar4 = HistoryQuestions(
     text:
         'Немистер Римдиктер менен Тевтобург токойундагы салгылашууда немистердин лидери ким болгон?',
-    images: 'он_ок_эл',
+    images: 'тевдовург_токойу',
     jooptor: [
       HistoryAnswer(text: 'Арпия', isTrue: false),
       HistoryAnswer(text: 'Валам', isTrue: false),
@@ -173,7 +173,7 @@ const bairkyGermandyktar4 = HistoryQuestions(
 //////////////////////////////////////////////////////
 const bairkyGermandyktar5 = HistoryQuestions(
     text: 'Байыркы немистердин экономикасынын негизгисин эмнелер түзгөн?',
-    images: 'кыргыз_каганаты',
+    images: 'ьайыркы_германдыктар_кайсыл_топко_кирген',
     jooptor: [
       HistoryAnswer(text: 'Алтын жана күмүш казуу', isTrue: false),
       HistoryAnswer(text: 'Римдиктерге куралдарды жасап берүү', isTrue: false),
@@ -184,7 +184,7 @@ const bairkyGermandyktar5 = HistoryQuestions(
 const bairkyGermandyktar6 = HistoryQuestions(
     text:
         'Батыш Рим империясынын аймагына немис уруулары кайсыл кылымдарда кол сала баштаган?',
-    images: 'кыргыз_каганаты',
+    images: 'тевдовург_токойу',
     jooptor: [
       HistoryAnswer(text: 'Биздин замандын V кылымында', isTrue: true),
       HistoryAnswer(text: 'Биздин замандын 2 кылымында', isTrue: false),
@@ -195,7 +195,7 @@ const bairkyGermandyktar6 = HistoryQuestions(
 const bairkyGermandyktar7 = HistoryQuestions(
     text:
         'Биздин замандын 9-жылы Рим императору Августка кайсы герман лидери каршылык көрсөткөн?',
-    images: 'кыргыз_каганаты',
+    images: 'немисте_байырлаган_аймактар',
     jooptor: [
       HistoryAnswer(text: 'Германий', isTrue: false),
       HistoryAnswer(text: 'Тевтобург', isTrue: false),
@@ -207,7 +207,7 @@ const bairkyGermandyktar7 = HistoryQuestions(
 const bairkyGermandyktar8 = HistoryQuestions(
     text:
         'Кайсы герман эли темир согуу жана соода өнөрү менен белгилүү болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'герман_айылы',
     jooptor: [
       HistoryAnswer(text: 'Тевтондор', isTrue: true),
       HistoryAnswer(text: 'Свевдер', isTrue: false),
@@ -219,7 +219,7 @@ const bairkyGermandyktar8 = HistoryQuestions(
 const bairkyGermandyktar9 = HistoryQuestions(
     text:
         'Кайсы герман тайпасы өзүнүн деңиздеги чеберчилиги жана дирижабльдары менен белгилүү болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'байыркы_германдыктар',
     jooptor: [
       HistoryAnswer(text: 'Аламандар', isTrue: false),
       HistoryAnswer(text: 'Вестготтор', isTrue: false),
