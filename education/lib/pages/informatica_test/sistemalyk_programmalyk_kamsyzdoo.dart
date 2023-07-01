@@ -88,17 +88,15 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 5,
                 value: indexsistemalykKamsyzdoo.toDouble(),
                 onChanged: (value) {},
               ),
             ),
-            Center(
-              child: Text(
-                widget.sistemalykKamsyzdoo[indexsistemalykKamsyzdoo].text,
-                style: const TextStyle(fontSize: 20, height: 2),
-                textAlign: TextAlign.center,
-              ),
+            Text(
+              widget.sistemalykKamsyzdoo[indexsistemalykKamsyzdoo].text,
+              style: const TextStyle(fontSize: 20, height: 2),
+              textAlign: TextAlign.center,
             ),
             Expanded(
               flex: 1,

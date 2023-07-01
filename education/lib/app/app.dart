@@ -1,3 +1,4 @@
+import 'package:education/app/example.dart';
 import 'package:education/views/books_view.dart';
 import 'package:education/views/home_view.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const HomeView(),
-        'BooksView': (context) => const BooksView(),
+        'BooksView': (context) => const MyHomePage(),
       },
     );
   }

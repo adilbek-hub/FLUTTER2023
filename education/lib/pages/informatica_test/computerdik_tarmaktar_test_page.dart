@@ -92,11 +92,15 @@ class _ComputerdikTarmaktarTestPageState
                 onChanged: (value) {},
               ),
             ),
-            Center(
-              child: Text(
-                widget.computerdikTarmaktar[indexcomputerdikTarmaktar].text,
-                style: const TextStyle(fontSize: 20, height: 2),
-                textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: FittedBox(
+                child: Text(
+                  widget.computerdikTarmaktar[indexcomputerdikTarmaktar].text,
+                  style: const TextStyle(fontSize: 20, height: 2),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                ),
               ),
             ),
             Expanded(
@@ -104,7 +108,9 @@ class _ComputerdikTarmaktarTestPageState
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computerdik_tarmaktar/${widget.computerdikTarmaktar[indexcomputerdikTarmaktar].images}.jpg'),
+                  'assets/images/informatica/computerdik_tarmaktar/${widget.computerdikTarmaktar[indexcomputerdikTarmaktar].images}.jpg',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Expanded(

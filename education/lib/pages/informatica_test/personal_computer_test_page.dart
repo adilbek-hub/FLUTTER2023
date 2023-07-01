@@ -92,19 +92,29 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                 onChanged: (value) {},
               ),
             ),
-            Center(
-              child: Text(
-                widget.personalComputer[indexpersonalComputer].text,
-                style: const TextStyle(fontSize: 20, height: 2),
-                textAlign: TextAlign.center,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Center(
+                child: AutoSizeText(
+                  widget.personalComputer[indexpersonalComputer].text,
+                  style: const TextStyle(fontSize: 20, height: 2),
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                ),
               ),
             ),
             Expanded(
               flex: 1,
               child: Padding(
                 padding: const EdgeInsets.all(10),
-                child: Image.asset(
-                    'assets/images/informatica/computer_structures/${widget.personalComputer[indexpersonalComputer].images}.jpg'),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: Image.asset(
+                    'assets/images/informatica/computer_structures/${widget.personalComputer[indexpersonalComputer].images}.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
             Expanded(
