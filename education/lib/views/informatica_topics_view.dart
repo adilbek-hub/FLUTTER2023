@@ -1,9 +1,4 @@
 import 'package:education/model/subjects.dart';
-
-import 'package:education/pages/topic_pages_about_history/rim.dart';
-
-import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
-import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
 import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
 import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
 import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';

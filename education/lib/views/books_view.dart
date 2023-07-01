@@ -1,26 +1,28 @@
 import 'package:education/components/biologgy.dart';
 import 'package:education/components/history.dart';
 import 'package:education/components/informatica.dart';
-import 'package:education/components/informatica_topics.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';
 
 import 'package:flutter/material.dart';
 
-class AfterLoading extends StatefulWidget {
-  const AfterLoading({super.key});
+class BooksView extends StatefulWidget {
+  const BooksView({super.key});
 
   @override
-  State<AfterLoading> createState() => _AfterLoadingState();
+  State<BooksView> createState() => _BooksViewState();
 }
 
-class _AfterLoadingState extends State<AfterLoading> {
+class _BooksViewState extends State<BooksView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
+          leading: const BackButton(
+            color: Colors.white,
+          ),
           actions: [
             IconButton(
               onPressed: () {
@@ -29,15 +31,13 @@ class _AfterLoadingState extends State<AfterLoading> {
                   delegate: CustomSearchDelegate(),
                 );
               },
-              icon: const Icon(Icons.search),
+              icon: const Icon(
+                Icons.menu,
+                color: Colors.white,
+              ),
             ),
+            const SizedBox(width: 20),
           ],
-          title: Center(
-            child: Text(
-              'Саламатсыңбы 😊'.toUpperCase(),
-              style: const TextStyle(fontSize: 15, color: Colors.black),
-            ),
-          ),
           elevation: 0,
         ),
         body: Container(
@@ -122,7 +122,7 @@ class _AfterLoadingState extends State<AfterLoading> {
 
 class CustomSearchDelegate extends SearchDelegate {
   List<String> searchTerms = [
-    'МАТЕМАТИКА',
+    'ИНФОРМАТИКА',
     'ГЕОГРАФИЯ',
     'ТАРЫХ',
     'БИОЛОГИЯ',
@@ -182,7 +182,14 @@ class CustomSearchDelegate extends SearchDelegate {
           var result = matchQuery[index];
           return InkWell(
             onTap: () {
-              if (result == searchTerms[1]) {
+              if (result == searchTerms[0]) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Informatica(),
+                  ),
+                );
+              } else if (result == searchTerms[1]) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -205,8 +212,27 @@ class CustomSearchDelegate extends SearchDelegate {
                 );
               }
             },
-            child: ListTile(
-              title: Text(result),
+            child: Card(
+              child: ListTile(
+                leading: const CircleAvatar(
+                  backgroundImage:
+                      AssetImage('assets/images/sear_avatar/book.jpg'),
+                ),
+                title: Text(
+                  result,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: const Text(
+                  'Билим алуу ийне менен кудук казгандай.',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+                trailing: const Icon(Icons.favorite, color: Colors.red),
+              ),
             ),
           );
         });

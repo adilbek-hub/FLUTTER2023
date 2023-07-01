@@ -1,6 +1,6 @@
 import 'package:education/model/asia_suroo.dart';
 
-import 'package:education/pages/asia_test_page.dart';
+import 'package:education/pages/geography_test/asia_test_page.dart';
 
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,6 @@
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/usa_suroo.dart';
-import 'package:education/pages/usa_test_page.dart';
+import 'package:education/pages/geography_test/usa_test_page.dart';
 import 'package:flutter/material.dart';
 
 class Usa extends StatelessWidget {

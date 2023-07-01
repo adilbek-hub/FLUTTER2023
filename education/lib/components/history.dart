@@ -1,5 +1,4 @@
-import 'package:education/components/history_topics.dart';
-
+import 'package:education/views/history_topics_view.dart';
 import 'package:flutter/material.dart';
 
 class History extends StatelessWidget {

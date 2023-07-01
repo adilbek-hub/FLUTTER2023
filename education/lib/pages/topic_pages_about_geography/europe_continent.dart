@@ -2,7 +2,7 @@ import 'package:education/components/table_east.dart';
 import 'package:education/components/table_north_balkan.dart';
 import 'package:education/model/subjects.dart';
 import 'package:education/model/europe_suroo.dart';
-import 'package:education/pages/europe_test_page.dart';
+import 'package:education/pages/geography_test/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
 class EuropeContinenti extends StatelessWidget {

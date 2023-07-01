@@ -1,4 +1,4 @@
-import 'package:education/components/informatica_topics.dart';
+import 'package:education/views/informatica_topics_view.dart';
 import 'package:flutter/material.dart';
 
 class Informatica extends StatelessWidget {
@@ -7,15 +7,14 @@ class Informatica extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: Column(
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+      ),
+      body: const Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset('assets/images/capitals/map.jpg'),
-          GestureDetector(
-            onTap: () => Navigator.pop(context),
-            child: Icon(Icons.adaptive.arrow_back),
-          ),
-          const Expanded(child: InformaticaTopics()),
+          Expanded(child: InformaticaTopics()),
         ],
       ),
     );

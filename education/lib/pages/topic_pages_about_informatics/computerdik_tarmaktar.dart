@@ -1,6 +1,6 @@
 import 'package:education/model/europe_suroo.dart';
 import 'package:education/model/informatica_suroo.dart';
-import 'package:education/pages/europe_test_page.dart';
+import 'package:education/pages/geography_test/europe_test_page.dart';
 import 'package:education/pages/informatica_test/computerdik_tarmaktar_test_page.dart';
 import 'package:flutter/material.dart';
 

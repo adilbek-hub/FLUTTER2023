@@ -1,4 +1,5 @@
-import 'package:education/pages/after_loading_page.dart';
+import 'package:education/views/books_view.dart';
+import 'package:education/views/home_view.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: /*MyHomePage(),*/ /*const CityList()*/ const AfterLoading(),
+      routes: {
+        '/': (context) => const HomeView(),
+        'BooksView': (context) => const BooksView(),
+      },
     );
   }
 }
