@@ -81,6 +81,10 @@ flutter:
     - assets/images/history/bayrky_germandyktar/
     - assets/images/history/italia/
     - assets/images/history/nemis_koroldugu/
+    - assets/images/biology/adamJanybar/
+    - assets/images/biology/kletka/
+    - assets/images/biology/mee/
+    - assets/images/biology/nerv/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,4 +1,6 @@
+import 'package:education/model/biology_question.dart';
 import 'package:education/model/europe_suroo.dart';
+import 'package:education/pages/biology_test/men_animal_test_page.dart';
 import 'package:education/pages/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
@@ -218,7 +220,9 @@ class KishiJanaJanybar extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      EuropeTestPage(suroo: europeQuestion),
+                                      KishiJanybarTestPage(
+                                    adamJanybar: adamJanybar,
+                                  ),
                                 ),
                               );
                             },

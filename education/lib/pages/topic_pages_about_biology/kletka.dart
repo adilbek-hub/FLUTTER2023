@@ -1,4 +1,6 @@
+import 'package:education/model/biology_question.dart';
 import 'package:education/model/europe_suroo.dart';
+import 'package:education/pages/biology_test/kletka_test_page.dart';
 import 'package:education/pages/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
@@ -133,7 +135,9 @@ class Kletka extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      EuropeTestPage(suroo: europeQuestion),
+                                      KletkaJonundoTushunukTestPage(
+                                    kletka: kletka,
+                                  ),
                                 ),
                               );
                             },

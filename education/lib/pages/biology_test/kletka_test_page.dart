@@ -88,7 +88,7 @@ class _KletkaJonundoTushunukTestPageState
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 14,
                 value: indexkletka.toDouble(),
                 onChanged: (value) {},
               ),
@@ -105,7 +105,7 @@ class _KletkaJonundoTushunukTestPageState
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computerdik_tarmaktar/${widget.kletka[indexkletka].image}.jpg'),
+                    'assets/images/biology/kletka/${widget.kletka[indexkletka].image}.jpg'),
               ),
             ),
             Expanded(

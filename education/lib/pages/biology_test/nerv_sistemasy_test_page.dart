@@ -86,7 +86,7 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 15,
                 value: indexnervSistemasy.toDouble(),
                 onChanged: (value) {},
               ),
@@ -103,7 +103,7 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computerdik_tarmaktar/${widget.nervSistemasy[indexnervSistemasy].image}.jpg'),
+                    'assets/images/biology/nerv/${widget.nervSistemasy[indexnervSistemasy].image}.jpg'),
               ),
             ),
             Expanded(

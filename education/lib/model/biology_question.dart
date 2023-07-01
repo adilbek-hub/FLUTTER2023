@@ -15,7 +15,7 @@ class BiologyJoop {
 //Кишинин сүт эмүүчү жаныбар менен окшоштугу
 Biology adamJanybar1 = const Biology(
   name: 'Кишинин сүт эмүүчү жаныбардан айырмасы?',
-  image: 'тери',
+  image: 'adam1',
   jooptor: [
     BiologyJoop(
         name:
@@ -38,7 +38,7 @@ Biology adamJanybar1 = const Biology(
 ///////////////////////////////////////////////////
 Biology adamJanybar2 = const Biology(
   name: 'Сүт эмүүчүлөрдүн денеси кандай системалардан турат?',
-  image: 'эпидермис',
+  image: 'adam2',
   jooptor: [
     BiologyJoop(
         name: 'Нерв, кан айлануу, дем алуу жана тамак сиңирүү',
@@ -56,7 +56,7 @@ Biology adamJanybar2 = const Biology(
 //////////////////////////////////////////////////
 Biology adamJanybar3 = const Biology(
   name: 'Адамдардын кайсы анатомиялык өзгөчөлүгү уникалдуу?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'adam3',
   jooptor: [
     BiologyJoop(name: 'Большой мозг', tuuraJoop: false),
     BiologyJoop(name: 'бипедализм', tuuraJoop: false),
@@ -67,7 +67,7 @@ Biology adamJanybar3 = const Biology(
 ////////////////////////////////////////////////
 Biology adamJanybar4 = const Biology(
   name: 'Адамдын эмчек сүтү башка сүт эмүүчүлөрдөн эмнеси менен айырмаланат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'adam4',
   jooptor: [
     BiologyJoop(
         name: 'Балдарды багуу үчүн адам сүт чыгарбайт', tuuraJoop: false),
@@ -86,7 +86,7 @@ Biology adamJanybar4 = const Biology(
 Biology adamJanybar5 = const Biology(
   name:
       'Сүт эмүүчүлөр менен адамдарда курчап турган дүйнөнү үйрөнүү, жаттоо жана кабылдоо жөндөмүн эмне камсыз кылат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'adam5',
   jooptor: [
     BiologyJoop(name: 'Өнүккөн нерв системасы', tuuraJoop: true),
     BiologyJoop(name: 'Диетадагы атаандаштыктын жоктугу', tuuraJoop: false),
@@ -98,7 +98,7 @@ Biology adamJanybar5 = const Biology(
 ////////////////////////////////////////////////
 Biology b3 = const Biology(
   name: 'Адамдардын акылынын жана жүрүм-турумунун өзгөчөлүгү эмнеде?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'adam6',
   jooptor: [
     BiologyJoop(
         name: 'Татаал социалдык өз ара аракеттенүүнү өнүктүрүү',
@@ -113,7 +113,7 @@ Biology b3 = const Biology(
 Biology adamJanybar6 = const Biology(
   name:
       'Сүт эмүүчүлөрдүн жана адамдардын ар кандай чөйрөгө жана шарттарга ыңгайлашуусуна мүмкүндүк берген кандай жөндөмдөр бар?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'adam1',
   jooptor: [
     BiologyJoop(name: 'Экологиялык пластикалык', tuuraJoop: true),
     BiologyJoop(name: 'Өнүккөн физикалык өзгөчөлүктөрү', tuuraJoop: false),
@@ -125,7 +125,7 @@ Biology adamJanybar6 = const Biology(
 Biology adamJanybar7 = const Biology(
   name:
       'Сүт эмүүчүлөрдүн жана адамдардын ар кандай чөйрөгө жана шарттарга ыңгайлашуусуна мүмкүндүк берген кандай жөндөмдөр бар?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'adam2',
   jooptor: [
     BiologyJoop(name: 'Экологиялык пластикалык', tuuraJoop: true),
     BiologyJoop(name: 'Өнүккөн физикалык өзгөчөлүктөрү', tuuraJoop: false),
@@ -147,7 +147,7 @@ List<Biology> adamJanybar = [
 //клетка жөнүндө түшүнүк
 Biology kletka1 = const Biology(
   name: 'Клетканы курчап турган жана аны тышкы чөйрөдөн эмне бөлүп турат?',
-  image: 'тери',
+  image: 'kletka1',
   jooptor: [
     BiologyJoop(name: 'Ядро', tuuraJoop: false),
     BiologyJoop(name: 'Митохондрия', tuuraJoop: false),
@@ -159,7 +159,7 @@ Biology kletka1 = const Biology(
 Biology kletka2 = const Biology(
   name:
       'Ядро менен клетка кабыкчасынын ортосундагы мейкиндикти кайсы зат толтурат?',
-  image: 'эпидермис',
+  image: 'kletka2',
   jooptor: [
     BiologyJoop(name: 'Цитоплазма', tuuraJoop: true),
     BiologyJoop(name: 'Генетикалык маалымат', tuuraJoop: false),
@@ -170,7 +170,7 @@ Biology kletka2 = const Biology(
 //////////////////////////////////////////////////
 Biology kletka3 = const Biology(
   name: 'Клеткадагы энергияны өндүрүүдө кайсы органоид иштейт?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka3',
   jooptor: [
     BiologyJoop(name: 'Митохондрия', tuuraJoop: true),
     BiologyJoop(name: 'Гольджи', tuuraJoop: false),
@@ -181,7 +181,7 @@ Biology kletka3 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka4 = const Biology(
   name: 'Белок синтезин кайсы органелл аткарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka4',
   jooptor: [
     BiologyJoop(name: 'Митохондрия', tuuraJoop: false),
     BiologyJoop(name: 'Гольджи', tuuraJoop: true),
@@ -192,7 +192,7 @@ Biology kletka4 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka5 = const Biology(
   name: 'Клетканын бөлүнүү процесси эмне деп аталат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka5',
   jooptor: [
     BiologyJoop(name: 'Митоз', tuuraJoop: true),
     BiologyJoop(name: 'Метаболизм', tuuraJoop: false),
@@ -203,7 +203,7 @@ Biology kletka5 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka6 = const Biology(
   name: 'Клеткалар айлана-чөйрө менен эмне кылат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka6',
   jooptor: [
     BiologyJoop(name: 'Белокторду синтездейт', tuuraJoop: false),
     BiologyJoop(name: 'Тукум', tuuraJoop: false),
@@ -216,7 +216,7 @@ Biology kletka6 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka7 = const Biology(
   name: 'Клетка ядросундагы генетикалык маалымат кайсы молекулада бар?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka7',
   jooptor: [
     BiologyJoop(name: 'РНК (рибонуклеин кислотасы)', tuuraJoop: false),
     BiologyJoop(name: 'Глюкоза', tuuraJoop: false),
@@ -227,7 +227,7 @@ Biology kletka7 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka8 = const Biology(
   name: 'Клеткадагы генетикалык маалыматты эмне аныктайт?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka8',
   jooptor: [
     BiologyJoop(name: 'Көздүн түсү', tuuraJoop: false),
     BiologyJoop(name: 'Органдын функциялары', tuuraJoop: true),
@@ -238,7 +238,7 @@ Biology kletka8 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka9 = const Biology(
   name: 'ДНК молекуласында нуклеотиддердин ырааттуулугу катары эмне сакталат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka9',
   jooptor: [
     BiologyJoop(name: 'Белоктор', tuuraJoop: false),
     BiologyJoop(name: 'Суу', tuuraJoop: true),
@@ -250,7 +250,7 @@ Biology kletka9 = const Biology(
 Biology kletka10 = const Biology(
   name:
       'Генетикалык маалыматтын бир муундан экинчи муунга өтүшү эмне деп аталат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka10',
   jooptor: [
     BiologyJoop(name: 'Метаболизм', tuuraJoop: false),
     BiologyJoop(name: 'Репродукция', tuuraJoop: false),
@@ -261,7 +261,7 @@ Biology kletka10 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka11 = const Biology(
   name: 'Организмдердин өсүп-өнүгүшүнүн негизи эмнеде?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka11',
   jooptor: [
     BiologyJoop(name: 'Фотосинтез', tuuraJoop: false),
     BiologyJoop(name: 'Зат алмашуу', tuuraJoop: false),
@@ -272,7 +272,7 @@ Biology kletka11 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka12 = const Biology(
   name: 'Кайсы органоид молекулаларды иштетүү жана таңгактоо үчүн жооптуу?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka12',
   jooptor: [
     BiologyJoop(name: 'Митохондрия', tuuraJoop: false),
     BiologyJoop(name: 'Гольджтар', tuuraJoop: true),
@@ -283,7 +283,7 @@ Biology kletka12 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka13 = const Biology(
   name: 'Митохондрия клеткада эмнени жаратат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka13',
   jooptor: [
     BiologyJoop(name: 'Энергияны', tuuraJoop: true),
     BiologyJoop(name: 'Белокторду', tuuraJoop: false),
@@ -294,7 +294,7 @@ Biology kletka13 = const Biology(
 ////////////////////////////////////////////////
 Biology kletka14 = const Biology(
   name: 'Клетка функцияларын кайсы органелл башкарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'kletka14',
   jooptor: [
     BiologyJoop(name: 'Митохондрия', tuuraJoop: false),
     BiologyJoop(name: 'Гольджтор', tuuraJoop: false),
@@ -324,7 +324,7 @@ List<Biology> kletka = [
 Biology nervSistemasy1 = const Biology(
   name:
       'Нерв системасынын кайсы системасы булчуңдарды координациялоо, эс тутум жана сезим сыяктуу негизги дене функцияларын башкарат?',
-  image: 'тери',
+  image: 'nerv1',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: false),
     BiologyJoop(name: 'Парасимпатикалык система', tuuraJoop: false),
@@ -335,7 +335,7 @@ Biology nervSistemasy1 = const Biology(
 ///////////////////////////////////////////////////
 Biology nervSistemasy2 = const Biology(
   name: 'Жүлүн каналынын ичинде нерв системасынын кайсы бөлүгү өтөт?',
-  image: 'эпидермис',
+  image: 'nerv2',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: false),
     BiologyJoop(name: 'парасимпатикалык система', tuuraJoop: false),
@@ -347,7 +347,7 @@ Biology nervSistemasy2 = const Biology(
 Biology nervSistemasy3 = const Biology(
   name:
       'Организмдин жүрөктүн согушу, дем алуу сыяктуу автоматтык функциялары нерв системасынын кайсы системасы үчүн жооп берет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv3',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: false),
     BiologyJoop(name: 'парасимпатикалык система', tuuraJoop: false),
@@ -359,7 +359,7 @@ Biology nervSistemasy3 = const Biology(
 Biology nervSistemasy4 = const Biology(
   name:
       'Нерв системасынын кайсы системасы аң-сезимдүү кыймылдарга жана рецепторлордон борбордук нерв системасына маалыматтын берилишине жооп берет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv4',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: false),
     BiologyJoop(name: 'Парасимпатикалык система', tuuraJoop: false),
@@ -370,7 +370,7 @@ Biology nervSistemasy4 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy5 = const Biology(
   name: 'Борбордук нерв системасы эмнени камтыйт?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv5',
   jooptor: [
     BiologyJoop(name: 'Баш мээ', tuuraJoop: true),
     BiologyJoop(name: 'Жүлүн', tuuraJoop: true),
@@ -381,7 +381,7 @@ Biology nervSistemasy5 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy6 = const Biology(
   name: 'Нерв системасы кандай функцияларды аткарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv6',
   jooptor: [
     BiologyJoop(name: 'Нерв импульстарынын берилиши', tuuraJoop: false),
     BiologyJoop(name: 'Маалыматтарды иштетүү', tuuraJoop: false),
@@ -394,7 +394,7 @@ Biology nervSistemasy6 = const Biology(
 Biology nervSistemasy7 = const Biology(
   name:
       'Жүрөктүн согушун, дем алууну жана тамак сиңирүүнү жөнгө салууга нерв системасынын кайсы системасы жооп берет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv7',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: false),
     BiologyJoop(name: 'Парасимпатикалык система', tuuraJoop: true),
@@ -406,7 +406,7 @@ Biology nervSistemasy7 = const Biology(
 Biology nervSistemasy8 = const Biology(
   name:
       'Нерв системасынын кайсы системасы стресске жана коркунучка жооп берет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv8',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: true),
     BiologyJoop(name: 'парасимпатикалык система', tuuraJoop: false),
@@ -418,7 +418,7 @@ Biology nervSistemasy8 = const Biology(
 Biology nervSistemasy9 = const Biology(
   name:
       'Организмдин калыбына келтирүүчү жана эс алуу функциялары үчүн нерв системасынын кайсы системасы жооп берет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv9',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык система', tuuraJoop: false),
     BiologyJoop(name: 'парасимпатикалык система', tuuraJoop: true),
@@ -430,7 +430,7 @@ Biology nervSistemasy9 = const Biology(
 Biology nervSistemasy10 = const Biology(
   name:
       'Нерв системасынын кайсы бөлүгү мээ менен дененин калган бөлүгүнүн ортосунда сигналдарды өткөрүүгө жооптуу?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv10',
   jooptor: [
     BiologyJoop(name: 'Баш мээ', tuuraJoop: false),
     BiologyJoop(name: 'Жүлүн', tuuraJoop: true),
@@ -441,7 +441,7 @@ Biology nervSistemasy10 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy11 = const Biology(
   name: 'Перифериялык нерв системасы кандай функцияларды аткарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv11',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: false),
     BiologyJoop(name: 'Маалыматтарды иштетүү', tuuraJoop: false),
@@ -455,7 +455,7 @@ Biology nervSistemasy11 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy12 = const Biology(
   name: 'Вегетатив нерв системасын кайсы системалар түзөт?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv8',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык жана парасимпатикалык', tuuraJoop: true),
     BiologyJoop(name: 'Борбордук жана перифериялык', tuuraJoop: true),
@@ -466,7 +466,7 @@ Biology nervSistemasy12 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy13 = const Biology(
   name: 'Соматикалык нерв системасы кандай функцияларды аткарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv7',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: true),
     BiologyJoop(
@@ -480,7 +480,7 @@ Biology nervSistemasy13 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy14 = const Biology(
   name: 'Вегетатив нерв системасы кандай функцияларды аткарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv6',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: false),
     BiologyJoop(
@@ -494,7 +494,7 @@ Biology nervSistemasy14 = const Biology(
 ////////////////////////////////////////////////
 Biology nervSistemasy15 = const Biology(
   name: 'Денедеги балансты сактоо үчүн кандай системалар өз ара аракеттенишет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'nerv5',
   jooptor: [
     BiologyJoop(name: 'Симпатикалык жана парасимпатикалык', tuuraJoop: true),
     BiologyJoop(name: 'Борбордук жана перифериялык', tuuraJoop: true),
@@ -524,7 +524,7 @@ List<Biology> nervSistemasy = [
 //Мээ системасы
 Biology mee1 = const Biology(
   name: 'Мээнин кайсы бөлүгү координация жана тең салмактуулук үчүн жооптуу?',
-  image: 'тери',
+  image: 'mee1',
   jooptor: [
     BiologyJoop(name: 'Баш мээ', tuuraJoop: false),
     BiologyJoop(name: 'Мээче', tuuraJoop: true),
@@ -536,7 +536,7 @@ Biology mee1 = const Biology(
 Biology mee2 = const Biology(
   name:
       'Аң-сезимди жана ойгонууну жөнгө салууда мээнин кайсы бөлүгү роль ойнойт?',
-  image: 'эпидермис',
+  image: 'mee2',
   jooptor: [
     BiologyJoop(name: 'Баш мээ', tuuraJoop: false),
     BiologyJoop(name: 'Мээче', tuuraJoop: false),
@@ -548,7 +548,7 @@ Biology mee2 = const Biology(
 Biology mee3 = const Biology(
   name:
       'Мээнин кайсы бөлүгү ички органдарды жана эмоцияларды жөнгө салууга катышат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee3',
   jooptor: [
     BiologyJoop(name: 'Баш мээ', tuuraJoop: false),
     BiologyJoop(name: 'Мээче', tuuraJoop: false),
@@ -560,7 +560,7 @@ Biology mee3 = const Biology(
 Biology mee4 = const Biology(
   name:
       'Мээнин кайсы бөлүгү дем ​​алуу жана жүрөктүн согушу сыяктуу негизги маанилүү функцияларды башкарат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee4',
   jooptor: [
     BiologyJoop(name: 'Баш мээ', tuuraJoop: false),
     BiologyJoop(name: 'Мээче', tuuraJoop: false),
@@ -571,7 +571,7 @@ Biology mee4 = const Biology(
 ////////////////////////////////////////////////
 Biology mee5 = const Biology(
   name: 'Мээнин когнитивдик функциялары кандай функция менен байланыштуу?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee5',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: false),
     BiologyJoop(name: 'Маалыматтарды иштетүү', tuuraJoop: true),
@@ -582,7 +582,7 @@ Biology mee5 = const Biology(
 ////////////////////////////////////////////////
 Biology mee6 = const Biology(
   name: 'Кыймылды башкаруу функциясы кандай?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee6',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: true),
     BiologyJoop(name: 'Маалыматтарды иштетүү', tuuraJoop: false),
@@ -594,7 +594,7 @@ Biology mee6 = const Biology(
 ////////////////////////////////////////////////
 Biology mee7 = const Biology(
   name: 'Организмди жөнгө салуу кандай функция менен байланыштуу?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee7',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: false),
     BiologyJoop(name: 'Маалыматтарды иштетүү', tuuraJoop: false),
@@ -606,7 +606,7 @@ Biology mee7 = const Biology(
 ////////////////////////////////////////////////
 Biology mee8 = const Biology(
   name: 'Эмоциялардын кызматы кандай?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee8',
   jooptor: [
     BiologyJoop(
         name: 'Эмоциялар төмөнкү функцияларга кирбейт.', tuuraJoop: true),
@@ -619,7 +619,7 @@ Biology mee8 = const Biology(
 ////////////////////////////////////////////////
 Biology mee9 = const Biology(
   name: 'Жүрүм-турум функциясы кандай?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee6',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: false),
     BiologyJoop(
@@ -632,7 +632,7 @@ Biology mee9 = const Biology(
 ////////////////////////////////////////////////
 Biology mee10 = const Biology(
   name: 'Кайсы функция мейкиндиктеги багытты билдирет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee7',
   jooptor: [
     BiologyJoop(name: 'Кыймылды координациялоо', tuuraJoop: false),
     BiologyJoop(name: 'Маалыматтарды иштетүү', tuuraJoop: false),
@@ -645,7 +645,7 @@ Biology mee10 = const Biology(
 Biology mee11 = const Biology(
   name:
       'Эмоциялардын калыптанышында, чагылдырылышында жана жөнгө салынышында мээнин кайсы бөлүгү маанилүү роль ойнойт?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee11',
   jooptor: [
     BiologyJoop(name: 'Маңдай бөлүктөрү', tuuraJoop: false),
     BiologyJoop(name: 'Мээче', tuuraJoop: false),
@@ -657,7 +657,7 @@ Biology mee11 = const Biology(
 Biology mee12 = const Biology(
   name:
       'Көйгөйлөрдү чечүүгө жана чечим кабыл алууга мээнин кайсы бөлүгү катышат?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee12',
   jooptor: [
     BiologyJoop(name: 'Маңдай бөлүктөрү', tuuraJoop: true),
     BiologyJoop(name: 'Мээче', tuuraJoop: true),
@@ -668,7 +668,7 @@ Biology mee12 = const Biology(
 ////////////////////////////////////////////////
 Biology mee13 = const Biology(
   name: 'Мээнин кайсы бөлүгү визуалдык маалыматты иштетүүгө жооп берет?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee13',
   jooptor: [
     BiologyJoop(name: 'Убактылуу лобдор', tuuraJoop: true),
     BiologyJoop(name: 'париеталдык лоб', tuuraJoop: false),
@@ -679,7 +679,7 @@ Biology mee13 = const Biology(
 ////////////////////////////////////////////////
 Biology mee14 = const Biology(
   name: 'Угуу маалыматын иштетүү үчүн мээнин кайсы бөлүгү жооптуу?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee14',
   jooptor: [
     BiologyJoop(name: 'убактылуу лоб', tuuraJoop: false),
     BiologyJoop(name: 'париеталдык лоб', tuuraJoop: true),
@@ -691,7 +691,7 @@ Biology mee14 = const Biology(
 Biology mee15 = const Biology(
   name:
       'Эстутумду калыптандырууда жана сактоодо мээнин кайсы бөлүгү маанилүү роль ойнойт?',
-  image: 'тери_бөлүп_чыгаруу',
+  image: 'mee15',
   jooptor: [
     BiologyJoop(name: 'Убактылуу лобдор', tuuraJoop: false),
     BiologyJoop(name: 'Париеталдык лобдор', tuuraJoop: false),

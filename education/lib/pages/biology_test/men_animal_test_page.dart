@@ -86,7 +86,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 7,
                 value: indexadamJanybar.toDouble(),
                 onChanged: (value) {},
               ),
@@ -103,7 +103,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computerdik_tarmaktar/${widget.adamJanybar[indexadamJanybar].image}.jpg'),
+                    'assets/images/biology/adamJanybar/${widget.adamJanybar[indexadamJanybar].image}.jpg'),
               ),
             ),
             Expanded(
