@@ -244,7 +244,7 @@ List<HistoryQuestions> bairkyGermandyktar = [
 const italia1 = HistoryQuestions(
     text:
         'Кайра жаралуу доорунда Италиянын кайсы шаар-мамлекети белгилүү соода жана маданият борборуна айланган?',
-    images: 'петроглифтер',
+    images: 'и1',
     jooptor: [
       HistoryAnswer(text: 'Милан', isTrue: false),
       HistoryAnswer(text: 'Венеция', isTrue: false),
@@ -255,7 +255,7 @@ const italia1 = HistoryQuestions(
 const italia2 = HistoryQuestions(
     text:
         '5-10 кылымдын башында Италияда кандай саясий өзгөрүүлөр болуп, көптөгөн майда мамлекеттерге, территорияларга бөлүнүүгө алып келди?',
-    images: 'tunduk_kyrgyzdar',
+    images: 'и2',
     jooptor: [
       HistoryAnswer(text: 'Италияда христиан динин кабыл алуу', isTrue: false),
       HistoryAnswer(
@@ -271,7 +271,7 @@ const italia2 = HistoryQuestions(
 const italia3 = HistoryQuestions(
     text:
         'Кайсы кылымда Франк королу Карл Италиянын бөлүгүн басып алып Каролинг империясын курду?',
-    images: 'монголдор_эзүүсү',
+    images: 'и3',
     jooptor: [
       HistoryAnswer(text: 'XII-кылымда', isTrue: false),
       HistoryAnswer(text: 'VIII-кылымда', isTrue: true),
@@ -281,7 +281,7 @@ const italia3 = HistoryQuestions(
 //////////////////////////////////////////////////////
 const italia4 = HistoryQuestions(
     text: 'Карл Италияда анын тушунда кандай реформаларды жүргүзгөн?',
-    images: 'он_ок_эл',
+    images: 'и4',
     jooptor: [
       HistoryAnswer(
           text: 'Билим берүү, сот жана чиркөө уюмдарында реформалар',
@@ -299,7 +299,7 @@ const italia4 = HistoryQuestions(
 const italia5 = HistoryQuestions(
     text:
         'Кайсы кылымда Италия Тоскан Маркграфтары жана Сполето графтары сыяктуу ар кандай феодалдык башкаруучулар менен күчтүү үй-бүлөлөрдүн ортосунда күрөш болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'и5',
     jooptor: [
       HistoryAnswer(text: 'В 6 веке', isTrue: false),
       HistoryAnswer(text: 'В 12 веке', isTrue: false),
@@ -310,7 +310,7 @@ const italia5 = HistoryQuestions(
 const italia6 = HistoryQuestions(
     text:
         '10-кылымда Италиянын саясий жана экономикалык турмушунда кайсы шаар-мамлекеттер маанилүү роль ойной баштаган?',
-    images: 'кыргыз_каганаты',
+    images: 'и6',
     jooptor: [
       HistoryAnswer(text: 'Пиза, Турин и Болонья', isTrue: false),
       HistoryAnswer(text: 'Рим, Милан жана Неаполь', isTrue: false),
@@ -321,7 +321,7 @@ const italia6 = HistoryQuestions(
 const italia7 = HistoryQuestions(
     text:
         'Кайсы шаар-мамлекеттер Италияда искусствонун, архитектуранын жана Ренессанс искусствосунун борборлору болуп калды?',
-    images: 'кыргыз_каганаты',
+    images: 'и7',
     jooptor: [
       HistoryAnswer(text: 'Париж, Лондон жана Мадрид', isTrue: false),
       HistoryAnswer(text: 'Венеция, Генуя жана Турин', isTrue: false),
@@ -332,7 +332,7 @@ const italia7 = HistoryQuestions(
 
 const italia8 = HistoryQuestions(
     text: 'Чыгыш менен Батышты байланыштырган соода?',
-    images: 'кыргыз_каганаты',
+    images: 'и8',
     jooptor: [
       HistoryAnswer(text: 'Неаполь жана Турин', isTrue: false),
       HistoryAnswer(text: 'Венеция жана Генуя', isTrue: true),
@@ -344,7 +344,7 @@ const italia8 = HistoryQuestions(
 const italia9 = HistoryQuestions(
     text:
         'Бул мезгилде Италиянын биримдигин жана стабилдүүлүгүн кандай факторлор начарлатты?',
-    images: 'кыргыз_каганаты',
+    images: 'и9',
     jooptor: [
       HistoryAnswer(text: 'Табигый кырсыктар', isTrue: false),
       HistoryAnswer(text: 'Экономикалык мүчүлүштүктөр', isTrue: false),
@@ -360,7 +360,7 @@ const italia9 = HistoryQuestions(
 const italia10 = HistoryQuestions(
     text:
         'X-кылымдын аягында Италиядагы бийлик үчүн күрөшкө кайсы мамлекеттер жана башкаруучулар катышкан?',
-    images: 'кыргыз_каганаты',
+    images: 'и10',
     jooptor: [
       HistoryAnswer(
           text:
@@ -390,7 +390,7 @@ List<HistoryQuestions> italia = [
 // Немис королдугу
 const germania1 = HistoryQuestions(
     text: 'V-X кылымдарда Германиянын падышалыгы кандай шарттарда болгон?',
-    images: 'петроглифтер',
+    images: 'г1',
     jooptor: [
       HistoryAnswer(
           text:
@@ -410,7 +410,7 @@ const germania1 = HistoryQuestions(
 const germania2 = HistoryQuestions(
     text:
         'V-X-кылымдарда бөлүнгөн Германияда башкаруунун кандай формалары болгон?',
-    images: 'tunduk_kyrgyzdar',
+    images: 'г2',
     jooptor: [
       HistoryAnswer(text: 'ханзаадалар', isTrue: false),
       HistoryAnswer(text: 'Герцогдор', isTrue: true),
@@ -421,7 +421,7 @@ const germania2 = HistoryQuestions(
 const germania3 = HistoryQuestions(
     text:
         'V-кылымда Ыйык Рим императорунун таажысын кийген саксондор династиясынын эң белгилүү падышаларынын бири ким болгон?',
-    images: 'монголдор_эзүүсү',
+    images: 'г3',
     jooptor: [
       HistoryAnswer(text: 'Фридрих I Барбаросса', isTrue: false),
       HistoryAnswer(text: 'Оттон I', isTrue: true),
@@ -432,7 +432,7 @@ const germania3 = HistoryQuestions(
 const germania4 = HistoryQuestions(
     text:
         'Майнцтагы кайсы монастырь жазуу жана маданият жаралган жана тараган маанилүү борборго айланган?',
-    images: 'он_ок_эл',
+    images: 'г4',
     jooptor: [
       HistoryAnswer(text: 'Монастырь Сан-Лоренцо', isTrue: true),
       HistoryAnswer(text: 'Монастырь Святого Мартиниана', isTrue: false),
@@ -443,7 +443,7 @@ const germania4 = HistoryQuestions(
 const germania5 = HistoryQuestions(
     text:
         'Кайсы доордо герман королдугу бытыранды жана түрдүү, анын ичинде ар кандай герман уруулары жана варвар уруулары болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'г5',
     jooptor: [
       HistoryAnswer(text: 'Кайра жаралуу доорунда', isTrue: false),
       HistoryAnswer(text: '19-кылымда', isTrue: false),
@@ -454,7 +454,7 @@ const germania5 = HistoryQuestions(
 const germania6 = HistoryQuestions(
     text:
         'Германия королдугунун бытырандылык мезгилиндеги герман урууларынын жана варвар урууларынын маданиятына кандай өзгөчөлүктөр мүнөздүү болгон?',
-    images: 'кыргыз_каганаты',
+    images: 'г6',
     jooptor: [
       HistoryAnswer(
           text: 'Күчтүү борборлоштурулган мамлекет жана империя',
@@ -470,7 +470,7 @@ const germania6 = HistoryQuestions(
 const germania7 = HistoryQuestions(
     text:
         'Миссионерлердин, анын ичинде Сент-Бонифастын аркасында Германия падышачылыгында кандай диний таасир жайылган?',
-    images: 'кыргыз_каганаты',
+    images: 'г7',
     jooptor: [
       HistoryAnswer(text: 'Христиандык', isTrue: true),
       HistoryAnswer(text: 'Ислам', isTrue: false),
@@ -482,7 +482,7 @@ const germania7 = HistoryQuestions(
 const germania8 = HistoryQuestions(
     text:
         'Биринчи Ыйык Рим императору жана 10-кылымда герман падышалыктарынын биригишине алып келген ким?',
-    images: 'кыргыз_каганаты',
+    images: 'г8',
     jooptor: [
       HistoryAnswer(text: 'Улуу Карл', isTrue: false),
       HistoryAnswer(text: 'Оттон I', isTrue: true),
@@ -494,7 +494,7 @@ const germania8 = HistoryQuestions(
 const germania9 = HistoryQuestions(
     text:
         'Немис королдугунун тарыхында улуу герман падышалары жана императорлору кандай из калтырышкан?',
-    images: 'кыргыз_каганаты',
+    images: 'г9',
     jooptor: [
       HistoryAnswer(
           text: 'Жаңы аймактарды ачуу жана басып алуу', isTrue: false),

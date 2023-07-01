@@ -88,7 +88,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 10,
                 value: indexitalia.toDouble(),
                 onChanged: (value) {},
               ),
@@ -105,7 +105,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computer_structures/${widget.italia[indexitalia].images}.jpg'),
+                    'assets/images/history/italia/${widget.italia[indexitalia].images}.jpg'),
               ),
             ),
             Expanded(
@@ -162,7 +162,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                       },
                       child: Center(
                         child: AutoSizeText(
-                          personalComputer[indexitalia].jooptor[index].text,
+                          italia[indexitalia].jooptor[index].text,
                           textAlign: TextAlign.center,
                           maxLines: 5,
                         ),

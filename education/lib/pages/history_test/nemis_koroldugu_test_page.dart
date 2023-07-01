@@ -87,7 +87,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                   trackShape: const RectangularSliderTrackShape()),
               child: Slider(
                 min: 0,
-                max: 6,
+                max: 9,
                 value: indexgermania.toDouble(),
                 onChanged: (value) {},
               ),
@@ -104,7 +104,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Image.asset(
-                    'assets/images/informatica/computer_structures/${widget.germania[indexgermania].images}.jpg'),
+                    'assets/images/history/nemis_koroldugu/${widget.germania[indexgermania].images}.jpg'),
               ),
             ),
             Expanded(
@@ -161,7 +161,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                       },
                       child: Center(
                         child: AutoSizeText(
-                          personalComputer[indexgermania].jooptor[index].text,
+                          germania[indexgermania].jooptor[index].text,
                           textAlign: TextAlign.center,
                           maxLines: 5,
                         ),
