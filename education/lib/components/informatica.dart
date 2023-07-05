@@ -16,7 +16,7 @@ class Informatica extends StatelessWidget {
                 height: 140,
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Colors.orange,
+                  color: Color(0xff8FE1D7),
                   borderRadius:
                       BorderRadius.only(bottomRight: Radius.circular(50)),
                 ),
@@ -35,7 +35,7 @@ class Informatica extends StatelessWidget {
               ),
               Positioned(
                 top: 45,
-                width: 200,
+                width: 300,
                 height: 50,
                 child: Container(
                   height: 30,
@@ -47,11 +47,11 @@ class Informatica extends StatelessWidget {
                           bottomRight: Radius.circular(25))),
                   child: const Center(
                     child: Text(
-                      'Чакан китепкана',
+                      'Информатика бөлүмү',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
-                          color: Colors.orange),
+                          color: Color(0xff8FE1D7)),
                     ),
                   ),
                 ),

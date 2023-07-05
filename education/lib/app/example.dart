@@ -145,7 +145,7 @@ class _ExpandingCardsState extends State<ExpandingCards>
               title: item['title'],
               subtitle: item['subtitle'],
               image: item['image'],
-              icon: item['icon'] as IconData,
+              icon: item[''] as IconData,
               iconColor: item['color'] as Color,
               isExpanded: _selectedIndex == index,
               animation: _controller,

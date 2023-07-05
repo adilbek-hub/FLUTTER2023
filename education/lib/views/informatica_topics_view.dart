@@ -53,7 +53,7 @@ class InformaticaTopics extends StatelessWidget {
                 }
               },
               child: Container(
-                height: 150,
+                height: 100,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   boxShadow: const [
@@ -63,7 +63,7 @@ class InformaticaTopics extends StatelessWidget {
                       blurRadius: 8,
                     ),
                   ],
-                  color: subjectsI.bgColor,
+                  color: const Color(0xffCEF2ED),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
@@ -83,7 +83,7 @@ class InformaticaTopics extends StatelessWidget {
                             ),
                           ],
                           gradient: const LinearGradient(
-                            colors: [Colors.purple, Colors.blue],
+                            colors: [Color(0xffCEF2ED), Color(0xffFFFFFF)],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
