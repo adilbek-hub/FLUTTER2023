@@ -1,3 +1,4 @@
+import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/subjects.dart';
 import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
 import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
@@ -16,7 +17,8 @@ class InformaticaTopics extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 380,
+          height: 300,
+          width: 300,
           child: PageView.builder(
             controller: _pageController,
             itemCount: subjectsInformaticaList.length,
@@ -83,6 +85,35 @@ class InformaticaTopics extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          DropCapText(
+                            subjectsI.title,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Avenir',
+                                color: Color(0xff47455f),
+                                fontWeight: FontWeight.w900),
+                            textAlign: TextAlign.left,
+                            dropCap: DropCap(
+                              width: 100,
+                              height: 100,
+                              child: Image.asset(subjectsI.image),
+                            ),
+                          ),
+                          const Divider(),
+                          Text(
+                            subjectsI.description,
+                            style: const TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'Avenir',
+                                color: Color.fromARGB(255, 186, 148, 148),
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
                       ),
                     ),
                   ),
