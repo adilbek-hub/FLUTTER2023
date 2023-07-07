@@ -5,130 +5,105 @@ import 'package:education/pages/topic_pages_about_informatics/personal_computer.
 import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class InformaticaTopics extends StatelessWidget {
-  const InformaticaTopics({super.key});
+  InformaticaTopics({super.key});
+  final _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: subjectsInformaticaList.length,
-        itemBuilder: (BuildContext context, int index) {
-          Subjects subjectsI = subjectsInformaticaList[index];
-          return Padding(
-            padding: const EdgeInsets.all(10),
-            child: InkWell(
-              onTap: () {
-                if (subjectsI == computer) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ComputerFunksialary(
-                        computerStructur: computerStructurList,
-                      ),
-                    ),
-                  );
-                } else if (subjectsI == personalComputer) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PersonalComputer(),
-                    ),
-                  );
-                } else if (subjectsI == computerTarmaktary) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ComputerdicTarmaktar(),
-                    ),
-                  );
-                } else if (subjectsI == spk) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          const SistemalykProgrammalykKamsyzdoo(),
-                    ),
-                  );
-                }
-              },
-              child: Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color(0xFF101012),
-                      offset: Offset(-12, 12),
-                      blurRadius: 8,
-                    ),
-                  ],
-                  color: const Color(0xffCEF2ED),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      FittedBox(
-                          child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.blue.withOpacity(0.4),
-                              blurRadius: 4,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
-                          gradient: const LinearGradient(
-                            colors: [Color(0xffCEF2ED), Color(0xffFFFFFF)],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
+    return Column(
+      children: [
+        SizedBox(
+          height: 380,
+          child: PageView.builder(
+            controller: _pageController,
+            itemCount: subjectsInformaticaList.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              Subjects subjectsI = subjectsInformaticaList[index];
+              return Padding(
+                padding: const EdgeInsets.all(10),
+                child: InkWell(
+                  onTap: () {
+                    if (subjectsI == computer) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ComputerFunksialary(
+                            computerStructur: computerStructurList,
                           ),
                         ),
-                        child: Text(
-                          subjectsI.title,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                      );
+                    } else if (subjectsI == personalComputer) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PersonalComputer(),
                         ),
-                      )),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              subjectsI.description,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FontStyle.italic,
-                                letterSpacing: 1.5,
-                                shadows: [
-                                  Shadow(
-                                    color: Color.fromARGB(255, 255, 68, 0),
-                                    blurRadius: 30,
-                                    offset: Offset(1, 1),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Image.asset(
-                            subjectsI.image,
+                      );
+                    } else if (subjectsI == computerTarmaktary) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ComputerdicTarmaktar(),
+                        ),
+                      );
+                    } else if (subjectsI == spk) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const SistemalykProgrammalykKamsyzdoo(),
+                        ),
+                      );
+                    }
+                  },
+                  child: SizedBox(
+                    height: 300,
+                    width: 300,
+                    child: Container(
+                      height: 80,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 215, 227, 226),
+                            offset: Offset(-12, 12),
+                            blurRadius: 8,
                           ),
                         ],
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 184, 243, 235),
+                            Color.fromARGB(255, 254, 242, 242)
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-          );
-        });
+              );
+            },
+          ),
+        ),
+        SmoothPageIndicator(
+          controller: _pageController,
+          count: subjectsInformaticaList.length,
+          effect: JumpingDotEffect(
+            activeDotColor: Colors.deepPurple,
+            dotColor: Colors.deepPurple.shade100,
+            dotHeight: 15,
+            dotWidth: 15,
+            spacing: 16,
+            jumpScale: 3,
+          ),
+        ),
+      ],
+    );
   }
 }

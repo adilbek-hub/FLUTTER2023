@@ -7,7 +7,7 @@ class Informatica extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Stack(
@@ -58,7 +58,7 @@ class Informatica extends StatelessWidget {
               )
             ],
           ),
-          const Expanded(child: InformaticaTopics()),
+          Expanded(child: InformaticaTopics()),
         ],
       ),
     );

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import 'package:education/constants/app_text.dart';
@@ -148,8 +146,7 @@ List<Subjects> subjectsHistoryList = [
 //////Информатика үчүн objects
 const computer = Subjects(
   title: 'Компьютердин негизги бөлүктөрү жана алардын функциялары',
-  description:
-      'Кымбаттуу окуучу, сиз компьютер деген эмне жана анын функцияларын окуп үйрөнүңүз.',
+  description: 'Компьютер деген эмне жана анын функцияларын окуп үйрөнүңүз.',
   image: 'assets/images/capitals/globe.png',
   bgColor: Colors.blue,
   subject: AppText.capitals,

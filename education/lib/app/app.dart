@@ -1,4 +1,4 @@
-import 'package:education/app/example.dart';
+import 'package:education/example/example.dart';
 import 'package:education/views/books_view.dart';
 import 'package:education/views/home_view.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => const HomeView(),
+        '/': (context) => const HomeView() /*Example()*/,
         'BooksView': (context) => const BooksView(),
       },
     );

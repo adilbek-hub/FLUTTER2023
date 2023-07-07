@@ -43,6 +43,7 @@ dependencies:
   auto_size_text: ^3.0.0
   flutter_swiper_plus: ^2.0.4
   url_launcher: ^6.1.11
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,7 @@ flutter:
     - assets/images/history/
     - assets/images/informatica/computer_structures/
     - assets/images/informatica/computerdik_tarmaktar/
+    - assets/images/informatica/
     - assets/images/informatica/sistemalyk_programmalyk_kamsyzdoo/
     - assets/images/history/rim/
     - assets/images/history/bayrky_germandyktar/
