@@ -86,34 +86,37 @@ class InformaticaTopics extends StatelessWidget {
                           end: Alignment.bottomRight,
                         ),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          DropCapText(
-                            subjectsI.title,
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'Avenir',
-                                color: Color(0xff47455f),
-                                fontWeight: FontWeight.w900),
-                            textAlign: TextAlign.left,
-                            dropCap: DropCap(
-                              width: 100,
-                              height: 100,
-                              child: Image.asset(subjectsI.image),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            DropCapText(
+                              subjectsI.title,
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  // fontFamily: 'Knewave-Regular',
+                                  color: Color(0xff47455f),
+                                  fontWeight: FontWeight.w900),
+                              textAlign: TextAlign.left,
+                              dropCap: DropCap(
+                                width: 100,
+                                height: 100,
+                                child: Image.asset(subjectsI.image),
+                              ),
                             ),
-                          ),
-                          const Divider(),
-                          Text(
-                            subjectsI.description,
-                            style: const TextStyle(
-                                fontSize: 18,
-                                fontFamily: 'Avenir',
-                                color: Color.fromARGB(255, 186, 148, 148),
-                                fontWeight: FontWeight.w400),
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
+                            const Divider(),
+                            Text(
+                              subjectsI.description,
+                              style: const TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Avenir',
+                                  color: Color.fromARGB(255, 186, 148, 148),
+                                  fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.left,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

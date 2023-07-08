@@ -1,54 +1,60 @@
-import 'package:education/model/subjects.dart';
-import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
-import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
-import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-class Example extends StatefulWidget {
-  @override
-  State<Example> createState() => _ExampleState();
-}
-
-class _ExampleState extends State<Example> {
-  // const Example({super.key});
-  final _controller = PageController();
+class Screen1 extends StatelessWidget {
+  const Screen1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.deepPurple[200],
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          SizedBox(
-            height: 500,
-            child: PageView(
-              controller: _controller,
-              children: [
-                ComputerFunksialary(computerStructur: computerStructurList),
-                const ComputerdicTarmaktar(),
-                const PersonalComputer(),
-                const SistemalykProgrammalykKamsyzdoo(),
-              ],
-            ),
-          ),
-          SmoothPageIndicator(
-            controller: _controller,
-            count: 4,
-            effect: JumpingDotEffect(
-              activeDotColor: Colors.deepPurple,
-              dotColor: Colors.deepPurple.shade100,
-              dotHeight: 15,
-              dotWidth: 15,
-              spacing: 16,
-              jumpScale: 3,
-            ),
-          ),
-        ],
-      ),
+    return const Scaffold(
+        body: Center(
+            child: Text(
+      'Screen 1',
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    )));
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  const Screen2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+          child: Text(
+        'Screen 2',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      )),
+    );
+  }
+}
+
+class Screen3 extends StatelessWidget {
+  const Screen3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+          child: Text(
+        'Screen 3',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      )),
+    );
+  }
+}
+
+class Screen4 extends StatelessWidget {
+  const Screen4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+          child: Text(
+        'Screen 4',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      )),
     );
   }
 }

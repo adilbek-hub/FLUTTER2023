@@ -42,9 +42,9 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         title: Text('Информатика'.toUpperCase()),
         elevation: 0,
       ),
@@ -77,14 +77,22 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                     child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
+                          // color: Colors.white,
                           boxShadow: const [
                             BoxShadow(
-                              color: Color(0xFF101012),
+                              color: Color.fromARGB(255, 215, 227, 226),
                               offset: Offset(-12, 12),
                               blurRadius: 8,
                             ),
                           ],
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 184, 243, 235),
+                              Color.fromARGB(255, 254, 242, 242)
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
                         ),
                         child: Column(
                           children: [
@@ -126,7 +134,8 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                                             ? Matrix4.translationValues(0, 8, 0)
                                             : Matrix4.identity(),
                                         decoration: BoxDecoration(
-                                          color: Colors.orange,
+                                          color: const Color.fromARGB(
+                                              255, 252, 220, 171),
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           boxShadow: const [
@@ -148,6 +157,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                                 ),
                               ],
                             ),
+                            SizedBox(height: 10),
                             FittedBox(
                               child: Text(
                                 computerStructura.name,

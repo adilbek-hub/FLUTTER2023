@@ -3,8 +3,12 @@ import 'package:education/components/history.dart';
 import 'package:education/components/informatica.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';
+import 'package:education/pages/all_search.dart';
 
 import 'package:flutter/material.dart';
+import 'package:moony_nav_bar/moony_nav_bar.dart';
+
+import 'biology_topics_view.dart';
 
 class BooksView extends StatefulWidget {
   const BooksView({super.key});
@@ -49,6 +53,23 @@ class _BooksViewState extends State<BooksView> {
           ),
           child: Column(
             children: [
+              const Padding(
+                padding: EdgeInsets.only(left: 25, top: 10),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    'Китептер \nКоллекциясы',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const Divider(
+                indent: 20,
+                endIndent: 20,
+              ),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
