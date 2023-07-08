@@ -1,10 +1,6 @@
 import 'package:education/model/subjects.dart';
-import 'package:education/pages/topic_pages_about_biology/kletka.dart';
-import 'package:education/pages/topic_pages_about_biology/mee.dart';
-import 'package:education/pages/topic_pages_about_biology/nerv_sistemasy.dart';
-import 'package:education/pages/topic_pages_about_geography/asia_continent.dart';
-import 'package:education/pages/topic_pages_about_geography/europe_continent.dart';
-import 'package:education/pages/topic_pages_about_geography/usa.dart';
+import 'topic_pages_about_biology/topic_pages_about_biology.dart';
+import 'topic_pages_about_geography/topic_pages_about_geography.dart';
 import 'package:education/pages/topic_pages_about_geography/world_capitals.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
@@ -14,8 +10,6 @@ import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmak
 import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
 import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 import 'package:flutter/material.dart';
-
-import 'topic_pages_about_biology/kishsi_jana_janybar.dart';
 
 class AllSearchPage extends StatefulWidget {
   const AllSearchPage({super.key});

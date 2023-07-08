@@ -1,6 +1,4 @@
-import 'package:education/example/example.dart';
-import 'package:education/example/main.dart';
-import 'package:education/views/books_view.dart';
+import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
 
 import 'package:flutter/material.dart';
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const HomeView(),
-        'BooksView': (context) => const Example(),
+        'BooksView': (context) => const NavBarPages(),
       },
     );
   }

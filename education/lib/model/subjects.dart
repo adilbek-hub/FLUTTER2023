@@ -66,7 +66,7 @@ const manAndanimal = Subjects(
   description:
       '<Биологияда адам менен жарыбардын окшоштуктары жана айырмачылыктары тууралуу кыскача билип алыңыз',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -75,7 +75,7 @@ const kletka = Subjects(
   description:
       'Кымбаттуу окуучу, клетка деген эмне? ушул тууралуу маалымат алыңыз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -83,7 +83,7 @@ const nervSistemasy = Subjects(
   title: 'Нерв системасынын түзүлүшү жана анын кызматы',
   description: 'Кымбаттуу окуучу, нерв системалары жөнүндө окуп билип алыңыз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -91,7 +91,7 @@ const mee = Subjects(
   title: 'Мээ',
   description: 'Кымбаттуу окуучу, мээ тууралуу маалымат алыңыз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -107,7 +107,7 @@ const roma = Subjects(
   title: 'Рим империясы',
   description: 'Тарыхта Рим империясы жөнүндө таанышыңыз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -115,7 +115,7 @@ const germandyktar = Subjects(
   title: 'Байыркы Германдыктар',
   description: 'Кымбаттуу окуучу, байыркы германдыктар тууралуу окуп билиңиз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -124,7 +124,7 @@ const italia = Subjects(
   description:
       'Кымбаттуу окуучу, биз байыркы Италиянын өзгөчөлүктөрү тууралуу сизге тааныштырабыз.',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 
@@ -132,7 +132,7 @@ const nemisKoroldugu = Subjects(
   title: 'Немис королдугунун жаралышы',
   description: 'Немис королдугунун жаралышы тууралуу билип алыңыз',
   image: 'assets/images/capitals/globe.png',
-  bgColor: const Color.fromARGB(255, 246, 141, 134),
+  bgColor: Color.fromARGB(255, 246, 141, 134),
   subject: AppText.capitals,
 );
 

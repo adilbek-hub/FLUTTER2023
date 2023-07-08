@@ -1,6 +1,4 @@
-import 'package:education/model/europe_suroo.dart';
 import 'package:education/model/history_question.dart';
-import 'package:education/pages/geography_test/europe_test_page.dart';
 import 'package:education/pages/history_test/nemis_koroldugu_test_page.dart';
 import 'package:flutter/material.dart';
 

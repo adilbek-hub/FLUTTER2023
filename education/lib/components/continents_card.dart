@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../model/continent.dart';
 
 class ContinentCard extends StatelessWidget {
@@ -27,18 +25,18 @@ class ContinentCard extends StatelessWidget {
               itemContinents.name,
               style: const TextStyle(fontSize: 15),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: SvgPicture.asset(
-                    'assets/icons/continents/${itemContinents.icon}.svg',
-                    color: itemContinents.color,
-                  ),
-                ),
-              ),
-            )
+            // Expanded(
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(12.0),
+            //     child: Padding(
+            //       padding: const EdgeInsets.all(2.0),
+            //       child: SvgPicture.asset(
+            //         'assets/icons/continents/${itemContinents.icon}.svg',
+            //         color: itemContinents.color,
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

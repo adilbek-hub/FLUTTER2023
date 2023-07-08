@@ -1,8 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:education/constants/app_color.dart';
-import 'package:education/model/asia_suroo.dart';
 import 'package:education/model/history_question.dart';
-import 'package:education/model/informatica_suroo.dart';
 import 'package:flutter/material.dart';
 
 class BayrkyGermandyktarTestPage extends StatefulWidget {

@@ -11,6 +11,7 @@ class ComputerFunksialary extends StatefulWidget {
 }
 
 class _ComputerFunksialaryState extends State<ComputerFunksialary> {
+  // ignore: prefer_collection_literals
   Set<int> pressedIndexes = Set<int>();
   void _showButtonPressedDialog(
     ComputerStructur computerStructur,
@@ -135,7 +136,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                                             : Matrix4.identity(),
                                         decoration: BoxDecoration(
                                           color: const Color.fromARGB(
-                                              255, 252, 220, 171),
+                                              255, 251, 176, 155),
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           boxShadow: const [
@@ -157,7 +158,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             FittedBox(
                               child: Text(
                                 computerStructura.name,

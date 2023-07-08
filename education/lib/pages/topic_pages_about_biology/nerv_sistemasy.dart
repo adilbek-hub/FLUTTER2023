@@ -1,7 +1,5 @@
 import 'package:education/model/biology_question.dart';
-import 'package:education/model/europe_suroo.dart';
 import 'package:education/pages/biology_test/nerv_sistemasy_test_page.dart';
-import 'package:education/pages/geography_test/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
 class NervSistemasy extends StatelessWidget {

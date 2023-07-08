@@ -1,22 +1,22 @@
-import 'package:education/example/example.dart';
+import 'package:education/example/screen.dart';
 import 'package:education/pages/all_search.dart';
 import 'package:education/views/books_view.dart';
 import 'package:flutter/material.dart';
 import 'package:moony_nav_bar/moony_nav_bar.dart';
 
-class Example extends StatefulWidget {
-  const Example({super.key});
+class NavBarPages extends StatefulWidget {
+  const NavBarPages({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _ExampleState createState() => _ExampleState();
+  _NavBarPagesState createState() => _NavBarPagesState();
 }
 
-class _ExampleState extends State<Example> {
+class _NavBarPagesState extends State<NavBarPages> {
   final Widget _screen1 = const BooksView();
-  final Widget _screen2 = const Screen2();
+  final Widget _screen2 = const Jurok();
   final Widget _screen3 = const AllSearchPage();
-  final Widget _screen4 = const Screen4();
+  final Widget _screen4 = const Koldonuuchu();
   int selectedIndex = 0;
 
   @override
@@ -58,7 +58,7 @@ class _ExampleState extends State<Example> {
           activeColor: Theme.of(context).primaryColor,
           indicatorPosition: IndicatorPosition.TOP,
           indicatorType: IndicatorType.POINT,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(10),
             topRight: Radius.circular(10),
           ),

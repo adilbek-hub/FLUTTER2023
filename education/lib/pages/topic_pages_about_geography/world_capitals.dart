@@ -58,103 +58,103 @@ class _WorldCapitalsState extends State<WorldCapitals> {
                   onPressed: () {
                     displayedCities(a);
                   },
-                  child: Text('A'),
+                  child: const Text('A'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(b);
                   },
-                  child: Text('Б'),
+                  child: const Text('Б'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(v);
                   },
-                  child: Text('В'),
+                  child: const Text('В'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(g);
                   },
-                  child: Text('Г'),
+                  child: const Text('Г'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(d);
                   },
-                  child: Text('Д'),
+                  child: const Text('Д'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(i);
                   },
-                  child: Text('И'),
+                  child: const Text('И'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(k);
                   },
-                  child: Text('К'),
+                  child: const Text('К'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(l);
                   },
-                  child: Text('Л'),
+                  child: const Text('Л'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(m);
                   },
-                  child: Text('М'),
+                  child: const Text('М'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(n);
                   },
-                  child: Text('Н'),
+                  child: const Text('Н'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(o);
                   },
-                  child: Text('О'),
+                  child: const Text('О'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(p);
                   },
-                  child: Text('П'),
+                  child: const Text('П'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(r);
                   },
-                  child: Text('Р'),
+                  child: const Text('Р'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(s);
                   },
-                  child: Text('С'),
+                  child: const Text('С'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(t);
                   },
-                  child: Text('Т'),
+                  child: const Text('Т'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(u);
                   },
-                  child: Text('У'),
+                  child: const Text('У'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     displayedCities(fhy);
                   },
-                  child: Text('ФХЯ'),
+                  child: const Text('ФХЯ'),
                 ),
                 ElevatedButton(
                   onPressed: () {

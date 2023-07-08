@@ -3,12 +3,7 @@ import 'package:education/components/history.dart';
 import 'package:education/components/informatica.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';
-import 'package:education/pages/all_search.dart';
-
 import 'package:flutter/material.dart';
-import 'package:moony_nav_bar/moony_nav_bar.dart';
-
-import 'biology_topics_view.dart';
 
 class BooksView extends StatefulWidget {
   const BooksView({super.key});
