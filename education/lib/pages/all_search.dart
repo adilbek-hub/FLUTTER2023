@@ -81,74 +81,74 @@ class _AllSearchPageState extends State<AllSearchPage> {
       case "Борбор шаарлар":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => WorldCapitals()),
+          MaterialPageRoute(builder: (context) => const WorldCapitals()),
         );
         break;
       case "Кишинин сүт эмүүчү жаныбарлар менен окшоштугу жана айырмачылыгы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => KishiJanaJanybar()),
+          MaterialPageRoute(builder: (context) => const KishiJanaJanybar()),
         );
         break;
       case "Клетка жөнүндө түшүнүк":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Kletka()),
+          MaterialPageRoute(builder: (context) => const Kletka()),
         );
         break;
       case "Нерв системасынын түзүлүшү жана анын кызматы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => NervSistemasy()),
+          MaterialPageRoute(builder: (context) => const NervSistemasy()),
         );
         break;
       case "Mee":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Mee()),
+          MaterialPageRoute(builder: (context) => const Mee()),
         );
         break;
       case "Рим империясы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Rim()),
+          MaterialPageRoute(builder: (context) => const Rim()),
         );
         break;
       case "Байыркы Германдыктар":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Germandyktar()),
+          MaterialPageRoute(builder: (context) => const Germandyktar()),
         );
         break;
       case "Италия V X кылымдарда":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Italia()),
+          MaterialPageRoute(builder: (context) => const Italia()),
         );
         break;
       case "Немис королдугунун жаралышы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => NemisKoroldugu()),
+          MaterialPageRoute(builder: (context) => const NemisKoroldugu()),
         );
         break;
       case "Personal":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PersonalComputer()),
+          MaterialPageRoute(builder: (context) => const PersonalComputer()),
         );
         break;
       case "Компьютердик тармактар":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ComputerdicTarmaktar()),
+          MaterialPageRoute(builder: (context) => const ComputerdicTarmaktar()),
         );
         break;
       case "Системалык программалык камсыздоо":
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => SistemalykProgrammalykKamsyzdoo()),
+              builder: (context) => const SistemalykProgrammalykKamsyzdoo()),
         );
         break;
     }
@@ -168,7 +168,7 @@ class _AllSearchPageState extends State<AllSearchPage> {
               onChanged: filterSearchResults,
               decoration: InputDecoration(
                 hintText: 'Search...',
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
@@ -180,16 +180,16 @@ class _AllSearchPageState extends State<AllSearchPage> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: searchResults.length > 0
+              itemCount: searchResults.isNotEmpty
                   ? searchResults.length
                   : temalar.length,
               itemBuilder: (context, index) {
-                final topic = searchResults.length > 0
+                final topic = searchResults.isNotEmpty
                     ? searchResults[index]
                     : temalar[index];
                 return ListTile(
                   title: Text(topic),
-                  leading: Icon(Icons.search),
+                  leading: const Icon(Icons.search),
                   onTap: () {
                     openTopicPage(topic);
                   },
