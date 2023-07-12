@@ -46,6 +46,9 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   moony_nav_bar: ^1.3.3
   form_field_validator: ^1.1.0
+  firebase_auth: ^4.6.3
+  firebase_core_desktop: ^1.0.2
+  google_sign_in: ^6.1.4
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +96,7 @@ flutter:
     - assets/images/biology/mee/
     - assets/images/biology/nerv/
     - assets/images/sear_avatar/
+    - assets/images/google_apple_images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

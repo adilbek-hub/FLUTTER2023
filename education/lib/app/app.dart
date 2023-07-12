@@ -1,6 +1,6 @@
+import 'package:education/pages/login_page.dart';
 import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
-
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,7 +8,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // checkerboardOffscreenLayers: true,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -16,7 +15,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => const HomeView(),
+        '/': (context) => LoginPage(),
+        'HomeView': (context) => const HomeView(),
         'BooksView': (context) => const NavBarPages(),
       },
     );
