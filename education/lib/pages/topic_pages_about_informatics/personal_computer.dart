@@ -125,7 +125,7 @@ class PersonalComputer extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 SizedBox(
-                  height: 80,
+                  height: 100,
                   width: 300,
                   child: Card(
                     color: Colors.red[300],

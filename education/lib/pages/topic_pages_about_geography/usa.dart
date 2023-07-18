@@ -385,7 +385,7 @@ class Usa extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           SizedBox(
-            height: 80,
+            height: 100,
             width: 300,
             child: Card(
               color: Colors.red[300],

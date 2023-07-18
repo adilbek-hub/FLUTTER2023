@@ -13,16 +13,7 @@ class EuropeContinenti extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: SweepGradient(
-              colors: [Colors.red, Colors.blue, Colors.pink],
-              startAngle: 10,
-              endAngle: 30,
-              tileMode: TileMode.repeated,
-            ),
-          ),
-        ),
+        title: Text(subjectsFull.title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -126,7 +117,7 @@ class EuropeContinenti extends StatelessWidget {
                   'Ооба, Орусия Европанын бир бөлүгү. Россия Европадагы эң чоң мамлекет. Россиянын негизги бөлүгү географиялык жактан Азияда жайгашканына карабастан, Россия Европа менен тыгыз маданий, этникалык жана саясий байланыштары бар болгондуктан, дагы эле европалык өлкө катары эсептелет.'),
               const SizedBox(height: 20),
               SizedBox(
-                height: 80,
+                height: 100,
                 width: 300,
                 child: Card(
                   color: Colors.red[300],
