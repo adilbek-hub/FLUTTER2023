@@ -1,7 +1,7 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flesh_chat_j/app/components/animation_logo.dart';
+import 'package:flesh_chat_j/app/components/custom_button.dart';
+import 'package:flesh_chat_j/app/components/flach_chat_text.dart';
 import 'package:flesh_chat_j/app/constants/app_colors.dart';
-import 'package:flesh_chat_j/app/constants/app_text_styles.dart';
 import 'package:flesh_chat_j/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -34,71 +34,18 @@ class FlashChatView extends GetView<FlashChatController> {
             CustomButton(
               text: 'Login',
               color: AppColors.whiteL,
-              onPressed: () async => await Get.toNamed(Routes.LOGIN),
+              onPressed: () async =>
+                  await Get.toNamed(Routes.LOGIN, arguments: true),
             ),
             const SizedBox(height: 15),
             CustomButton(
               text: 'Register',
               color: AppColors.whiteR,
-              onPressed: () => Get.toNamed(Routes.REGISTER),
+              onPressed: () async =>
+                  await Get.toNamed(Routes.LOGIN, arguments: false),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required this.color,
-    required this.text,
-    this.onPressed,
-  });
-  final String text;
-  final Color color;
-  final void Function()? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        fixedSize: Size(MediaQuery.of(context).size.width - 30, 60),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
-        elevation: 10,
-        shadowColor: Colors.blue,
-      ),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 25,
-        ),
-      ),
-    );
-  }
-}
-
-class FlashChatText extends StatelessWidget {
-  const FlashChatText({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: AppTextStyles.flashChat,
-      child: AnimatedTextKit(
-        totalRepeatCount: 2000,
-        animatedTexts: [
-          WavyAnimatedText('Flash chat'),
-        ],
-        isRepeatingAnimation: true,
-        onTap: () {},
       ),
     );
   }

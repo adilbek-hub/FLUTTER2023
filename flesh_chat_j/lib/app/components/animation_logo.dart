@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class AnimationLogo extends StatefulWidget {
   const AnimationLogo({
     super.key,
+    this.logoSize = 100,
   });
+  final double logoSize;
 
   @override
   State<AnimationLogo> createState() => _AnimationLogoState();
@@ -33,7 +35,7 @@ class _AnimationLogoState extends State<AnimationLogo>
     return Hero(
       tag: 'logo',
       child: SizedBox(
-        height: controller.value * 100,
+        height: controller.value * widget.logoSize,
         child: Image.asset('assets/logo.png'),
       ),
     );

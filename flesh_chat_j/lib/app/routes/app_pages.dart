@@ -1,6 +1,4 @@
-import 'package:flesh_chat_j/app/modules/login/views/register_view.dart';
 import 'package:get/get.dart';
-
 import '../modules/flash_chat/bindings/flash_chat_binding.dart';
 import '../modules/flash_chat/views/flash_chat_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -23,12 +21,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () => const LoginView(),
-      binding: LoginBinding(),
-    ),
-    GetPage(
-      name: _Paths.REGISTER,
-      page: () => const RegisterView(),
+      page: () => LoginView(Get.arguments as bool),
       binding: LoginBinding(),
     ),
     GetPage(
