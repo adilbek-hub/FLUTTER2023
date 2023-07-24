@@ -3,6 +3,7 @@
 A new Flutter project.
 
 ## Getting Started
+required compileSdkVersion 33 for android 
 
 This project is a starting point for a Flutter application.
 
