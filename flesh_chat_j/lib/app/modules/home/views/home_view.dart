@@ -11,6 +11,19 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('HomeView'),
+        actions: [
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    PopupMenuItem(
+                      child: Text('Logout'),
+                      onTap: () async => await controller.logout(),
+                    ),
+                    PopupMenuItem(
+                      child: Text('Delete'),
+                      onTap: () async => await controller.delete(),
+                    ),
+                  ])
+        ],
         centerTitle: true,
       ),
       body: const Center(

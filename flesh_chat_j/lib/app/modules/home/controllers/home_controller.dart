@@ -1,23 +1,19 @@
+import 'package:flesh_chat_j/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
+import '../../../../utils/app_dialog.dart';
+import '../services/home_services.dart';
+
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  Future<void> logout() async {
+    AppDialog.showLoading();
+    await HomeServices.logout();
+    await Get.offAllNamed(Routes.FLASH_CHAT);
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> delete() async {
+    AppDialog.showLoading();
+    await HomeServices.delete();
+    await Get.offAllNamed(Routes.FLASH_CHAT);
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

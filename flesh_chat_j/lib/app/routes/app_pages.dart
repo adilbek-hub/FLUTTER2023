@@ -11,7 +11,8 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.FLASH_CHAT;
+  static const INITIALFALSE = Routes.FLASH_CHAT;
+  static const INITIALTRUE = Routes.HOME;
 
   static final routes = [
     GetPage(
