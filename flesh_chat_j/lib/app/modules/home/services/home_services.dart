@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flesh_chat_j/app/data/sms_model.dart';
 import 'package:flesh_chat_j/services/user_manager.dart';
 
 class HomeServices {
@@ -10,5 +12,14 @@ class HomeServices {
   static Future<void> delete() async {
     await FirebaseAuth.instance.currentUser!.delete();
     await userManager.removeUid();
+  }
+
+  static Future<void> sendMessage(String sms) async {
+    final sender = FirebaseAuth.instance.currentUser;
+    if (sender?.email != null) {
+      final db = FirebaseFirestore.instance;
+      final SmsModel smsModel = SmsModel(sender!.email!, sms);
+      await db.collection('messages').add(smsModel.toMap());
+    }
   }
 }
