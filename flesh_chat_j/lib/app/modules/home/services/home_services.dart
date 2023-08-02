@@ -18,8 +18,17 @@ class HomeServices {
     final sender = FirebaseAuth.instance.currentUser;
     if (sender?.email != null) {
       final db = FirebaseFirestore.instance;
-      final SmsModel smsModel = SmsModel(sender!.email!, sms);
+      final SmsModel smsModel =
+          SmsModel(send: sender!.email!, sms: sms, time: DateTime.now());
       await db.collection('messages').add(smsModel.toMap());
     }
+  }
+
+  static Stream<QuerySnapshot<Map<String, dynamic>>> streamMessage() {
+    final db = FirebaseFirestore.instance;
+    return db
+        .collection('messages')
+        .orderBy('time', descending: true)
+        .snapshots();
   }
 }
