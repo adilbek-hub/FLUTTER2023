@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -96,6 +97,7 @@ class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final theme = Theme.of(context).colorScheme;
     return Expanded(
       child: StreamBuilder<QuerySnapshot>(
           stream: streamMessages,
@@ -112,31 +114,72 @@ class MessageStream extends StatelessWidget {
                     .map(
                       (e) => Padding(
                         padding: EdgeInsets.fromLTRB(
-                          !e.isMy! ? 10 : width / 5,
+                          !e.isMy! ? 10 : width / 2,
                           7,
-                          e.isMy! ? 10 : width / 5,
+                          e.isMy! ? 10 : width / 2,
                           7,
                         ),
                         child: Material(
                           color: e.isMy!
-                              ? Colors.blue
-                              : const Color.fromARGB(255, 193, 63, 63),
-                          borderOnForeground: false,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                            topLeft: !e.isMy!
-                                ? Radius.circular(0)
-                                : Radius.circular(20),
-                            topRight: !e.isMy!
-                                ? Radius.circular(0)
-                                : Radius.circular(20),
+                              ? theme.primary
+                              : theme.onPrimaryContainer,
+                          clipBehavior: Clip.none,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: const Radius.circular(10),
+                              bottomRight: const Radius.circular(10),
+                              topLeft: !e.isMy!
+                                  ? const Radius.circular(0)
+                                  : const Radius.circular(20),
+                              topRight: !e.isMy!
+                                  ? const Radius.circular(0)
+                                  : const Radius.circular(20),
+                            ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Text(
-                              e.sms,
-                            ),
+                            padding: const EdgeInsets.fromLTRB(15, 15, 15, 10),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  !e.isMy!
+                                      ? Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              e.send,
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                color: theme.primary,
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      : const SizedBox.shrink(),
+                                  Text(
+                                    e.sms,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      height: 1.4,
+                                      color: e.isMy! ? Colors.white : null,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 7),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        DateFormat('dd/MM/yy (hh:mm)')
+                                            .format(e.time),
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          height: 1.4,
+                                          color: e.isMy! ? Colors.white : null,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ]),
                           ),
                         ),
                       ),
