@@ -11,14 +11,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          WeatherCubit(weatherService)..getWeatherByCityName('Bishkek'),
+          WeatherCubit(weatherService)..getWeatherByCityName('Moscow'),
       child: Scaffold(
         appBar: AppBar(title: const Text('HomePage')),
         body: Center(
           child: BlocBuilder<WeatherCubit, WeatherState>(
             builder: (context, state) {
               if (state is WeatherInitial) {
-                return Text('WeatherInitial');
+                return const Text('WeatherInitial');
               } else if (state is WeatherLoading) {
                 return const CircularProgressIndicator();
               } else if (state is WeatherSuccess) {
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                       Text('${state.weatherResponce.weather[0].id}'),
                       Text(state.weatherResponce.weather[0].icon),
                       Text(state.weatherResponce.weather[0].description),
-                      Text(state.weatherResponce.weather[0].main),
+                      Text(state.weatherResponce.name),
                     ],
                   ),
                 );

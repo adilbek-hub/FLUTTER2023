@@ -17,9 +17,11 @@ class WeatherCubit extends Cubit<WeatherState> {
     emit(WeatherLoading());
     final data = await service.getWeatherByCityName(cityName);
     if (data != null) {
-      emit(WeatherSuccess(data));
+      emit(
+        WeatherSuccess(data),
+      );
     } else {
-      emit(WeatherError(errorText: 'Bir kata boldy'));
+      emit(const WeatherError(errorText: 'Bir kata boldy'));
     }
   }
 }
