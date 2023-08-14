@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+import 'main_model.dart';
+import 'weather.dart';
+
 class WeatherResponse {
   WeatherResponse({
     required this.weather,
@@ -7,30 +12,16 @@ class WeatherResponse {
   final List<Weather> weather;
   final Main main;
   final String name;
-}
 
-class Weather {
-  Weather({
-    required this.id,
-    required this.main,
-    required this.description,
-    required this.icon,
-  });
-  final int id;
-  final String main;
-  final String description;
-  final String icon;
-}
+  factory WeatherResponse.fromMap(Map<String, dynamic> map) {
+    return WeatherResponse(
+      weather:
+          List<Weather>.from(map['weather']?.map((x) => Weather.fromMap(x))),
+      main: Main.fromMap(map['main']),
+      name: map['name'] ?? '',
+    );
+  }
 
-class Main {
-  Main({
-    required this.temp,
-    required this.feelsLike,
-    required this.tempMin,
-    required this.tempMax,
-  });
-  final num temp;
-  final num feelsLike;
-  final num tempMin;
-  final num tempMax;
+  factory WeatherResponse.fromJson(String source) =>
+      WeatherResponse.fromMap(json.decode(source));
 }
