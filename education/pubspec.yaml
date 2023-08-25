@@ -78,29 +78,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/home_view_images/
+   
     - assets/icons/continents/
     - assets/icons/icon/
-    - assets/images/capitals/
-    - assets/images/usa/
-    - assets/images/biology/
-    - assets/images/asia_continenti/
-    - assets/images/world_capitals/
-    - assets/images/history/
-    - assets/images/informatica/computer_structures/
-    - assets/images/informatica/computerdik_tarmaktar/
-    - assets/images/informatica/
-    - assets/images/informatica/sistemalyk_programmalyk_kamsyzdoo/
-    - assets/images/history/rim/
-    - assets/images/history/bayrky_germandyktar/
-    - assets/images/history/italia/
-    - assets/images/history/nemis_koroldugu/
-    - assets/images/biology/adamJanybar/
-    - assets/images/biology/kletka/
-    - assets/images/biology/mee/
-    - assets/images/biology/nerv/
-    - assets/images/sear_avatar/
-    - assets/images/google_apple_images/
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
