@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -30,7 +33,10 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -43,41 +49,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBSuBfED5e_KOvbflvSRvhdY65Q6-pCtng',
-    appId: '1:83971057958:web:41e17e1a46b6f66a64f9e7',
-    messagingSenderId: '83971057958',
-    projectId: 'education-96b5d',
-    authDomain: 'education-96b5d.firebaseapp.com',
-    storageBucket: 'education-96b5d.appspot.com',
-    measurementId: 'G-DQB72RHZ3K',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBBBnT9v0D-CvvayIF4EPK6nblwlJzFmz0',
-    appId: '1:83971057958:android:9e3e513dbb99267a64f9e7',
-    messagingSenderId: '83971057958',
-    projectId: 'education-96b5d',
-    storageBucket: 'education-96b5d.appspot.com',
+    apiKey: 'AIzaSyDOtz3jujYKZdTmuTHxxIjFSYirOGd7rhM',
+    appId: '1:127544205553:android:3b5449f01239dd4cde0950',
+    messagingSenderId: '127544205553',
+    projectId: 'education-ccb33',
+    storageBucket: 'education-ccb33.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCFFOw5WqvuxPElHk-AvOSuUm-F8xKZX6c',
-    appId: '1:83971057958:ios:8c90b9b4f395236c64f9e7',
-    messagingSenderId: '83971057958',
-    projectId: 'education-96b5d',
-    storageBucket: 'education-96b5d.appspot.com',
-    iosClientId: '83971057958-clmsog91qnijomk2qliblh1db6je6oen.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDZ3C3-P9titJRXfdttcq9mub0ue_gYPp8',
+    appId: '1:127544205553:ios:7e6bd47b5eec10ecde0950',
+    messagingSenderId: '127544205553',
+    projectId: 'education-ccb33',
+    storageBucket: 'education-ccb33.appspot.com',
+    iosClientId: '127544205553-e83jer40kjga97sp6mq9vo194gjjdfhi.apps.googleusercontent.com',
     iosBundleId: 'com.example.education',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBSuBfED5e_KOvbflvSRvhdY65Q6-pCtng',
-    appId: '1:83971057958:web:1ffc1250500d98f664f9e7',
-    messagingSenderId: '83971057958',
-    projectId: 'education-96b5d',
-    authDomain: 'education-96b5d.firebaseapp.com',
-    storageBucket: 'education-96b5d.appspot.com',
-    measurementId: 'G-MX9P2F6ZXL',
   );
 }

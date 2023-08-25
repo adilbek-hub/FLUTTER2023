@@ -13,11 +13,11 @@ class NavBarPages extends StatefulWidget {
 }
 
 class _NavBarPagesState extends State<NavBarPages> {
+  int selectedIndex = 0;
   final Widget _screen1 = const BooksView();
   final Widget _screen2 = const Jurok();
   final Widget _screen3 = const AllSearchPage();
-  final Widget _screen4 = const Koldonuuchu();
-  int selectedIndex = 0;
+  final Widget _screen4 = const Administrator();
 
   @override
   void initState() {
@@ -49,10 +49,11 @@ class _NavBarPagesState extends State<NavBarPages> {
                 onTapHandler(2);
               }),
           NavigationBarItem(
-              icon: Icons.person_outline,
-              onTap: () {
-                onTapHandler(3);
-              })
+            icon: Icons.person_outline,
+            onTap: () {
+              onTapHandler(3);
+            },
+          ),
         ],
         style: MoonyNavStyle(
           activeColor: Theme.of(context).primaryColor,
@@ -74,8 +75,9 @@ class _NavBarPagesState extends State<NavBarPages> {
       return _screen2;
     } else if (selectedIndex == 2) {
       return _screen3;
+    } else {
+      return _screen4;
     }
-    return _screen4;
   }
 
   void onTapHandler(int index) {

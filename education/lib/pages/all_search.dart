@@ -161,7 +161,7 @@ class _AllSearchPageState extends State<AllSearchPage> {
             child: TextField(
               onChanged: filterSearchResults,
               decoration: InputDecoration(
-                hintText: 'Search...',
+                hintText: 'Издөө...',
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.grey[200],
