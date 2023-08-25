@@ -121,8 +121,11 @@ class ItemCard extends StatelessWidget {
     return SizedBox(
       height: 150,
       width: 150,
-      child: Image.file(
-        file,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.file(
+          file,
+        ),
       ),
     );
   }
