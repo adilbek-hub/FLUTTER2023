@@ -12,7 +12,6 @@ class Joop {
   final bool isTrue;
 }
 
-List<EuropeSuroo> europeQuestion = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
 const s1 = EuropeSuroo(
     text: 'Parice',
     jooptor: [
@@ -112,3 +111,5 @@ const s10 = EuropeSuroo(
       Joop(text: 'Georgia')
     ],
     image: 'VienaAustria');
+
+List<EuropeSuroo> europeQuestion = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];

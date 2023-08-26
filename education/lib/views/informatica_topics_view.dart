@@ -1,16 +1,37 @@
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/subjects.dart';
+import 'package:education/model/subjects2.dart';
 import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
 import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
 import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
 import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
+import 'package:education/services/subject_service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class InformaticaTopics extends StatelessWidget {
-  InformaticaTopics({super.key});
+class InformaticaTopics extends StatefulWidget {
+  const InformaticaTopics({super.key});
+
+  @override
+  State<InformaticaTopics> createState() => _InformaticaTopicsState();
+}
+
+class _InformaticaTopicsState extends State<InformaticaTopics> {
   final _pageController = PageController();
+
+  List<Subjects2>? subjects;
+
+  Future<void> fetchSubjects() async {
+    subjects = await subjectService.getData();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchSubjects();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,46 +42,46 @@ class InformaticaTopics extends StatelessWidget {
           width: 300,
           child: PageView.builder(
             controller: _pageController,
-            itemCount: subjectsInformaticaList.length,
+            itemCount: subjects!.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              Subjects subjectsI = subjectsInformaticaList[index];
+              final subject = subjects![index];
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: InkWell(
                   onTap: () {
-                    if (subjectsI == computer) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ComputerFunksialary(
-                            computerStructur: computerStructurList,
-                          ),
-                        ),
-                      );
-                    } else if (subjectsI == personalComputer) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PersonalComputer(),
-                        ),
-                      );
-                    } else if (subjectsI == computerTarmaktary) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ComputerdicTarmaktar(),
-                        ),
-                      );
-                    } else if (subjectsI == spk) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const SistemalykProgrammalykKamsyzdoo(),
-                        ),
-                      );
-                    }
+                    // if (subjectsI == computer) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => ComputerFunksialary(
+                    //         computerStructur: computerStructurList,
+                    //       ),
+                    //     ),
+                    //   );
+                    // } else if (subjectsI == personalComputer) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const PersonalComputer(),
+                    //     ),
+                    //   );
+                    // } else if (subjectsI == computerTarmaktary) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const ComputerdicTarmaktar(),
+                    //     ),
+                    //   );
+                    // } else if (subjectsI == spk) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) =>
+                    //           const SistemalykProgrammalykKamsyzdoo(),
+                    //     ),
+                    //   );
+                    // }
                   },
                   child: SizedBox(
                     height: 300,
@@ -92,7 +113,7 @@ class InformaticaTopics extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             DropCapText(
-                              subjectsI.title,
+                              subject.title,
                               style: const TextStyle(
                                   fontSize: 20,
                                   // fontFamily: 'Knewave-Regular',
@@ -102,12 +123,12 @@ class InformaticaTopics extends StatelessWidget {
                               dropCap: DropCap(
                                 width: 100,
                                 height: 100,
-                                child: Image.asset(subjectsI.image),
+                                child: Image.asset(subject.image),
                               ),
                             ),
                             const Divider(),
                             Text(
-                              subjectsI.description,
+                              subject.description,
                               style: const TextStyle(
                                   fontSize: 18,
                                   fontFamily: 'Avenir',
