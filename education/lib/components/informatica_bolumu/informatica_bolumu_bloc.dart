@@ -36,7 +36,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     // ignore: unrelated_type_equality_checks
-                    if (subject == computer) {
+                    if (subject.title == 0) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -46,7 +46,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                         ),
                       );
                       // ignore: unrelated_type_equality_checks
-                    } else if (subject == personalComputer) {
+                    } else if (subject.title == 1) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -54,7 +54,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                         ),
                       );
                       // ignore: unrelated_type_equality_checks
-                    } else if (subject == computerTarmaktary) {
+                    } else if (subject.title == 2) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -62,7 +62,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                         ),
                       );
                       // ignore: unrelated_type_equality_checks
-                    } else if (subject == spk) {
+                    } else if (subject.title == 3) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -109,11 +109,11 @@ class InformaticaBolumuWidget extends StatelessWidget {
                                   color: Color(0xff47455f),
                                   fontWeight: FontWeight.w900),
                               textAlign: TextAlign.left,
-                              // dropCap: DropCap(
-                              //   width: 100,
-                              //   height: 100,
-                              //   child: Image.asset(subject.image),
-                              // ),
+                              dropCap: DropCap(
+                                width: 100,
+                                height: 100,
+                                child: Image.network(subject.image),
+                              ),
                             ),
                             const Divider(),
                             Text(
