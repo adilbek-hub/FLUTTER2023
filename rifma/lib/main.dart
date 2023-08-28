@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -54,12 +56,79 @@ class _MyHomePageState extends State<MyHomePage> {
             const SliverToBoxAdapter(
               child: SizedBox(height: 16),
             ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 100,
+                child: ListView.separated(
+                    padding: const EdgeInsets.only(left: 16),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 10),
+                    itemBuilder: (context, index) {
+                      final ryfma =
+                          List.generate(4, (index) => 'Сөздөр $index');
+                      return BaseContainer(
+                          margin: EdgeInsets.zero,
+                          padding: const EdgeInsets.all(16),
+                          width: 200,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Сөз'),
+                              Wrap(
+                                children: ryfma
+                                    .map((e) => Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 10),
+                                          child: Text(e),
+                                        ))
+                                    .toList(),
+                              )
+                            ],
+                          ));
+                    }),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(height: 16),
+            ),
             SliverList.builder(
               itemBuilder: (context, index) => const RyfmaListCard(),
             )
           ],
         ),
       ),
+    );
+  }
+}
+
+class BaseContainer extends StatelessWidget {
+  const BaseContainer({
+    Key? key,
+    required this.child,
+    required this.width,
+    this.margin,
+    this.padding = const EdgeInsets.only(left: 12),
+  }) : super(key: key);
+  final Widget child;
+  final double width;
+  final EdgeInsets? margin;
+  final EdgeInsets? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: 40,
+      margin: margin,
+      padding: padding,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: child,
     );
   }
 }
@@ -71,19 +140,13 @@ class RyfmaListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 40,
+    return BaseContainer(
       margin: const EdgeInsets.symmetric(horizontal: 16).copyWith(bottom: 10),
-      padding: const EdgeInsets.only(left: 12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
+      width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          const Text(
             'Рифма',
           ),
           IconButton(
