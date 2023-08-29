@@ -4,21 +4,21 @@ import 'package:http/http.dart' as http;
 class SubjectService {
   const SubjectService({required this.client});
   final http.Client client;
-
-  Future<List<Subjects2>?> getData() async {
+  Future<Computer?> getData() async {
     try {
-      final uri =
-          Uri.parse('https://adilbek-hub.github.io/my_data/my_data.json');
-      final response = await client.get(uri);
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        return fromStringList(response.body);
+      final response = await http
+          .get(Uri.parse('https://adilbek-hub.github.io/my_data/my_data.json'));
+
+      if (response.statusCode == 200) {
+        final data = computerFromJson(response.body);
+        return data;
       } else {
-        return null;
+        throw Exception('Failed to load computer data');
       }
     } catch (e) {
-      print('Catch: ${e.toString()}');
-      return null;
+      print('Catch error: ${e.toString()}');
     }
+    return null;
   }
 }
 

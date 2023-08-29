@@ -16,7 +16,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
   }) : _pageController = pageController;
 
   final PageController _pageController;
-  final List<Subjects2> subjects2Text;
+  final Computer subjects2Text;
 
   @override
   Widget build(BuildContext context) {
@@ -27,50 +27,50 @@ class InformaticaBolumuWidget extends StatelessWidget {
           width: 300,
           child: PageView.builder(
             controller: _pageController,
-            itemCount: subjects2Text.length,
+            itemCount: subjects2Text.one.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              final subject = subjects2Text[index];
+              final subject = subjects2Text.one[index];
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: InkWell(
                   onTap: () {
                     // ignore: unrelated_type_equality_checks
-                    if (subject.title == 0) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ComputerFunksialary(
-                            computerStructur: computerStructurList,
-                          ),
-                        ),
-                      );
-                      // ignore: unrelated_type_equality_checks
-                    } else if (subject.title == 1) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PersonalComputer(),
-                        ),
-                      );
-                      // ignore: unrelated_type_equality_checks
-                    } else if (subject.title == 2) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ComputerdicTarmaktar(),
-                        ),
-                      );
-                      // ignore: unrelated_type_equality_checks
-                    } else if (subject.title == 3) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const SistemalykProgrammalykKamsyzdoo(),
-                        ),
-                      );
-                    }
+                    // if (subjects2Text[index] == 0) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => ComputerFunksialary(
+                    //         computerStructur: computerStructurList,
+                    //       ),
+                    //     ),
+                    //   );
+                    //   // ignore: unrelated_type_equality_checks
+                    // } else if (subjectsInformaticaList == personalComputer) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const PersonalComputer(),
+                    //     ),
+                    //   );
+                    //   // ignore: unrelated_type_equality_checks
+                    // } else if (subjectsInformaticaList == computerTarmaktary) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const ComputerdicTarmaktar(),
+                    //     ),
+                    //   );
+                    //   // ignore: unrelated_type_equality_checks
+                    // } else if (subjectsInformaticaList == spk) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) =>
+                    //           const SistemalykProgrammalykKamsyzdoo(),
+                    //     ),
+                    //   );
+                    // }
                   },
                   child: SizedBox(
                     height: 300,
@@ -112,19 +112,13 @@ class InformaticaBolumuWidget extends StatelessWidget {
                               dropCap: DropCap(
                                 width: 100,
                                 height: 100,
-                                child: Image.network(subject.image),
+                                child: Image.network(
+                                  subject.image,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                             const Divider(),
-                            Text(
-                              subject.description,
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontFamily: 'Avenir',
-                                  color: Color.fromARGB(255, 186, 148, 148),
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.left,
-                            ),
                           ],
                         ),
                       ),
