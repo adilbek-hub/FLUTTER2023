@@ -54,7 +54,7 @@ class ComputerPart {
   String tema;
   String name;
   String image;
-  Text text;
+  String text;
 
   ComputerPart({
     required this.tema,
@@ -74,22 +74,6 @@ class ComputerPart {
         "tema": tema,
         "name": name,
         "image": image,
-        "text": textValues.reverse[text],
+        "text": text,
       };
-}
-
-enum Text { EMPTY }
-
-final textValues = EnumValues({"Толук оку": Text.EMPTY});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

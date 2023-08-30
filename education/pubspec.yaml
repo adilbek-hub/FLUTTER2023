@@ -58,6 +58,7 @@ dependencies:
   equatable: ^2.0.5
   widget_loading: ^0.3.3
   circular_widgets: ^3.0.0
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

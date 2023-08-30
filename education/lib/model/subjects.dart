@@ -144,13 +144,13 @@ List<Subjects> subjectsHistoryList = [
 ];
 
 //////Информатика үчүн objects
-const computer = Subjects(
-  title: 'Компьютердин негизги бөлүктөрү жана алардын функциялары',
-  description: 'Компьютер деген эмне жана анын функцияларын окуп үйрөнүңүз',
-  image: 'assets/images/capitals/globe.png',
-  // bgColor: Colors.blue,
-  // subject: AppText.capitals,
-);
+// const computer = Subjects(
+//   title: 'Компьютердин негизги бөлүктөрү жана алардын функциялары',
+//   description: 'Компьютер деген эмне жана анын функцияларын окуп үйрөнүңүз',
+//   image: 'assets/images/capitals/globe.png',
+//   // bgColor: Colors.blue,
+//   // subject: AppText.capitals,
+// );
 
 const personalComputer = Subjects(
   title: 'Персонал компьютер',
@@ -177,7 +177,7 @@ const spk = Subjects(
 );
 
 List<Subjects> subjectsInformaticaList = [
-  computer,
+  // computer,
   personalComputer,
   computerTarmaktary,
   spk,

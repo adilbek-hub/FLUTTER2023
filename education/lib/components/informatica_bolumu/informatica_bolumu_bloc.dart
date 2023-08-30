@@ -1,13 +1,48 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
+import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../model/subjects.dart';
 import '../../model/subjects2.dart';
-import '../../pages/topic_pages_about_informatics/computer_funksialary.dart';
-import '../../pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
-import '../../pages/topic_pages_about_informatics/personal_computer.dart';
-import '../../pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 
+/*
+ if (subjects2Text[index] == 0) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ComputerFunksialary(
+                            computerStructur: ,
+                          ),
+                        ),
+                      );
+                      // ignore: unrelated_type_equality_checks
+                    } else if (subjectsInformaticaList == personalComputer) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PersonalComputer(),
+                        ),
+                      );
+                      // ignore: unrelated_type_equality_checks
+                    } else if (subjectsInformaticaList == computerTarmaktary) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ComputerdicTarmaktar(),
+                        ),
+                      );
+                      // ignore: unrelated_type_equality_checks
+                    } else if (subjectsInformaticaList == spk) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const SistemalykProgrammalykKamsyzdoo(),
+                        ),
+                      );
+                    }
+ */
 class InformaticaBolumuWidget extends StatelessWidget {
   const InformaticaBolumuWidget({
     super.key,
@@ -35,42 +70,16 @@ class InformaticaBolumuWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: InkWell(
                   onTap: () {
-                    // ignore: unrelated_type_equality_checks
-                    // if (subjects2Text[index] == 0) {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => ComputerFunksialary(
-                    //         computerStructur: computerStructurList,
-                    //       ),
-                    //     ),
-                    //   );
-                    //   // ignore: unrelated_type_equality_checks
-                    // } else if (subjectsInformaticaList == personalComputer) {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const PersonalComputer(),
-                    //     ),
-                    //   );
-                    //   // ignore: unrelated_type_equality_checks
-                    // } else if (subjectsInformaticaList == computerTarmaktary) {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => const ComputerdicTarmaktar(),
-                    //     ),
-                    //   );
-                    //   // ignore: unrelated_type_equality_checks
-                    // } else if (subjectsInformaticaList == spk) {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) =>
-                    //           const SistemalykProgrammalykKamsyzdoo(),
-                    //     ),
-                    //   );
-                    // }
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ComputerFunksialary(
+                            computer: subjects2Text,
+                          );
+                        },
+                      ),
+                    );
                   },
                   child: SizedBox(
                     height: 300,
@@ -102,23 +111,29 @@ class InformaticaBolumuWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 15),
-                            DropCapText(
-                              subject.title,
-                              style: const TextStyle(
-                                  fontSize: 20,
-                                  color: Color(0xff47455f),
-                                  fontWeight: FontWeight.w900),
-                              textAlign: TextAlign.left,
-                              dropCap: DropCap(
-                                width: 100,
-                                height: 100,
-                                child: Image.network(
-                                  subject.image,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
+                            DropCapText(subject.title,
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Color(0xff47455f),
+                                    fontWeight: FontWeight.w900),
+                                textAlign: TextAlign.left,
+                                dropCap: DropCap(
+                                  width: 100,
+                                  height: 100,
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        'https://cdn3d.iconscout.com/3d/free/thumb/free-flutter-5562357-4642761.png?f=webp',
+                                    placeholder: (context, url) =>
+                                        const CircularProgressIndicator(),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
+                                  ),
+                                )),
                             const Divider(),
+                            Text(
+                              subject.description,
+                              style: const TextStyle(fontSize: 18),
+                            ),
                           ],
                         ),
                       ),
