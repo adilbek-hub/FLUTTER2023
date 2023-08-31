@@ -6,78 +6,15 @@ import 'package:education/model/subjects2.dart';
 class ComputerFunksialary extends StatefulWidget {
   const ComputerFunksialary({
     Key? key,
-    required this.computer,
+    required this.informatica,
   }) : super(key: key);
-  final Computer computer;
+  final InformaticaTopics informatica;
 
   @override
   State<ComputerFunksialary> createState() => _ComputerFunksialaryState();
 }
 
 class _ComputerFunksialaryState extends State<ComputerFunksialary> {
-  Future<void> showMyDialog(Computer computer) async {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return Column(
-            children: [
-              SizedBox(
-                height: 650,
-                child: AlertDialog(
-                  backgroundColor: const Color(0xffFFFFFF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  insetPadding: const EdgeInsets.only(
-                    left: 20,
-                    top: 40,
-                    right: 20,
-                  ),
-                  title: const Text(
-                    "Info",
-                    style: TextStyle(
-                      color: Color(0xff313131),
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  content: Container(
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(computer.one[0].computerParts[0].tema)),
-                ),
-              ),
-              const SizedBox(height: 19),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  fixedSize: Size(
-                    MediaQuery.of(context).size.width - 40,
-                    65,
-                  ),
-                ),
-                onPressed: () => Navigator.pop(context),
-                child: const Text(
-                  'Ok Go back',
-                  style: TextStyle(
-                    color: Color(0xff474747),
-                    fontSize: 21,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          );
-        });
-  }
-
   // ignore: prefer_collection_literals
   Set<int> pressedIndexes = Set<int>();
 
@@ -93,7 +30,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
       body: Column(
         children: [
           Text(
-            widget.computer.one[0].title,
+            widget.informatica.informatica[0].title,
             style: const TextStyle(
               fontSize: 16,
             ),
@@ -109,12 +46,12 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                 crossAxisCount: 2,
                 childAspectRatio: 1.6,
               ),
-              itemCount: widget.computer.one[0].computerParts.length,
+              itemCount:
+                  widget.informatica.informatica[0].computerParts!.length,
               itemBuilder: ((context, index) {
                 bool isPressed = pressedIndexes.contains(index);
-
                 final computerFunction =
-                    widget.computer.one[0].computerParts[index];
+                    widget.informatica.informatica[0].computerParts![index];
                 return Padding(
                   padding: const EdgeInsets.all(6.0),
                   child: Container(

@@ -1,52 +1,72 @@
+// To parse this JSON data, do
+//
+//     final informatica = informaticaFromJson(jsonString);
+
 import 'dart:convert';
 
-Computer computerFromJson(String str) => Computer.fromJson(json.decode(str));
+InformaticaTopics informaticaFromJson(String str) =>
+    InformaticaTopics.fromJson(json.decode(str));
 
-String computerToJson(Computer data) => json.encode(data.toJson());
+String informaticaToJson(InformaticaTopics data) => json.encode(data.toJson());
 
-class Computer {
-  List<One> one;
+class InformaticaTopics {
+  List<InformaticaElement> informatica;
 
-  Computer({
-    required this.one,
+  InformaticaTopics({
+    required this.informatica,
   });
 
-  factory Computer.fromJson(Map<String, dynamic> json) => Computer(
-        one: List<One>.from(json["one"].map((x) => One.fromJson(x))),
+  factory InformaticaTopics.fromJson(Map<String, dynamic> json) =>
+      InformaticaTopics(
+        informatica: List<InformaticaElement>.from(
+            json["informatica"].map((x) => InformaticaElement.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
-        "one": List<dynamic>.from(one.map((x) => x.toJson())),
+        "informatica": List<dynamic>.from(informatica.map((x) => x.toJson())),
       };
 }
 
-class One {
+class InformaticaElement {
   String title;
   String description;
   String image;
-  List<ComputerPart> computerParts;
+  List<ComputerPart>? computerParts;
+  List<PersonalComputer>? personalComputer;
 
-  One({
+  InformaticaElement({
     required this.title,
     required this.description,
     required this.image,
-    required this.computerParts,
+    this.computerParts,
+    this.personalComputer,
   });
 
-  factory One.fromJson(Map<String, dynamic> json) => One(
+  factory InformaticaElement.fromJson(Map<String, dynamic> json) =>
+      InformaticaElement(
         title: json["title"],
         description: json["description"],
         image: json["image"],
-        computerParts: List<ComputerPart>.from(
-            json["computerParts"].map((x) => ComputerPart.fromJson(x))),
+        computerParts: json["computerParts"] == null
+            ? []
+            : List<ComputerPart>.from(
+                json["computerParts"]!.map((x) => ComputerPart.fromJson(x))),
+        personalComputer: json["personal_computer"] == null
+            ? []
+            : List<PersonalComputer>.from(json["personal_computer"]!
+                .map((x) => PersonalComputer.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "title": title,
         "description": description,
         "image": image,
-        "computerParts":
-            List<dynamic>.from(computerParts.map((x) => x.toJson())),
+        "computerParts": computerParts == null
+            ? []
+            : List<dynamic>.from(computerParts!.map((x) => x.toJson())),
+        "personal_computer": personalComputer == null
+            ? []
+            : List<dynamic>.from(personalComputer!.map((x) => x.toJson())),
       };
 }
 
@@ -74,6 +94,99 @@ class ComputerPart {
         "tema": tema,
         "name": name,
         "image": image,
-        "text": text,
+        "text": [text],
       };
+}
+
+class PersonalComputer {
+  String subjectName;
+  String tema1;
+  String description1;
+  String text2;
+  String description2;
+  String text3;
+  String description3;
+  String tema4;
+  String description4;
+  String text5;
+  String description5;
+  String tema6;
+  String description6;
+  String tema7;
+  String description7;
+  String tema8;
+  String description8;
+
+  PersonalComputer({
+    required this.subjectName,
+    required this.tema1,
+    required this.description1,
+    required this.text2,
+    required this.description2,
+    required this.text3,
+    required this.description3,
+    required this.tema4,
+    required this.description4,
+    required this.text5,
+    required this.description5,
+    required this.tema6,
+    required this.description6,
+    required this.tema7,
+    required this.description7,
+    required this.tema8,
+    required this.description8,
+  });
+
+  factory PersonalComputer.fromJson(Map<String, dynamic> json) =>
+      PersonalComputer(
+        subjectName: json["subject_name"],
+        tema1: json["tema1"],
+        description1: json["description1"],
+        text2: json["text2"],
+        description2: json["description2"],
+        text3: json["text3"],
+        description3: json["description3"],
+        tema4: json["tema4"],
+        description4: json["description4"],
+        text5: json["text5"],
+        description5: json["description5"],
+        tema6: json["tema6"],
+        description6: json["description6"],
+        tema7: json["tema7"],
+        description7: json["description7"],
+        tema8: json["tema8"],
+        description8: json["description8"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "subject_name": subjectName,
+        "tema1": tema1,
+        "description1": description1,
+        "text2": text2,
+        "description2": description2,
+        "text3": text3,
+        "description3": description3,
+        "tema4": tema4,
+        "description4": description4,
+        "text5": text5,
+        "description5": description5,
+        "tema6": tema6,
+        "description6": description6,
+        "tema7": tema7,
+        "description7": description7,
+        "tema8": tema8,
+        "description8": description8,
+      };
+}
+
+class EnumValues<T> {
+  Map<String, T> map;
+  late Map<T, String> reverseMap;
+
+  EnumValues(this.map);
+
+  Map<T, String> get reverse {
+    reverseMap = map.map((k, v) => MapEntry(v, k));
+    return reverseMap;
+  }
 }

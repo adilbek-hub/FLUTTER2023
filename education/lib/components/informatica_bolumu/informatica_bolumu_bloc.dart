@@ -3,7 +3,6 @@ import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../model/subjects.dart';
 import '../../model/subjects2.dart';
 
 /*
@@ -47,11 +46,11 @@ class InformaticaBolumuWidget extends StatelessWidget {
   const InformaticaBolumuWidget({
     super.key,
     required PageController pageController,
-    required this.subjects2Text,
+    required this.informaticaTopics,
   }) : _pageController = pageController;
 
   final PageController _pageController;
-  final Computer subjects2Text;
+  final InformaticaTopics informaticaTopics;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +61,10 @@ class InformaticaBolumuWidget extends StatelessWidget {
           width: 300,
           child: PageView.builder(
             controller: _pageController,
-            itemCount: subjects2Text.one.length,
+            itemCount: informaticaTopics.informatica.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              final subject = subjects2Text.one[index];
+              final topics = informaticaTopics.informatica[index];
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: InkWell(
@@ -75,7 +74,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           return ComputerFunksialary(
-                            computer: subjects2Text,
+                            informatica: informaticaTopics,
                           );
                         },
                       ),
@@ -111,7 +110,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 15),
-                            DropCapText(subject.title,
+                            DropCapText(topics.title,
                                 style: const TextStyle(
                                     fontSize: 20,
                                     color: Color(0xff47455f),
@@ -131,7 +130,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
                                 )),
                             const Divider(),
                             Text(
-                              subject.description,
+                              topics.description,
                               style: const TextStyle(fontSize: 18),
                             ),
                           ],
@@ -146,7 +145,7 @@ class InformaticaBolumuWidget extends StatelessWidget {
         ),
         SmoothPageIndicator(
           controller: _pageController,
-          count: subjectsInformaticaList.length,
+          count: informaticaTopics.informatica.length,
           effect: JumpingDotEffect(
             activeDotColor: Colors.deepPurple,
             dotColor: Colors.deepPurple.shade100,

@@ -17,7 +17,7 @@ class InformaticaTopics extends StatelessWidget {
       } else if (state is EducationSuccess) {
         return InformaticaBolumuWidget(
           pageController: _pageController,
-          subjects2Text: state.subjects2,
+          informaticaTopics: state.subjects2,
         );
       } else if (state is EducationError) {
         return ErrorTextWidget(errorText: state.text);

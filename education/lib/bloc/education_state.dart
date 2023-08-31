@@ -11,7 +11,7 @@ class EducationLoading extends EducationState {}
 
 class EducationSuccess extends EducationState {
   const EducationSuccess({required this.subjects2});
-  final Computer subjects2;
+  final InformaticaTopics subjects2;
 }
 
 class EducationError extends EducationState {
