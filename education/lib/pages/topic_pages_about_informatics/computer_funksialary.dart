@@ -6,9 +6,9 @@ import 'package:education/model/subjects2.dart';
 class ComputerFunksialary extends StatefulWidget {
   const ComputerFunksialary({
     Key? key,
-    required this.informatica,
+    required this.informaticatopics,
   }) : super(key: key);
-  final InformaticaTopics informatica;
+  final InformaticaTopics informaticatopics;
 
   @override
   State<ComputerFunksialary> createState() => _ComputerFunksialaryState();
@@ -30,7 +30,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
       body: Column(
         children: [
           Text(
-            widget.informatica.informatica[0].title,
+            widget.informaticatopics.informatica[0].title,
             style: const TextStyle(
               fontSize: 16,
             ),
@@ -47,11 +47,11 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                 childAspectRatio: 1.6,
               ),
               itemCount:
-                  widget.informatica.informatica[0].computerParts!.length,
+                  widget.informaticatopics.informatica[0].computerParts!.length,
               itemBuilder: ((context, index) {
                 bool isPressed = pressedIndexes.contains(index);
-                final computerFunction =
-                    widget.informatica.informatica[0].computerParts![index];
+                final computerFunction = widget
+                    .informaticatopics.informatica[0].computerParts![index];
                 return Padding(
                   padding: const EdgeInsets.all(6.0),
                   child: Container(

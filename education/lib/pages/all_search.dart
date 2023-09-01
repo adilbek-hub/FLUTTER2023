@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'package:education/model/subjects.dart';
-import 'topic_pages_about_biology/topic_pages_about_biology.dart';
-import 'topic_pages_about_geography/topic_pages_about_geography.dart';
+import 'package:education/model/subjects2.dart';
 import 'package:education/pages/topic_pages_about_geography/world_capitals.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
@@ -9,10 +10,14 @@ import 'package:education/pages/topic_pages_about_history/rim.dart';
 import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
 import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
 import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
-import 'package:flutter/material.dart';
+
+import 'topic_pages_about_biology/topic_pages_about_biology.dart';
+import 'topic_pages_about_geography/topic_pages_about_geography.dart';
 
 class AllSearchPage extends StatefulWidget {
-  const AllSearchPage({super.key});
+  const AllSearchPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -126,12 +131,15 @@ class _AllSearchPageState extends State<AllSearchPage> {
           MaterialPageRoute(builder: (context) => const NemisKoroldugu()),
         );
         break;
-      case "Personal":
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PersonalComputer()),
-        );
-        break;
+      // case "Personal":
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //         builder: (context) => const PersonalComputer(
+      //               informaticaTopics: null,
+      //             )),
+      //   );
+      //   break;
       case "Компьютердик тармактар":
         Navigator.push(
           context,

@@ -1,15 +1,21 @@
-import 'package:education/model/informatica_suroo.dart';
-import 'package:education/pages/informatica_test/personal_computer_test_page.dart';
+import 'package:education/model/subjects2.dart';
 import 'package:flutter/material.dart';
 
-class PersonalComputer extends StatelessWidget {
-  const PersonalComputer({super.key});
+import 'package:education/model/informatica_suroo.dart';
+import 'package:education/pages/informatica_test/personal_computer_test_page.dart';
+
+class PersonalComputers extends StatelessWidget {
+  const PersonalComputers({
+    Key? key,
+    required this.informaticaTopics,
+  }) : super(key: key);
+  final InformaticaTopics informaticaTopics;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Информатика'.toUpperCase()),
+        title: Text(informaticaTopics.informatica[0].description),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

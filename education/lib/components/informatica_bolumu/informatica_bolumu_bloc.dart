@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/pages/topic_pages_about_informatics/computer_funksialary.dart';
+import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
+import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../model/subjects2.dart';
+import '../../pages/topic_pages_about_informatics/personal_computer.dart';
 
 /*
  if (subjects2Text[index] == 0) {
@@ -42,7 +45,7 @@ import '../../model/subjects2.dart';
                       );
                     }
  */
-class InformaticaBolumuWidget extends StatelessWidget {
+class InformaticaBolumuWidget extends StatefulWidget {
   const InformaticaBolumuWidget({
     super.key,
     required PageController pageController,
@@ -53,6 +56,42 @@ class InformaticaBolumuWidget extends StatelessWidget {
   final InformaticaTopics informaticaTopics;
 
   @override
+  State<InformaticaBolumuWidget> createState() =>
+      _InformaticaBolumuWidgetState();
+}
+
+class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
+  late int index;
+
+  // ContainerItem(this.index);
+
+  void navigateToPage(BuildContext context) {
+    if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return ComputerFunksialary(
+              informaticatopics: widget.informaticaTopics,
+            );
+          },
+        ),
+      );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return PersonalComputers(
+              informaticaTopics: widget.informaticaTopics,
+            );
+          },
+        ),
+      );
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -60,25 +99,34 @@ class InformaticaBolumuWidget extends StatelessWidget {
           height: 300,
           width: 300,
           child: PageView.builder(
-            controller: _pageController,
-            itemCount: informaticaTopics.informatica.length,
+            controller: widget._pageController,
+            itemCount: widget.informaticaTopics.informatica.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext context, int index) {
-              final topics = informaticaTopics.informatica[index];
+              final topics = widget.informaticaTopics.informatica[index];
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ComputerFunksialary(
-                            informatica: informaticaTopics,
-                          );
-                        },
-                      ),
-                    );
+                    navigateToPage(context);
+                    // setState() => currentIndex = index;
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) {
+                    //     return currentIndex == 0
+                    //         ? ComputerFunksialary(
+                    //             informaticatopics: widget.informaticaTopics,
+                    //           )
+                    //         : currentIndex == 1
+                    //             ? PersonalComputers(
+                    //                 informaticaTopics: widget.informaticaTopics,
+                    //               )
+                    //             : currentIndex == 2
+                    //                 ? const ComputerdicTarmaktar()
+                    //                 : const SistemalykProgrammalykKamsyzdoo();
+                    //   }),
+                    // );
                   },
                   child: SizedBox(
                     height: 300,
@@ -144,8 +192,8 @@ class InformaticaBolumuWidget extends StatelessWidget {
           ),
         ),
         SmoothPageIndicator(
-          controller: _pageController,
-          count: informaticaTopics.informatica.length,
+          controller: widget._pageController,
+          count: widget.informaticaTopics.informatica.length,
           effect: JumpingDotEffect(
             activeDotColor: Colors.deepPurple,
             dotColor: Colors.deepPurple.shade100,
