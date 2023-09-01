@@ -1,6 +1,5 @@
 import 'package:education/model/subjects2.dart';
 import 'package:flutter/material.dart';
-
 import 'package:education/model/informatica_suroo.dart';
 import 'package:education/pages/informatica_test/personal_computer_test_page.dart';
 
@@ -13,9 +12,11 @@ class PersonalComputers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final presonalComputers =
+        informaticaTopics.informatica[1].personalComputer![0];
     return Scaffold(
       appBar: AppBar(
-        title: Text(informaticaTopics.informatica[0].description),
+        title: Text(informaticaTopics.informatica[0].title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -25,8 +26,8 @@ class PersonalComputers extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Персоналдык компьютер',
+                Text(
+                  presonalComputers.tema1,
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 17,
@@ -34,66 +35,61 @@ class PersonalComputers extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Персоналдык компьютер (ПК) – бул бир колдонуучу тарабынан жеке колдонууга арналган компьютер. Ал ар кандай тапшырмаларды аткаруу үчүн чогуу иштеген бир нече негизги компоненттерден турат. Бул жерде жеке компьютердин негизги компоненттери болуп саналат:',
-                  style: TextStyle(color: Colors.black),
+                Text(
+                  presonalComputers.description1,
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
 
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\nКорпус (компьютердик кейс): ',
-                        style: TextStyle(
+                        text: '\n${presonalComputers.text2} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            'Корпус - бул компьютердин бардык компоненттерин камтыган жана коргогон физикалык кабык. Иште, адатта, клавиатура, чычкан, монитор жана башкалар сыяктуу ар кандай түзүлүштөрдү туташтыруу үчүн тешиктер бар.',
+                        text: presonalComputers.description2,
                       ),
                       TextSpan(
-                        text: '\nНегизги плата:',
-                        style: TextStyle(
+                        text: '\n${presonalComputers.text3} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Негизги плата (ошондой эле системалык такта деп да аталат) компьютердин калган компоненттерин камтыган негизги такта. Ал бардык башка компоненттердин ортосундагы байланышты жана байланышты камсыз кылат.',
+                        text: presonalComputers.description3,
                       ),
                       TextSpan(
-                        text: '\nПроцессор (Борбордук процессор, CPU):',
-                        style: TextStyle(
+                        text: '\n${presonalComputers.tema4} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Процессор компьютердин "мээси" болуп саналат жана эсептөө иштерин аткарууга жооптуу. Ал маалыматтарды иштеп чыгат, буйруктарды аткарат жана системанын жалпы иштешин камсыз кылат.',
+                        text: presonalComputers.description4,
                       ),
                       TextSpan(
-                        text: '\nОперативдүү эс (RAM):',
-                        style: TextStyle(
+                        text: '\n${presonalComputers.text5} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' RAM процессор тарабынан активдүү колдонулган маалыматтарды жана нускамаларды убактылуу сактоо үчүн колдонулат. Бул маалыматтарга тез жетүүнү камсыз кылат жана системанын жалпы иштешине таасирин тийгизет.',
+                        text: presonalComputers.description5,
                       ),
                       TextSpan(
-                        text: '\nКатуу диск (HDD)',
-                        style: TextStyle(
+                        text: '\n${presonalComputers.tema6} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Solid State Drive (SSD): Катуу диск же SSD маалыматтарды туруктуу сактоо үчүн колдонулат. HDD адатта көбүрөөк кубаттуулукка жана арзаныраак баага ээ, ал эми SSD тезирээк окуу/жазуу ылдамдыгына жана жакшыртылган ишенимдүүлүгүнө ээ.',
+                        text: '${presonalComputers.description6} ',
                       ),
                     ],
                   ),
@@ -101,28 +97,26 @@ class PersonalComputers extends StatelessWidget {
                 ),
                 ////////////
 
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Видео карта (GPU, GPU):',
-                        style: TextStyle(
+                        text: '${presonalComputers.tema7} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Видеокарта графиканы иштетүү жана монитордогу сүрөттү көрсөтүү үчүн жооптуу. Бул оюндар, графикалык тиркемелер жана жогорку сапаттагы видео көрүү үчүн өзгөчө маанилүү.',
+                        text: presonalComputers.description7,
                       ),
                       TextSpan(
-                        text: '\nҮн картасы:',
-                        style: TextStyle(
+                        text: '\n${presonalComputers.tema8} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Үн картасы аудио сигналдарды иштетүүгө жана динамиктер же гарнитуралар аркылуу үндү ойнотуу үчүн жооп берет',
+                        text: presonalComputers.description8,
                       ),
                     ],
                   ),

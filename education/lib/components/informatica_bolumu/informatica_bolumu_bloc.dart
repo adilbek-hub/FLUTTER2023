@@ -8,43 +8,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../model/subjects2.dart';
 import '../../pages/topic_pages_about_informatics/personal_computer.dart';
 
-/*
- if (subjects2Text[index] == 0) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ComputerFunksialary(
-                            computerStructur: ,
-                          ),
-                        ),
-                      );
-                      // ignore: unrelated_type_equality_checks
-                    } else if (subjectsInformaticaList == personalComputer) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PersonalComputer(),
-                        ),
-                      );
-                      // ignore: unrelated_type_equality_checks
-                    } else if (subjectsInformaticaList == computerTarmaktary) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ComputerdicTarmaktar(),
-                        ),
-                      );
-                      // ignore: unrelated_type_equality_checks
-                    } else if (subjectsInformaticaList == spk) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const SistemalykProgrammalykKamsyzdoo(),
-                        ),
-                      );
-                    }
- */
 class InformaticaBolumuWidget extends StatefulWidget {
   const InformaticaBolumuWidget({
     super.key,
@@ -61,34 +24,27 @@ class InformaticaBolumuWidget extends StatefulWidget {
 }
 
 class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
-  late int index;
-
-  // ContainerItem(this.index);
-
-  void navigateToPage(BuildContext context) {
-    if (index == 0) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return ComputerFunksialary(
-              informaticatopics: widget.informaticaTopics,
-            );
-          },
-        ),
-      );
-    } else if (index == 1) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) {
-            return PersonalComputers(
-              informaticaTopics: widget.informaticaTopics,
-            );
-          },
-        ),
-      );
-    }
+  int currentIndex = 0;
+  void a(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return currentIndex == 0
+            ? ComputerFunksialary(
+                informaticatopics: widget.informaticaTopics,
+              )
+            : currentIndex == 1
+                ? PersonalComputers(
+                    informaticaTopics: widget.informaticaTopics,
+                  )
+                : currentIndex == 2
+                    ? const ComputerdicTarmaktar()
+                    : const SistemalykProgrammalykKamsyzdoo();
+      }),
+    );
+    setState(() {
+      currentIndex = index;
+    });
   }
 
   @override
@@ -106,27 +62,9 @@ class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
               final topics = widget.informaticaTopics.informatica[index];
               return Padding(
                 padding: const EdgeInsets.all(10),
-                child: InkWell(
+                child: GestureDetector(
                   onTap: () {
-                    navigateToPage(context);
-                    // setState() => currentIndex = index;
-
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) {
-                    //     return currentIndex == 0
-                    //         ? ComputerFunksialary(
-                    //             informaticatopics: widget.informaticaTopics,
-                    //           )
-                    //         : currentIndex == 1
-                    //             ? PersonalComputers(
-                    //                 informaticaTopics: widget.informaticaTopics,
-                    //               )
-                    //             : currentIndex == 2
-                    //                 ? const ComputerdicTarmaktar()
-                    //                 : const SistemalykProgrammalykKamsyzdoo();
-                    //   }),
-                    // );
+                    a(index);
                   },
                   child: SizedBox(
                     height: 300,
