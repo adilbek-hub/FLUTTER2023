@@ -5,7 +5,7 @@ import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmak
 import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../model/subjects2.dart';
+import '../../model/informatica_model.dart';
 import '../../pages/topic_pages_about_informatics/personal_computer.dart';
 
 class InformaticaBolumuWidget extends StatefulWidget {
@@ -38,8 +38,12 @@ class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
                     informaticaTopics: widget.informaticaTopics,
                   )
                 : currentIndex == 2
-                    ? const ComputerdicTarmaktar()
-                    : const SistemalykProgrammalykKamsyzdoo();
+                    ? ComputerdicTarmaktar(
+                        informaticaTopics: widget.informaticaTopics,
+                      )
+                    : SistemalykProgrammalykKamsyzdoo(
+                        informaticaTopics: widget.informaticaTopics,
+                      );
       }),
     );
     setState(() {

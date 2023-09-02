@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../model/subjects2.dart';
+import '../model/informatica_model.dart';
 import '../services/subject_service.dart';
 
 part 'education_event.dart';

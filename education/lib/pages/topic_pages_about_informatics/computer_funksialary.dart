@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:education/model/subjects2.dart';
+import 'package:education/model/informatica_model.dart';
 
 // ignore: must_be_immutable
 class ComputerFunksialary extends StatefulWidget {

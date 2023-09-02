@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:education/model/subjects.dart';
-import 'package:education/model/subjects2.dart';
+import 'package:education/model/informatica_model.dart';
 import 'package:education/pages/topic_pages_about_geography/world_capitals.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
@@ -141,18 +141,18 @@ class _AllSearchPageState extends State<AllSearchPage> {
       //   );
       //   break;
       case "Компьютердик тармактар":
-        //   Navigator.push(
-        //     context,
-        //     MaterialPageRoute(builder: (context) => const ComputerdicTarmaktar()),
-        //   );
-        //   break;
-        // case "Системалык программалык камсыздоо":
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => const SistemalykProgrammalykKamsyzdoo()),
-        );
-        break;
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => const ComputerdicTarmaktar()),
+      //   );
+      //   break;
+      // case "Системалык программалык камсыздоо":
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //       builder: (context) => const SistemalykProgrammalykKamsyzdoo()),
+      // );
+      // break;
     }
   }
 

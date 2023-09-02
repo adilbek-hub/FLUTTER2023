@@ -1,12 +1,21 @@
-import 'package:education/model/informatica_suroo.dart';
-import 'package:education/pages/informatica_test/sistemalyk_programmalyk_kamsyzdoo.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/informatica_suroo.dart';
+import 'package:education/pages/informatica_test/sistemalyk_programmalyk_kamsyzdoo.dart';
+
+import '../../model/informatica_model.dart';
+
 class SistemalykProgrammalykKamsyzdoo extends StatelessWidget {
-  const SistemalykProgrammalykKamsyzdoo({super.key});
+  const SistemalykProgrammalykKamsyzdoo({
+    Key? key,
+    required this.informaticaTopics,
+  }) : super(key: key);
+  final InformaticaTopics informaticaTopics;
 
   @override
   Widget build(BuildContext context) {
+    final sistemalykProgramdykKamsyzdoo =
+        informaticaTopics.informatica[3].sistemalykProgrammalykKamsyzdoo![0];
     return Scaffold(
       appBar: AppBar(
         title: Text('Информатика'.toUpperCase()),
@@ -19,84 +28,87 @@ class SistemalykProgrammalykKamsyzdoo extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Системалык программалык камсыздоо',
-                  style: TextStyle(
+                Text(
+                  sistemalykProgramdykKamsyzdoo.tema1,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Программалык камсыздоо (SW) – бул компьютер тутумун башкарган жана иштешин камсыз кылган программалардын, куралдардын жана маалыматтардын жыйындысы. Ал компьютерде тапшырмаларды аткаруу үчүн керектүү операциялык системаларды, тиркемелерди, драйверлерди, китепканаларды жана башка компоненттерди камтыйт. Бул жерде программалык камсыздоонун кээ бир негизги түрлөрү бар:',
-                  style: TextStyle(color: Colors.black),
+                Text(
+                  sistemalykProgramdykKamsyzdoo.description1,
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
 
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\nОперация системасы (OS): ',
+                        text: '\n${sistemalykProgramdykKamsyzdoo.text2} ',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: sistemalykProgramdykKamsyzdoo.description2,
+                      ),
+                      TextSpan(
+                        text: '\n${sistemalykProgramdykKamsyzdoo.text3} ',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: sistemalykProgramdykKamsyzdoo.description3,
+                      ),
+                      TextSpan(
+                        text: '\n${sistemalykProgramdykKamsyzdoo.text3} ',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: sistemalykProgramdykKamsyzdoo.description3,
+                      ),
+                      TextSpan(
+                        text: '\n${sistemalykProgramdykKamsyzdoo.tema4} ',
                         style: TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            'Операциялык система – бул компьютердин ресурстарын башкарган жана колдонуучу менен аппараттык камсыздоонун ортосундагы интерфейсти камсыз кылган негизги программалык камсыздоо. Мисал операциялык системаларга Windows, macOS, Linux, iOS жана Android кирет.',
+                        text: sistemalykProgramdykKamsyzdoo.description4,
                       ),
                       TextSpan(
-                        text: '\nКолдонмо программалык камсыздоо:',
-                        style: TextStyle(
+                        text: '\n${sistemalykProgramdykKamsyzdoo.text5} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Колдонмо программалык камсыздоо белгилүү бир тапшырмаларды аткарууга жана колдонуучунун керектөөлөрүн канааттандырууга арналган. Ал текст менен иштөө үчүн программаларды (тексттик редакторлор, тексттик процессорлор), таблицалар (электрондук жадыбал процессорлору), графика (графикалык редакторлор), мультимедиа, оюндар жана башка адистештирилген тиркемелерди камтыйт.',
+                        text: sistemalykProgramdykKamsyzdoo.description5,
                       ),
                       TextSpan(
-                        text: '\nМаалымат базасы:',
-                        style: TextStyle(
+                        text: '\n${sistemalykProgramdykKamsyzdoo.tema6}',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Берилиштер базасынын программалык камсыздоосу маалыматтарды түзүү, башкаруу жана иштетүү үчүн колдонулат. Ал маалымат базаларынан маалыматты сактоого, уюштурууга, иштетүүгө жана алууга мүмкүндүк берет. Мисал маалымат базасы программаларына MySQL, Oracle, Microsoft SQL Server кирет.',
+                        text: sistemalykProgramdykKamsyzdoo.description6,
                       ),
                       TextSpan(
-                        text: '\nПрограммалык камсыздоону иштеп чыгуу:',
-                        style: TextStyle(
+                        text: '\n${sistemalykProgramdykKamsyzdoo.tema7} ',
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Программалык камсыздоону иштеп чыгуу куралдары программисттерге программаларды түзүүгө жана сыноого жардам берет. Аларга интеграцияланган иштеп чыгуу чөйрөлөрү (IDE), компиляторлор, мүчүлүштүктөрдү оңдоочулар, версияларды башкаруу системалары жана башка программалык камсыздоону иштеп чыгуу куралдары кирет.',
-                      ),
-                      TextSpan(
-                        text: '\nТармактык программалык камсыздоо:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Тармактык программалык камсыздоо компьютердик тармактарда байланышты жана маалымат алмашууну камсыз кылат. Ал маалыматтарды өткөрүү протоколдорун, тармактык мониторинг программаларын, серверлерди жана тармактык тиркемелер үчүн кардарларды камтыйт.',
-                      ),
-                      TextSpan(
-                        text: '\nУтилиталар жана аспаптар:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Файлдарды кысуу, архивдөө, маалыматтардын камдык көчүрмөсүн сактоо, вирустарды сканерлөө, дефрагментациялоо сыяктуу атайын тапшырмаларды аткарууга арналган утилиталар жана куралдар.',
+                        text: sistemalykProgramdykKamsyzdoo.description7,
                       ),
                     ],
                   ),

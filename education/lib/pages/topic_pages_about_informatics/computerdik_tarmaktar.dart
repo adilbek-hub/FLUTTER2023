@@ -1,15 +1,24 @@
-import 'package:education/model/informatica_suroo.dart';
-import 'package:education/pages/informatica_test/computerdik_tarmaktar_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/informatica_suroo.dart';
+import 'package:education/pages/informatica_test/computerdik_tarmaktar_test_page.dart';
+
+import '../../model/informatica_model.dart';
+
 class ComputerdicTarmaktar extends StatelessWidget {
-  const ComputerdicTarmaktar({super.key});
+  const ComputerdicTarmaktar({
+    Key? key,
+    required this.informaticaTopics,
+  }) : super(key: key);
+  final InformaticaTopics informaticaTopics;
 
   @override
   Widget build(BuildContext context) {
+    final computerTarmaktary =
+        informaticaTopics.informatica[2].computerdicTarmaktar![0];
     return Scaffold(
       appBar: AppBar(
-        title: Text('Информатика'.toUpperCase()),
+        title: Text("Информатика".toUpperCase()),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -19,75 +28,70 @@ class ComputerdicTarmaktar extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Компьютердик тармактар',
-                  style: TextStyle(
+                Text(
+                  computerTarmaktary.tema1,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Компьютердик тармак – маалымат жана ресурстарды алмашуу максатында кошулган компьютерлердин жана башка түзүлүштөрдүн өз ара аракеттенүү системасы. Бул тармактагы компьютерлерге байланышууга, чогуу иштөөгө жана принтерлер, файл серверлери жана Интернет сыяктуу жалпы ресурстарды колдонууга мүмкүндүк берет.',
-                  style: TextStyle(color: Colors.black),
+                Text(
+                  computerTarmaktary.description1,
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
 
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\nТопология: ',
+                        text: '\n${computerTarmaktary.text2} ',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: computerTarmaktary.description2,
+                      ),
+                      TextSpan(
+                        text: '\n${computerTarmaktary.text3} ',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: computerTarmaktary.description3,
+                      ),
+                      TextSpan(
+                        text: '\n${computerTarmaktary.tema4} ',
                         style: TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            'Компьютердик тармактын топологиясы тармактын физикалык жана логикалык түзүлүшүн аныктайт. Кээ бир жалпы топологияларга жылдыз, автобус, шакек жана дарак структурасы кирет. Ар бир топологиянын өзүнүн артыкчылыктары жана кемчиликтери бар жана тармактын өзгөчө муктаждыктарына жараша тандалышы мүмкүн.',
+                        text: computerTarmaktary.description4,
                       ),
                       TextSpan(
-                        text: '\nПротоколдор:',
+                        text: '\n${computerTarmaktary.text5} ',
                         style: TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Компьютердик тармак протоколдору маалымат алмашууда түзмөктөр карманууга тийиш болгон эрежелерди жана форматтарды аныктайт. Кээ бир белгилүү протоколдор TCP/IP (Transmission Control Protocol/Internet Protocol), Ethernet, Wi-Fi, HTTP (Hypertext Transfer Protocol), FTP (File Transfer Protocol) жана башка көптөгөн нерселерди камтыйт. Протоколдор тармакта ишенимдүү жана натыйжалуу маалыматтарды берүүнү камсыз кылат.',
+                        text: computerTarmaktary.description5,
                       ),
                       TextSpan(
-                        text: '\nТармактык жабдык:',
+                        text: '\n${computerTarmaktary.tema6} ',
                         style: TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Компьютер тармагын түзүү үчүн, белгилүү бир тармак жабдуулары талап кылынат. Бул роутерлерди, өчүргүчтөрдү, көпүрөлөрдү, Wi-Fi роутерлерди, тармак адаптерлерин жана кабелдик байланыштарды камтышы мүмкүн. Бул жабдуулар тармактагы түзмөктөр ортосунда байланышты жана маалыматтарды берүүнү камсыз кылат.',
-                      ),
-                      TextSpan(
-                        text: '\nIP дареги:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Компьютер тармагындагы ар бир аппараттын өзүнүн уникалдуу IP дареги бар. IP даректөө тармактагы маалыматтарды аныктоого жана багыттоого мүмкүндүк берет. IP даректеринин эки версиясы бар - IPv4 жана IPv6. IPv4 даректери 192.168.0.1 сыяктуу чекиттер менен бөлүнгөн төрт сан катары көрсөтүлөт, ал эми IPv6 даректери 2001:0db8:85a3:0000:0000:8a2e:0370:7334 сыяктуу узунураак форматта көрсөтүлөт.',
-                      ),
-                      TextSpan(
-                        text: '\nКоопсуздук:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Коопсуздук компьютердик тармактардын маанилүү аспектиси болуп саналат. Тармактык системалар вирустар, кесепеттүү программалар, хакердик чабуулдар жана тармактык интрузиялар сыяктуу ар кандай коркунучтарга алсыз болушу мүмкүн.',
+                        text: computerTarmaktary.description6,
                       ),
                     ],
                   ),

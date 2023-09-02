@@ -1,4 +1,4 @@
-import 'package:education/model/subjects2.dart';
+import 'package:education/model/informatica_model.dart';
 import 'package:http/http.dart' as http;
 
 class SubjectService {
