@@ -28,7 +28,7 @@ class PersonalComputers extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   presonalComputers.tema1,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),

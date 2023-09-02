@@ -141,12 +141,12 @@ class _AllSearchPageState extends State<AllSearchPage> {
       //   );
       //   break;
       case "Компьютердик тармактар":
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const ComputerdicTarmaktar()),
-        );
-        break;
-      case "Системалык программалык камсыздоо":
+        //   Navigator.push(
+        //     context,
+        //     MaterialPageRoute(builder: (context) => const ComputerdicTarmaktar()),
+        //   );
+        //   break;
+        // case "Системалык программалык камсыздоо":
         Navigator.push(
           context,
           MaterialPageRoute(

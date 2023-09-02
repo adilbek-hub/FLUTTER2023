@@ -1,13 +1,10 @@
-// To parse this JSON data, do
-//
-//     final informatica = informaticaFromJson(jsonString);
-
 import 'dart:convert';
 
-InformaticaTopics informaticaFromJson(String str) =>
+InformaticaTopics informaticaTopicsFromJson(String str) =>
     InformaticaTopics.fromJson(json.decode(str));
 
-String informaticaToJson(InformaticaTopics data) => json.encode(data.toJson());
+String informaticaTopicsToJson(InformaticaTopics data) =>
+    json.encode(data.toJson());
 
 class InformaticaTopics {
   List<InformaticaElement> informatica;
@@ -32,7 +29,9 @@ class InformaticaElement {
   String description;
   String image;
   List<ComputerPart>? computerParts;
-  List<PersonalComputer>? personalComputer;
+  List<ComputerdicTarmaktars>? personalComputer;
+  List<ComputerdicTarmaktars>? computerdicTarmaktar;
+  List<ComputerdicTarmaktars>? sistemalykProgrammalykKamsyzdoo;
 
   InformaticaElement({
     required this.title,
@@ -40,6 +39,8 @@ class InformaticaElement {
     required this.image,
     this.computerParts,
     this.personalComputer,
+    this.computerdicTarmaktar,
+    this.sistemalykProgrammalykKamsyzdoo,
   });
 
   factory InformaticaElement.fromJson(Map<String, dynamic> json) =>
@@ -53,8 +54,18 @@ class InformaticaElement {
                 json["computerParts"]!.map((x) => ComputerPart.fromJson(x))),
         personalComputer: json["personal_computer"] == null
             ? []
-            : List<PersonalComputer>.from(json["personal_computer"]!
-                .map((x) => PersonalComputer.fromJson(x))),
+            : List<ComputerdicTarmaktars>.from(json["personal_computer"]!
+                .map((x) => ComputerdicTarmaktars.fromJson(x))),
+        computerdicTarmaktar: json["computerdic_tarmaktar"] == null
+            ? []
+            : List<ComputerdicTarmaktars>.from(json["computerdic_tarmaktar"]!
+                .map((x) => ComputerdicTarmaktars.fromJson(x))),
+        sistemalykProgrammalykKamsyzdoo:
+            json["sistemalyk_programmalyk_kamsyzdoo"] == null
+                ? []
+                : List<ComputerdicTarmaktars>.from(
+                    json["sistemalyk_programmalyk_kamsyzdoo"]!
+                        .map((x) => ComputerdicTarmaktars.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -67,6 +78,14 @@ class InformaticaElement {
         "personal_computer": personalComputer == null
             ? []
             : List<dynamic>.from(personalComputer!.map((x) => x.toJson())),
+        "computerdic_tarmaktar": computerdicTarmaktar == null
+            ? []
+            : List<dynamic>.from(computerdicTarmaktar!.map((x) => x.toJson())),
+        "sistemalyk_programmalyk_kamsyzdoo":
+            sistemalykProgrammalykKamsyzdoo == null
+                ? []
+                : List<dynamic>.from(
+                    sistemalykProgrammalykKamsyzdoo!.map((x) => x.toJson())),
       };
 }
 
@@ -94,11 +113,11 @@ class ComputerPart {
         "tema": tema,
         "name": name,
         "image": image,
-        "text": [text],
+        "text": text,
       };
 }
 
-class PersonalComputer {
+class ComputerdicTarmaktars {
   String subjectName;
   String tema1;
   String description1;
@@ -112,12 +131,12 @@ class PersonalComputer {
   String description5;
   String tema6;
   String description6;
-  String tema7;
-  String description7;
-  String tema8;
-  String description8;
+  String? tema7;
+  String? description7;
+  String? tema8;
+  String? description8;
 
-  PersonalComputer({
+  ComputerdicTarmaktars({
     required this.subjectName,
     required this.tema1,
     required this.description1,
@@ -131,14 +150,14 @@ class PersonalComputer {
     required this.description5,
     required this.tema6,
     required this.description6,
-    required this.tema7,
-    required this.description7,
-    required this.tema8,
-    required this.description8,
+    this.tema7,
+    this.description7,
+    this.tema8,
+    this.description8,
   });
 
-  factory PersonalComputer.fromJson(Map<String, dynamic> json) =>
-      PersonalComputer(
+  factory ComputerdicTarmaktars.fromJson(Map<String, dynamic> json) =>
+      ComputerdicTarmaktars(
         subjectName: json["subject_name"],
         tema1: json["tema1"],
         description1: json["description1"],

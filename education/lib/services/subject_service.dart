@@ -10,7 +10,7 @@ class SubjectService {
           .get(Uri.parse('https://adilbek-hub.github.io/my_data/my_data.json'));
 
       if (response.statusCode == 200) {
-        final data = informaticaFromJson(response.body);
+        final data = informaticaTopicsFromJson(response.body);
         return data;
       } else {
         throw Exception('Failed to load computer data');
