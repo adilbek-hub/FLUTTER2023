@@ -4,7 +4,7 @@ import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../services/subject_service.dart';
+import '../services/informatica_topics_service.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

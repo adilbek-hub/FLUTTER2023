@@ -1,13 +1,13 @@
 import 'package:education/model/informatica_model.dart';
 import 'package:http/http.dart' as http;
 
-class SubjectService {
-  const SubjectService({required this.client});
+class InformaticaTopicsService {
+  const InformaticaTopicsService({required this.client});
   final http.Client client;
   Future<InformaticaTopics?> getData() async {
     try {
-      final response = await http
-          .get(Uri.parse('https://adilbek-hub.github.io/my_data/my_data.json'));
+      final response = await http.get(Uri.parse(
+          'https://adilbek-hub.github.io/my_data/informatica_data.json'));
 
       if (response.statusCode == 200) {
         final data = informaticaTopicsFromJson(response.body);
@@ -22,6 +22,6 @@ class SubjectService {
   }
 }
 
-final subjectService = SubjectService(
+final subjectService = InformaticaTopicsService(
   client: http.Client(),
 );

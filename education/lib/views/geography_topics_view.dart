@@ -8,9 +8,51 @@ import 'package:education/pages/topic_pages_about_geography/world_capitals.dart'
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class GeographyTopics extends StatelessWidget {
-  GeographyTopics({super.key});
+import '../model/geography_model.dart';
+import '../services/geography_topics_service.dart';
+import 'package:http/http.dart' as http;
+
+class GeographyTopics extends StatefulWidget {
+  const GeographyTopics({super.key});
+
+  @override
+  State<GeographyTopics> createState() => _GeographyTopicsState();
+}
+
+class _GeographyTopicsState extends State<GeographyTopics> {
+  GeographyTopicsModel? geographyTopicsModel;
+  Future<void> fetchGeography() async {
+    geographyTopicsModel =
+        await GeographyTopicsService(client: http.Client()).getData();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchGeography();
+  }
+
   final _pageController = PageController();
+
+  int currentIndex = 0;
+  void forPages(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return currentIndex == 0
+            ? const EuropeContinenti()
+            : currentIndex == 1
+                ? const Usa()
+                : currentIndex == 2
+                    ? const AsiaContinenti()
+                    : const WorldCapitals();
+      }),
+    );
+    setState(() {
+      currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,45 +64,13 @@ class GeographyTopics extends StatelessWidget {
           child: PageView.builder(
               controller: _pageController,
               scrollDirection: Axis.horizontal,
-              itemCount: subjecstList.length,
+              itemCount: geographyTopicsModel?.geography.length,
               itemBuilder: (BuildContext context, int index) {
-                Subjects subjects = subjecstList[index];
+                final geography = geographyTopicsModel!.geography[index];
                 return Padding(
                   padding: const EdgeInsets.all(10),
                   child: InkWell(
-                    onTap: () {
-                      if (subjects == borborShaarlar) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EuropeContinenti(
-                              subjectsFull: subjects,
-                            ),
-                          ),
-                        );
-                      } else if (subjects == usa) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Usa(),
-                          ),
-                        );
-                      } else if (subjects == asia) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AsiaContinenti(),
-                          ),
-                        );
-                      } else if (subjects == worldCapitals) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const WorldCapitals(),
-                          ),
-                        );
-                      }
-                    },
+                    onTap: () {},
                     child: SizedBox(
                       height: 300,
                       width: 300,

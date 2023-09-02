@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../model/informatica_model.dart';
-import '../services/subject_service.dart';
+import '../services/informatica_topics_service.dart';
 
 part 'education_event.dart';
 part 'education_state.dart';
@@ -13,7 +13,7 @@ class EducationBloc extends Bloc<EducationEvent, EducationState> {
     on<EducationRefreshEvent>(_getSubjectsByInformation);
   }
 
-  final SubjectService subjectService;
+  final InformaticaTopicsService subjectService;
   Future<void> _getSubjectsByInformation(
       EducationRefreshEvent event, Emitter<EducationState> emit) async {
     final subjects = await subjectService.getData();
