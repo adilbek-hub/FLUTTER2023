@@ -43,7 +43,7 @@ class _GeographyTopicsState extends State<GeographyTopics> {
         return currentIndex == 0
             ? const EuropeContinenti()
             : currentIndex == 1
-                ? const Usa()
+                ? const UnitedStates()
                 : currentIndex == 2
                     ? const AsiaContinenti()
                     : const WorldCapitals();
@@ -66,11 +66,12 @@ class _GeographyTopicsState extends State<GeographyTopics> {
               scrollDirection: Axis.horizontal,
               itemCount: geographyTopicsModel?.geography.length,
               itemBuilder: (BuildContext context, int index) {
-                final geography = geographyTopicsModel!.geography[index];
                 return Padding(
                   padding: const EdgeInsets.all(10),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      forPages(index);
+                    },
                     child: SizedBox(
                       height: 300,
                       width: 300,
@@ -101,7 +102,7 @@ class _GeographyTopicsState extends State<GeographyTopics> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               DropCapText(
-                                subjects.title,
+                                '${geographyTopicsModel?.geography[index].title}',
                                 style: const TextStyle(
                                     fontSize: 20,
                                     // fontFamily: 'Knewave-Regular',
@@ -111,12 +112,12 @@ class _GeographyTopicsState extends State<GeographyTopics> {
                                 dropCap: DropCap(
                                   width: 100,
                                   height: 100,
-                                  child: Image.asset(subjects.image),
+                                  child: Image.asset(''),
                                 ),
                               ),
                               const Divider(),
                               AutoSizeText(
-                                subjects.description,
+                                '${geographyTopicsModel?.geography[index].description}',
                                 style: const TextStyle(
                                     fontSize: 18,
                                     fontFamily: 'Avenir',
@@ -137,7 +138,7 @@ class _GeographyTopicsState extends State<GeographyTopics> {
         ),
         SmoothPageIndicator(
           controller: _pageController,
-          count: subjectsInformaticaList.length,
+          count: geographyTopicsModel!.geography.length,
           effect: JumpingDotEffect(
             activeDotColor: Colors.deepPurple,
             dotColor: Colors.deepPurple.shade100,

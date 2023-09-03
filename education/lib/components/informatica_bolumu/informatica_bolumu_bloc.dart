@@ -25,7 +25,7 @@ class InformaticaBolumuWidget extends StatefulWidget {
 
 class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
   int currentIndex = 0;
-  void a(int index) {
+  void forPages(int index) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
@@ -68,7 +68,7 @@ class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
                 padding: const EdgeInsets.all(10),
                 child: GestureDetector(
                   onTap: () {
-                    a(index);
+                    forPages(index);
                   },
                   child: SizedBox(
                     height: 300,

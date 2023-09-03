@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final geographyTopics = geographyTopicsFromJson(jsonString);
+
 import 'dart:convert';
 
 GeographyTopicsModel geographyTopicsFromJson(String str) =>
@@ -28,55 +32,60 @@ class Geography {
   String title;
   String description;
   String image;
-  List<Map<String, String>> europeCountriesCapital;
-  List<UnitedStates> usa;
+  List<Map<String, String>>? europeCountriesCapital;
+  List<Usa>? usa;
 
   Geography({
     required this.title,
     required this.description,
     required this.image,
-    required this.europeCountriesCapital,
-    required this.usa,
+    this.europeCountriesCapital,
+    this.usa,
   });
 
   factory Geography.fromJson(Map<String, dynamic> json) => Geography(
         title: json["title"],
         description: json["description"],
         image: json["image"],
-        europeCountriesCapital: List<Map<String, String>>.from(
-            json["europe_countries_capital"].map((x) =>
-                Map.from(x).map((k, v) => MapEntry<String, String>(k, v)))),
-        usa: List<UnitedStates>.from(
-            json["usa"].map((x) => UnitedStates.fromJson(x))),
+        europeCountriesCapital: json["europe_countries_capital"] == null
+            ? []
+            : List<Map<String, String>>.from(json["europe_countries_capital"]!
+                .map((x) =>
+                    Map.from(x).map((k, v) => MapEntry<String, String>(k, v)))),
+        usa: json["usa"] == null
+            ? []
+            : List<Usa>.from(json["usa"]!.map((x) => Usa.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "title": title,
         "description": description,
         "image": image,
-        "europe_countries_capital": List<dynamic>.from(
-            europeCountriesCapital.map((x) =>
+        "europe_countries_capital": europeCountriesCapital == null
+            ? []
+            : List<dynamic>.from(europeCountriesCapital!.map((x) =>
                 Map.from(x).map((k, v) => MapEntry<String, dynamic>(k, v)))),
-        "usa": List<dynamic>.from(usa.map((x) => x.toJson())),
+        "usa":
+            usa == null ? [] : List<dynamic>.from(usa!.map((x) => x.toJson())),
       };
 }
 
-class UnitedStates {
+class Usa {
   String? title;
-  String? tema;
+  String tema;
   String? image;
   List<UsaState>? usaStates;
   String? text;
 
-  UnitedStates({
+  Usa({
     this.title,
-    this.tema,
+    required this.tema,
     this.image,
     this.usaStates,
     this.text,
   });
 
-  factory UnitedStates.fromJson(Map<String, dynamic> json) => UnitedStates(
+  factory Usa.fromJson(Map<String, dynamic> json) => Usa(
         title: json["title"],
         tema: json["tema"],
         image: json["image"],

@@ -1,31 +1,35 @@
-import 'package:education/components/table_east.dart';
-import 'package:education/components/table_north_balkan.dart';
-import 'package:education/model/subjects.dart';
-import 'package:education/model/europe_suroo.dart';
-import 'package:education/pages/geography_test/europe_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/components/table_east.dart';
+import 'package:education/components/table_north_balkan.dart';
+import 'package:education/model/europe_suroo.dart';
+import 'package:education/model/subjects.dart';
+import 'package:education/pages/geography_test/europe_test_page.dart';
+
 class EuropeContinenti extends StatelessWidget {
-  const EuropeContinenti({super.key, required this.subjectsFull});
-  final Subjects subjectsFull;
+  const EuropeContinenti({
+    Key? key,
+    
+  }) : super(key: key);
+  // final Subjects subjectsFull;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(subjectsFull.title),
+        // title: Text(/*subjectsFull.title*/),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text(
-                subjectsFull.title,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
+              // Text(
+              //   // subjectsFull.title,
+              //   // style: const TextStyle(fontWeight: FontWeight.bold),
+              // ),
               const SizedBox(height: 15),
-              Text(subjectsFull.description),
+              // Text(/*subjectsFull.description*/),
               const Text(
                 'Европанын Түндүк жана Балкан өлкөлөрү жана борборлору.',
                 style: TextStyle(color: Color(0xff813597)),

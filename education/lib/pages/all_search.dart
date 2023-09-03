@@ -66,15 +66,14 @@ class _AllSearchPageState extends State<AllSearchPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                const EuropeContinenti(subjectsFull: borborShaarlar),
+            builder: (context) => const EuropeContinenti(),
           ),
         );
         break;
       case "Америка Кошмо Штаттары":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Usa()),
+          MaterialPageRoute(builder: (context) => const UnitedStates()),
         );
         break;
       case "Борбор шаарлар":
