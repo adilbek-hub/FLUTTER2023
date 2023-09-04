@@ -31,7 +31,6 @@ class _HotelViewState extends State<HotelView> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchData();
   }
@@ -56,9 +55,11 @@ class _HotelViewState extends State<HotelView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 19),
-                  const Text(
-                    'Отель',
-                    style: AppTextStyles.hotelStyle,
+                  const Center(
+                    child: Text(
+                      'Отель',
+                      style: AppTextStyles.hotelStyle,
+                    ),
                   ),
                   AppSize.height16,
                   Stack(
@@ -68,14 +69,14 @@ class _HotelViewState extends State<HotelView> {
                           print(currentIndex);
                         },
                         child: CarouselSlider(
-                          items: images
+                          items: hotelModel!.imageUrls
                               .map(
                                 (e) => Container(
                                   width: width,
                                   height: 257,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15)),
-                                  child: Image.asset(
+                                  child: Image.network(
                                     '$e',
                                     fit: BoxFit.fill,
                                   ),

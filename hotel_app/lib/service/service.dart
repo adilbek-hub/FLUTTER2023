@@ -8,8 +8,7 @@ class HotelService {
   Future<HotelModel?> getData() async {
     try {
       final response = await http.get(
-        Uri.parse(
-            'https://run.mocky.io/v3/35e0d18e-2521-4f1b-a575-f0fe366f66e3'),
+        Uri.parse('https://adilbek-hub.github.io/my_data/my.json'),
       );
 
       if (response.statusCode == 200) {
