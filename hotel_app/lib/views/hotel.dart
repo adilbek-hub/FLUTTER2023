@@ -1,9 +1,11 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_app/constants/app_size.dart';
+import 'package:hotel_app/model/hotel_model.dart';
 
 import '../constants/app_text_styles.dart';
+import '../service/service.dart';
+import 'package:http/http.dart' as http;
 
 class HotelView extends StatefulWidget {
   const HotelView({super.key});
@@ -19,7 +21,20 @@ class _HotelViewState extends State<HotelView> {
     'assets/hotelImage.png'
   ];
   int currentIndex = 0;
+
   CarouselController carouselController = CarouselController();
+  HotelModel? hotelModel;
+  Future<void> fetchData() async {
+    hotelModel = await HotelService(client: http.Client()).getData();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
