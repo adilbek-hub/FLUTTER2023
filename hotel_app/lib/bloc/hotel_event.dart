@@ -1,0 +1,14 @@
+part of 'hotel_bloc.dart';
+
+sealed class HotelEvent extends Equatable {
+  const HotelEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
+class HotelRefreshEvent extends HotelEvent {}
+
+class CarouselNextEvent extends HotelEvent {}
+
+class CarouselPreviousEvent extends HotelEvent {}

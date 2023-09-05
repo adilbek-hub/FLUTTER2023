@@ -7,4 +7,9 @@ class AppTextStyles {
     fontSize: 18,
     fontWeight: FontWeight.w500,
   );
+  static const texts = TextStyle(
+    color: AppColors.black,
+    fontSize: 22,
+    fontWeight: FontWeight.w500,
+  );
 }
