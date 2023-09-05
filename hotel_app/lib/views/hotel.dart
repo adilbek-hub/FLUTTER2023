@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/hotel_bloc.dart';
 import '../components/hotel_components/loading_widget.dart';
-import '../components/success_widget.dart';
+import '../components/hotel_components/success_widget.dart';
 
 class HotelView extends StatefulWidget {
   const HotelView({super.key});
