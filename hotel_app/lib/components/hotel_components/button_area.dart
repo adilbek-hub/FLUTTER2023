@@ -27,7 +27,7 @@ class ButtonArea extends StatelessWidget {
                 ),
                 minimumSize: const Size(500, 40),
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, 'HotelNumber'),
               child: const Text(
                 'К выбору номеру',
                 style: TextStyle(
