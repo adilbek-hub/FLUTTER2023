@@ -1,6 +1,6 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:hotel_app/model/hotel_model.dart';
 import '../../constants/app_size.dart';
 import '../../constants/app_text_styles.dart';
 import 'button_area.dart';
@@ -8,8 +8,8 @@ import 'like_container.dart';
 import 'white_container.dart';
 
 class SuccessWidget extends StatefulWidget {
-  const SuccessWidget({Key? key, required this.items}) : super(key: key);
-  final List<String> items;
+  const SuccessWidget({Key? key, required this.hotelModel}) : super(key: key);
+  final HotelModel hotelModel;
 
   @override
   State<SuccessWidget> createState() => _SuccessWidgetState();
@@ -52,7 +52,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                           print(currentIndex);
                         },
                         child: CarouselSlider(
-                          items: widget.items
+                          items: widget.hotelModel.imageUrls
                               .map(
                                 (e) => SizedBox(
                                   width: width,
@@ -93,7 +93,10 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                                 borderRadius: BorderRadius.circular(5)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: widget.items.asMap().entries.map(
+                              children: widget.hotelModel.imageUrls
+                                  .asMap()
+                                  .entries
+                                  .map(
                                 (e) {
                                   return GestureDetector(
                                     onTap: () =>
@@ -122,37 +125,37 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                   const SizedBox(height: 16),
                   const LikeContainer(),
                   const SizedBox(height: 8),
-                  const Text(
-                    'Steigenberger Makadi',
-                    style: TextStyle(
+                  Text(
+                    widget.hotelModel.name,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 22,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    'Madinat Makadi, Safaga Road, Makadi Bay, Египет',
-                    style: TextStyle(
+                  Text(
+                    widget.hotelModel.adress,
+                    style: const TextStyle(
                       color: Color(0xff0D72FF),
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const Row(
+                  Row(
                     children: [
                       Text(
-                        'от 134 673 ₽',
-                        style: TextStyle(
+                        'от ${widget.hotelModel.minimalPrice}₽',
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 30,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
-                        'за тур с перелётом',
-                        style: TextStyle(
+                        widget.hotelModel.priceForIt,
+                        style: const TextStyle(
                           color: Color(0xff828796),
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
@@ -170,21 +173,21 @@ class _SuccessWidgetState extends State<SuccessWidget> {
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 19),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 19),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 19),
-                  Text(
+                  const SizedBox(height: 19),
+                  const Text(
                     'Об отеле',
                     style: AppTextStyles.texts,
                   ),
-                  SizedBox(height: 21),
+                  const SizedBox(height: 21),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
+                      const Text(
                         '3-я линия',
                         style: TextStyle(
                           color: Color(0xff828796),
@@ -193,56 +196,56 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                         ),
                       ),
                       Text(
-                        'Платный Wi-Fi в фойе',
-                        style: TextStyle(
+                        widget.hotelModel.aboutTheHotel.peculiarities[2],
+                        style: const TextStyle(
                           color: Color(0xff828796),
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(width: 14),
+                      const SizedBox(width: 14),
                     ],
                   ),
-                  SizedBox(height: 21),
+                  const SizedBox(height: 21),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        '30 км до аэропорт',
-                        style: TextStyle(
+                        widget.hotelModel.aboutTheHotel.peculiarities[3],
+                        style: const TextStyle(
                           color: Color(0xff828796),
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       Text(
-                        '1 км до пляжа',
-                        style: TextStyle(
+                        widget.hotelModel.aboutTheHotel.peculiarities[1],
+                        style: const TextStyle(
                           color: Color(0xff828796),
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(width: 14),
+                      const SizedBox(width: 14),
                     ],
                   ),
-                  SizedBox(height: 17),
+                  const SizedBox(height: 17),
                   Text(
-                    'Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!',
-                    style: TextStyle(
+                    widget.hotelModel.aboutTheHotel.description,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  SizedBox(height: 16),
-                  WhiteContainer()
+                  const SizedBox(height: 16),
+                  const WhiteContainer()
                 ],
               ),
             ),
           ),
           const SizedBox(height: 10),
-          const ButtonArea(),
+          ButtonArea(hotelModel: widget.hotelModel),
         ],
       ),
     );

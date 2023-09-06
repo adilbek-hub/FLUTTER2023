@@ -23,7 +23,7 @@ class _HotelViewState extends State<HotelView> {
               return const LoadingWidget();
             } else if (state is HotelSuccess) {
               return SuccessWidget(
-                items: state.hotelModel.imageUrls,
+                hotelModel: state.hotelModel,
               );
             } else if (state is HotelError) {
               return ErrorWidget(state.text);

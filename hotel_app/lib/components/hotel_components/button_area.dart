@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:hotel_app/model/hotel_model.dart';
+import 'package:hotel_app/views/hotel_number_page.dart';
+
 class ButtonArea extends StatelessWidget {
   const ButtonArea({
-    super.key,
-  });
+    Key? key,
+    required this.hotelModel,
+  }) : super(key: key);
+  final HotelModel hotelModel;
 
   @override
   Widget build(BuildContext context) {
@@ -16,24 +21,28 @@ class ButtonArea extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff0d72ff),
-                elevation: 0,
-                padding: const EdgeInsets.only(
-                    left: 16, top: 12, right: 16, bottom: 28),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0),
+            InkWell(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HotelNumber(hotelModel: hotelModel),
                 ),
-                minimumSize: const Size(500, 40),
               ),
-              onPressed: () => Navigator.pushNamed(context, 'HotelNumber'),
-              child: const Text(
-                'К выбору номеру',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+              child: Container(
+                height: 48,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Center(
+                  child: Text(
+                    'К выбору номера',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ),
             ),

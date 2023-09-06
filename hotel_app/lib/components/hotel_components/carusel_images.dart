@@ -24,7 +24,7 @@ class _CaruselImagesState extends State<CaruselImages> {
             print(currentIndex);
           },
           child: CarouselSlider(
-            items: widget.widget.items
+            items: widget.widget.hotelModel.imageUrls
                 .map(
                   (e) => SizedBox(
                     width: width,
@@ -64,7 +64,8 @@ class _CaruselImagesState extends State<CaruselImages> {
                   color: Colors.white, borderRadius: BorderRadius.circular(5)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: widget.widget.items.asMap().entries.map(
+                children:
+                    widget.widget.hotelModel.imageUrls.asMap().entries.map(
                   (e) {
                     return GestureDetector(
                       onTap: () => carouselController.animateToPage(e.key),

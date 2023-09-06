@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../bloc/hotel_bloc.dart';
 import '../service/service.dart';
-import '../views/hotel.dart';
-import '../views/hotel_number.dart';
+import '../views/hotel_page.dart';
+import '../views/hotel_number_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,7 +22,6 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => const HotelView(),
-          'HotelNumber': (context) => const HotelNumber(),
         },
       ),
     );
