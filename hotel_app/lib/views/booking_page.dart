@@ -193,20 +193,26 @@ class _BookingPageState extends State<BookingPage> {
                           ),
                           const SizedBox(height: 20),
                           if (isExpanded)
-                            const NamePhoneEmailWidget(
-                              pronunciation: 'Имя',
-                              pronunciationSpelling: 'Иван',
+                            Container(
+                              child: Column(
+                                children: [
+                                  TextFormField(
+                                    initialValue: "Initial Text",
+                                    cursorColor: Colors.black,
+                                    style: const TextStyle(color: Colors.black),
+                                    decoration: InputDecoration(
+                                      labelText: "Enter your name",
+                                      filled: true,
+                                      fillColor: const Color(0xffF6F6F9),
+                                      border: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                          const SizedBox(height: 8),
-                          const NamePhoneEmailWidget(
-                            pronunciation: 'Фамилия',
-                            pronunciationSpelling: 'Иванов',
-                          ),
-                          const SizedBox(height: 8),
-                          const NamePhoneEmailWidget(
-                            pronunciation: 'Фамилия',
-                            pronunciationSpelling: 'Иванов',
-                          ),
                         ],
                       ),
                     ),
