@@ -36,7 +36,7 @@ class LikeContainer extends StatelessWidget {
             ],
           );
         } else {
-          return Text('Есть инвалидность');
+          return const Text('Есть инвалидность');
         }
       },
     );

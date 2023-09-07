@@ -236,9 +236,7 @@ class _HotelNumberState extends State<HotelNumber> {
                               onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => BookingPage(
-                                      hotelModel: widget.hotelModel,
-                                    ),
+                                    builder: (context) => BookingPage(),
                                   )),
                               child: Container(
                                 height: 48,
