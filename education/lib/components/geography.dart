@@ -58,7 +58,7 @@ class Geography extends StatelessWidget {
               )
             ],
           ),
-          Expanded(child: GeographyTopics()),
+          const Expanded(child: GeographyTopics()),
         ],
       ),
     );

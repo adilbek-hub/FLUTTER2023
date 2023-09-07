@@ -3,22 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:education/components/table_east.dart';
 import 'package:education/components/table_north_balkan.dart';
 import 'package:education/model/europe_suroo.dart';
-import 'package:education/model/subjects.dart';
 import 'package:education/pages/geography_test/europe_test_page.dart';
+
+import '../../model/geography_model.dart';
 
 class EuropeContinenti extends StatelessWidget {
   const EuropeContinenti({
     Key? key,
-    
+    this.europeCountries,
   }) : super(key: key);
-  // final Subjects subjectsFull;
+  final GeographyTopicsModel? europeCountries;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: Text(/*subjectsFull.title*/),
-      ),
+          // title: Text(europeCountries!.geography[0].europeCountriesCapital![0]),
+          ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
