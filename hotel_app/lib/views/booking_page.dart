@@ -193,26 +193,20 @@ class _BookingPageState extends State<BookingPage> {
                           ),
                           const SizedBox(height: 20),
                           if (isExpanded)
-                            Container(
-                              child: Column(
-                                children: [
-                                  TextFormField(
-                                    initialValue: "Initial Text",
-                                    cursorColor: Colors.black,
-                                    style: const TextStyle(color: Colors.black),
-                                    decoration: InputDecoration(
-                                      labelText: "Enter your name",
-                                      filled: true,
-                                      fillColor: const Color(0xffF6F6F9),
-                                      border: OutlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                    ),
-                                  )
-                                ],
-                              ),
+                            const NamePhoneEmailWidget(
+                              pronunciation: 'Почта',
+                              pronunciationSpelling: 'Иван',
                             ),
+                          const SizedBox(height: 8),
+                          const NamePhoneEmailWidget(
+                            pronunciation: 'Фамилия',
+                            pronunciationSpelling: 'Иванов',
+                          ),
+                          const SizedBox(height: 8),
+                          const NamePhoneEmailWidget(
+                            pronunciation: 'Дата рождения',
+                            fontSize: 50.0,
+                          ),
                         ],
                       ),
                     ),
@@ -234,9 +228,11 @@ class NamePhoneEmailWidget extends StatelessWidget {
     Key? key,
     this.pronunciation = '',
     this.pronunciationSpelling = '',
+    this.fontSize = 12.0,
   }) : super(key: key);
   final String? pronunciation;
   final String? pronunciationSpelling;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -264,9 +260,9 @@ class NamePhoneEmailWidget extends StatelessWidget {
               children: [
                 Text(
                   '$pronunciationSpelling',
-                  style: const TextStyle(
-                      color: Color(0xff14142B),
-                      fontSize: 16,
+                  style: TextStyle(
+                      color: const Color(0xff14142B),
+                      fontSize: fontSize,
                       fontWeight: FontWeight.w400),
                 ),
               ],
