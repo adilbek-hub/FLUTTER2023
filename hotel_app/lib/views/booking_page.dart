@@ -304,6 +304,33 @@ class _BookingPageState extends State<BookingPage> {
                                 ],
                               ),
                             ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Добавить туриста',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(
+                                child: Card(
+                                  elevation: 2,
+                                  color: Colors.blue,
+                                  child: IconButton(
+                                    iconSize: 20,
+                                    onPressed: toggleSecondExpansion,
+                                    color: Colors.white,
+                                    icon: Icon(
+                                      Icons.add,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
