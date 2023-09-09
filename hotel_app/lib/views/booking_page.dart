@@ -17,11 +17,18 @@ class BookingPage extends StatefulWidget {
 }
 
 class _BookingPageState extends State<BookingPage> {
-  bool isExpanded = false;
+  bool isFirstExpanded = true;
+  bool isSecondExpanded = true;
 
-  void toggleExpansion() {
+  void toggleFirstExpansion() {
     setState(() {
-      isExpanded = !isExpanded;
+      isFirstExpanded = !isFirstExpanded;
+    });
+  }
+
+  void toggleSecondExpansion() {
+    setState(() {
+      isSecondExpanded = !isSecondExpanded;
     });
   }
 
@@ -127,12 +134,12 @@ class _BookingPageState extends State<BookingPage> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          NamePhoneEmailWidget(
+                          PhoneEmailWidget(
                             pronunciation: 'Номер Телефона',
                             pronunciationSpelling: '+7 (951) 555-99-00',
                           ),
                           SizedBox(height: 8),
-                          NamePhoneEmailWidget(
+                          PhoneEmailWidget(
                             pronunciation: 'Почта',
                             pronunciationSpelling: 'examplemail.000@mail.ru',
                           ),
@@ -172,41 +179,131 @@ class _BookingPageState extends State<BookingPage> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 187, 212, 248),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                padding:
-                                    const EdgeInsets.fromLTRB(8, 12, 8, 10),
-                                child: IconButton(
-                                  onPressed: toggleExpansion,
-                                  icon: Icon(
-                                    isExpanded
-                                        ? Icons.expand_less
-                                        : Icons.expand_more,
+                              SizedBox(
+                                child: Card(
+                                  elevation: 2,
+                                  color: const Color(0xffe7f1ff),
+                                  child: IconButton(
+                                    iconSize: 20,
+                                    onPressed: toggleFirstExpansion,
+                                    color: const Color(0xff0d72ff),
+                                    icon: Icon(
+                                      isFirstExpanded
+                                          ? Icons.expand_less
+                                          : Icons.expand_more,
+                                    ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           const SizedBox(height: 20),
-                          if (isExpanded)
-                            const NamePhoneEmailWidget(
-                              pronunciation: 'Почта',
-                              pronunciationSpelling: 'Иван',
+                          if (isFirstExpanded)
+                            Container(
+                              child: const Column(
+                                children: [
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Почта',
+                                    pronunciationSpelling: 'Иван',
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Фамилия',
+                                    pronunciationSpelling: 'Иванов',
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Дата рождения',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Гражданство',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Номер загранпаспорта',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation:
+                                        'Срок действия загранпаспорта',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
                             ),
-                          const SizedBox(height: 8),
-                          const NamePhoneEmailWidget(
-                            pronunciation: 'Фамилия',
-                            pronunciationSpelling: 'Иванов',
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Второй турист',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(
+                                child: Card(
+                                  elevation: 2,
+                                  color: const Color(0xffe7f1ff),
+                                  child: IconButton(
+                                    iconSize: 20,
+                                    onPressed: toggleSecondExpansion,
+                                    color: const Color(0xff0d72ff),
+                                    icon: Icon(
+                                      isSecondExpanded
+                                          ? Icons.expand_less
+                                          : Icons.expand_more,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(height: 8),
-                          const NamePhoneEmailWidget(
-                            pronunciation: 'Дата рождения',
-                            fontSize: 50.0,
-                          ),
+                          const SizedBox(height: 20),
+                          if (isSecondExpanded)
+                            Container(
+                              child: const Column(
+                                children: [
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Почта',
+                                    pronunciationSpelling: 'Дмитрий',
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Фамилия',
+                                    pronunciationSpelling: 'Василеев',
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Дата рождения',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Гражданство',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation: 'Номер загранпаспорта',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                  PhoneEmailWidget(
+                                    pronunciation:
+                                        'Срок действия загранпаспорта',
+                                    fontSize: 17,
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
+                            ),
                         ],
                       ),
                     ),
@@ -223,8 +320,8 @@ class _BookingPageState extends State<BookingPage> {
   }
 }
 
-class NamePhoneEmailWidget extends StatelessWidget {
-  const NamePhoneEmailWidget({
+class PhoneEmailWidget extends StatelessWidget {
+  const PhoneEmailWidget({
     Key? key,
     this.pronunciation = '',
     this.pronunciationSpelling = '',
@@ -236,36 +333,32 @@ class NamePhoneEmailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xffF6F6F9),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 10, 0, 10),
+    return Center(
+      child: Container(
+        width: double.infinity,
+        padding:
+            const EdgeInsets.only(left: 16.0, top: 10, right: 0, bottom: 10),
+        decoration: BoxDecoration(
+          color: const Color(0xffF6F6F9),
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Text(
-                  '$pronunciation',
-                  style: const TextStyle(
-                      color: Color(0xffA9ABB7),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400),
-                ),
-              ],
+            Text(
+              '$pronunciation',
+              style: TextStyle(
+                  color: const Color(0xffA9ABB7),
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w400),
             ),
-            Row(
-              children: [
-                Text(
-                  '$pronunciationSpelling',
-                  style: TextStyle(
-                      color: const Color(0xff14142B),
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400),
-                ),
-              ],
+            Text(
+              '$pronunciationSpelling',
+              style: TextStyle(
+                  color: const Color(0xff14142B),
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w400),
             ),
           ],
         ),
