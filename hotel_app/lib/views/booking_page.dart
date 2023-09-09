@@ -323,7 +323,7 @@ class _BookingPageState extends State<BookingPage> {
                                     iconSize: 20,
                                     onPressed: toggleSecondExpansion,
                                     color: Colors.white,
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.add,
                                     ),
                                   ),
