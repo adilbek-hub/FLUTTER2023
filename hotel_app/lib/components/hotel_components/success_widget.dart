@@ -245,7 +245,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
             ),
           ),
           const SizedBox(height: 10),
-          ButtonArea(hotelModel: widget.hotelModel),
+          const ButtonArea(),
         ],
       ),
     );

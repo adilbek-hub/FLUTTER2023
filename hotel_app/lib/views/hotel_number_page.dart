@@ -9,8 +9,7 @@ import 'package:text_scroll/text_scroll.dart';
 import '../bloc/hotel_bloc.dart';
 
 class HotelNumber extends StatefulWidget {
-  const HotelNumber({Key? key, required this.hotelModel}) : super(key: key);
-  final HotelModel hotelModel;
+  const HotelNumber({Key? key}) : super(key: key);
 
   @override
   State<HotelNumber> createState() => _HotelNumberState();
@@ -238,23 +237,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                   MaterialPageRoute(
                                     builder: (context) => BookingPage(),
                                   )),
-                              child: Container(
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    'Выбрать номер',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              child: const CustomButton(text: 'Выбрать номер'),
                             ),
                           ],
                         ),
@@ -282,7 +265,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                     print(currentIndex);
                                   },
                                   child: CarouselSlider(
-                                    items: widget.hotelModel.imageUrls
+                                    items: state.hotelModel.imageUrls
                                         .map(
                                           (e) => SizedBox(
                                             width: width,
@@ -328,7 +311,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: widget.hotelModel.imageUrls
+                                        children: state.hotelModel.imageUrls
                                             .asMap()
                                             .entries
                                             .map(

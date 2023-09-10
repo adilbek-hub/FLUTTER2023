@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:hotel_app/components/hotel_components/like_container.dart';
+import 'package:hotel_app/views/paid_page.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/booking_components/hotel_detail.dart';
@@ -40,7 +41,7 @@ class _BookingPageState extends State<BookingPage> {
           return Scaffold(
             backgroundColor: const Color(0xffF6F6F9),
             appBar: AppBar(
-              backgroundColor: Colors.grey,
+              backgroundColor: Colors.white,
               toolbarHeight: 100,
               leading: IconButton(
                 onPressed: () => Navigator.pop(context),
@@ -64,7 +65,7 @@ class _BookingPageState extends State<BookingPage> {
                   const SizedBox(height: 10),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -99,7 +100,7 @@ class _BookingPageState extends State<BookingPage> {
                   const SizedBox(height: 10),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Padding(
@@ -116,7 +117,7 @@ class _BookingPageState extends State<BookingPage> {
                   const SizedBox(height: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Padding(
@@ -159,7 +160,7 @@ class _BookingPageState extends State<BookingPage> {
                   const SizedBox(height: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Padding(
@@ -338,128 +339,40 @@ class _BookingPageState extends State<BookingPage> {
                   const SizedBox(height: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(0),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.all(16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Топ',
-                                    style: TextStyle(
-                                      color: Color(0xff828796),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  Text(
-                                    '186 600 ₽',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Топливный сбор',
-                                    style: TextStyle(
-                                      color: Color(0xff828796),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  Text(
-                                    '9 300 ₽',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Сервисный сбор',
-                                    style: TextStyle(
-                                      color: Color(0xff828796),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  Text(
-                                    '2 136 ₽',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'К оплате',
-                                    style: TextStyle(
-                                      color: Color(0xff828796),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  Text(
-                                    '186 600 ₽',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Топ',
-                                    style: TextStyle(
-                                      color: Color(0xff828796),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  Text(
-                                    '198 036 ₽',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
+                          SumResultsWidget(),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 19),
+                          InkWell(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Paid(),
+                                )),
+                            child:
+                                const CustomButton(text: 'Оплатить 198 036 ₽'),
+                          ),
                         ],
                       ),
                     ),
@@ -472,6 +385,137 @@ class _BookingPageState extends State<BookingPage> {
           return throw ('Есть инвалидность');
         }
       },
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({
+    Key? key,
+    this.text = '',
+  }) : super(key: key);
+  final String? text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 48,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Center(
+        child: Text(
+          text ?? '',
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SumResultsWidget extends StatelessWidget {
+  const SumResultsWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Топ',
+              style: TextStyle(
+                color: Color(0xff828796),
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              '186 600 ₽',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Топливный сбор',
+              style: TextStyle(
+                color: Color(0xff828796),
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              '9 300 ₽',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Сервисный сбор',
+              style: TextStyle(
+                color: Color(0xff828796),
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              '2 136 ₽',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'К оплате',
+              style: TextStyle(
+                color: Color(0xff828796),
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              '198 036 ₽',
+              style: TextStyle(
+                color: Colors.blue,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 16),
+      ],
     );
   }
 }
