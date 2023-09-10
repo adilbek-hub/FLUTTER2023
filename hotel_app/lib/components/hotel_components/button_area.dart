@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/views/booking_page.dart';
+
 import 'package:hotel_app/views/hotel_number_page.dart';
+
+import '../custom_button.dart';
 
 class ButtonArea extends StatelessWidget {
   const ButtonArea({

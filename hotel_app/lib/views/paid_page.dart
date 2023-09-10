@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'booking_page.dart';
+import '../components/custom_button.dart';
 
 class Paid extends StatelessWidget {
   const Paid({super.key});
@@ -12,7 +12,9 @@ class Paid extends StatelessWidget {
         appBar: AppBar(
           toolbarHeight: 100,
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Icon(Icons.arrow_back_ios),
           ),
           title: const Text(

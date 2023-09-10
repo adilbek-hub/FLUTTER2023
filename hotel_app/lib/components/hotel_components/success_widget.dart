@@ -48,9 +48,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                   Stack(
                     children: [
                       InkWell(
-                        onTap: () {
-                          print(currentIndex);
-                        },
+                        onTap: () {},
                         child: CarouselSlider(
                           items: widget.hotelModel.imageUrls
                               .map(

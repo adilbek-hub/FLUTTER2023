@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/hotel_bloc.dart';
 import '../service/service.dart';
 import '../views/hotel_page.dart';
-import '../views/hotel_number_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

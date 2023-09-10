@@ -15,7 +15,10 @@ class LikeContainer extends StatelessWidget {
               Container(
                 width: 149,
                 height: 29,
-                color: const Color(0xfffff4cc),
+                decoration: BoxDecoration(
+                  color: const Color(0xfffff4cc),
+                  borderRadius: BorderRadius.circular(5),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

@@ -2,11 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_app/model/hotel_model.dart';
 import 'package:hotel_app/views/booking_page.dart';
 import 'package:text_scroll/text_scroll.dart';
 
 import '../bloc/hotel_bloc.dart';
+import '../components/custom_button.dart';
 
 class HotelNumber extends StatefulWidget {
   const HotelNumber({Key? key}) : super(key: key);
@@ -65,9 +65,7 @@ class _HotelNumberState extends State<HotelNumber> {
                             Stack(
                               children: [
                                 InkWell(
-                                  onTap: () {
-                                    print(currentIndex);
-                                  },
+                                  onTap: () {},
                                   child: CarouselSlider(
                                     items: state.hotelModel.imageUrls
                                         .map(
@@ -235,7 +233,7 @@ class _HotelNumberState extends State<HotelNumber> {
                               onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => BookingPage(),
+                                    builder: (context) => const BookingPage(),
                                   )),
                               child: const CustomButton(text: 'Выбрать номер'),
                             ),
@@ -261,9 +259,7 @@ class _HotelNumberState extends State<HotelNumber> {
                             Stack(
                               children: [
                                 InkWell(
-                                  onTap: () {
-                                    print(currentIndex);
-                                  },
+                                  onTap: () {},
                                   child: CarouselSlider(
                                     items: state.hotelModel.imageUrls
                                         .map(

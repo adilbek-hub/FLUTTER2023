@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,11 +6,10 @@ import 'package:hotel_app/views/paid_page.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/booking_components/hotel_detail.dart';
+import '../components/custom_button.dart';
 
 class BookingPage extends StatefulWidget {
-  const BookingPage({
-    Key? key,
-  }) : super(key: key);
+  const BookingPage({Key? key}) : super(key: key);
 
   @override
   State<BookingPage> createState() => _BookingPageState();
@@ -19,7 +17,7 @@ class BookingPage extends StatefulWidget {
 
 class _BookingPageState extends State<BookingPage> {
   bool isFirstExpanded = true;
-  bool isSecondExpanded = true;
+  bool isSecondExpanded = false;
 
   void toggleFirstExpansion() {
     setState(() {
@@ -47,16 +45,15 @@ class _BookingPageState extends State<BookingPage> {
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back_ios),
               ),
-              title: const Center(
-                child: Text(
-                  'Бронирование',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
+              title: const Text(
+                'Бронирование',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+              centerTitle: true,
               elevation: 0,
             ),
             body: SingleChildScrollView(
@@ -200,42 +197,39 @@ class _BookingPageState extends State<BookingPage> {
                           ),
                           const SizedBox(height: 20),
                           if (isFirstExpanded)
-                            Container(
-                              child: const Column(
-                                children: [
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Почта',
-                                    pronunciationSpelling: 'Иван',
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Фамилия',
-                                    pronunciationSpelling: 'Иванов',
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Дата рождения',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Гражданство',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Номер загранпаспорта',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation:
-                                        'Срок действия загранпаспорта',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                ],
-                              ),
+                            const Column(
+                              children: [
+                                PhoneEmailWidget(
+                                  pronunciation: 'Почта',
+                                  pronunciationSpelling: 'Иван',
+                                ),
+                                SizedBox(height: 8),
+                                PhoneEmailWidget(
+                                  pronunciation: 'Фамилия',
+                                  pronunciationSpelling: 'Иванов',
+                                ),
+                                SizedBox(height: 8),
+                                PhoneEmailWidget(
+                                  pronunciation: 'Дата рождения',
+                                  fontSize: 17,
+                                ),
+                                SizedBox(height: 8),
+                                PhoneEmailWidget(
+                                  pronunciation: 'Гражданство',
+                                  fontSize: 17,
+                                ),
+                                SizedBox(height: 8),
+                                PhoneEmailWidget(
+                                  pronunciation: 'Номер загранпаспорта',
+                                  fontSize: 17,
+                                ),
+                                SizedBox(height: 8),
+                                PhoneEmailWidget(
+                                  pronunciation: 'Срок действия загранпаспорта',
+                                  fontSize: 17,
+                                ),
+                                SizedBox(height: 8),
+                              ],
                             ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -269,6 +263,7 @@ class _BookingPageState extends State<BookingPage> {
                           const SizedBox(height: 20),
                           if (isSecondExpanded)
                             Container(
+                              color: Colors.red,
                               child: const Column(
                                 children: [
                                   PhoneEmailWidget(
@@ -322,7 +317,7 @@ class _BookingPageState extends State<BookingPage> {
                                   color: Colors.blue,
                                   child: IconButton(
                                     iconSize: 20,
-                                    onPressed: toggleSecondExpansion,
+                                    onPressed: () {},
                                     color: Colors.white,
                                     icon: const Icon(
                                       Icons.add,
@@ -385,35 +380,6 @@ class _BookingPageState extends State<BookingPage> {
           return throw ('Есть инвалидность');
         }
       },
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    Key? key,
-    this.text = '',
-  }) : super(key: key);
-  final String? text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 48,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Center(
-        child: Text(
-          text ?? '',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ),
     );
   }
 }

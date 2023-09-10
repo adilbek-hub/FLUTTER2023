@@ -20,9 +20,7 @@ class _CaruselImagesState extends State<CaruselImages> {
     return Stack(
       children: [
         InkWell(
-          onTap: () {
-            print(currentIndex);
-          },
+          onTap: () {},
           child: CarouselSlider(
             items: widget.widget.hotelModel.imageUrls
                 .map(
