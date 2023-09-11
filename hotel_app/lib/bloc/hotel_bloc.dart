@@ -16,12 +16,14 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
     on<HotelRefreshEvent>(_getServiseByInformation);
   }
   final HotelService service;
-  int currentIndex = 0;
+
   Future<void> _getServiseByInformation(
       HotelRefreshEvent event, Emitter<HotelState> emit) async {
     final data = await service.getData();
     if (data != null) {
-      emit(HotelSuccess(hotelModel: data, currentIndex: currentIndex));
+      emit(HotelSuccess(
+        hotelModel: data,
+      ));
     } else {
       emit(
         const HotelError(text: 'HotelError ERROR'),

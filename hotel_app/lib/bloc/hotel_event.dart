@@ -8,7 +8,3 @@ sealed class HotelEvent extends Equatable {
 }
 
 class HotelRefreshEvent extends HotelEvent {}
-
-class CarouselNextEvent extends HotelEvent {}
-
-class CarouselPreviousEvent extends HotelEvent {}

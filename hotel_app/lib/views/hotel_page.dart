@@ -22,9 +22,7 @@ class _HotelViewState extends State<HotelView> {
             if (state is HotelLoading) {
               return const LoadingWidget();
             } else if (state is HotelSuccess) {
-              return SuccessWidget(
-                hotelModel: state.hotelModel,
-              );
+              return const SuccessWidget();
             } else if (state is HotelError) {
               return ErrorWidget(state.text);
             } else {

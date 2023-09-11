@@ -263,7 +263,6 @@ class _BookingPageState extends State<BookingPage> {
                           const SizedBox(height: 20),
                           if (isSecondExpanded)
                             Container(
-                              color: Colors.red,
                               child: const Column(
                                 children: [
                                   PhoneEmailWidget(
