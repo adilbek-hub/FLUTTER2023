@@ -10,14 +10,14 @@ sealed class HotelState extends Equatable {
 final class HotelLoading extends HotelState {}
 
 final class HotelSuccess extends HotelState {
-  const HotelSuccess({required this.hotelModel});
+  const HotelSuccess({
+    required this.hotelModel,
+    required this.hotelNumberModel,
+    required this.bookingModel,
+  });
   final HotelModel hotelModel;
-}
-
-final class IndexSuccess extends HotelState {
-  const IndexSuccess({required this.currentIndex});
-
-  final int currentIndex;
+  final HotelNumberModel hotelNumberModel;
+  final BookingModel bookingModel;
 }
 
 final class HotelError extends HotelState {

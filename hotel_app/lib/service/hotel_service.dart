@@ -8,7 +8,8 @@ class HotelService {
   Future<HotelModel?> getData() async {
     try {
       final response = await http.get(
-        Uri.parse('https://adilbek-hub.github.io/my_data/my.json'),
+        Uri.parse(
+            'http://run.mocky.io/v3/35e0d18e-2521-4f1b-a575-f0fe366f66e3'),
       );
 
       if (response.statusCode == 200) {
@@ -18,9 +19,8 @@ class HotelService {
         throw Exception('Failed to load computer data');
       }
     } catch (e) {
-      print('Кештен ката: ${e.toString()}');
+      throw ('Кештен ката: ${e.toString()}');
     }
-    return null;
   }
 }
 

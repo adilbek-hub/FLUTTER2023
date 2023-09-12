@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/hotel_bloc.dart';
-import '../service/service.dart';
+import '../exm.dart';
+import '../service/booking_service.dart';
+import '../service/hotel_number_service.dart';
+import '../service/hotel_service.dart';
 import '../views/hotel_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -10,8 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          HotelBloc(service: hotelService)..add(HotelRefreshEvent()),
+      create: (context) => HotelBloc(
+        service: hotelService,
+        hotelNumberService: hotelNumberService,
+        bookingService: bookingService,
+      )..add(HotelRefreshEvent()),
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
@@ -20,7 +26,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => const HotelView(),
+          '/': (context) => const Exm(),
         },
       ),
     );

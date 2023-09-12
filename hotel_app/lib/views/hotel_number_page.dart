@@ -2,11 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_app/service/hotel_number_service.dart';
 import 'package:hotel_app/views/booking_page.dart';
 import 'package:text_scroll/text_scroll.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/custom_button.dart';
+import '../model/hotel_number_model.dart';
+import 'package:http/http.dart';
 
 class HotelNumber extends StatefulWidget {
   const HotelNumber({Key? key}) : super(key: key);
@@ -18,6 +21,16 @@ class HotelNumber extends StatefulWidget {
 class _HotelNumberState extends State<HotelNumber> {
   CarouselController carouselController = CarouselController();
   int currentIndex = 0;
+  HotelNumberModel? hotelNumberModel;
+  Future<void> fetchData() async {
+    hotelNumberModel = await HotelNumberService(client: Client()).getData();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +50,7 @@ class _HotelNumberState extends State<HotelNumber> {
                 ),
                 title: Center(
                   child: TextScroll(
-                    state.hotelModel.name,
+                    state.hotelNumberModel.rooms[0].name,
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -67,7 +80,8 @@ class _HotelNumberState extends State<HotelNumber> {
                                 InkWell(
                                   onTap: () {},
                                   child: CarouselSlider(
-                                    items: state.hotelModel.imageUrls
+                                    items: state
+                                        .hotelNumberModel.rooms[0].imageUrls
                                         .map(
                                           (e) => SizedBox(
                                             width: width,
@@ -147,29 +161,31 @@ class _HotelNumberState extends State<HotelNumber> {
                               ],
                             ),
                             const SizedBox(height: 8),
-                            const Text(
-                              'Стандартный с видом на бассейн или сад',
-                              style: TextStyle(
+                            Text(
+                              state.hotelNumberModel.rooms[0].name,
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 22,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            const Row(
+                            Row(
                               children: [
-                                SizedBox(width: 15),
+                                const SizedBox(width: 15),
                                 Text(
-                                  'Все включено',
-                                  style: TextStyle(
+                                  state.hotelNumberModel.rooms[0]
+                                      .peculiarities[0],
+                                  style: const TextStyle(
                                     color: Color(0xff828796),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(width: 28),
+                                const SizedBox(width: 28),
                                 Text(
-                                  'Кондиционер',
-                                  style: TextStyle(
+                                  state.hotelNumberModel.rooms[0]
+                                      .peculiarities[1],
+                                  style: const TextStyle(
                                     color: Color(0xff828796),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
@@ -210,18 +226,18 @@ class _HotelNumberState extends State<HotelNumber> {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            const Row(
+                            Row(
                               children: [
                                 Text(
-                                  '186 600 ₽',
-                                  style: TextStyle(
+                                  '${state.hotelNumberModel.rooms[0].price} ₽ ',
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontSize: 30,
                                       fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  'за 7 ночей с перелётом',
-                                  style: TextStyle(
+                                  state.hotelNumberModel.rooms[0].pricePer,
+                                  style: const TextStyle(
                                       color: Color(0xff828796),
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400),
@@ -261,7 +277,8 @@ class _HotelNumberState extends State<HotelNumber> {
                                 InkWell(
                                   onTap: () {},
                                   child: CarouselSlider(
-                                    items: state.hotelModel.imageUrls
+                                    items: state
+                                        .hotelNumberModel.rooms[1].imageUrls
                                         .map(
                                           (e) => SizedBox(
                                             width: width,
@@ -307,7 +324,8 @@ class _HotelNumberState extends State<HotelNumber> {
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
-                                        children: state.hotelModel.imageUrls
+                                        children: state
+                                            .hotelNumberModel.rooms[1].imageUrls
                                             .asMap()
                                             .entries
                                             .map(
@@ -341,29 +359,31 @@ class _HotelNumberState extends State<HotelNumber> {
                               ],
                             ),
                             const SizedBox(height: 8),
-                            const Text(
-                              'Стандартный с видом на бассейн или сад',
-                              style: TextStyle(
+                            Text(
+                              state.hotelNumberModel.rooms[1].name,
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 22,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            const Row(
+                            Row(
                               children: [
-                                SizedBox(width: 15),
+                                const SizedBox(width: 15),
                                 Text(
-                                  'Все включено',
-                                  style: TextStyle(
+                                  state.hotelNumberModel.rooms[1]
+                                      .peculiarities[0],
+                                  style: const TextStyle(
                                     color: Color(0xff828796),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(width: 28),
+                                const SizedBox(width: 28),
                                 Text(
-                                  'Кондиционер',
-                                  style: TextStyle(
+                                  state.hotelNumberModel.rooms[1]
+                                      .peculiarities[1],
+                                  style: const TextStyle(
                                     color: Color(0xff828796),
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
@@ -404,18 +424,18 @@ class _HotelNumberState extends State<HotelNumber> {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            const Row(
+                            Row(
                               children: [
                                 Text(
-                                  '186 600 ₽',
-                                  style: TextStyle(
+                                  '${state.hotelNumberModel.rooms[1].price} ₽ ',
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontSize: 30,
                                       fontWeight: FontWeight.w600),
                                 ),
                                 Text(
-                                  'за 7 ночей с перелётом',
-                                  style: TextStyle(
+                                  state.hotelNumberModel.rooms[1].pricePer,
+                                  style: const TextStyle(
                                       color: Color(0xff828796),
                                       fontSize: 16,
                                       fontWeight: FontWeight.w400),

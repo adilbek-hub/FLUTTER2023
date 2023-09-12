@@ -74,7 +74,7 @@ class _BookingPageState extends State<BookingPage> {
                           const LikeContainer(),
                           const SizedBox(height: 8),
                           Text(
-                            state.hotelModel.name,
+                            state.bookingModel.hotelName,
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 22,
@@ -83,7 +83,7 @@ class _BookingPageState extends State<BookingPage> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            state.hotelModel.adress,
+                            state.bookingModel.hotelAdress,
                             style: const TextStyle(
                               color: Color(0xff0D72FF),
                               fontSize: 14,
@@ -262,6 +262,7 @@ class _BookingPageState extends State<BookingPage> {
                           ),
                           const SizedBox(height: 20),
                           if (isSecondExpanded)
+                            // ignore: avoid_unnecessary_containers
                             Container(
                               child: const Column(
                                 children: [
@@ -390,97 +391,108 @@ class SumResultsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Топ',
-              style: TextStyle(
-                color: Color(0xff828796),
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+    return BlocBuilder<HotelBloc, HotelState>(
+      builder: (context, state) {
+        if (state is HotelSuccess) {
+          final tourPrice = state.bookingModel.tourPrice;
+          final fuelCharge = state.bookingModel.fuelCharge;
+          final serviceCharge = state.bookingModel.serviceCharge;
+          return Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Топ',
+                    style: TextStyle(
+                      color: Color(0xff828796),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    '${state.bookingModel.tourPrice} ₽ ',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Text(
-              '186 600 ₽',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Топливный сбор',
+                    style: TextStyle(
+                      color: Color(0xff828796),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    '${state.bookingModel.fuelCharge} ₽',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
-        SizedBox(height: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Топливный сбор',
-              style: TextStyle(
-                color: Color(0xff828796),
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Сервисный сбор',
+                    style: TextStyle(
+                      color: Color(0xff828796),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    '${state.bookingModel.serviceCharge} ₽',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Text(
-              '9 300 ₽',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'К оплате',
+                    style: TextStyle(
+                      color: Color(0xff828796),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    '${tourPrice + fuelCharge + serviceCharge}',
+                    style: const TextStyle(
+                      color: Colors.blue,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
-        SizedBox(height: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Сервисный сбор',
-              style: TextStyle(
-                color: Color(0xff828796),
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            Text(
-              '2 136 ₽',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'К оплате',
-              style: TextStyle(
-                color: Color(0xff828796),
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            Text(
-              '198 036 ₽',
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 16),
-      ],
+              const SizedBox(height: 16),
+            ],
+          );
+        } else {
+          throw ('invalid state');
+        }
+      },
     );
   }
 }
