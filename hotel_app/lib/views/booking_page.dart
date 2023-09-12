@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:hotel_app/components/hotel_components/like_container.dart';
 import 'package:hotel_app/views/paid_page.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/booking_components/hotel_detail.dart';
 import '../components/custom_button.dart';
+import '../exm.dart';
+import '../exm2.dart';
 
 class BookingPage extends StatefulWidget {
   const BookingPage({Key? key}) : super(key: key);
@@ -15,7 +18,53 @@ class BookingPage extends StatefulWidget {
   State<BookingPage> createState() => _BookingPageState();
 }
 
+class ExampleMask {
+  final TextEditingController textController = TextEditingController();
+  final MaskTextInputFormatter formatter;
+  final FormFieldValidator<String>? validator;
+  final String hint;
+  final TextInputType textInputType;
+
+  ExampleMask(
+      {required this.formatter,
+      this.validator,
+      required this.hint,
+      required this.textInputType});
+}
+
+TextEditingController _emailController = TextEditingController();
+bool _isValidEmail = true;
+
 class _BookingPageState extends State<BookingPage> {
+  List<Tourist> tourists = [];
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _passportController = TextEditingController();
+
+  void _addTourist() {
+    setState(() {
+      String name = _nameController.text;
+      String passport = _passportController.text;
+      if (name.isNotEmpty && passport.isNotEmpty) {
+        tourists.add(Tourist(name: name, passport: passport));
+        _nameController.clear();
+        _passportController.clear();
+      }
+    });
+  }
+
+  void _completeReservation() {
+    // Здесь можно добавить логику для завершения бронирования
+    // например, отправку данных на сервер или переход на следующий экран
+  }
+
+  final phoneNumber = ExampleMask(
+      formatter: MaskTextInputFormatter(
+        mask: "+# (###) ###-##-##",
+        filter: <String, RegExp>{'#': RegExp(r'[7-8]')},
+      ),
+      hint: "+7 (***) ***-**-**",
+      textInputType: TextInputType.phone);
+
   bool isFirstExpanded = true;
   bool isSecondExpanded = false;
 
@@ -117,13 +166,13 @@ class _BookingPageState extends State<BookingPage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 16),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Информация о покупателе',
                             style: TextStyle(
                               color: Colors.black,
@@ -131,18 +180,71 @@ class _BookingPageState extends State<BookingPage> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(height: 20),
-                          PhoneEmailWidget(
-                            pronunciation: 'Номер Телефона',
-                            pronunciationSpelling: '+7 (951) 555-99-00',
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            controller: phoneNumber.textController,
+                            inputFormatters: [
+                              const UpperCaseTextFormatter(),
+                              phoneNumber.formatter
+                            ],
+                            autocorrect: false,
+                            keyboardType: phoneNumber.textInputType,
+                            autovalidateMode: AutovalidateMode.always,
+                            validator: phoneNumber.validator,
+                            decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    color: Color(0xffF6F6F9), width: 2.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Color(0xffF6F6F9),
+                                  width: 2.0,
+                                ),
+                              ),
+                              labelText: 'Номер телефона',
+                              hintText: phoneNumber.hint,
+                              hintStyle: const TextStyle(color: Colors.grey),
+                              fillColor: Color(0xffF6F6F9),
+                              filled: true,
+                              errorMaxLines: 1,
+                            ),
                           ),
-                          SizedBox(height: 8),
-                          PhoneEmailWidget(
-                            pronunciation: 'Почта',
-                            pronunciationSpelling: 'examplemail.000@mail.ru',
+                          const SizedBox(height: 8),
+                          TextFormField(
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                    color: Color(0xffF6F6F9), width: 2.0),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Color(0xffF6F6F9),
+                                  width: 2.0,
+                                ),
+                              ),
+                              labelText: "Почта",
+                              hintText: "examplemail.000@mail.ru",
+                              errorText:
+                                  _isValidEmail ? null : 'Некорректный Email',
+                              fillColor: Color(0xffF6F6F9),
+                              filled: true,
+                            ),
+                            onChanged: (value) {
+                              setState(() {
+                                _isValidEmail = RegExp(
+                                        r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
+                                    .hasMatch(value);
+                              });
+                            },
                           ),
-                          SizedBox(height: 8),
-                          Text(
+                          const SizedBox(height: 8),
+                          const Text(
                             'Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту',
                             style: TextStyle(
                               color: Color(0xff828796),
@@ -197,38 +299,38 @@ class _BookingPageState extends State<BookingPage> {
                           ),
                           const SizedBox(height: 20),
                           if (isFirstExpanded)
-                            const Column(
+                            Column(
                               children: [
-                                PhoneEmailWidget(
-                                  pronunciation: 'Почта',
-                                  pronunciationSpelling: 'Иван',
+                                SizedBox(
+                                  height: 200,
+                                  child: ListView.builder(
+                                      itemCount: tourists.length,
+                                      itemBuilder: (context, index) {
+                                        return ListTile(
+                                            title: Text('Турист ${index + 1}:'),
+                                            subtitle: Text(
+                                                'Имя: ${tourists[index].name}, Паспорт: ${tourists[index].passport}'));
+                                      }),
                                 ),
-                                SizedBox(height: 8),
-                                PhoneEmailWidget(
-                                  pronunciation: 'Фамилия',
-                                  pronunciationSpelling: 'Иванов',
+                                Divider(),
+                                Text('Добавить нового туриста:'),
+                                TextField(
+                                  controller: _nameController,
+                                  decoration: InputDecoration(labelText: 'Имя'),
                                 ),
-                                SizedBox(height: 8),
-                                PhoneEmailWidget(
-                                  pronunciation: 'Дата рождения',
-                                  fontSize: 17,
+                                TextField(
+                                  controller: _passportController,
+                                  decoration:
+                                      InputDecoration(labelText: 'Паспорт'),
                                 ),
-                                SizedBox(height: 8),
-                                PhoneEmailWidget(
-                                  pronunciation: 'Гражданство',
-                                  fontSize: 17,
+                                ElevatedButton(
+                                  onPressed: _addTourist,
+                                  child: Text('Добавить туриста'),
                                 ),
-                                SizedBox(height: 8),
-                                PhoneEmailWidget(
-                                  pronunciation: 'Номер загранпаспорта',
-                                  fontSize: 17,
+                                ElevatedButton(
+                                  onPressed: _completeReservation,
+                                  child: Text('Завершить бронирование'),
                                 ),
-                                SizedBox(height: 8),
-                                PhoneEmailWidget(
-                                  pronunciation: 'Срок действия загранпаспорта',
-                                  fontSize: 17,
-                                ),
-                                SizedBox(height: 8),
                               ],
                             ),
                           Row(

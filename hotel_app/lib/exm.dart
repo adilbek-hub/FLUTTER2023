@@ -1,19 +1,134 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class Exm extends StatelessWidget {
-  const Exm({super.key});
+class Exm extends StatefulWidget {
+  const Exm({Key? key}) : super(key: key);
+
+  @override
+  ExmState createState() => ExmState();
+}
+
+class ExampleMask {
+  final TextEditingController textController = TextEditingController();
+  final MaskTextInputFormatter formatter;
+  final FormFieldValidator<String>? validator;
+  final String hint;
+  final TextInputType textInputType;
+
+  ExampleMask(
+      {required this.formatter,
+      this.validator,
+      required this.hint,
+      required this.textInputType});
+}
+
+class ExmState extends State<Exm> {
+  final List<ExampleMask> examples = [
+    ExampleMask(
+        formatter: MaskTextInputFormatter(mask: "+# (###) ###-##-##"),
+        hint: "+1 (234) 567-89-01",
+        textInputType: TextInputType.phone),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: TextField(
-          inputFormatters: [MaskTextInputFormatter(mask: "+7 ### ###-##-##")],
-          keyboardType: TextInputType.phone,
-          decoration: InputDecoration(hintText: "+7__ ___-__-__")),
-    ));
+        backgroundColor: Colors.grey.shade200,
+        body: SafeArea(
+            child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          itemBuilder: (context, index) =>
+              buildTextField(index, examples[index]),
+          itemCount: examples.length,
+          //children: examples.map(buildTextField).toList()
+        )));
+  }
+
+  Widget buildTextField(int index, ExampleMask example) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Stack(
+        children: [
+          TextFormField(
+              key: ValueKey("ExampleMask$index"),
+              controller: example.textController,
+              inputFormatters: [
+                const UpperCaseTextFormatter(),
+                example.formatter
+              ],
+              autocorrect: false,
+              keyboardType: example.textInputType,
+              autovalidateMode: AutovalidateMode.always,
+              validator: example.validator,
+              decoration: InputDecoration(
+                  hintText: example.hint,
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  fillColor: Colors.white,
+                  filled: true,
+                  focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green)),
+                  enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue)),
+                  errorBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red)),
+                  border: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green)),
+                  errorMaxLines: 1)),
+          Positioned(
+            right: 0,
+            top: 0,
+            child: SizedBox(
+                width: 48,
+                height: 48,
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(
+                      borderRadius: const BorderRadius.all(Radius.circular(24)),
+                      child:
+                          const Icon(Icons.clear, color: Colors.grey, size: 24),
+                      onTap: () => example.textController.clear()),
+                )),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class UpperCaseTextFormatter implements TextInputFormatter {
+  const UpperCaseTextFormatter();
+
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(
+        text: newValue.text.toUpperCase(), selection: newValue.selection);
+  }
+}
+
+class SpecialMaskTextInputFormatter extends MaskTextInputFormatter {
+  static String maskA = "S.####";
+  static String maskB = "S.######";
+
+  SpecialMaskTextInputFormatter({String? initialText})
+      : super(
+            mask: maskA,
+            filter: {"#": RegExp('[0-9]'), "S": RegExp('[AB]')},
+            initialText: initialText);
+
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.text.startsWith("A")) {
+      if (getMask() != maskA) {
+        updateMask(mask: maskA);
+      }
+    } else {
+      if (getMask() != maskB) {
+        updateMask(mask: maskB);
+      }
+    }
+    return super.formatEditUpdate(oldValue, newValue);
   }
 }
