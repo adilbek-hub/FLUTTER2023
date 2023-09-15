@@ -11,7 +11,7 @@ class GeographyTopicsService {
           'https://adilbek-hub.github.io/my_data/geography_data.json'));
 
       if (response.statusCode == 200) {
-        final data = geographyTopicsFromJson(response.body);
+        final data = geographyTopicsModelFromJson(response.body);
         return data;
       } else {
         throw Exception('Failed to load computer data');
