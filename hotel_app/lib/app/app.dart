@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/hotel_bloc.dart';
 import '../exm.dart';
 import '../exm2.dart';
+import '../exm3.dart';
 import '../service/booking_service.dart';
 import '../service/hotel_number_service.dart';
 import '../service/hotel_service.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => const HotelView(),
+          '/': (context) => const TouristList(),
         },
       ),
     );

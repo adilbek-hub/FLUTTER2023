@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import 'package:hotel_app/components/hotel_components/like_container.dart';
 import 'package:hotel_app/views/paid_page.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/booking_components/hotel_detail.dart';
@@ -37,8 +37,15 @@ bool _isValidEmail = true;
 
 class _BookingPageState extends State<BookingPage> {
   List<Tourist> tourists = [];
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _passportController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _passportController = TextEditingController();
+
+  final nameEditingController = TextEditingController();
+  final sureNameEditingController = TextEditingController();
+  final birthdayEditingController = TextEditingController();
+  final citizenshipEditingController = TextEditingController();
+  final passportNumberEditingController = TextEditingController();
+  final periodOfThePassportEditingController = TextEditingController();
 
   void _addTourist() {
     setState(() {
@@ -50,6 +57,10 @@ class _BookingPageState extends State<BookingPage> {
         _passportController.clear();
       }
     });
+  }
+
+  void _addTour() {
+    setState(() {});
   }
 
   void _completeReservation() {
@@ -67,6 +78,7 @@ class _BookingPageState extends State<BookingPage> {
 
   bool isFirstExpanded = true;
   bool isSecondExpanded = false;
+  bool isAddTourist = false;
 
   void toggleFirstExpansion() {
     setState(() {
@@ -77,6 +89,12 @@ class _BookingPageState extends State<BookingPage> {
   void toggleSecondExpansion() {
     setState(() {
       isSecondExpanded = !isSecondExpanded;
+    });
+  }
+
+  void toggleAddTuorist() {
+    setState(() {
+      isAddTourist = !isAddTourist;
     });
   }
 
@@ -268,37 +286,8 @@ class _BookingPageState extends State<BookingPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Первый турист',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                child: Card(
-                                  elevation: 2,
-                                  color: const Color(0xffe7f1ff),
-                                  child: IconButton(
-                                    iconSize: 20,
-                                    onPressed: toggleFirstExpansion,
-                                    color: const Color(0xff0d72ff),
-                                    icon: Icon(
-                                      isFirstExpanded
-                                          ? Icons.expand_less
-                                          : Icons.expand_more,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
                           const SizedBox(height: 20),
-                          if (isFirstExpanded)
+                          if (isAddTourist)
                             Column(
                               children: [
                                 SizedBox(
@@ -306,17 +295,44 @@ class _BookingPageState extends State<BookingPage> {
                                   child: ListView.builder(
                                       itemCount: tourists.length,
                                       itemBuilder: (context, index) {
-                                        return ListTile(
-                                            title: Text('Турист ${index + 1}:'),
-                                            subtitle: Text(
-                                                'Имя: ${tourists[index].name}, Паспорт: ${tourists[index].passport}'));
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Первый турист${index + 1}',
+                                              style: const TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 22,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              child: Card(
+                                                elevation: 2,
+                                                color: const Color(0xffe7f1ff),
+                                                child: IconButton(
+                                                  iconSize: 20,
+                                                  onPressed:
+                                                      toggleFirstExpansion,
+                                                  color:
+                                                      const Color(0xff0d72ff),
+                                                  icon: Icon(
+                                                    isFirstExpanded
+                                                        ? Icons.expand_less
+                                                        : Icons.expand_more,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        );
                                       }),
                                 ),
-                                Divider(),
-                                Text('Добавить нового туриста:'),
                                 TextField(
                                   controller: _nameController,
-                                  decoration: InputDecoration(labelText: 'Имя'),
+                                  decoration:
+                                      const InputDecoration(labelText: 'Имя'),
                                 ),
                                 TextField(
                                   controller: _passportController,
@@ -337,75 +353,6 @@ class _BookingPageState extends State<BookingPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text(
-                                'Второй турист',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(
-                                child: Card(
-                                  elevation: 2,
-                                  color: const Color(0xffe7f1ff),
-                                  child: IconButton(
-                                    iconSize: 20,
-                                    onPressed: toggleSecondExpansion,
-                                    color: const Color(0xff0d72ff),
-                                    icon: Icon(
-                                      isSecondExpanded
-                                          ? Icons.expand_less
-                                          : Icons.expand_more,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 20),
-                          if (isSecondExpanded)
-                            // ignore: avoid_unnecessary_containers
-                            Container(
-                              child: const Column(
-                                children: [
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Почта',
-                                    pronunciationSpelling: 'Дмитрий',
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Фамилия',
-                                    pronunciationSpelling: 'Василеев',
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Дата рождения',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Гражданство',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation: 'Номер загранпаспорта',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                  PhoneEmailWidget(
-                                    pronunciation:
-                                        'Срок действия загранпаспорта',
-                                    fontSize: 17,
-                                  ),
-                                  SizedBox(height: 8),
-                                ],
-                              ),
-                            ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
                                 'Добавить туриста',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -421,14 +368,46 @@ class _BookingPageState extends State<BookingPage> {
                                     iconSize: 20,
                                     onPressed: () {},
                                     color: Colors.white,
-                                    icon: const Icon(
-                                      Icons.add,
+                                    icon: IconButton(
+                                      onPressed: () => _addTourist(),
+                                      icon: const Icon(Icons.add),
                                     ),
                                   ),
                                 ),
                               ),
                             ],
                           ),
+                          if (isAddTourist)
+                            Container(
+                                child: Column(
+                              children: [
+                                TextForms(
+                                  controller: nameEditingController,
+                                  labelText: 'Имя',
+                                  hintText: 'Иван',
+                                ),
+                                TextForms(
+                                  controller: nameEditingController,
+                                  labelText: 'Фамилия',
+                                  hintText: 'Иванов',
+                                ),
+                                TextForms(
+                                  controller: nameEditingController,
+                                  labelText: 'Дата рождения',
+                                  hintText: '01. 01. 2000',
+                                ),
+                                TextForms(
+                                  controller: nameEditingController,
+                                  labelText: 'Номер загранпаспорта',
+                                  hintText: '6023232322323323',
+                                ),
+                                TextForms(
+                                  controller: nameEditingController,
+                                  labelText: 'Срок действия загранпаспорта',
+                                  hintText: '20. 01. 2033',
+                                ),
+                              ],
+                            ))
                         ],
                       ),
                     ),
@@ -640,6 +619,51 @@ class PhoneEmailWidget extends StatelessWidget {
                   fontWeight: FontWeight.w400),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class TextForms extends StatefulWidget {
+  const TextForms({
+    Key? key,
+    required this.controller,
+    required this.labelText,
+    required this.hintText,
+  }) : super(key: key);
+  final TextEditingController controller;
+  final String labelText;
+  final String hintText;
+
+  @override
+  State<TextForms> createState() => _TextFormsState();
+}
+
+class _TextFormsState extends State<TextForms> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 4, bottom: 4),
+      child: TextFormField(
+        controller: widget.controller,
+        decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: Color(0xffF6F6F9), width: 2.0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(
+              color: Color(0xffF6F6F9),
+              width: 2.0,
+            ),
+          ),
+          labelText: widget.labelText,
+          hintText: widget.hintText,
+          errorText: _isValidEmail ? null : 'Некорректный Email',
+          fillColor: const Color(0xffF6F6F9),
+          filled: true,
         ),
       ),
     );
