@@ -1,16 +1,20 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_app/service/hotel_number_service.dart';
-import 'package:hotel_app/views/booking_page.dart';
 import 'package:text_scroll/text_scroll.dart';
+
+import 'package:hotel_app/views/booking_page.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/custom_button.dart';
+import '../components/hotel_number_page/about_custom_navigator.dart';
+import '../components/hotel_number_page/about_number_container.dart';
+import '../components/hotel_number_page/about_sum_row.dart';
+import '../constants/app_texts.dart';
 import '../constants/sizes.dart';
-import '../model/hotel_number_model.dart';
-import 'package:http/http.dart';
 
 class HotelNumber extends StatefulWidget {
   const HotelNumber({Key? key}) : super(key: key);
@@ -22,16 +26,6 @@ class HotelNumber extends StatefulWidget {
 class _HotelNumberState extends State<HotelNumber> {
   CarouselController carouselController = CarouselController();
   int currentIndex = 0;
-  HotelNumberModel? hotelNumberModel;
-  Future<void> fetchData() async {
-    hotelNumberModel = await HotelNumberService(client: Client()).getData();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    fetchData();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,53 +105,10 @@ class _HotelNumberState extends State<HotelNumber> {
                                         }),
                                   ),
                                 ),
-                                Positioned(
-                                  bottom: 10,
-                                  left: 0,
-                                  right: 0,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 158),
-                                    child: Container(
-                                      height: 17,
-                                      padding: const EdgeInsets.all(3),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: state.hotelModel.imageUrls
-                                            .asMap()
-                                            .entries
-                                            .map(
-                                          (e) {
-                                            return GestureDetector(
-                                              onTap: () => carouselController
-                                                  .animateToPage(e.key),
-                                              child: Container(
-                                                width: currentIndex == e.key
-                                                    ? 7
-                                                    : 7,
-                                                height: 7.0,
-                                                margin:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 3),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    color: currentIndex == e.key
-                                                        ? Colors.black
-                                                        : Colors.grey),
-                                              ),
-                                            );
-                                          },
-                                        ).toList(),
-                                      ),
-                                    ),
-                                  ),
+                                CaruselPositionWidget(
+                                  carouselController: carouselController,
+                                  currentIndex: currentIndex,
+                                  imageUrls: state.hotelModel.imageUrls,
                                 ),
                               ],
                             ),
@@ -195,65 +146,16 @@ class _HotelNumberState extends State<HotelNumber> {
                               ],
                             ),
                             Sizes.height13,
-                            Container(
-                              width: 210,
-                              decoration: BoxDecoration(
-                                color: const Color(0xffACDBFF),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: const Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 10, top: 5, bottom: 5),
-                                    child: Text(
-                                      'Подробнее о номере',
-                                      style: TextStyle(
-                                          color: Color(0xff0D72FF),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 10, top: 5, bottom: 5),
-                                    child: Icon(
-                                      CupertinoIcons.forward,
-                                      color: Color(0xff0D72FF),
-                                      size: 16,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            const AboutNumberContainer(),
                             Sizes.height16,
-                            Row(
-                              children: [
-                                Text(
+                            AboutSumRow(
+                              price:
                                   '${state.hotelNumberModel.rooms[0].price} ₽ ',
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Text(
+                              pricePer:
                                   state.hotelNumberModel.rooms[0].pricePer,
-                                  style: const TextStyle(
-                                      color: Color(0xff828796),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
                             ),
                             Sizes.height19,
-                            InkWell(
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const BookingPage(),
-                                  )),
-                              child: const CustomButton(text: 'Выбрать номер'),
-                            ),
+                            const AboutCustomNavigator(),
                           ],
                         ),
                       ),
@@ -405,7 +307,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                     padding: EdgeInsets.only(
                                         left: 10, top: 5, bottom: 5),
                                     child: Text(
-                                      'Подробнее о номере',
+                                      AppTexts.aboutNumbers,
                                       style: TextStyle(
                                           color: Color(0xff0D72FF),
                                           fontSize: 16,
@@ -444,23 +346,7 @@ class _HotelNumberState extends State<HotelNumber> {
                               ],
                             ),
                             Sizes.height19,
-                            Container(
-                              height: 48,
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Выбрать номер',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            const ChooseNumberButton(),
                           ],
                         ),
                       ),
@@ -470,9 +356,86 @@ class _HotelNumberState extends State<HotelNumber> {
               ),
             );
           } else {
-            return throw ('Invalid');
+            return throw (AppTexts.error);
           }
         },
+      ),
+    );
+  }
+}
+
+class CaruselPositionWidget extends StatelessWidget {
+  const CaruselPositionWidget({
+    Key? key,
+    required this.carouselController,
+    required this.currentIndex,
+    required this.imageUrls,
+  }) : super(key: key);
+
+  final CarouselController carouselController;
+  final int currentIndex;
+  final List<String> imageUrls;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: 10,
+      left: 0,
+      right: 0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 158),
+        child: Container(
+          height: 17,
+          padding: const EdgeInsets.all(3),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(5)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: imageUrls.asMap().entries.map(
+              (e) {
+                return GestureDetector(
+                  onTap: () => carouselController.animateToPage(e.key),
+                  child: Container(
+                    width: currentIndex == e.key ? 7 : 7,
+                    height: 7.0,
+                    margin: const EdgeInsets.symmetric(horizontal: 3),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color:
+                            currentIndex == e.key ? Colors.black : Colors.grey),
+                  ),
+                );
+              },
+            ).toList(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ChooseNumberButton extends StatelessWidget {
+  const ChooseNumberButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 48,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: const Center(
+        child: Text(
+          AppTexts.chooseNumber,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
     );
   }

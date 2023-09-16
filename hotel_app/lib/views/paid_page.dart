@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/app_images.dart';
 import '../components/custom_button.dart';
+import '../constants/app_texts.dart';
+import '../constants/sizes.dart';
 
 class Paid extends StatelessWidget {
   const Paid({super.key});
@@ -17,7 +20,7 @@ class Paid extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios),
           ),
           title: const Text(
-            'Заказ оплачен',
+            AppTexts.zakazOplachen,
             style: TextStyle(
               color: Colors.black,
               fontSize: 18,
@@ -45,22 +48,20 @@ class Paid extends StatelessWidget {
                         shape: BoxShape.circle,
                         color: Color(0xffF6F6F9),
                       ),
-                      child: Image.asset(
-                        'assets/flawer.png',
-                      ),
+                      child: AppImages.flawerImage,
                     ),
-                    const SizedBox(height: 32),
+                    Sizes.height32,
                     const Text(
-                      'Ваш заказ принят в работу',
+                      AppTexts.zakazToWork,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    Sizes.height20,
                     const Text(
-                      'Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.',
+                      AppTexts.longTexts,
                       style: TextStyle(
                         color: Color(0xff828796),
                         fontSize: 16,
@@ -72,7 +73,7 @@ class Paid extends StatelessWidget {
                 ),
               ),
               CustomButton(
-                text: 'Супер!',
+                text: AppTexts.superText,
                 onTap: () => Navigator.pushNamed(context, '/'),
               ),
             ],

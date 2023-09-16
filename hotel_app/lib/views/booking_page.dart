@@ -6,8 +6,10 @@ import 'package:hotel_app/constants/app_text_styles.dart';
 import 'package:hotel_app/components/hotel_components/like_container.dart';
 import 'package:hotel_app/views/paid_page.dart';
 import '../bloc/hotel_bloc.dart';
+import '../components/booking_components/custom_button_container.dart';
 import '../components/booking_components/hotel_detail.dart';
 import '../components/booking_components/some_result_widget.dart';
+import '../components/booking_components/sum_result_container.dart';
 import '../components/booking_components/text_forms_widget.dart';
 import '../components/custom_button.dart';
 import '../constants/app_colors.dart';
@@ -356,66 +358,19 @@ class _BookingPageState extends State<BookingPage> {
                       ),
                     ),
                     Sizes.height8,
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SumResultsWidget(),
-                          ],
-                        ),
-                      ),
-                    ),
+                    const SumResultContainer(),
                     Sizes.height10,
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Sizes.height19,
-                            InkWell(
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Paid(),
-                                  )),
-                              child: CustomButton(
-                                text:
-                                    ' ${AppTexts.oplatit} ${tourPrice + fuelCharge + serviceCharge}',
-                                onTap: () {
-                                  if (controllers.formKey.currentState!
-                                      .validate()) {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) {
-                                        return const Paid();
-                                      }),
-                                    );
-                                  }
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    CustomButtonContainer(
+                        tourPrice: tourPrice,
+                        fuelCharge: fuelCharge,
+                        serviceCharge: serviceCharge),
                   ],
                 ),
               ),
             ),
           );
         } else {
-          return throw ('Есть инвалидность');
+          return throw (AppTexts.error);
         }
       },
     );
@@ -431,7 +386,7 @@ class _BookingPageState extends State<BookingPage> {
               Row(
                 children: [
                   Text(
-                    'Первый турист',
+                    AppTexts.firstTourist,
                     style: AppTextStyles.tStyle1,
                   ),
                 ],
@@ -447,7 +402,7 @@ class _BookingPageState extends State<BookingPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Второй турист',
+                    AppTexts.secondTourist,
                     style: AppTextStyles.tStyle1,
                   ),
                 ],
@@ -461,7 +416,7 @@ class _BookingPageState extends State<BookingPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Третий турист',
+                AppTexts.thirdTourist,
                 style: AppTextStyles.tStyle1,
               ),
             ],

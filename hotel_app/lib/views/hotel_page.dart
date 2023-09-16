@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_app/constants/app_texts.dart';
 import '../bloc/hotel_bloc.dart';
 import '../components/hotel_components/loading_widget.dart';
 import '../components/hotel_components/success_widget.dart';
@@ -26,7 +27,7 @@ class _HotelViewState extends State<HotelView> {
             } else if (state is HotelError) {
               return ErrorWidget(state.text);
             } else {
-              return const Text('Есть ошибка');
+              return const Text(AppTexts.error);
             }
           },
         ),
