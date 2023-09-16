@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/views/hotel_page.dart';
-
 import '../components/custom_button.dart';
 
 class Paid extends StatelessWidget {
