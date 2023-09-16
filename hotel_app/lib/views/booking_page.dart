@@ -1,16 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_app/constants/app_text_styles.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-
 import 'package:hotel_app/components/hotel_components/like_container.dart';
 import 'package:hotel_app/views/paid_page.dart';
-
 import '../bloc/hotel_bloc.dart';
 import '../components/booking_components/hotel_detail.dart';
 import '../components/custom_button.dart';
 import '../exm.dart';
-import '../exm2.dart';
 
 class BookingPage extends StatefulWidget {
   const BookingPage({Key? key}) : super(key: key);
@@ -51,11 +48,7 @@ class _BookingPageState extends State<BookingPage> {
                 children: [
                   Text(
                     'Первый турист',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: AppTextStyles.texts,
                   ),
                 ],
               ),
@@ -71,11 +64,7 @@ class _BookingPageState extends State<BookingPage> {
                 children: [
                   Text(
                     'Второй турист',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: AppTextStyles.texts,
                   ),
                 ],
               ),
@@ -89,11 +78,7 @@ class _BookingPageState extends State<BookingPage> {
             children: [
               Text(
                 'Третий турист',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyles.texts,
               ),
             ],
           ),
@@ -159,11 +144,7 @@ class _BookingPageState extends State<BookingPage> {
               ),
               title: const Text(
                 'Бронирование',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyles.viewNamesStyle,
               ),
               centerTitle: true,
               elevation: 0,
@@ -189,11 +170,7 @@ class _BookingPageState extends State<BookingPage> {
                             const SizedBox(height: 8),
                             Text(
                               state.bookingModel.hotelName,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 22,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyles.texts,
                             ),
                             const SizedBox(height: 8),
                             Text(
