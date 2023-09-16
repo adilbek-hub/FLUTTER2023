@@ -36,9 +36,70 @@ TextEditingController _emailController = TextEditingController();
 bool _isValidEmail = true;
 
 class _BookingPageState extends State<BookingPage> {
-  List<Tourist> tourists = [];
-  final _nameController = TextEditingController();
-  final _passportController = TextEditingController();
+  List<Widget> tourists = [];
+  int touristCount = 0;
+
+  void addTourist() {
+    setState(() {
+      touristCount++;
+      if (touristCount == 1) {
+        tourists.add(
+          const Column(
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'Первый турист',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      } else if (touristCount == 2) {
+        tourists.add(
+          const Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Второй турист',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      } else if (touristCount == 3) {
+        tourists.add(
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Третий турист',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+    });
+  }
 
   final nameEditingController = TextEditingController();
   final sureNameEditingController = TextEditingController();
@@ -46,32 +107,12 @@ class _BookingPageState extends State<BookingPage> {
   final citizenshipEditingController = TextEditingController();
   final passportNumberEditingController = TextEditingController();
   final periodOfThePassportEditingController = TextEditingController();
-
-  void _addTourist() {
-    setState(() {
-      String name = _nameController.text;
-      String passport = _passportController.text;
-      if (name.isNotEmpty && passport.isNotEmpty) {
-        tourists.add(Tourist(name: name, passport: passport));
-        _nameController.clear();
-        _passportController.clear();
-      }
-    });
-  }
-
-  void _addTour() {
-    setState(() {});
-  }
-
-  void _completeReservation() {
-    // Здесь можно добавить логику для завершения бронирования
-    // например, отправку данных на сервер или переход на следующий экран
-  }
+  final _formKey = GlobalKey<FormState>();
 
   final phoneNumber = ExampleMask(
       formatter: MaskTextInputFormatter(
         mask: "+# (###) ###-##-##",
-        filter: <String, RegExp>{'#': RegExp(r'[7-8]')},
+        filter: <String, RegExp>{'#': RegExp(r'[0-9]')},
       ),
       hint: "+7 (***) ***-**-**",
       textInputType: TextInputType.phone);
@@ -103,6 +144,9 @@ class _BookingPageState extends State<BookingPage> {
     return BlocBuilder<HotelBloc, HotelState>(
       builder: (context, state) {
         if (state is HotelSuccess) {
+          final tourPrice = state.bookingModel.tourPrice;
+          final fuelCharge = state.bookingModel.fuelCharge;
+          final serviceCharge = state.bookingModel.serviceCharge;
           return Scaffold(
             backgroundColor: const Color(0xffF6F6F9),
             appBar: AppBar(
@@ -124,336 +168,343 @@ class _BookingPageState extends State<BookingPage> {
               elevation: 0,
             ),
             body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 19),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const LikeContainer(),
-                          const SizedBox(height: 8),
-                          Text(
-                            state.bookingModel.hotelName,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 19),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const LikeContainer(),
+                            const SizedBox(height: 8),
+                            Text(
+                              state.bookingModel.hotelName,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            state.bookingModel.hotelAdress,
-                            style: const TextStyle(
-                              color: Color(0xff0D72FF),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                            const SizedBox(height: 8),
+                            Text(
+                              state.bookingModel.hotelAdress,
+                              style: const TextStyle(
+                                color: Color(0xff0D72FF),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 19),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          HotelDetails(),
-                        ],
+                    const SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 19),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            HotelDetails(),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Информация о покупателе',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 22,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          TextFormField(
-                            controller: phoneNumber.textController,
-                            inputFormatters: [
-                              const UpperCaseTextFormatter(),
-                              phoneNumber.formatter
-                            ],
-                            autocorrect: false,
-                            keyboardType: phoneNumber.textInputType,
-                            autovalidateMode: AutovalidateMode.always,
-                            validator: phoneNumber.validator,
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                    color: Color(0xffF6F6F9), width: 2.0),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide(
-                                  color: Color(0xffF6F6F9),
-                                  width: 2.0,
-                                ),
-                              ),
-                              labelText: 'Номер телефона',
-                              hintText: phoneNumber.hint,
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              fillColor: Color(0xffF6F6F9),
-                              filled: true,
-                              errorMaxLines: 1,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          TextFormField(
-                            controller: _emailController,
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide(
-                                    color: Color(0xffF6F6F9), width: 2.0),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide(
-                                  color: Color(0xffF6F6F9),
-                                  width: 2.0,
-                                ),
-                              ),
-                              labelText: "Почта",
-                              hintText: "examplemail.000@mail.ru",
-                              errorText:
-                                  _isValidEmail ? null : 'Некорректный Email',
-                              fillColor: Color(0xffF6F6F9),
-                              filled: true,
-                            ),
-                            onChanged: (value) {
-                              setState(() {
-                                _isValidEmail = RegExp(
-                                        r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
-                                    .hasMatch(value);
-                              });
-                            },
-                          ),
-                          const SizedBox(height: 8),
-                          const Text(
-                            'Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту',
-                            style: TextStyle(
-                              color: Color(0xff828796),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
+                    const SizedBox(height: 8),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 20),
-                          if (isAddTourist)
-                            Column(
-                              children: [
-                                SizedBox(
-                                  height: 200,
-                                  child: ListView.builder(
-                                      itemCount: tourists.length,
-                                      itemBuilder: (context, index) {
-                                        return Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'Первый турист${index + 1}',
-                                              style: const TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 22,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              child: Card(
-                                                elevation: 2,
-                                                color: const Color(0xffe7f1ff),
-                                                child: IconButton(
-                                                  iconSize: 20,
-                                                  onPressed:
-                                                      toggleFirstExpansion,
-                                                  color:
-                                                      const Color(0xff0d72ff),
-                                                  icon: Icon(
-                                                    isFirstExpanded
-                                                        ? Icons.expand_less
-                                                        : Icons.expand_more,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        );
-                                      }),
-                                ),
-                                TextField(
-                                  controller: _nameController,
-                                  decoration:
-                                      const InputDecoration(labelText: 'Имя'),
-                                ),
-                                TextField(
-                                  controller: _passportController,
-                                  decoration:
-                                      InputDecoration(labelText: 'Паспорт'),
-                                ),
-                                ElevatedButton(
-                                  onPressed: _addTourist,
-                                  child: Text('Добавить туриста'),
-                                ),
-                                ElevatedButton(
-                                  onPressed: _completeReservation,
-                                  child: Text('Завершить бронирование'),
-                                ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Информация о покупателе',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 22,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            TextFormField(
+                              controller: phoneNumber.textController,
+                              inputFormatters: [
+                                const UpperCaseTextFormatter(),
+                                phoneNumber.formatter
                               ],
-                            ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Добавить туриста',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
+                              autocorrect: false,
+                              keyboardType: phoneNumber.textInputType,
+                              autovalidateMode: AutovalidateMode.always,
+                              validator: phoneNumber.validator,
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: Color(0xffF6F6F9), width: 2.0),
                                 ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Color(0xffF6F6F9),
+                                    width: 2.0,
+                                  ),
+                                ),
+                                labelText: 'Номер телефона',
+                                hintText: phoneNumber.hint,
+                                hintStyle: const TextStyle(color: Colors.grey),
+                                fillColor: Color(0xffF6F6F9),
+                                filled: true,
+                                errorMaxLines: 1,
                               ),
-                              SizedBox(
-                                child: Card(
-                                  elevation: 2,
-                                  color: Colors.blue,
-                                  child: IconButton(
-                                    iconSize: 20,
-                                    onPressed: () {},
-                                    color: Colors.white,
-                                    icon: IconButton(
-                                      onPressed: () => _addTourist(),
+                            ),
+                            const SizedBox(height: 8),
+                            TextFormField(
+                              controller: _emailController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Отсуствие';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                      color: Color(0xffF6F6F9), width: 2.0),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Color(0xffF6F6F9),
+                                    width: 2.0,
+                                  ),
+                                ),
+                                labelText: "Почта",
+                                hintText: "examplemail.000@mail.ru",
+                                errorText:
+                                    _isValidEmail ? null : 'Некорректный Email',
+                                fillColor: Color(0xffF6F6F9),
+                                filled: true,
+                              ),
+                              onChanged: (value) {
+                                setState(() {
+                                  _isValidEmail = RegExp(
+                                          r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
+                                      .hasMatch(value);
+                                });
+                              },
+                            ),
+                            const SizedBox(height: 8),
+                            const Text(
+                              'Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту',
+                              style: TextStyle(
+                                color: Color(0xff828796),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              height: 200,
+                              child: ListView(
+                                children: [
+                                  for (var tourist in tourists)
+                                    ExpansionTile(
+                                      title: tourist,
+                                      children: [
+                                        Container(
+                                          child: Column(
+                                            children: [
+                                              TextForms(
+                                                controller:
+                                                    nameEditingController,
+                                                validator: (value) {
+                                                  if (value == null ||
+                                                      value.isEmpty) {
+                                                    return 'Пожалуйста введите почту';
+                                                  }
+                                                  return null;
+                                                },
+                                                labelText: 'Имя',
+                                                hintText: 'Иван',
+                                              ),
+                                              TextForms(
+                                                controller:
+                                                    nameEditingController,
+                                                validator: (value) {
+                                                  if (value == null ||
+                                                      value.isEmpty) {
+                                                    return 'Отсуствие';
+                                                  }
+                                                  return null;
+                                                },
+                                                labelText: 'Фамилия',
+                                                hintText: 'Иванов',
+                                              ),
+                                              TextForms(
+                                                controller:
+                                                    nameEditingController,
+                                                validator: (value) {
+                                                  if (value == null ||
+                                                      value.isEmpty) {
+                                                    return 'Отсуствие';
+                                                  }
+                                                  return null;
+                                                },
+                                                labelText: 'Дата рождения',
+                                                hintText: '01. 01. 2000',
+                                              ),
+                                              TextForms(
+                                                controller:
+                                                    nameEditingController,
+                                                validator: (value) {
+                                                  if (value == null ||
+                                                      value.isEmpty) {
+                                                    return 'Отсуствие';
+                                                  }
+                                                  return null;
+                                                },
+                                                labelText:
+                                                    'Номер загранпаспорта',
+                                                hintText: '6023232322323323',
+                                              ),
+                                              TextForms(
+                                                controller:
+                                                    nameEditingController,
+                                                validator: (value) {
+                                                  if (value == null ||
+                                                      value.isEmpty) {
+                                                    return 'Отсуствие';
+                                                  }
+                                                  return null;
+                                                },
+                                                labelText:
+                                                    'Срок действия загранпаспорта',
+                                                hintText: '20. 01. 2033',
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  'Добавить туриста',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(
+                                  child: Card(
+                                    elevation: 2,
+                                    color: Colors.blue,
+                                    child: IconButton(
+                                      onPressed: () => addTourist(),
                                       icon: const Icon(Icons.add),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          if (isAddTourist)
-                            Container(
-                                child: Column(
-                              children: [
-                                TextForms(
-                                  controller: nameEditingController,
-                                  labelText: 'Имя',
-                                  hintText: 'Иван',
-                                ),
-                                TextForms(
-                                  controller: nameEditingController,
-                                  labelText: 'Фамилия',
-                                  hintText: 'Иванов',
-                                ),
-                                TextForms(
-                                  controller: nameEditingController,
-                                  labelText: 'Дата рождения',
-                                  hintText: '01. 01. 2000',
-                                ),
-                                TextForms(
-                                  controller: nameEditingController,
-                                  labelText: 'Номер загранпаспорта',
-                                  hintText: '6023232322323323',
-                                ),
-                                TextForms(
-                                  controller: nameEditingController,
-                                  labelText: 'Срок действия загранпаспорта',
-                                  hintText: '20. 01. 2033',
-                                ),
                               ],
-                            ))
-                        ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SumResultsWidget(),
-                        ],
+                    const SizedBox(height: 8),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SumResultsWidget(),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 19),
-                          InkWell(
-                            onTap: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Paid(),
-                                )),
-                            child:
-                                const CustomButton(text: 'Оплатить 198 036 ₽'),
-                          ),
-                        ],
+                    const SizedBox(height: 10),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 19),
+                            InkWell(
+                              onTap: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Paid(),
+                                  )),
+                              child: CustomButton(
+                                text:
+                                    'Оплатить ${tourPrice + fuelCharge + serviceCharge}',
+                                onTap: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text('Processing Data')),
+                                    );
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
@@ -631,10 +682,12 @@ class TextForms extends StatefulWidget {
     required this.controller,
     required this.labelText,
     required this.hintText,
+    required this.validator,
   }) : super(key: key);
   final TextEditingController controller;
   final String labelText;
   final String hintText;
+  final String? Function(String?)? validator;
 
   @override
   State<TextForms> createState() => _TextFormsState();
@@ -647,6 +700,7 @@ class _TextFormsState extends State<TextForms> {
       padding: const EdgeInsets.only(top: 4, bottom: 4),
       child: TextFormField(
         controller: widget.controller,
+        validator: widget.validator,
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),

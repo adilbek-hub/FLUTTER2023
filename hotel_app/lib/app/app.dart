@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => const TouristList(),
+          '/': (context) => const HotelView(),
         },
       ),
     );
