@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../constants/app_texts.dart';
-import '../constants/sizes.dart';
 import 'package:hotel_app/components/components_export.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
 class Paid extends StatelessWidget {
   const Paid({super.key});

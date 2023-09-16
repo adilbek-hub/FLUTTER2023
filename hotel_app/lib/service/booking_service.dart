@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import '../model/booking_model.dart';
+import 'package:hotel_app/model/model_export.dart';
 
 class BookingService {
   const BookingService({required this.client});

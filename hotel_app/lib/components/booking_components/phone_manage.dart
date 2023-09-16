@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class Exm extends StatefulWidget {
-  const Exm({Key? key}) : super(key: key);
+class PhoneManage extends StatefulWidget {
+  const PhoneManage({Key? key}) : super(key: key);
 
   @override
-  ExmState createState() => ExmState();
+  PhoneManageState createState() => PhoneManageState();
 }
 
 class PhoneMask {
@@ -23,7 +23,7 @@ class PhoneMask {
       required this.textInputType});
 }
 
-class ExmState extends State<Exm> {
+class PhoneManageState extends State<PhoneManage> {
   final List<PhoneMask> examples = [
     PhoneMask(
         formatter: MaskTextInputFormatter(mask: "+# (###) ###-##-##"),

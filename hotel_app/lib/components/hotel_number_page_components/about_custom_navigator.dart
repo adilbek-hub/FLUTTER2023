@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../../constants/app_texts.dart';
-import '../../views/booking_page.dart';
 import '../custom_button.dart';
 
 class AboutCustomNavigator extends StatelessWidget {

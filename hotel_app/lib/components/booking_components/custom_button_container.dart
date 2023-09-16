@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../constants/app_colors.dart';
-import '../../constants/app_texts.dart';
-import '../../constants/sizes.dart';
-import '../../views/paid_page.dart';
-import '../controllers.dart';
-import '../custom_button.dart';
+import 'package:hotel_app/views/view_export.dart';
+import 'package:hotel_app/constants/constants_export.dart';
+import 'package:hotel_app/components/components_export.dart';
 
 class CustomButtonContainer extends StatelessWidget {
   const CustomButtonContainer({

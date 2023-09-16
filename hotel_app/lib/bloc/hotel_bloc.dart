@@ -1,14 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:hotel_app/model/hotel_model.dart';
-import 'package:hotel_app/service/hotel_number_service.dart';
-
-import '../model/booking_model.dart';
-import '../model/hotel_number_model.dart';
-import '../service/booking_service.dart';
-import '../service/hotel_service.dart';
-
+import 'package:hotel_app/model/model_export.dart';
+import 'package:hotel_app/service/service_export.dart';
 part 'hotel_event.dart';
 part 'hotel_state.dart';
 

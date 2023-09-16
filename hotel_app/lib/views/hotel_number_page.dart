@@ -3,14 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:text_scroll/text_scroll.dart';
 import '../bloc/hotel_bloc.dart';
-import '../components/hotel_number_page_components/about_custom_navigator.dart';
-import '../components/hotel_number_page_components/about_number_container.dart';
-import '../components/hotel_number_page_components/about_sum_row.dart';
-import '../components/hotel_number_page_components/carusel_position.dart';
-import '../components/hotel_number_page_components/choose_number_button.dart';
-import '../components/hotel_number_page_components/launch_and_conditioner.dart';
-import '../constants/app_texts.dart';
-import '../constants/sizes.dart';
+import 'package:hotel_app/components/components_export.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
 class HotelNumber extends StatefulWidget {
   const HotelNumber({Key? key}) : super(key: key);

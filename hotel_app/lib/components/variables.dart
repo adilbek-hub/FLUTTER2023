@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-import 'exm.dart';
+import 'booking_components/phone_manage.dart';
 
 class Variables {
   final phoneNumber = PhoneMask(

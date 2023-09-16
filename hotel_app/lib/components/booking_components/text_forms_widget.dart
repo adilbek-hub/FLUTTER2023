@@ -30,11 +30,11 @@ class _TextFormsState extends State<TextForms> {
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(color: Color(0xffF6F6F9), width: 2.0),
+            borderSide: const BorderSide(color: Color(0xffF6F6F9), width: 2.0),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Color(0xffF6F6F9),
               width: 2.0,
             ),

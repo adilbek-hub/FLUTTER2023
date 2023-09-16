@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_app/components/controllers.dart';
-import 'package:hotel_app/components/variables.dart';
-import 'package:hotel_app/constants/app_text_styles.dart';
-import 'package:hotel_app/components/hotel_components/like_container.dart';
-import 'package:hotel_app/views/paid_page.dart';
 import '../bloc/hotel_bloc.dart';
-import '../components/booking_components/custom_button_container.dart';
-import '../components/booking_components/hotel_detail.dart';
-import '../components/booking_components/some_result_widget.dart';
-import '../components/booking_components/sum_result_container.dart';
-import '../components/booking_components/text_forms_widget.dart';
-import '../components/custom_button.dart';
-import '../constants/app_colors.dart';
-import '../constants/app_texts.dart';
-import '../constants/sizes.dart';
-import '../exm.dart';
+import 'package:hotel_app/components/components_export.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
 class BookingPage extends StatefulWidget {
   const BookingPage({Key? key}) : super(key: key);
