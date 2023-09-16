@@ -4,6 +4,7 @@ import '../bloc/hotel_bloc.dart';
 import '../service/booking_service.dart';
 import '../service/hotel_number_service.dart';
 import '../service/hotel_service.dart';
+import '../views/booking_page.dart';
 import '../views/hotel_number_page.dart';
 import '../views/hotel_page.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const HotelView(),
           'HotelNumber': (context) => const HotelNumber(),
+          'BookingPage': (context) => const BookingPage(),
         },
       ),
     );

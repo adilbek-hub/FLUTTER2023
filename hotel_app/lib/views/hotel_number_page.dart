@@ -155,38 +155,35 @@ class _HotelNumberState extends State<HotelNumber> {
                           children: [
                             Stack(
                               children: [
-                                InkWell(
-                                  onTap: () {},
-                                  child: CarouselSlider(
-                                    items: state
-                                        .hotelNumberModel.rooms[1].imageUrls
-                                        .map(
-                                          (e) => SizedBox(
-                                            width: width,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                e,
-                                                fit: BoxFit.cover,
+                                CarouselSlider(
+                                  items:
+                                      state.hotelNumberModel.rooms[1].imageUrls
+                                          .map(
+                                            (e) => SizedBox(
+                                              width: width,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  e,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        )
-                                        .toList(),
-                                    carouselController: carouselController,
-                                    options: CarouselOptions(
-                                        scrollPhysics:
-                                            const BouncingScrollPhysics(),
-                                        autoPlay: true,
-                                        aspectRatio: 2,
-                                        viewportFraction: 1,
-                                        onPageChanged: (index, reason) {
-                                          setState(() {
-                                            currentIndex = index;
-                                          });
-                                        }),
-                                  ),
+                                          )
+                                          .toList(),
+                                  carouselController: carouselController,
+                                  options: CarouselOptions(
+                                      scrollPhysics:
+                                          const BouncingScrollPhysics(),
+                                      autoPlay: true,
+                                      aspectRatio: 2,
+                                      viewportFraction: 1,
+                                      onPageChanged: (index, reason) {
+                                        setState(() {
+                                          currentIndex = index;
+                                        });
+                                      }),
                                 ),
                                 CaruselPositionWidget(
                                   carouselController: carouselController,

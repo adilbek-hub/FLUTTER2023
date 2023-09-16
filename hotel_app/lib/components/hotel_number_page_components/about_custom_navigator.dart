@@ -12,11 +12,7 @@ class AboutCustomNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const BookingPage(),
-          )),
+      onTap: () => Navigator.pushNamed(context, 'BookingPage'),
       child: const CustomButton(text: AppTexts.chooseNumber),
     );
   }
