@@ -8,6 +8,7 @@ import 'package:text_scroll/text_scroll.dart';
 
 import '../bloc/hotel_bloc.dart';
 import '../components/custom_button.dart';
+import '../constants/sizes.dart';
 import '../model/hotel_number_model.dart';
 import 'package:http/http.dart';
 
@@ -63,7 +64,7 @@ class _HotelNumberState extends State<HotelNumber> {
               body: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
+                    Sizes.height10,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -160,7 +161,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
+                            Sizes.height8,
                             Text(
                               state.hotelNumberModel.rooms[0].name,
                               style: const TextStyle(
@@ -171,7 +172,7 @@ class _HotelNumberState extends State<HotelNumber> {
                             ),
                             Row(
                               children: [
-                                const SizedBox(width: 15),
+                                Sizes.width15,
                                 Text(
                                   state.hotelNumberModel.rooms[0]
                                       .peculiarities[0],
@@ -181,7 +182,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                const SizedBox(width: 28),
+                                Sizes.width28,
                                 Text(
                                   state.hotelNumberModel.rooms[0]
                                       .peculiarities[1],
@@ -193,7 +194,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 13),
+                            Sizes.height13,
                             Container(
                               width: 210,
                               decoration: BoxDecoration(
@@ -225,7 +226,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            Sizes.height16,
                             Row(
                               children: [
                                 Text(
@@ -244,7 +245,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 19),
+                            Sizes.height19,
                             InkWell(
                               onTap: () => Navigator.push(
                                   context,
@@ -257,7 +258,7 @@ class _HotelNumberState extends State<HotelNumber> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    Sizes.height10,
                     Container(
                       decoration: const BoxDecoration(
                         color: Colors.white,
@@ -358,7 +359,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 8),
+                            Sizes.height8,
                             Text(
                               state.hotelNumberModel.rooms[1].name,
                               style: const TextStyle(
@@ -369,7 +370,7 @@ class _HotelNumberState extends State<HotelNumber> {
                             ),
                             Row(
                               children: [
-                                const SizedBox(width: 15),
+                                Sizes.height15,
                                 Text(
                                   state.hotelNumberModel.rooms[1]
                                       .peculiarities[0],
@@ -379,7 +380,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                const SizedBox(width: 28),
+                                Sizes.height28,
                                 Text(
                                   state.hotelNumberModel.rooms[1]
                                       .peculiarities[1],
@@ -391,7 +392,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 13),
+                            Sizes.height13,
                             Container(
                               width: 210,
                               decoration: BoxDecoration(
@@ -423,7 +424,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ],
                               ),
                             ),
-                            const SizedBox(height: 16),
+                            Sizes.height16,
                             Row(
                               children: [
                                 Text(
@@ -442,7 +443,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 19),
+                            Sizes.height19,
                             Container(
                               height: 48,
                               decoration: BoxDecoration(

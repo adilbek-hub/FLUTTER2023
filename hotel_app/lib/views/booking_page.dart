@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotel_app/components/controllers.dart';
 import 'package:hotel_app/components/variables.dart';
 import 'package:hotel_app/constants/app_text_styles.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:hotel_app/components/hotel_components/like_container.dart';
 import 'package:hotel_app/views/paid_page.dart';
 import '../bloc/hotel_bloc.dart';
@@ -12,6 +11,8 @@ import '../components/booking_components/some_result_widget.dart';
 import '../components/booking_components/text_forms_widget.dart';
 import '../components/custom_button.dart';
 import '../constants/app_colors.dart';
+import '../constants/app_texts.dart';
+import '../constants/sizes.dart';
 import '../exm.dart';
 
 class BookingPage extends StatefulWidget {
@@ -26,7 +27,6 @@ bool _isValidEmail = true;
 class _BookingPageState extends State<BookingPage> {
   List<Widget> tourists = [];
   int touristCount = 0;
-
   bool isFirstExpanded = true;
   bool isSecondExpanded = false;
   bool isAddTourist = false;
@@ -67,7 +67,7 @@ class _BookingPageState extends State<BookingPage> {
                 icon: const Icon(Icons.arrow_back_ios),
               ),
               title: const Text(
-                'Бронирование',
+                AppTexts.bronirovanie,
                 style: AppTextStyles.viewNamesStyle,
               ),
               centerTitle: true,
@@ -78,7 +78,7 @@ class _BookingPageState extends State<BookingPage> {
                 key: controllers.formKey,
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
+                    Sizes.height10,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -91,12 +91,12 @@ class _BookingPageState extends State<BookingPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const LikeContainer(),
-                            const SizedBox(height: 8),
+                            Sizes.height8,
                             Text(
                               state.bookingModel.hotelName,
                               style: AppTextStyles.tStyle1,
                             ),
-                            const SizedBox(height: 8),
+                            Sizes.height8,
                             Text(
                               state.bookingModel.hotelAdress,
                               style: AppTextStyles.tStyle2,
@@ -105,7 +105,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    Sizes.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -122,7 +122,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    Sizes.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -135,10 +135,10 @@ class _BookingPageState extends State<BookingPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
-                              'Информация о покупателе',
+                              AppTexts.informatsiaOPokupatel,
                               style: AppTextStyles.tStyle1,
                             ),
-                            const SizedBox(height: 20),
+                            Sizes.height20,
                             TextFormField(
                               controller: variables.phoneNumber.textController,
                               inputFormatters: [
@@ -150,7 +150,7 @@ class _BookingPageState extends State<BookingPage> {
                               // autovalidateMode: AutovalidateMode.always,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Пожалуйста введите номер телефона';
+                                  return AppTexts.phoneNumber;
                                 }
                                 return null;
                               },
@@ -162,12 +162,12 @@ class _BookingPageState extends State<BookingPage> {
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Color(0xffF6F6F9),
                                     width: 2.0,
                                   ),
                                 ),
-                                labelText: 'Номер телефона',
+                                labelText: AppTexts.labelText,
                                 hintText: variables.phoneNumber.hint,
                                 hintStyle:
                                     const TextStyle(color: AppColors.grey),
@@ -176,12 +176,12 @@ class _BookingPageState extends State<BookingPage> {
                                 errorMaxLines: 1,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            Sizes.height8,
                             TextFormField(
                               controller: controllers.emailController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Пожалуйста введите электронную почту';
+                                  return AppTexts.validateEPText;
                                 }
                                 return null;
                               },
@@ -199,31 +199,31 @@ class _BookingPageState extends State<BookingPage> {
                                     width: 2.0,
                                   ),
                                 ),
-                                labelText: "Почта",
-                                hintText: "examplemail.000@mail.ru",
-                                errorText:
-                                    _isValidEmail ? null : 'Некорректный Email',
+                                labelText: AppTexts.pochta,
+                                hintText: AppTexts.examplemail,
+                                errorText: _isValidEmail
+                                    ? null
+                                    : AppTexts.unCurrectNumber,
                                 fillColor: AppColors.containerScreen,
                                 filled: true,
                               ),
                               onChanged: (value) {
                                 setState(() {
-                                  _isValidEmail = RegExp(
-                                          r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$')
-                                      .hasMatch(value);
+                                  _isValidEmail =
+                                      RegExp(AppTexts.rEGEx).hasMatch(value);
                                 });
                               },
                             ),
-                            const SizedBox(height: 8),
+                            Sizes.height8,
                             const Text(
-                              'Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту',
+                              AppTexts.longText,
                               style: AppTextStyles.tStyle3,
                             ),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    Sizes.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.white,
@@ -235,7 +235,7 @@ class _BookingPageState extends State<BookingPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 20),
+                            Sizes.height20,
                             SizedBox(
                               height: 200,
                               child: ListView(
@@ -244,6 +244,7 @@ class _BookingPageState extends State<BookingPage> {
                                     ExpansionTile(
                                       title: tourist,
                                       children: [
+                                        // ignore: avoid_unnecessary_containers
                                         Container(
                                           child: Column(
                                             children: [
@@ -253,12 +254,12 @@ class _BookingPageState extends State<BookingPage> {
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Пожалуйста введите свое имя';
+                                                    return AppTexts.name;
                                                   }
                                                   return null;
                                                 },
-                                                labelText: 'Имя',
-                                                hintText: 'Иван',
+                                                labelText: AppTexts.imia,
+                                                hintText: AppTexts.ivan,
                                                 isValidEmail: _isValidEmail,
                                               ),
                                               TextForms(
@@ -267,12 +268,12 @@ class _BookingPageState extends State<BookingPage> {
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Пожалуйста введите свое фамилию';
+                                                    return AppTexts.sureName;
                                                   }
                                                   return null;
                                                 },
-                                                labelText: 'Фамилия',
-                                                hintText: 'Иванов',
+                                                labelText: AppTexts.fio,
+                                                hintText: AppTexts.ivanov,
                                                 isValidEmail: _isValidEmail,
                                               ),
                                               TextForms(
@@ -281,12 +282,12 @@ class _BookingPageState extends State<BookingPage> {
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Пожалуйста введите дата рождения';
+                                                    return AppTexts.birthday;
                                                   }
                                                   return null;
                                                 },
-                                                labelText: 'Дата рождения',
-                                                hintText: '01. 01. 2000',
+                                                labelText: AppTexts.dayDirth,
+                                                hintText: AppTexts.date,
                                                 isValidEmail: _isValidEmail,
                                               ),
                                               TextForms(
@@ -295,13 +296,15 @@ class _BookingPageState extends State<BookingPage> {
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Пожалуйста введите номер паспорта';
+                                                    return AppTexts
+                                                        .passportNumber;
                                                   }
                                                   return null;
                                                 },
-                                                labelText:
-                                                    'Номер загранпаспорта',
-                                                hintText: '6023232322323323',
+                                                labelText: AppTexts
+                                                    .labelTextPassportNumber,
+                                                hintText:
+                                                    AppTexts.hinTextNumber,
                                                 isValidEmail: _isValidEmail,
                                               ),
                                               TextForms(
@@ -310,13 +313,15 @@ class _BookingPageState extends State<BookingPage> {
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Пожалуйста введите срок действий паспорта';
+                                                    return AppTexts
+                                                        .stokPassport;
                                                   }
                                                   return null;
                                                 },
-                                                labelText:
-                                                    'Срок действия загранпаспорта',
-                                                hintText: '20. 01. 2033',
+                                                labelText: AppTexts
+                                                    .labelTextNumberPassport,
+                                                hintText: AppTexts
+                                                    .hinTextSrokPassport,
                                                 isValidEmail: _isValidEmail,
                                               ),
                                             ],
@@ -331,7 +336,7 @@ class _BookingPageState extends State<BookingPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  'Добавить туриста',
+                                  AppTexts.addTourist,
                                   style: AppTextStyles.tStyle1,
                                 ),
                                 SizedBox(
@@ -350,7 +355,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    Sizes.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.white,
@@ -366,7 +371,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    Sizes.height10,
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.white,
@@ -377,7 +382,7 @@ class _BookingPageState extends State<BookingPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 19),
+                            Sizes.height19,
                             InkWell(
                               onTap: () => Navigator.push(
                                   context,
@@ -386,7 +391,7 @@ class _BookingPageState extends State<BookingPage> {
                                   )),
                               child: CustomButton(
                                 text:
-                                    'Оплатить ${tourPrice + fuelCharge + serviceCharge}',
+                                    ' ${AppTexts.oplatit} ${tourPrice + fuelCharge + serviceCharge}',
                                 onTap: () {
                                   if (controllers.formKey.currentState!
                                       .validate()) {
