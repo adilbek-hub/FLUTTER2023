@@ -9,14 +9,14 @@ class Exm extends StatefulWidget {
   ExmState createState() => ExmState();
 }
 
-class ExampleMask {
+class PhoneMask {
   final TextEditingController textController = TextEditingController();
   final MaskTextInputFormatter formatter;
   final FormFieldValidator<String>? validator;
   final String hint;
   final TextInputType textInputType;
 
-  ExampleMask(
+  PhoneMask(
       {required this.formatter,
       this.validator,
       required this.hint,
@@ -24,8 +24,8 @@ class ExampleMask {
 }
 
 class ExmState extends State<Exm> {
-  final List<ExampleMask> examples = [
-    ExampleMask(
+  final List<PhoneMask> examples = [
+    PhoneMask(
         formatter: MaskTextInputFormatter(mask: "+# (###) ###-##-##"),
         hint: "+1 (234) 567-89-01",
         textInputType: TextInputType.phone),
@@ -45,7 +45,7 @@ class ExmState extends State<Exm> {
         )));
   }
 
-  Widget buildTextField(int index, ExampleMask example) {
+  Widget buildTextField(int index, PhoneMask example) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Stack(
@@ -104,31 +104,5 @@ class UpperCaseTextFormatter implements TextInputFormatter {
       TextEditingValue oldValue, TextEditingValue newValue) {
     return TextEditingValue(
         text: newValue.text.toUpperCase(), selection: newValue.selection);
-  }
-}
-
-class SpecialMaskTextInputFormatter extends MaskTextInputFormatter {
-  static String maskA = "S.####";
-  static String maskB = "S.######";
-
-  SpecialMaskTextInputFormatter({String? initialText})
-      : super(
-            mask: maskA,
-            filter: {"#": RegExp('[0-9]'), "S": RegExp('[AB]')},
-            initialText: initialText);
-
-  @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
-    if (newValue.text.startsWith("A")) {
-      if (getMask() != maskA) {
-        updateMask(mask: maskA);
-      }
-    } else {
-      if (getMask() != maskB) {
-        updateMask(mask: maskB);
-      }
-    }
-    return super.formatEditUpdate(oldValue, newValue);
   }
 }
