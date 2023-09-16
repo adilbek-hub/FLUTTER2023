@@ -48,7 +48,7 @@ class _BookingPageState extends State<BookingPage> {
                 children: [
                   Text(
                     'Первый турист',
-                    style: AppTextStyles.texts,
+                    style: AppTextStyles.tStyle1,
                   ),
                 ],
               ),
@@ -64,7 +64,7 @@ class _BookingPageState extends State<BookingPage> {
                 children: [
                   Text(
                     'Второй турист',
-                    style: AppTextStyles.texts,
+                    style: AppTextStyles.tStyle1,
                   ),
                 ],
               ),
@@ -78,7 +78,7 @@ class _BookingPageState extends State<BookingPage> {
             children: [
               Text(
                 'Третий турист',
-                style: AppTextStyles.texts,
+                style: AppTextStyles.tStyle1,
               ),
             ],
           ),
@@ -170,7 +170,7 @@ class _BookingPageState extends State<BookingPage> {
                             const SizedBox(height: 8),
                             Text(
                               state.bookingModel.hotelName,
-                              style: AppTextStyles.texts,
+                              style: AppTextStyles.tStyle1,
                             ),
                             const SizedBox(height: 8),
                             Text(

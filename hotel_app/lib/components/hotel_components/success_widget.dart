@@ -189,7 +189,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                         const SizedBox(height: 19),
                         const Text(
                           'Об отеле',
-                          style: AppTextStyles.texts,
+                          style: AppTextStyles.tStyle1,
                         ),
                         const SizedBox(height: 21),
                         Row(
