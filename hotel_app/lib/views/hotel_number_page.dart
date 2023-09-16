@@ -1,18 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:text_scroll/text_scroll.dart';
-
-import 'package:hotel_app/views/booking_page.dart';
-
 import '../bloc/hotel_bloc.dart';
-import '../components/custom_button.dart';
-import '../components/hotel_number_page/about_custom_navigator.dart';
-import '../components/hotel_number_page/about_number_container.dart';
-import '../components/hotel_number_page/about_sum_row.dart';
+import '../components/hotel_number_page_components/about_custom_navigator.dart';
+import '../components/hotel_number_page_components/about_number_container.dart';
+import '../components/hotel_number_page_components/about_sum_row.dart';
+import '../components/hotel_number_page_components/carusel_position.dart';
+import '../components/hotel_number_page_components/choose_number_button.dart';
+import '../components/hotel_number_page_components/launch_and_conditioner.dart';
 import '../constants/app_texts.dart';
 import '../constants/sizes.dart';
 
@@ -121,29 +117,11 @@ class _HotelNumberState extends State<HotelNumber> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Row(
-                              children: [
-                                Sizes.width15,
-                                Text(
-                                  state.hotelNumberModel.rooms[0]
-                                      .peculiarities[0],
-                                  style: const TextStyle(
-                                    color: Color(0xff828796),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Sizes.width28,
-                                Text(
-                                  state.hotelNumberModel.rooms[0]
-                                      .peculiarities[1],
-                                  style: const TextStyle(
-                                    color: Color(0xff828796),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                            LaunchAndConditioner(
+                              peculiarities0: state
+                                  .hotelNumberModel.rooms[0].peculiarities[0],
+                              peculiarities1: state
+                                  .hotelNumberModel.rooms[0].peculiarities[1],
                             ),
                             Sizes.height13,
                             const AboutNumberContainer(),
@@ -210,54 +188,10 @@ class _HotelNumberState extends State<HotelNumber> {
                                         }),
                                   ),
                                 ),
-                                Positioned(
-                                  bottom: 10,
-                                  left: 0,
-                                  right: 0,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 158),
-                                    child: Container(
-                                      height: 17,
-                                      padding: const EdgeInsets.all(3),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: state
-                                            .hotelNumberModel.rooms[1].imageUrls
-                                            .asMap()
-                                            .entries
-                                            .map(
-                                          (e) {
-                                            return GestureDetector(
-                                              onTap: () => carouselController
-                                                  .animateToPage(e.key),
-                                              child: Container(
-                                                width: currentIndex == e.key
-                                                    ? 7
-                                                    : 7,
-                                                height: 7.0,
-                                                margin:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 3),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                    color: currentIndex == e.key
-                                                        ? Colors.black
-                                                        : Colors.grey),
-                                              ),
-                                            );
-                                          },
-                                        ).toList(),
-                                      ),
-                                    ),
-                                  ),
+                                CaruselPositionWidget(
+                                  carouselController: carouselController,
+                                  currentIndex: currentIndex,
+                                  imageUrls: state.hotelModel.imageUrls,
                                 ),
                               ],
                             ),
@@ -270,62 +204,14 @@ class _HotelNumberState extends State<HotelNumber> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Row(
-                              children: [
-                                Sizes.height15,
-                                Text(
-                                  state.hotelNumberModel.rooms[1]
-                                      .peculiarities[0],
-                                  style: const TextStyle(
-                                    color: Color(0xff828796),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Sizes.height28,
-                                Text(
-                                  state.hotelNumberModel.rooms[1]
-                                      .peculiarities[1],
-                                  style: const TextStyle(
-                                    color: Color(0xff828796),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
+                            LaunchAndConditioner(
+                              peculiarities0: state
+                                  .hotelNumberModel.rooms[1].peculiarities[0],
+                              peculiarities1: state
+                                  .hotelNumberModel.rooms[1].peculiarities[1],
                             ),
                             Sizes.height13,
-                            Container(
-                              width: 210,
-                              decoration: BoxDecoration(
-                                color: const Color(0xffACDBFF),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: const Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 10, top: 5, bottom: 5),
-                                    child: Text(
-                                      AppTexts.aboutNumbers,
-                                      style: TextStyle(
-                                          color: Color(0xff0D72FF),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 10, top: 5, bottom: 5),
-                                    child: Icon(
-                                      CupertinoIcons.forward,
-                                      color: Color(0xff0D72FF),
-                                      size: 16,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            const AboutNumberContainer(),
                             Sizes.height16,
                             Row(
                               children: [
@@ -359,83 +245,6 @@ class _HotelNumberState extends State<HotelNumber> {
             return throw (AppTexts.error);
           }
         },
-      ),
-    );
-  }
-}
-
-class CaruselPositionWidget extends StatelessWidget {
-  const CaruselPositionWidget({
-    Key? key,
-    required this.carouselController,
-    required this.currentIndex,
-    required this.imageUrls,
-  }) : super(key: key);
-
-  final CarouselController carouselController;
-  final int currentIndex;
-  final List<String> imageUrls;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 10,
-      left: 0,
-      right: 0,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 158),
-        child: Container(
-          height: 17,
-          padding: const EdgeInsets.all(3),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(5)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: imageUrls.asMap().entries.map(
-              (e) {
-                return GestureDetector(
-                  onTap: () => carouselController.animateToPage(e.key),
-                  child: Container(
-                    width: currentIndex == e.key ? 7 : 7,
-                    height: 7.0,
-                    margin: const EdgeInsets.symmetric(horizontal: 3),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color:
-                            currentIndex == e.key ? Colors.black : Colors.grey),
-                  ),
-                );
-              },
-            ).toList(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ChooseNumberButton extends StatelessWidget {
-  const ChooseNumberButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 48,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: const Center(
-        child: Text(
-          AppTexts.chooseNumber,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
       ),
     );
   }

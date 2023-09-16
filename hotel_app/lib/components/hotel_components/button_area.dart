@@ -21,12 +21,7 @@ class ButtonArea extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             InkWell(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HotelNumber(),
-                ),
-              ),
+              onTap: () => Navigator.pushNamed(context, 'HotelNumber'),
               child: const CustomButton(text: 'К выбору номера'),
             ),
           ],

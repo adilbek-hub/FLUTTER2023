@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/constants/app_images.dart';
 import '../components/custom_button.dart';
+import '../components/pain_page_components/circular_image.dart';
 import '../constants/app_texts.dart';
 import '../constants/sizes.dart';
 
@@ -37,21 +37,13 @@ class Paid extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 100),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 100),
                 child: Column(
                   children: [
-                    Container(
-                      width: 94,
-                      height: 94,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xffF6F6F9),
-                      ),
-                      child: AppImages.flawerImage,
-                    ),
+                    CircularImage(),
                     Sizes.height32,
-                    const Text(
+                    Text(
                       AppTexts.zakazToWork,
                       style: TextStyle(
                         color: Colors.black,
@@ -60,7 +52,7 @@ class Paid extends StatelessWidget {
                       ),
                     ),
                     Sizes.height20,
-                    const Text(
+                    Text(
                       AppTexts.longTexts,
                       style: TextStyle(
                         color: Color(0xff828796),
