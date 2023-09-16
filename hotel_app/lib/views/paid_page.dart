@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../components/custom_button.dart';
-import '../components/pain_page_components/circular_image.dart';
+
 import '../constants/app_texts.dart';
 import '../constants/sizes.dart';
+import 'package:hotel_app/components/components_export.dart';
 
 class Paid extends StatelessWidget {
   const Paid({super.key});
