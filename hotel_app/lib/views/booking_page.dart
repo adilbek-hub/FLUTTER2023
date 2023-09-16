@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -253,8 +254,13 @@ class _BookingPageState extends State<BookingPage> {
                               ],
                               autocorrect: false,
                               keyboardType: phoneNumber.textInputType,
-                              autovalidateMode: AutovalidateMode.always,
-                              validator: phoneNumber.validator,
+                              // autovalidateMode: AutovalidateMode.always,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Пожалуйста введите номер телефона';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -281,7 +287,7 @@ class _BookingPageState extends State<BookingPage> {
                               controller: _emailController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Отсуствие';
+                                  return 'Пожалуйста введите электронную почту';
                                 }
                                 return null;
                               },
@@ -356,7 +362,7 @@ class _BookingPageState extends State<BookingPage> {
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Пожалуйста введите почту';
+                                                    return 'Пожалуйста введите свое имя';
                                                   }
                                                   return null;
                                                 },
@@ -365,11 +371,11 @@ class _BookingPageState extends State<BookingPage> {
                                               ),
                                               TextForms(
                                                 controller:
-                                                    nameEditingController,
+                                                    sureNameEditingController,
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Отсуствие';
+                                                    return 'Пожалуйста введите свое фамилию';
                                                   }
                                                   return null;
                                                 },
@@ -378,11 +384,11 @@ class _BookingPageState extends State<BookingPage> {
                                               ),
                                               TextForms(
                                                 controller:
-                                                    nameEditingController,
+                                                    birthdayEditingController,
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Отсуствие';
+                                                    return 'Пожалуйста введите дата рождения';
                                                   }
                                                   return null;
                                                 },
@@ -391,11 +397,11 @@ class _BookingPageState extends State<BookingPage> {
                                               ),
                                               TextForms(
                                                 controller:
-                                                    nameEditingController,
+                                                    passportNumberEditingController,
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Отсуствие';
+                                                    return 'Пожалуйста введите номер паспорта';
                                                   }
                                                   return null;
                                                 },
@@ -405,11 +411,11 @@ class _BookingPageState extends State<BookingPage> {
                                               ),
                                               TextForms(
                                                 controller:
-                                                    nameEditingController,
+                                                    periodOfThePassportEditingController,
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
-                                                    return 'Отсуствие';
+                                                    return 'Пожалуйста введите срок действий паспорта';
                                                   }
                                                   return null;
                                                 },
@@ -491,9 +497,11 @@ class _BookingPageState extends State<BookingPage> {
                                     'Оплатить ${tourPrice + fuelCharge + serviceCharge}',
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text('Processing Data')),
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) {
+                                        return const Paid();
+                                      }),
                                     );
                                   }
                                 },
