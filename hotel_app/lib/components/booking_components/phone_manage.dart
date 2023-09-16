@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+import '../../constants/app_texts.dart';
 
 class PhoneManage extends StatefulWidget {
   const PhoneManage({Key? key}) : super(key: key);
@@ -26,8 +29,8 @@ class PhoneMask {
 class PhoneManageState extends State<PhoneManage> {
   final List<PhoneMask> examples = [
     PhoneMask(
-        formatter: MaskTextInputFormatter(mask: "+# (###) ###-##-##"),
-        hint: "+1 (234) 567-89-01",
+        formatter: MaskTextInputFormatter(mask: AppTexts.mask),
+        hint: AppTexts.hint,
         textInputType: TextInputType.phone),
   ];
 
@@ -51,7 +54,7 @@ class PhoneManageState extends State<PhoneManage> {
       child: Stack(
         children: [
           TextFormField(
-              key: ValueKey("ExampleMask$index"),
+              key: ValueKey("Mask$index"),
               controller: example.textController,
               inputFormatters: [
                 const UpperCaseTextFormatter(),
@@ -63,7 +66,7 @@ class PhoneManageState extends State<PhoneManage> {
               validator: example.validator,
               decoration: InputDecoration(
                   hintText: example.hint,
-                  hintStyle: const TextStyle(color: Colors.grey),
+                  hintStyle: const TextStyle(color: AppColors.grey),
                   fillColor: Colors.white,
                   filled: true,
                   focusedBorder: const UnderlineInputBorder(

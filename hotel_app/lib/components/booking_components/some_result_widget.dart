@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:hotel_app/constants/constants_export.dart';
 import '../../bloc/hotel_bloc.dart';
 
 class SumResultsWidget extends StatelessWidget {
@@ -22,20 +22,36 @@ class SumResultsWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Топ',
-                    style: TextStyle(
-                      color: Color(0xff828796),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    AppTexts.top,
+                    style: AppTextStyles.tStyle4,
                   ),
                   Text(
-                    '${state.bookingModel.tourPrice} ₽ ',
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    '${state.bookingModel.tourPrice} ${AppTexts.rubley} ',
+                    style: AppTextStyles.bookingStyle,
+                  ),
+                ],
+              ),
+              AppSize.height16,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(AppTexts.toplivnySbor,
+                      style: AppTextStyles.tStyle4),
+                  Text('${state.bookingModel.fuelCharge} ${AppTexts.rubley}',
+                      style: AppTextStyles.bookingStyle),
+                ],
+              ),
+              AppSize.height16,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    AppTexts.servisnySbor,
+                    style: AppTextStyles.tStyle4,
+                  ),
+                  Text(
+                    '${state.bookingModel.serviceCharge} ${AppTexts.rubley}',
+                    style: AppTextStyles.bookingStyle,
                   ),
                 ],
               ),
@@ -44,72 +60,20 @@ class SumResultsWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Топливный сбор',
-                    style: TextStyle(
-                      color: Color(0xff828796),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  Text(
-                    '${state.bookingModel.fuelCharge} ₽',
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Сервисный сбор',
-                    style: TextStyle(
-                      color: Color(0xff828796),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  Text(
-                    '${state.bookingModel.serviceCharge} ₽',
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'К оплате',
-                    style: TextStyle(
-                      color: Color(0xff828796),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    AppTexts.kOplate,
+                    style: AppTextStyles.tStyle4,
                   ),
                   Text(
                     '${tourPrice + fuelCharge + serviceCharge}',
-                    style: const TextStyle(
-                      color: Colors.blue,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: AppTextStyles.tStyle5,
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              AppSize.height16,
             ],
           );
         } else {
-          throw ('invalid state');
+          throw (AppTexts.error);
         }
       },
     );

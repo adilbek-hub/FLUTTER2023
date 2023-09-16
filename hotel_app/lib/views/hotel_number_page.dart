@@ -48,7 +48,7 @@ class _HotelNumberState extends State<HotelNumber> {
               body: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Sizes.height10,
+                    AppSize.height10,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -102,7 +102,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            Sizes.height8,
+                            AppSize.height8,
                             Text(
                               state.hotelNumberModel.rooms[0].name,
                               style: const TextStyle(
@@ -117,22 +117,22 @@ class _HotelNumberState extends State<HotelNumber> {
                               peculiarities1: state
                                   .hotelNumberModel.rooms[0].peculiarities[1],
                             ),
-                            Sizes.height13,
+                            AppSize.height13,
                             const AboutNumberContainer(),
-                            Sizes.height16,
+                            AppSize.height16,
                             AboutSumRow(
                               price:
                                   '${state.hotelNumberModel.rooms[0].price} ₽ ',
                               pricePer:
                                   state.hotelNumberModel.rooms[0].pricePer,
                             ),
-                            Sizes.height19,
+                            AppSize.height19,
                             const AboutCustomNavigator(),
                           ],
                         ),
                       ),
                     ),
-                    Sizes.height10,
+                    AppSize.height10,
                     Container(
                       decoration: const BoxDecoration(
                         color: Colors.white,
@@ -186,7 +186,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            Sizes.height8,
+                            AppSize.height8,
                             Text(
                               state.hotelNumberModel.rooms[1].name,
                               style: const TextStyle(
@@ -201,9 +201,9 @@ class _HotelNumberState extends State<HotelNumber> {
                               peculiarities1: state
                                   .hotelNumberModel.rooms[1].peculiarities[1],
                             ),
-                            Sizes.height13,
+                            AppSize.height13,
                             const AboutNumberContainer(),
-                            Sizes.height16,
+                            AppSize.height16,
                             Row(
                               children: [
                                 Text(
@@ -222,7 +222,7 @@ class _HotelNumberState extends State<HotelNumber> {
                                 ),
                               ],
                             ),
-                            Sizes.height19,
+                            AppSize.height19,
                             const ChooseNumberButton(),
                           ],
                         ),

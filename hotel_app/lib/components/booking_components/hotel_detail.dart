@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 import '../../bloc/hotel_bloc.dart';
 
 class HotelDetails extends StatelessWidget {
@@ -15,105 +16,65 @@ class HotelDetails extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'Вылет из',
-                  style: TextStyle(
-                    color: Color(0xff828796),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  AppTexts.vyletIz,
+                  style: AppTextStyles.tStyle4,
                 ),
               ),
               Text(
                 state.bookingModel.departure,
-                style: const TextStyle(
-                  color: Color(0xff000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyles.bookingStyle,
               ),
             ]),
             TableRow(children: [
               const Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'Страна, город',
-                  style: TextStyle(
-                    color: Color(0xff828796),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  AppTexts.countryCity,
+                  style: AppTextStyles.tStyle4,
                 ),
               ),
               Text(
                 state.bookingModel.arrivalCountry,
-                style: const TextStyle(
-                  color: Color(0xff000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyles.bookingStyle,
               ),
             ]),
             TableRow(children: [
               const Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'Даты',
-                  style: TextStyle(
-                    color: Color(0xff828796),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  AppTexts.dates,
+                  style: AppTextStyles.tStyle4,
                 ),
               ),
               Text(
                 '${state.bookingModel.tourDateStart} - ${state.bookingModel.tourDateStop}',
-                style: const TextStyle(
-                  color: Color(0xff000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyles.bookingStyle,
               ),
             ]),
             TableRow(children: [
               const Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'Кол-во ночей',
-                  style: TextStyle(
-                    color: Color(0xff828796),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  AppTexts.kolichestvoNochey,
+                  style: AppTextStyles.tStyle4,
                 ),
               ),
               Text(
-                '${state.bookingModel.numberOfNights} ночей',
-                style: const TextStyle(
-                  color: Color(0xff000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                '${state.bookingModel.numberOfNights} ${AppTexts.nochey}',
+                style: AppTextStyles.bookingStyle,
               ),
             ]),
             const TableRow(children: [
               Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'Отель',
-                  style: TextStyle(
-                    color: Color(0xff828796),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  AppTexts.hotel,
+                  style: AppTextStyles.tStyle4,
                 ),
               ),
               Text(
-                'Steigenberger Makadi',
-                style: TextStyle(
-                  color: Color(0xff000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                AppTexts.steigenbergerMakadi,
+                style: AppTextStyles.bookingStyle,
               ),
             ]),
             TableRow(
@@ -121,21 +82,13 @@ class HotelDetails extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 32),
                   child: Text(
-                    'Номер',
-                    style: TextStyle(
-                      color: Color(0xff828796),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    AppTexts.numer,
+                    style: AppTextStyles.tStyle4,
                   ),
                 ),
                 Text(
                   state.bookingModel.room,
-                  style: const TextStyle(
-                    color: Color(0xff000000),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: AppTextStyles.bookingStyle,
                 ),
               ],
             ),
@@ -143,26 +96,18 @@ class HotelDetails extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'Питание',
-                  style: TextStyle(
-                    color: Color(0xff828796),
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  AppTexts.pitanie,
+                  style: AppTextStyles.tStyle4,
                 ),
               ),
               Text(
                 state.bookingModel.nutrition,
-                style: const TextStyle(
-                  color: Color(0xff000000),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyles.bookingStyle,
               ),
             ]),
           ]);
         } else {
-          throw ('Invalid');
+          throw (AppTexts.error);
         }
       },
     );

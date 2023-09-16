@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/app_colors.dart';
+
+import '../../constants/app_text_styles.dart';
 
 class AboutSumRow extends StatelessWidget {
   const AboutSumRow({
@@ -15,15 +18,11 @@ class AboutSumRow extends StatelessWidget {
       children: [
         Text(
           price,
-          style: const TextStyle(
-              color: Colors.black, fontSize: 30, fontWeight: FontWeight.w600),
+          style: AppTextStyles.priceStyle,
         ),
         Text(
           pricePer,
-          style: const TextStyle(
-              color: Color(0xff828796),
-              fontSize: 16,
-              fontWeight: FontWeight.w400),
+          style: AppTextStyles.tStyle4,
         ),
       ],
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/app_texts.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
 class Essentials extends StatelessWidget {
@@ -29,19 +31,11 @@ class Essentials extends StatelessWidget {
             children: [
               Text(
                 text1,
-                style: const TextStyle(
-                  color: Color(0xff2C3035),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyles.text1Style,
               ),
               Text(
                 text2,
-                style: const TextStyle(
-                  color: Color(0xff828796),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: AppTextStyles.text2Style,
               )
             ],
           ),

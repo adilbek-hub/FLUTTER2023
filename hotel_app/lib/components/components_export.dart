@@ -4,7 +4,6 @@ export 'booking_components/some_result_widget.dart';
 export 'booking_components/sum_result_container.dart';
 export 'booking_components/text_forms_widget.dart';
 export 'hotel_components/button_area.dart';
-export 'hotel_components/carusel_images.dart';
 export 'hotel_components/error_widget.dart';
 export 'hotel_components/essentials.dart';
 export 'hotel_components/like_container.dart';

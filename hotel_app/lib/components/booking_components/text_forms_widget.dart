@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
 class TextForms extends StatefulWidget {
   const TextForms({
@@ -30,19 +31,20 @@ class _TextFormsState extends State<TextForms> {
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: const BorderSide(color: Color(0xffF6F6F9), width: 2.0),
+            borderSide:
+                const BorderSide(color: AppColors.containerScreen, width: 2.0),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
             borderSide: const BorderSide(
-              color: Color(0xffF6F6F9),
+              color: AppColors.containerScreen,
               width: 2.0,
             ),
           ),
           labelText: widget.labelText,
           hintText: widget.hintText,
-          errorText: widget.isValidEmail ? null : 'Некорректный Email',
-          fillColor: const Color(0xffF6F6F9),
+          errorText: widget.isValidEmail ? null : AppTexts.unCurrectNumber,
+          fillColor: AppColors.containerScreen,
           filled: true,
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/app_text_styles.dart';
 import '../../constants/app_texts.dart';
 
 class ChooseNumberButton extends StatelessWidget {
@@ -18,11 +19,7 @@ class ChooseNumberButton extends StatelessWidget {
       child: const Center(
         child: Text(
           AppTexts.chooseNumber,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppTextStyles.chooseNumberStyle,
         ),
       ),
     );

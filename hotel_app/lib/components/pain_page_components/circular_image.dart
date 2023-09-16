@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/app_colors.dart';
 
 import '../../constants/app_images.dart';
 
@@ -14,7 +15,7 @@ class CircularImage extends StatelessWidget {
       height: 94,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
-        color: Color(0xffF6F6F9),
+        color: AppColors.containerScreen,
       ),
       child: AppImages.flawerImage,
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/app_colors.dart';
+import 'package:hotel_app/constants/app_text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -16,17 +18,13 @@ class CustomButton extends StatelessWidget {
       child: Container(
         height: 48,
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: AppColors.blue,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
           child: Text(
             text ?? '',
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+            style: AppTextStyles.nullText,
           ),
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotel_app/constants/app_colors.dart';
+import 'package:hotel_app/constants/app_texts.dart';
 
 import '../../bloc/hotel_bloc.dart';
 import '../../constants/app_size.dart';
@@ -45,7 +47,7 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                         const SizedBox(height: 19),
                         const Center(
                           child: Text(
-                            'Отель',
+                            AppTexts.hotel,
                             style: AppTextStyles.hotelStyle,
                           ),
                         ),
@@ -134,39 +136,23 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                         const SizedBox(height: 8),
                         Text(
                           state.hotelModel.name,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: AppTextStyles.hotelMdelNameStyle,
                         ),
                         const SizedBox(height: 8),
                         Text(
                           state.hotelModel.adress,
-                          style: const TextStyle(
-                            color: Color(0xff0D72FF),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: AppTextStyles.hotelMdelAddressStyle,
                         ),
                         Row(
                           children: [
                             Text(
-                              'от ${state.hotelModel.minimalPrice}₽',
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w600,
-                              ),
+                              '${AppTexts.ot} ${state.hotelModel.minimalPrice}${AppTexts.rubley}',
+                              style: AppTextStyles.hotelMdelMinimalPriceStyle,
                             ),
-                            const SizedBox(width: 8),
+                            AppSize.width8,
                             Text(
                               state.hotelModel.priceForIt,
-                              style: const TextStyle(
-                                color: Color(0xff828796),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                              ),
+                              style: AppTextStyles.tStyle4,
                             ),
                           ],
                         ),
@@ -174,10 +160,10 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                AppSize.height10,
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.white,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -186,79 +172,59 @@ class _SuccessWidgetState extends State<SuccessWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 19),
+                        AppSize.height19,
                         const Text(
-                          'Об отеле',
+                          AppTexts.aboutHotel,
                           style: AppTextStyles.tStyle1,
                         ),
-                        const SizedBox(height: 21),
+                        AppSize.height21,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             const Text(
-                              '3-я линия',
-                              style: TextStyle(
-                                color: Color(0xff828796),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              AppTexts.line,
+                              style: AppTextStyles.tStyle4,
                             ),
                             Text(
                               state.hotelModel.aboutTheHotel.peculiarities[2],
-                              style: const TextStyle(
-                                color: Color(0xff828796),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyles.tStyle4,
                             ),
-                            const SizedBox(width: 14),
+                            AppSize.width14,
                           ],
                         ),
-                        const SizedBox(height: 21),
+                        AppSize.height21,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
                               state.hotelModel.aboutTheHotel.peculiarities[3],
-                              style: const TextStyle(
-                                color: Color(0xff828796),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyles.tStyle4,
                             ),
                             Text(
                               state.hotelModel.aboutTheHotel.peculiarities[1],
-                              style: const TextStyle(
-                                color: Color(0xff828796),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: AppTextStyles.tStyle4,
                             ),
-                            const SizedBox(width: 14),
+                            AppSize.width14,
                           ],
                         ),
-                        const SizedBox(height: 17),
+                        AppSize.height17,
                         Text(
                           state.hotelModel.aboutTheHotel.description,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: AppTextStyles.aboutTheHotelDescriptionStyle,
                         ),
-                        const SizedBox(height: 16),
+                        AppSize.height16,
                         const WhiteContainer()
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                AppSize.height10,
                 const ButtonArea(),
               ],
             ),
           );
         } else {
-          throw ('Есть инвалидность');
+          throw (AppTexts.error);
         }
       },
     );

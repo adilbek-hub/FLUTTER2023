@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 import '../custom_button.dart';
 
 class ButtonArea extends StatelessWidget {
@@ -19,7 +20,7 @@ class ButtonArea extends StatelessWidget {
           children: [
             InkWell(
               onTap: () => Navigator.pushNamed(context, 'HotelNumber'),
-              child: const CustomButton(text: 'К выбору номера'),
+              child: const CustomButton(text: AppTexts.kVyboruNomera),
             ),
           ],
         ),

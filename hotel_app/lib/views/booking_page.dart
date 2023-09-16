@@ -67,7 +67,7 @@ class _BookingPageState extends State<BookingPage> {
                 key: controllers.formKey,
                 child: Column(
                   children: [
-                    Sizes.height10,
+                    AppSize.height10,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -80,12 +80,12 @@ class _BookingPageState extends State<BookingPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const LikeContainer(),
-                            Sizes.height8,
+                            AppSize.height8,
                             Text(
                               state.bookingModel.hotelName,
                               style: AppTextStyles.tStyle1,
                             ),
-                            Sizes.height8,
+                            AppSize.height8,
                             Text(
                               state.bookingModel.hotelAdress,
                               style: AppTextStyles.tStyle2,
@@ -94,7 +94,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    Sizes.height8,
+                    AppSize.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -111,7 +111,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    Sizes.height8,
+                    AppSize.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -127,7 +127,7 @@ class _BookingPageState extends State<BookingPage> {
                               AppTexts.informatsiaOPokupatel,
                               style: AppTextStyles.tStyle1,
                             ),
-                            Sizes.height20,
+                            AppSize.height20,
                             TextFormField(
                               controller: variables.phoneNumber.textController,
                               inputFormatters: [
@@ -165,7 +165,7 @@ class _BookingPageState extends State<BookingPage> {
                                 errorMaxLines: 1,
                               ),
                             ),
-                            Sizes.height8,
+                            AppSize.height8,
                             TextFormField(
                               controller: controllers.emailController,
                               validator: (value) {
@@ -203,7 +203,7 @@ class _BookingPageState extends State<BookingPage> {
                                 });
                               },
                             ),
-                            Sizes.height8,
+                            AppSize.height8,
                             const Text(
                               AppTexts.longText,
                               style: AppTextStyles.tStyle3,
@@ -212,7 +212,7 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    Sizes.height8,
+                    AppSize.height8,
                     Container(
                       decoration: BoxDecoration(
                         color: AppColors.white,
@@ -224,7 +224,7 @@ class _BookingPageState extends State<BookingPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Sizes.height20,
+                            AppSize.height20,
                             SizedBox(
                               height: 200,
                               child: ListView(
@@ -344,9 +344,9 @@ class _BookingPageState extends State<BookingPage> {
                         ),
                       ),
                     ),
-                    Sizes.height8,
+                    AppSize.height8,
                     const SumResultContainer(),
-                    Sizes.height10,
+                    AppSize.height10,
                     CustomButtonContainer(
                         tourPrice: tourPrice,
                         fuelCharge: fuelCharge,

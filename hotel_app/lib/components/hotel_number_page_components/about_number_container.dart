@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:hotel_app/constants/app_colors.dart';
+import 'package:hotel_app/constants/app_text_styles.dart';
 import '../../constants/app_texts.dart';
 
 class AboutNumberContainer extends StatelessWidget {
@@ -20,17 +22,14 @@ class AboutNumberContainer extends StatelessWidget {
             padding: EdgeInsets.only(left: 10, top: 5, bottom: 5),
             child: Text(
               AppTexts.aboutNumbers,
-              style: TextStyle(
-                  color: Color(0xff0D72FF),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+              style: AppTextStyles.tStyle5,
             ),
           ),
           Padding(
             padding: EdgeInsets.only(left: 10, top: 5, bottom: 5),
             child: Icon(
               CupertinoIcons.forward,
-              color: Color(0xff0D72FF),
+              color: AppColors.blue2,
               size: 16,
             ),
           ),

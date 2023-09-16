@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
-import '../../constants/sizes.dart';
+import '../../constants/app_size.dart';
 
 class LaunchAndConditioner extends StatelessWidget {
   const LaunchAndConditioner({
@@ -15,23 +16,15 @@ class LaunchAndConditioner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Sizes.width15,
+        AppSize.width15,
         Text(
           peculiarities0,
-          style: const TextStyle(
-            color: Color(0xff828796),
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppTextStyles.tStyle4,
         ),
-        Sizes.width28,
+        AppSize.width28,
         Text(
           peculiarities1,
-          style: const TextStyle(
-            color: Color(0xff828796),
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppTextStyles.tStyle4,
         ),
       ],
     );

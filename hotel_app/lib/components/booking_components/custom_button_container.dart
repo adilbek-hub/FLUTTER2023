@@ -27,7 +27,7 @@ class CustomButtonContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Sizes.height19,
+            AppSize.height19,
             InkWell(
               onTap: () => Navigator.push(
                   context,

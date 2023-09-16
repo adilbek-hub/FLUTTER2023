@@ -40,7 +40,7 @@ class Paid extends StatelessWidget {
                 child: Column(
                   children: [
                     CircularImage(),
-                    Sizes.height32,
+                    AppSize.height32,
                     Text(
                       AppTexts.zakazToWork,
                       style: TextStyle(
@@ -49,7 +49,7 @@ class Paid extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Sizes.height20,
+                    AppSize.height20,
                     Text(
                       AppTexts.longTexts,
                       style: TextStyle(

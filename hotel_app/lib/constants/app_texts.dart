@@ -37,5 +37,28 @@ class AppTexts {
   static const zakazToWork = 'Ваш заказ принят в работу';
   static const longTexts =
       'Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.';
+  static const vyletIz = 'Вылет из';
+  static const countryCity = 'Страна, город';
+  static const dates = 'Даты';
+  static const kolichestvoNochey = 'Кол-во ночей';
+  static const nochey = 'ночей';
+  static const hotel = 'Отель';
+  static const steigenbergerMakadi = 'Steigenberger Makadi';
+  static const numer = 'Номер';
+  static const pitanie = 'Питание';
+  static const mask = '+# (###) ###-##-##';
+  static const hint = '+1 (234) 567-89-01';
+  static const top = 'Топ';
+  static const rubley = '₽';
+  static const toplivnySbor = 'Топливный сбор';
+  static const servisnySbor = 'Сервисный сбор';
+  static const kOplate = 'К оплате';
   static const superText = 'Супер!';
+  static const kVyboruNomera = 'К выбору номера';
+  static const ot = 'от';
+  static const aboutHotel = 'Об отеле';
+  static const line = '3-я линия';
+  static const udobstva = 'Удобства';
+  static const samoeNeobhodimoe = 'Самое необходимое';
+  static const phoneStarNumber = '+7 (***) ***-**-**';
 }

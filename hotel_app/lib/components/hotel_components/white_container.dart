@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_app/constants/app_texts.dart';
 
 import 'essentials.dart';
 
@@ -19,8 +20,8 @@ class WhiteContainer extends StatelessWidget {
         children: [
           Essentials(
             assetName: 'assets/emoji-happy.svg',
-            text1: 'Удобства',
-            text2: 'Самое необходимое',
+            text1: AppTexts.udobstva,
+            text2: AppTexts.samoeNeobhodimoe,
             onPressed: () {},
           ),
           const Divider(
@@ -29,8 +30,8 @@ class WhiteContainer extends StatelessWidget {
           ),
           Essentials(
             assetName: 'assets/tick-square.svg',
-            text1: 'Удобства',
-            text2: 'Самое необходимое',
+            text1: AppTexts.udobstva,
+            text2: AppTexts.samoeNeobhodimoe,
             onPressed: () {},
           ),
           const Divider(
@@ -39,8 +40,8 @@ class WhiteContainer extends StatelessWidget {
           ),
           Essentials(
             assetName: 'assets/close-square.svg',
-            text1: 'Удобства',
-            text2: 'Самое необходимое',
+            text1: AppTexts.udobstva,
+            text2: AppTexts.samoeNeobhodimoe,
             onPressed: () {},
           ),
           const Divider(
