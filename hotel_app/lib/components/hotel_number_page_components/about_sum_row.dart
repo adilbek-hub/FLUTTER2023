@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/constants/app_colors.dart';
-
-import '../../constants/app_text_styles.dart';
+import '../../constants/constants_export.dart';
 
 class AboutSumRow extends StatelessWidget {
   const AboutSumRow({

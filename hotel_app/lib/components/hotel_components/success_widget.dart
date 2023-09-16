@@ -1,12 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_app/constants/app_colors.dart';
-import 'package:hotel_app/constants/app_texts.dart';
-
+import 'package:hotel_app/constants/constants_export.dart';
 import '../../bloc/hotel_bloc.dart';
-import '../../constants/app_size.dart';
-import '../../constants/app_text_styles.dart';
 import 'button_area.dart';
 import 'like_container.dart';
 import 'white_container.dart';

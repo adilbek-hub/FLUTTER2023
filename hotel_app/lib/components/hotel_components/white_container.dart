@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_app/constants/app_texts.dart';
-
 import 'essentials.dart';
 
 class WhiteContainer extends StatelessWidget {

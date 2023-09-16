@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hotel_app/constants/app_texts.dart';
 import 'package:hotel_app/constants/constants_export.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 

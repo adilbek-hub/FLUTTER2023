@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../constants/app_text_styles.dart';
-import '../../constants/app_texts.dart';
+import '../../constants/constants_export.dart';
 
 class ChooseNumberButton extends StatelessWidget {
   const ChooseNumberButton({

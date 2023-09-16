@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/constants/app_colors.dart';
-import 'package:hotel_app/constants/app_text_styles.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/app_texts.dart';
+import '../../constants/constants_export.dart';
 import '../custom_button.dart';
 
 class AboutCustomNavigator extends StatelessWidget {

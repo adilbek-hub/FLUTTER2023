@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/constants/app_colors.dart';
-
-import '../../constants/app_images.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 
 class CircularImage extends StatelessWidget {
   const CircularImage({

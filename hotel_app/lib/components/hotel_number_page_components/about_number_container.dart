@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:hotel_app/constants/app_colors.dart';
-import 'package:hotel_app/constants/app_text_styles.dart';
-import '../../constants/app_texts.dart';
+import '../../constants/constants_export.dart';
 
 class AboutNumberContainer extends StatelessWidget {
   const AboutNumberContainer({

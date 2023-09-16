@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_app/constants/constants_export.dart';
 
-import '../../constants/app_size.dart';
-
 class LaunchAndConditioner extends StatelessWidget {
   const LaunchAndConditioner({
     Key? key,

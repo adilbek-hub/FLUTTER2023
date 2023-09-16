@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_app/constants/app_texts.dart';
+import 'package:hotel_app/constants/constants_export.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-
 import 'booking_components/phone_manage.dart';
 
 class Variables {

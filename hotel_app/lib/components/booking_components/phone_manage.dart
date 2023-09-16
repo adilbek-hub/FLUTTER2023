@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:hotel_app/constants/constants_export.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-import '../../constants/app_texts.dart';
-
 class PhoneManage extends StatefulWidget {
   const PhoneManage({Key? key}) : super(key: key);
 

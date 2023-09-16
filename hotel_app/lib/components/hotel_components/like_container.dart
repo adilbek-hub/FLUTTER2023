@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotel_app/constants/app_texts.dart';
 import 'package:hotel_app/constants/constants_export.dart';
 import '../../bloc/hotel_bloc.dart';
 
