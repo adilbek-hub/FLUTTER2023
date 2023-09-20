@@ -18,6 +18,7 @@ class _NavBarPagesState extends State<NavBarPages> {
   final Widget _screen2 = const Jurok();
   final Widget _screen3 = AllSearchPage(
     historyTopicsModel: [],
+    biologyTopicsModel: [],
   );
   final Widget _screen4 = const Administrator();
 

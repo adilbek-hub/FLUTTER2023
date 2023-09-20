@@ -1,9 +1,13 @@
-import 'package:education/model/biology_question.dart';
-import 'package:education/pages/biology_test/biology_test.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/biology_model.dart';
+import 'package:education/model/biology_question.dart';
+import 'package:education/pages/biology_test/biology_test.dart';
+
 class KishiJanaJanybar extends StatelessWidget {
-  const KishiJanaJanybar({super.key});
+  const KishiJanaJanybar({Key? key, required this.biologyTopicsModel})
+      : super(key: key);
+  final List<BiologyTopicsModel> biologyTopicsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +23,24 @@ class KishiJanaJanybar extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Кишинин сүт эмүүчү жаныбарлар менен окшоштугу жана айырмачылыгы',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[0].title,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Биологиядагы адамдар менен сүт эмүүчүлөрдүн ортосундагы окшоштуктарды жана айырмачылыктарды ар кандай көз караштардан кароого болот. Бул жерде алардын айрымдары:',
+                Text(
+                  biologyTopicsModel[0].aboutManAndAnimal![0].description1,
                   style: TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  '1.Организмдин түзүлүшү жана функциялары:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[0].aboutManAndAnimal![0].description2,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -44,28 +48,34 @@ class KishiJanaJanybar extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Окшоштуктар: ',
-                        style: TextStyle(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description3,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            'Адамдар сыяктуу эле, сүт эмүүчүлөрдүн нерв, кан айлануу, дем алуу жана тамак сиңирүү системалары сыяктуу ар кандай системалардан турган татаал дене түзүлүшүнө ээ.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description4,
                       ),
                       TextSpan(
-                        text: ' Айырмасы: ',
-                        style: TextStyle(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description5,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            'Адамдардын уникалдуу анатомиялык өзгөчөлүктөрү бар, мисалы, тик туруу, чоң мээнин өнүгүшү жана куралды колдонуу.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description6,
                       ),
                     ],
                   ),
@@ -73,9 +83,9 @@ class KishiJanaJanybar extends StatelessWidget {
                 ),
                 ////////////
                 const SizedBox(height: 10),
-                const Text(
-                  '2.Сүт берүү:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[0].aboutManAndAnimal![0].description7,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -83,28 +93,34 @@ class KishiJanaJanybar extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Окшоштуктары:',
-                        style: TextStyle(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description8,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Башка сүт эмүүчүлөр сыяктуу эле, адамдар балдарын сүт бездери чыгарган сүт менен азыктандырышат.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description9,
                       ),
                       TextSpan(
-                        text: '\nАйырмасы:',
-                        style: TextStyle(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description10,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Жеке адам бала эмизүү процессинин тегерегинде социалдык жана маданий аспектилерди иштеп чыккан, мисалы, бирге тамактандыруу жана узак мөөнөттүү үзгүлтүктүү эмчек эмизүү.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description11,
                       ),
                     ],
                   ),
@@ -112,9 +128,9 @@ class KishiJanaJanybar extends StatelessWidget {
                 ),
                 //////////////
                 const SizedBox(height: 10),
-                const Text(
-                  '3.Интеллект жана жүрүм-турум:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[0].aboutManAndAnimal![0].description13,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -122,28 +138,34 @@ class KishiJanaJanybar extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Окшоштуктары:',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description14,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description15,
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description16,
                         style: TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            'Сүт эмүүчүлөрдүн жана адамдардын өнүккөн нерв системасы бар, ал аларды курчап турган дүйнөнү үйрөнүү, эстеп калуу жана кабылдоо жөндөмүн камсыз кылат.',
-                      ),
-                      TextSpan(
-                        text: '\nАйырмасы:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Адамда тил, маданият, абстракттуу ой жүгүртүү жана чыгармачылык сыяктуу өнүккөн интеллект жана татаал коомдук жүрүм-турум бар.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description17,
                       ),
                     ],
                   ),
@@ -151,9 +173,10 @@ class KishiJanaJanybar extends StatelessWidget {
                 ),
                 /////////////
                 const SizedBox(height: 10),
-                const Text(
-                  '4.Экология жана адаптациялар:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[0].aboutManAndAnimal![0].description18 ??
+                      '',
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -161,29 +184,35 @@ class KishiJanaJanybar extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\nАйырмасы:',
-                        style: TextStyle(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description19,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
-                        text:
-                            ' Адам өзүнүн жогорку деңгээлде өнүккөн интеллектинин жана технологиялык прогрессинин жардамы менен башка сүт эмүүчүлөргө караганда айлана-чөйрөнү алда канча көбүрөөк өзгөртүүгө жөндөмдүү. Адам жаңы экосистемаларды түзө алат, жаратылыш ресурстарын өзгөртө алат жана биологиялык ар түрдүүлүккө башка жаныбарларга таасир эте албайт.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description20,
                       ),
                       TextSpan(
-                        text: '\nМаданий адаптациялар:',
-                        style: TextStyle(
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description21,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 80, 108, 250),
                             fontWeight: FontWeight.w600,
                             fontStyle: FontStyle.italic),
                       ),
                       TextSpan(
-                        text:
-                            '\nАдам ошондой эле ар кандай экологиялык шарттарда аман калууга жана өнүгүүгө жардам берген технологияларды, социалдык структураларды, диний жана маданий практикаларды камтыган маданий адаптацияларды иштеп чыгууга жана берүүгө жөндөмдүү.',
+                        text: biologyTopicsModel[0]
+                            .aboutManAndAnimal![0]
+                            .description22,
                       ),
                     ],
                   ),

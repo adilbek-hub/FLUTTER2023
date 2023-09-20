@@ -1,9 +1,13 @@
-import 'package:education/model/biology_question.dart';
-import 'package:education/pages/biology_test/kletka_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/biology_question.dart';
+import 'package:education/pages/biology_test/kletka_test_page.dart';
+
+import '../../model/biology_model.dart';
+
 class Kletka extends StatelessWidget {
-  const Kletka({super.key});
+  const Kletka({Key? key, required this.biologyTopicsModel}) : super(key: key);
+  final List<BiologyTopicsModel> biologyTopicsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +23,24 @@ class Kletka extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Клетка',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[1].aboutKletka![0].title,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Биологияда «клетка» термини тирүү организмдердин негизги структуралык жана функциялык бирдигин билдирет. Клетка бүт жандыктардын негизги курулуш материалы болуп саналат жана көптөгөн маанилүү кызматтарды аткарат. Бул жерде биологияда клетканын кээ бир негизги аспектилери болуп төмөндө көрсөтүлөт:',
+                Text(
+                  biologyTopicsModel[1].aboutKletka![0].description0,
                   style: TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  '1. Клетканын түзүлүшү:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[1].aboutKletka![0].description1,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -44,28 +48,24 @@ class Kletka extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                            '• Мембрана: клетканы курчап турган жана аны сырткы чөйрөдөн бөлүп турган жука кабыкча. Ал клетка менен айлана-чөйрөнүн ортосундагы заттардын жана маалыматтын агымын көзөмөлдөйт.',
+                            biologyTopicsModel[1].aboutKletka![0].description2,
                       ),
                       TextSpan(
                         text:
-                            '\n• Цитоплазма: Гелеподобное вещество внутри клетки, заполняющее пространство между ядром и клеточной мембраной. В ней располагаются различные органеллы и молекулы. ',
+                            biologyTopicsModel[1].aboutKletka![0].description3,
                       ),
                       TextSpan(
                         text:
-                            '\n• Ядро: ДНК түрүндөгү генетикалык маалыматты камтыган клетканын башкаруу борбору. Ядро клетканын функцияларын башкарат жана клетканын бөлүнүшү учурунда генетикалык маалыматты өткөрөт.',
+                            biologyTopicsModel[1].aboutKletka![0].description4,
                       ),
                       TextSpan(
                         text:
-                            '\n• Органеллалар: Цитоплазманын ичинде митохондрия (энергия өндүрүү үчүн жооптуу), эндоплазмалык ретикулум (белок синтезине катышат) жана Гольджи (молекулаларды иштетүү жана таңгактоо үчүн жооптуу) сыяктуу ар кандай адистештирилген органеллалар бар.',
-                      ),
-                      TextSpan(
-                        text:
-                            '\n• Органеллалар: Цитоплазманын ичинде митохондрия (энергия өндүрүү үчүн жооптуу), эндоплазмалык ретикулум (белок синтезине катышат) жана Гольджи (молекулаларды иштетүү жана таңгактоо үчүн жооптуу) сыяктуу ар кандай адистештирилген органеллалар бар.',
+                            biologyTopicsModel[1].aboutKletka![0].description5,
                       ),
                     ],
                   ),
@@ -73,33 +73,33 @@ class Kletka extends StatelessWidget {
                 ),
                 ////////////
                 const SizedBox(height: 10),
-                const Text(
-                  '2. Клетка функциялары:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[1].aboutKletka![0].description6,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
                   ),
                   textAlign: TextAlign.start,
                 ),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                            '\n• Көбөйүү: Клеткалар бөлүнүү жолу менен көбөйүп, эки кыз клетканы пайда кылышат. Бул процесс митоз деп аталат жана организмдердин өсүп-өнүгүшүнүн негизи болуп саналат.',
+                            biologyTopicsModel[1].aboutKletka![0].description7,
                       ),
                       TextSpan(
                         text:
-                            '\n• Метаболизм: Клеткалар айлана-чөйрө менен метаболизмди ишке ашырат, аш болумдуу заттарды соруп, зат алмашуунун калдыктарын сыртка чыгарышат.',
+                            biologyTopicsModel[1].aboutKletka![0].description8,
                       ),
                       TextSpan(
                         text:
-                            '\n• Энергия өндүрүшү: кээ бир клеткалык органеллдер, мисалы, митохондриялар, клетка функцияларын аткаруу үчүн керектүү энергияны өндүрүшөт.',
+                            biologyTopicsModel[1].aboutKletka![0].description9,
                       ),
                       TextSpan(
                         text:
-                            '\n• Протеин синтези: Клеткалар организмдин түзүлүшүндө жана иштешинде маанилүү роль ойногон ар кандай белокторду синтездейт.',
+                            biologyTopicsModel[1].aboutKletka![0].description10,
                       ),
                     ],
                   ),

@@ -96,7 +96,7 @@ class About {
   String description15;
   String description16;
   String description17;
-  String? description18;
+  String description18;
   String? description19;
   String? description20;
   String? description21;
@@ -122,7 +122,7 @@ class About {
     required this.description15,
     required this.description16,
     required this.description17,
-    this.description18,
+    required this.description18,
     this.description19,
     this.description20,
     this.description21,

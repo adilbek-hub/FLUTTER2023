@@ -1,9 +1,13 @@
-import 'package:education/model/biology_question.dart';
-import 'package:education/pages/biology_test/mee_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/biology_question.dart';
+import 'package:education/pages/biology_test/mee_test_page.dart';
+
+import '../../model/biology_model.dart';
+
 class Mee extends StatelessWidget {
-  const Mee({super.key});
+  const Mee({Key? key, required this.biologyTopicsModel}) : super(key: key);
+  final List<BiologyTopicsModel> biologyTopicsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +23,24 @@ class Mee extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Мээ',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[3].aboutBrain![0].title,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Мээ адамдардын жана башка көптөгөн жаныбарлардын борбордук нерв системасынын эң татаал жана маанилүү органы болуп саналат. Ал маалыматты иштеп чыгуу, жүрүм-турумун көзөмөлдөө, кыймылды координациялоо жана дененин маанилүү функцияларын колдоо менен байланышкан көптөгөн функцияларды аткарат. Бул жерде мээнин кээ бир негизги аспектилери болуп саналат:',
+                Text(
+                  biologyTopicsModel[3].aboutBrain![0].description0 ?? '',
                   style: TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  '1.Мээ анатомиясы:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[3].aboutBrain![0].description1,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -44,58 +48,55 @@ class Mee extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Баш мээ: ',
-                        style: TextStyle(
+                        text: biologyTopicsModel[3].aboutBrain![0].description2,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description4,
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description3,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description5,
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description6,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description7,
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description8,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: biologyTopicsModel[3].aboutBrain![0].description9,
+                      ),
+                      TextSpan(
+                        text:
+                            biologyTopicsModel[3].aboutBrain![0].description10,
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
                         text:
-                            'Бул эки жарым шардан турган мээнин эң чоң бөлүгү. Ар бир жарым шар ар кандай функцияларды аткаруу үчүн адистештирилген бир нече маңдай, убактылуу, париеталдык жана желке бөлүктөргө бөлүнөт.',
-                      ),
-                      TextSpan(
-                        text: '\nМээче:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Ал мээнин арткы бөлүгүндө жайгашкан жана координация, тең салмактуулук жана булчуңдарды башкаруу үчүн жооптуу.',
-                      ),
-                      TextSpan(
-                        text: '\nОртоңку мээ:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Аң-сезимди, сергектикти жана стимулдарды баамдоону жөнгө салууда роль ойногон торчо формацияны камтыйт.',
-                      ),
-                      TextSpan(
-                        text: '\nАралык мээ:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Гипоталамус жана таламус кирет, алар ички органдарды, эмоцияларды жана ар кандай дүүлүктүрүүчүлөргө реакцияларды жөнгө салууга катышат.',
-                      ),
-                      TextSpan(
-                        text: '\nАрткы мээ:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Мээ менен жүлүндүн ортосунда сигналдарды өткөрүүдө, ошондой эле дем алуу жана жүрөктүн согушу сыяктуу негизги маанилүү функцияларды башкарууда роль ойногон medulla oblongata жана pons кирет.',
+                            biologyTopicsModel[3].aboutBrain![0].description11,
                       ),
                     ],
                   ),
@@ -103,9 +104,9 @@ class Mee extends StatelessWidget {
                 ),
                 ////////////
                 const SizedBox(height: 10),
-                const Text(
-                  '2.Мээнин функциялары:',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[3].aboutBrain![0].description12,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                     decoration: TextDecoration.underline,
@@ -113,38 +114,41 @@ class Mee extends StatelessWidget {
                   textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 3),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Когнитивдик функциялар:',
+                        text:
+                            biologyTopicsModel[3].aboutBrain![0].description13,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text:
+                            biologyTopicsModel[3].aboutBrain![0].description14,
+                      ),
+                      TextSpan(
+                        text:
+                            biologyTopicsModel[3].aboutBrain![0].description15,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 250, 125, 80),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text:
+                            biologyTopicsModel[3].aboutBrain![0].description16,
+                      ),
+                      TextSpan(
+                        text:
+                            biologyTopicsModel[3].aboutBrain![0].description17,
                         style: TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
                       TextSpan(
                         text:
-                            ' Мээ маалыматты иштетүү, эс тутум, ой жүгүртүү, кабылдоо, сүйлөө жана маселелерди чечүү үчүн жооптуу.',
-                      ),
-                      TextSpan(
-                        text: '\nКыймылды башкаруу:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Мээ ылдамдык, күч жана тактык сыяктуу ар кандай кыймылдарды аткаруу үчүн булчуңдарды координациялайт жана башкарат.',
-                      ),
-                      TextSpan(
-                        text: '\nОрганды жөнгө салуу:',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 250, 125, 80),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text:
-                            ' Эмоциялар жана жүрүм-турум: Мээ бир нече механизмдер аркылуу эмоцияларды жөнгө салууга жана жүрүм-турумду калыптандырууга катышат.',
+                            " ${biologyTopicsModel[3].aboutBrain![0].description18}",
                       ),
                     ],
                   ),

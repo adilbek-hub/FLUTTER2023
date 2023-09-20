@@ -1,10 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/biology_model.dart';
+import 'package:education/pages/topic_pages_about_biology/topic_pages_about_biology.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class BiologyBolumuWidget extends StatelessWidget {
+import '../../pages/topic_pages_about_biology/kishsi_jana_janybar.dart';
+
+class BiologyBolumuWidget extends StatefulWidget {
   const BiologyBolumuWidget({
     super.key,
     required PageController pageController,
@@ -15,6 +18,11 @@ class BiologyBolumuWidget extends StatelessWidget {
   final List<BiologyTopicsModel> biologyBolumuTopicsModel;
 
   @override
+  State<BiologyBolumuWidget> createState() => _BiologyBolumuWidgetState();
+}
+
+class _BiologyBolumuWidgetState extends State<BiologyBolumuWidget> {
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -22,14 +30,17 @@ class BiologyBolumuWidget extends StatelessWidget {
           height: 300,
           width: 300,
           child: PageView.builder(
-            controller: _pageController,
+            controller: widget._pageController,
             scrollDirection: Axis.horizontal,
-            itemCount: biologyBolumuTopicsModel.length,
+            itemCount: widget.biologyBolumuTopicsModel.length,
             itemBuilder: (BuildContext context, int index) {
-              final biology = biologyBolumuTopicsModel[index];
+              final biology = widget.biologyBolumuTopicsModel[index];
               return Padding(
                 padding: const EdgeInsets.all(10),
                 child: InkWell(
+                  onTap: () {
+                    forPages(index);
+                  },
                   child: SizedBox(
                     height: 300,
                     width: 300,
@@ -96,8 +107,8 @@ class BiologyBolumuWidget extends StatelessWidget {
           ),
         ),
         SmoothPageIndicator(
-          controller: _pageController,
-          count: biologyBolumuTopicsModel.length,
+          controller: widget._pageController,
+          count: widget.biologyBolumuTopicsModel.length,
           effect: JumpingDotEffect(
             activeDotColor: Colors.deepPurple,
             dotColor: Colors.deepPurple.shade100,
@@ -109,5 +120,34 @@ class BiologyBolumuWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  int currentIndex = 0;
+  void forPages(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return currentIndex == 0
+              ? KishiJanaJanybar(
+                  biologyTopicsModel: widget.biologyBolumuTopicsModel,
+                )
+              : currentIndex == 1
+                  ? Kletka(
+                      biologyTopicsModel: widget.biologyBolumuTopicsModel,
+                    )
+                  : currentIndex == 2
+                      ? NervSistemasy(
+                          biologyTopicsModel: widget.biologyBolumuTopicsModel,
+                        )
+                      : Mee(
+                          biologyTopicsModel: widget.biologyBolumuTopicsModel,
+                        );
+        },
+      ),
+    );
+    setState(() {
+      currentIndex = index;
+    });
   }
 }

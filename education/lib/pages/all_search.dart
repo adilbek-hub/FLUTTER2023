@@ -1,3 +1,4 @@
+import 'package:education/model/biology_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:education/model/informatica_model.dart';
@@ -16,9 +17,13 @@ import 'topic_pages_about_biology/topic_pages_about_biology.dart';
 import 'topic_pages_about_geography/topic_pages_about_geography.dart';
 
 class AllSearchPage extends StatefulWidget {
-  const AllSearchPage({Key? key, required this.historyTopicsModel})
+  const AllSearchPage(
+      {Key? key,
+      required this.historyTopicsModel,
+      required this.biologyTopicsModel})
       : super(key: key);
   final List<HistoryTopicsModel> historyTopicsModel;
+  final List<BiologyTopicsModel> biologyTopicsModel;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -86,25 +91,41 @@ class _AllSearchPageState extends State<AllSearchPage> {
       case "Кишинин сүт эмүүчү жаныбарлар менен окшоштугу жана айырмачылыгы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const KishiJanaJanybar()),
+          MaterialPageRoute(
+            builder: (context) => KishiJanaJanybar(
+              biologyTopicsModel: widget.biologyTopicsModel,
+            ),
+          ),
         );
         break;
       case "Клетка жөнүндө түшүнүк":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Kletka()),
+          MaterialPageRoute(
+            builder: (context) => Kletka(
+              biologyTopicsModel: widget.biologyTopicsModel,
+            ),
+          ),
         );
         break;
       case "Нерв системасынын түзүлүшү жана анын кызматы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const NervSistemasy()),
+          MaterialPageRoute(
+            builder: (context) => NervSistemasy(
+              biologyTopicsModel: widget.biologyTopicsModel,
+            ),
+          ),
         );
         break;
       case "Mee":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Mee()),
+          MaterialPageRoute(
+            builder: (context) => Mee(
+              biologyTopicsModel: widget.biologyTopicsModel,
+            ),
+          ),
         );
         break;
       case "Рим империясы":

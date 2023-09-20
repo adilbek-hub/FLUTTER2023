@@ -1,9 +1,14 @@
-import 'package:education/model/biology_question.dart';
-import 'package:education/pages/biology_test/nerv_sistemasy_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/biology_question.dart';
+import 'package:education/pages/biology_test/nerv_sistemasy_test_page.dart';
+
+import '../../model/biology_model.dart';
+
 class NervSistemasy extends StatelessWidget {
-  const NervSistemasy({super.key});
+  const NervSistemasy({Key? key, required this.biologyTopicsModel})
+      : super(key: key);
+  final List<BiologyTopicsModel> biologyTopicsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,60 +24,60 @@ class NervSistemasy extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 5),
-                const Text(
-                  'Нерв системасы',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[2].aboutNervous![0].title,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 5),
-                const Text(
-                  'Нерв системасы – сигналдарды берүүчү жана организмдин ишин координациялоочу түзүлүштөрдүн жана органдардын татаал тармагы. Ал дененин бардык функцияларын, анын ичинде кыймылды, кабылдоону, ой жүгүртүүнү, эс тутумду, эмоцияларды жана башка көптөгөн процесстерди жөнгө салууда жана көзөмөлдөөдө негизги ролду ойнойт.',
+                Text(
+                  biologyTopicsModel[2].aboutNervous![0].description0,
                   style: TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
-                const Text(
-                  'Нерв системасы эки негизги компоненттен турат: борбордук нерв системасы (БНС) жана перифериялык нерв системасы (ПНС).',
-                  style: TextStyle(color: Colors.black),
+                Text(
+                  biologyTopicsModel[2].aboutNervous![0].description1,
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  '1. Борбордук нерв системасы (CNS): мээ жана жүлүн камтыйт. Мээ баш сөөктө жайгашкан жана дененин булчуңдарды координациялоо, эс тутум, ой жүгүртүү, сезим жана жүрүм-турум сыяктуу негизги функцияларын башкарат. Жүлүн жүлүн каналынын ичинде өтөт жана мээ менен дененин калган бөлүгүнүн ортосунда сигналдарды өткөрүү үчүн жооптуу.',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[2].aboutNervous![0].description2,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.justify,
                 ),
-                const Text(
-                  '2. Перифериялык нерв системасы (PNS): мээден жана жүлүндөн чыккан жана бүт денени кыдырган бардык нервдерди камтыйт. PNS соматикалык жана вегетативдик нерв системаларына бөлүнөт.',
-                  style: TextStyle(
+                Text(
+                  biologyTopicsModel[2].aboutNervous![0].description3,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.justify,
                 ),
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                            '\n• Соматикалык нерв системасы аң-сезимдүү кыймылдарды жана кабылдагычтардан (мисалы, көз, кулак, тери) борбордук нерв системасына маалымат берүүнү башкарат.',
+                            biologyTopicsModel[2].aboutNervous![0].description4,
                       ),
                       TextSpan(
                         text:
-                            '\n• Вегетативдик нерв системасы жүрөктүн согушу, дем алуу, тамак сиңирүү жана бөлүп чыгаруу сыяктуу организмдин автоматтык функцияларын жөнгө салат. Ал андан ары симпатикалык жана парасимпатикалык системаларга бөлүнөт, алар организмде тең салмактуулукту сактоо үчүн өз ара аракеттенишет.',
+                            biologyTopicsModel[2].aboutNervous![0].description5,
                       ),
                     ],
                   ),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  'Нерв системасынын функцияларына нерв импульстарын берүү, кыймылдарды координациялоо, маалыматты иштетүү, органдардын жана системалардын ишин жөнгө салуу, эмоцияларды жана эс тутумду колдоо, ошондой эле мейкиндикте тең салмактуулукту жана багытты башкаруу кирет.Нерв системасы организм менен айлана-чөйрөнүн ортосундагы байланышты камсыз кылууда негизги ролду ойноп, кабылдоого мүмкүндүк берет',
+                Text(
+                  biologyTopicsModel[2].aboutNervous![0].description6,
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
