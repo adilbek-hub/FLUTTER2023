@@ -9,12 +9,14 @@ class Biologgy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const BiologyContainer(),
-          Expanded(child: BiologyTopics()),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            const BiologyContainer(),
+            Expanded(child: BiologyTopics()),
+          ],
+        ),
       ),
     );
   }
