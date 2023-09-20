@@ -1,9 +1,14 @@
-import 'package:education/model/history_question.dart';
-import 'package:education/pages/history_test/bayrky_germandyktar_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/history_question.dart';
+import 'package:education/pages/history_test/bayrky_germandyktar_test_page.dart';
+
+import '../../model/history_model.dart';
+
 class Germandyktar extends StatelessWidget {
-  const Germandyktar({super.key});
+  const Germandyktar({Key? key, required this.historyTopicsModel})
+      : super(key: key);
+  final List<HistoryTopicsModel> historyTopicsModel;
 
   @override
   Widget build(BuildContext context) {

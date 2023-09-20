@@ -10,8 +10,12 @@ sealed class EducationState extends Equatable {
 class EducationLoading extends EducationState {}
 
 class EducationSuccess extends EducationState {
-  const EducationSuccess({required this.subjects2});
+  const EducationSuccess({
+    required this.subjects2,
+    required this.historyTopicsModel,
+  });
   final InformaticaTopics subjects2;
+  final List<HistoryTopicsModel> historyTopicsModel;
 }
 
 class EducationError extends EducationState {

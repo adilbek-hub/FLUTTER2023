@@ -1,9 +1,13 @@
-import 'package:education/model/history_question.dart';
-import 'package:education/pages/history_test/italia_5_10_kylym_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/history_question.dart';
+import 'package:education/pages/history_test/italia_5_10_kylym_test_page.dart';
+
+import '../../model/history_model.dart';
+
 class Italia extends StatelessWidget {
-  const Italia({super.key});
+  const Italia({Key? key, required this.historyTopicsModel}) : super(key: key);
+  final List<HistoryTopicsModel> historyTopicsModel;
 
   @override
   Widget build(BuildContext context) {

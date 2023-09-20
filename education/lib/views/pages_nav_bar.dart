@@ -16,7 +16,9 @@ class _NavBarPagesState extends State<NavBarPages> {
   int selectedIndex = 0;
   final Widget _screen1 = const BooksView();
   final Widget _screen2 = const Jurok();
-  final Widget _screen3 = const AllSearchPage();
+  final Widget _screen3 = AllSearchPage(
+    historyTopicsModel: [],
+  );
   final Widget _screen4 = const Administrator();
 
   @override

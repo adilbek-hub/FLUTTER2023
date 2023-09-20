@@ -1,5 +1,5 @@
 import 'package:education/components/biologgy.dart';
-import 'package:education/components/history.dart';
+import 'package:education/components/history_bolumu/history.dart';
 import 'package:education/components/informatica_bolumu/informatica.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography.dart';

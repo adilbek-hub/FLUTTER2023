@@ -1,9 +1,13 @@
-import 'package:education/model/history_question.dart';
-import 'package:education/pages/history_test/rim_imperiasy_test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'package:education/model/history_question.dart';
+import 'package:education/pages/history_test/rim_imperiasy_test_page.dart';
+
+import '../../model/history_model.dart';
+
 class Rim extends StatelessWidget {
-  const Rim({super.key});
+  const Rim({Key? key, required this.historyTopicsModel}) : super(key: key);
+  final List<HistoryTopicsModel> historyTopicsModel;
 
   @override
   Widget build(BuildContext context) {

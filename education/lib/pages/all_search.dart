@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:education/model/subjects.dart';
 import 'package:education/model/informatica_model.dart';
+import 'package:education/model/subjects.dart';
 import 'package:education/pages/topic_pages_about_geography/world_capitals.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
@@ -11,13 +11,14 @@ import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmak
 import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
 import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
 
+import '../model/history_model.dart';
 import 'topic_pages_about_biology/topic_pages_about_biology.dart';
 import 'topic_pages_about_geography/topic_pages_about_geography.dart';
 
 class AllSearchPage extends StatefulWidget {
-  const AllSearchPage({
-    Key? key,
-  }) : super(key: key);
+  const AllSearchPage({Key? key, required this.historyTopicsModel})
+      : super(key: key);
+  final List<HistoryTopicsModel> historyTopicsModel;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -109,25 +110,37 @@ class _AllSearchPageState extends State<AllSearchPage> {
       case "Рим империясы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Rim()),
+          MaterialPageRoute(
+              builder: (context) => Rim(
+                    historyTopicsModel: widget.historyTopicsModel,
+                  )),
         );
         break;
       case "Байыркы Германдыктар":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Germandyktar()),
+          MaterialPageRoute(
+              builder: (context) => Germandyktar(
+                    historyTopicsModel: widget.historyTopicsModel,
+                  )),
         );
         break;
       case "Италия V X кылымдарда":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Italia()),
+          MaterialPageRoute(
+              builder: (context) => Italia(
+                    historyTopicsModel: widget.historyTopicsModel,
+                  )),
         );
         break;
       case "Немис королдугунун жаралышы":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const NemisKoroldugu()),
+          MaterialPageRoute(
+              builder: (context) => NemisKoroldugu(
+                    historyTopicsModel: widget.historyTopicsModel,
+                  )),
         );
         break;
       // case "Personal":

@@ -28,23 +28,25 @@ class _InformaticaBolumuWidgetState extends State<InformaticaBolumuWidget> {
   void forPages(int index) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) {
-        return currentIndex == 0
-            ? ComputerFunksialary(
-                informaticatopics: widget.informaticaTopics,
-              )
-            : currentIndex == 1
-                ? PersonalComputers(
-                    informaticaTopics: widget.informaticaTopics,
-                  )
-                : currentIndex == 2
-                    ? ComputerdicTarmaktar(
-                        informaticaTopics: widget.informaticaTopics,
-                      )
-                    : SistemalykProgrammalykKamsyzdoo(
-                        informaticaTopics: widget.informaticaTopics,
-                      );
-      }),
+      MaterialPageRoute(
+        builder: (context) {
+          return currentIndex == 0
+              ? ComputerFunksialary(
+                  informaticatopics: widget.informaticaTopics,
+                )
+              : currentIndex == 1
+                  ? PersonalComputers(
+                      informaticaTopics: widget.informaticaTopics,
+                    )
+                  : currentIndex == 2
+                      ? ComputerdicTarmaktar(
+                          informaticaTopics: widget.informaticaTopics,
+                        )
+                      : SistemalykProgrammalykKamsyzdoo(
+                          informaticaTopics: widget.informaticaTopics,
+                        );
+        },
+      ),
     );
     setState(() {
       currentIndex = index;

@@ -1,4 +1,5 @@
 import 'package:education/bloc/education_bloc.dart';
+import 'package:education/services/history_toics_service.dart';
 import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          EducationBloc(subjectService)..add(EducationRefreshEvent()),
+      create: (context) => EducationBloc(subjectService, historyTopicsService)
+        ..add(EducationRefreshEvent()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
