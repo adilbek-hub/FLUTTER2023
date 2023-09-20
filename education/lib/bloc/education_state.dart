@@ -13,9 +13,11 @@ class EducationSuccess extends EducationState {
   const EducationSuccess({
     required this.subjects2,
     required this.historyTopicsModel,
+    required this.biologyTopicsModel,
   });
   final InformaticaTopics subjects2;
   final List<HistoryTopicsModel> historyTopicsModel;
+  final List<BiologyTopicsModel> biologyTopicsModel;
 }
 
 class EducationError extends EducationState {
