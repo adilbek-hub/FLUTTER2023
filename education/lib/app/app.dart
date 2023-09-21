@@ -1,5 +1,6 @@
 import 'package:education/bloc/education_bloc.dart';
 import 'package:education/services/biology_topics_service.dart';
+import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/history_toics_service.dart';
 import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         subjectService,
         historyTopicsService,
         biologyTopicsService,
+        geographyTopicsService,
       )..add(EducationRefreshEvent()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -10,9 +10,9 @@ import '../../model/geography_model.dart';
 class EuropeContinenti extends StatelessWidget {
   const EuropeContinenti({
     Key? key,
-    this.europeCountries,
+    required this.geographyTopicsModel,
   }) : super(key: key);
-  final GeographyTopicsModel? europeCountries;
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   Widget build(BuildContext context) {

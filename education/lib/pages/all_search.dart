@@ -1,29 +1,25 @@
 import 'package:education/model/biology_model.dart';
+import 'package:education/model/geography_model.dart';
 import 'package:flutter/material.dart';
-
-import 'package:education/model/informatica_model.dart';
-import 'package:education/model/subjects.dart';
 import 'package:education/pages/topic_pages_about_geography/world_capitals.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
 import 'package:education/pages/topic_pages_about_history/nemis_koroldugu.dart';
 import 'package:education/pages/topic_pages_about_history/rim.dart';
-import 'package:education/pages/topic_pages_about_informatics/computerdik_tarmaktar.dart';
-import 'package:education/pages/topic_pages_about_informatics/personal_computer.dart';
-import 'package:education/pages/topic_pages_about_informatics/sistemalyk_programmalyk_kamsyzdoo.dart';
-
 import '../model/history_model.dart';
 import 'topic_pages_about_biology/topic_pages_about_biology.dart';
 import 'topic_pages_about_geography/topic_pages_about_geography.dart';
 
 class AllSearchPage extends StatefulWidget {
-  const AllSearchPage(
-      {Key? key,
-      required this.historyTopicsModel,
-      required this.biologyTopicsModel})
-      : super(key: key);
+  const AllSearchPage({
+    Key? key,
+    required this.historyTopicsModel,
+    required this.biologyTopicsModel,
+    required this.geographyTopicsModel,
+  }) : super(key: key);
   final List<HistoryTopicsModel> historyTopicsModel;
   final List<BiologyTopicsModel> biologyTopicsModel;
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -72,14 +68,20 @@ class _AllSearchPageState extends State<AllSearchPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const EuropeContinenti(),
+            builder: (context) => EuropeContinenti(
+              geographyTopicsModel: widget.geographyTopicsModel,
+            ),
           ),
         );
         break;
       case "Америка Кошмо Штаттары":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const UnitedStates()),
+          MaterialPageRoute(
+            builder: (context) => UnitedStates(
+              geographyTopicsModel: widget.geographyTopicsModel,
+            ),
+          ),
         );
         break;
       case "Борбор шаарлар":

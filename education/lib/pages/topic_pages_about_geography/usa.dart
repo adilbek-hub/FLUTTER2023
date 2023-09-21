@@ -3,8 +3,11 @@ import 'package:education/model/usa_suroo.dart';
 import 'package:education/pages/geography_test/usa_test_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../model/geography_model.dart';
+
 class UnitedStates extends StatelessWidget {
-  const UnitedStates({super.key});
+  const UnitedStates({super.key, required this.geographyTopicsModel});
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   Widget build(BuildContext context) {

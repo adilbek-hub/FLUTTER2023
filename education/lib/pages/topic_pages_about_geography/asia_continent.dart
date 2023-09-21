@@ -4,8 +4,11 @@ import 'package:education/pages/geography_test/asia_test_page.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../model/geography_model.dart';
+
 class AsiaContinenti extends StatelessWidget {
-  const AsiaContinenti({super.key});
+  const AsiaContinenti({super.key, required this.geographyTopicsModel});
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   Widget build(BuildContext context) {

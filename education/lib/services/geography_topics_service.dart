@@ -1,14 +1,14 @@
+import 'package:education/model/geography_model.dart';
 import 'package:http/http.dart' as http;
+import '../model/history_model.dart';
 
-import '../model/geography_model.dart';
-
-class GeographyTopicsService {
-  const GeographyTopicsService({required this.client});
+class GeograhyTopicsService {
+  const GeograhyTopicsService({required this.client});
   final http.Client client;
-  Future<GeographyTopicsModel?> getData() async {
+  Future<List<GeographyTopicsModel>?> getData() async {
     try {
       final response = await http.get(Uri.parse(
-          'https://adilbek-hub.github.io/my_data/geography_data.json'));
+          'https://adilbek-hub.github.io/my_data/geography_data2.json'));
 
       if (response.statusCode == 200) {
         final data = geographyTopicsModelFromJson(response.body);
@@ -23,6 +23,6 @@ class GeographyTopicsService {
   }
 }
 
-final geographyTopicsService = GeographyTopicsService(
+final geographyTopicsService = GeograhyTopicsService(
   client: http.Client(),
 );

@@ -1,59 +1,53 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
-import 'package:education/model/subjects.dart';
-import 'package:education/pages/topic_pages_about_geography/asia_continent.dart';
-import 'package:education/pages/topic_pages_about_geography/europe_continent.dart';
-import 'package:education/pages/topic_pages_about_geography/usa.dart';
-import 'package:education/pages/topic_pages_about_geography/world_capitals.dart';
+import 'package:education/pages/topic_pages_about_geography/topic_pages_about_geography.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:education/model/geography_model.dart';
+import '../bloc/education_bloc.dart';
 
-import '../model/geography_model.dart';
-import '../services/geography_topics_service.dart';
-import 'package:http/http.dart' as http;
-
-class GeographyTopics extends StatefulWidget {
-  const GeographyTopics({super.key});
-
+class GeographyTopics extends StatelessWidget {
+  GeographyTopics({
+    super.key,
+  });
+  final _pageController = PageController();
   @override
-  State<GeographyTopics> createState() => _GeographyTopicsState();
+  Widget build(BuildContext context) {
+    return BlocBuilder<EducationBloc, EducationState>(
+      builder: (context, state) {
+        if (state is EducationLoading) {
+          return const CupertinoActivityIndicator(color: Colors.blue);
+        } else if (state is EducationError) {
+          return Text(state.text);
+        } else if (state is EducationSuccess) {
+          return GeographyBolumuWidget(
+            geographyTopicsModel: state.geographyTopicsModel,
+            pageController: _pageController,
+          );
+        } else {
+          return throw ('ERROR unknown');
+        }
+      },
+    );
+  }
 }
 
-class _GeographyTopicsState extends State<GeographyTopics> {
-  GeographyTopicsModel? geographyTopicsModel;
-  Future<void> fetchGeography() async {
-    geographyTopicsModel =
-        await GeographyTopicsService(client: http.Client()).getData();
-    setState(() {});
-  }
+class GeographyBolumuWidget extends StatefulWidget {
+  const GeographyBolumuWidget({
+    super.key,
+    required PageController pageController,
+    required this.geographyTopicsModel,
+  }) : _pageController = pageController;
+
+  final PageController _pageController;
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
-  void initState() {
-    super.initState();
-    fetchGeography();
-  }
+  State<GeographyBolumuWidget> createState() => _GeographyBolumuWidgetState();
+}
 
-  final _pageController = PageController();
-
-  int currentIndex = 0;
-  void forPages(int index) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) {
-        return currentIndex == 0
-            ? const EuropeContinenti()
-            : currentIndex == 1
-                ? const UnitedStates()
-                : currentIndex == 2
-                    ? const AsiaContinenti()
-                    : const WorldCapitals();
-      }),
-    );
-    setState(() {
-      currentIndex = index;
-    });
-  }
-
+class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -62,83 +56,83 @@ class _GeographyTopicsState extends State<GeographyTopics> {
           height: 300,
           width: 300,
           child: PageView.builder(
-              controller: _pageController,
-              scrollDirection: Axis.horizontal,
-              itemCount: geographyTopicsModel?.geography.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(10),
+            controller: widget._pageController,
+            scrollDirection: Axis.horizontal,
+            itemCount: widget.geographyTopicsModel.length,
+            itemBuilder: (BuildContext context, int index) {
+              final geography = widget.geographyTopicsModel[index];
+              return Padding(
+                padding: const EdgeInsets.all(10),
+                child: SizedBox(
+                  height: 300,
+                  width: 300,
                   child: InkWell(
                     onTap: () {
                       forPages(index);
                     },
-                    child: SizedBox(
-                      height: 300,
-                      width: 300,
-                      child: Container(
-                        height: 80,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color.fromARGB(255, 215, 227, 226),
-                              offset: Offset(-12, 12),
-                              blurRadius: 8,
+                    child: Container(
+                      height: 80,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Color.fromARGB(255, 215, 227, 226),
+                            offset: Offset(-12, 12),
+                            blurRadius: 8,
+                          ),
+                        ],
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 184, 243, 235),
+                            Color.fromARGB(255, 254, 242, 242)
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            DropCapText(
+                              geography.title,
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  // fontFamily: 'Knewave-Regular',
+                                  color: Color(0xff47455f),
+                                  fontWeight: FontWeight.w900),
+                              textAlign: TextAlign.left,
+                              dropCap: DropCap(
+                                width: 100,
+                                height: 100,
+                                child: Image.asset(geography.image),
+                              ),
+                            ),
+                            const Divider(),
+                            Text(
+                              geography.description,
+                              style: const TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Avenir',
+                                  color: Color.fromARGB(255, 186, 148, 148),
+                                  fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.left,
                             ),
                           ],
-                          gradient: const LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 184, 243, 235),
-                              Color.fromARGB(255, 254, 242, 242)
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              DropCapText(
-                                '${geographyTopicsModel?.geography[index].title}',
-                                style: const TextStyle(
-                                    fontSize: 20,
-                                    // fontFamily: 'Knewave-Regular',
-                                    color: Color(0xff47455f),
-                                    fontWeight: FontWeight.w900),
-                                textAlign: TextAlign.left,
-                                dropCap: DropCap(
-                                  width: 100,
-                                  height: 100,
-                                  child: Image.asset(''),
-                                ),
-                              ),
-                              const Divider(),
-                              AutoSizeText(
-                                '${geographyTopicsModel?.geography[index].description}',
-                                style: const TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Avenir',
-                                    color: Color.fromARGB(255, 186, 148, 148),
-                                    fontWeight: FontWeight.w400),
-                                maxFontSize: 15.0,
-                                minFontSize: 10.0,
-                                textAlign: TextAlign.left,
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                     ),
                   ),
-                );
-              }),
+                ),
+              );
+            },
+          ),
         ),
         SmoothPageIndicator(
-          controller: _pageController,
-          count: geographyTopicsModel!.geography.length,
+          controller: widget._pageController,
+          count: widget.geographyTopicsModel.length,
           effect: JumpingDotEffect(
             activeDotColor: Colors.deepPurple,
             dotColor: Colors.deepPurple.shade100,
@@ -150,5 +144,34 @@ class _GeographyTopicsState extends State<GeographyTopics> {
         ),
       ],
     );
+  }
+
+  int currentIndex = 0;
+  void forPages(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return currentIndex == 0
+              ? EuropeContinenti(
+                  geographyTopicsModel: widget.geographyTopicsModel,
+                )
+              : currentIndex == 1
+                  ? AsiaContinenti(
+                      geographyTopicsModel: widget.geographyTopicsModel,
+                    )
+                  : currentIndex == 2
+                      ? UnitedStates(
+                          geographyTopicsModel: widget.geographyTopicsModel,
+                        )
+                      : CapitalsOfTheWorlds(
+                          geographyTopicsModel: widget.geographyTopicsModel,
+                        );
+        },
+      ),
+    );
+    setState(() {
+      currentIndex = index;
+    });
   }
 }

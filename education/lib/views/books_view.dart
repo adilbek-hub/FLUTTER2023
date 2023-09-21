@@ -2,7 +2,7 @@ import 'package:education/components/biology_bolumu/biologgy.dart';
 import 'package:education/components/history_bolumu/history.dart';
 import 'package:education/components/informatica_bolumu/informatica.dart';
 import 'package:education/components/subject_card.dart';
-import 'package:education/components/geography.dart';
+import 'package:education/components/geography_bolumu/geography.dart';
 import 'package:flutter/material.dart';
 
 class BooksView extends StatefulWidget {

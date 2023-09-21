@@ -19,6 +19,7 @@ class _NavBarPagesState extends State<NavBarPages> {
   final Widget _screen3 = AllSearchPage(
     historyTopicsModel: [],
     biologyTopicsModel: [],
+    geographyTopicsModel: [],
   );
   final Widget _screen4 = const Administrator();
 

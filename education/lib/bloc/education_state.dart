@@ -14,10 +14,12 @@ class EducationSuccess extends EducationState {
     required this.subjects2,
     required this.historyTopicsModel,
     required this.biologyTopicsModel,
+    required this.geographyTopicsModel,
   });
   final InformaticaTopics subjects2;
   final List<HistoryTopicsModel> historyTopicsModel;
   final List<BiologyTopicsModel> biologyTopicsModel;
+  final List<GeographyTopicsModel> geographyTopicsModel;
 }
 
 class EducationError extends EducationState {
