@@ -1,4 +1,5 @@
 import 'package:drop_cap_text/drop_cap_text.dart';
+import 'package:education/components/geography_bolumu/geography_bolumu_bloc.dart';
 import 'package:education/pages/topic_pages_about_geography/topic_pages_about_geography.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

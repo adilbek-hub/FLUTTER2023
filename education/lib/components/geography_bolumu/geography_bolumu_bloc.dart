@@ -89,7 +89,7 @@ class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
                             Text(
                               geography.description,
                               style: const TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 16,
                                   fontFamily: 'Avenir',
                                   color: Color.fromARGB(255, 186, 148, 148),
                                   fontWeight: FontWeight.w400),
