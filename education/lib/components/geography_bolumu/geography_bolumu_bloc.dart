@@ -1,12 +1,11 @@
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../model/geography_model.dart';
 import '../../pages/topic_pages_about_geography/asia_continent.dart';
-import '../../pages/topic_pages_about_geography/capitals_of_the_world.dart';
 import '../../pages/topic_pages_about_geography/europe_continent.dart';
 import '../../pages/topic_pages_about_geography/usa.dart';
+import '../../pages/topic_pages_about_geography/world_capitals.dart';
 
 class GeographyBolumuWidget extends StatefulWidget {
   const GeographyBolumuWidget({
@@ -132,14 +131,14 @@ class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
                   geographyTopicsModel: widget.geographyTopicsModel,
                 )
               : currentIndex == 1
-                  ? AsiaContinenti(
+                  ? UnitedStates(
                       geographyTopicsModel: widget.geographyTopicsModel,
                     )
                   : currentIndex == 2
-                      ? UnitedStates(
+                      ? AsiaContinenti(
                           geographyTopicsModel: widget.geographyTopicsModel,
                         )
-                      : CapitalsOfTheWorlds(
+                      : WorldCapitals(
                           geographyTopicsModel: widget.geographyTopicsModel,
                         );
         },

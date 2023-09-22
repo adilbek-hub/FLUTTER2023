@@ -1,11 +1,7 @@
-import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/components/geography_bolumu/geography_bolumu_bloc.dart';
-import 'package:education/pages/topic_pages_about_geography/topic_pages_about_geography.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:education/model/geography_model.dart';
 import '../bloc/education_bloc.dart';
 
 class GeographyTopics extends StatelessWidget {

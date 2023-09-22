@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/usa_suroo.dart';
 import 'package:education/pages/geography_test/usa_test_page.dart';
@@ -11,27 +12,34 @@ class UnitedStates extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usa = geographyTopicsModel[1].usa;
+    final tema = geographyTopicsModel[1].usa![1].tema;
+    final usaStates = geographyTopicsModel[1].usa![1].usaStates;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Америка Кошмо Штаттары'),
+        title: Text(usa![0].title ?? ''),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView(children: [
           DropCapText(
-            'Америка Кошмо Штаттары, АКШ (англ. United States of America, USA) – Түндүк Америкадагы мамлекет. Түндүгүнөн Канада, түштүк-чыгышынан Куба (Гуантанамо аскер базасы), түштүк-батышынан Мексика менен чектешет. Чыгышын Атлантика океаны, батышын Тынч океан, түштүгүн Мексика булуңу чулгайт. Аянты 9,4 млн км2. Калкы 314,5 млн (2012). Борбору - Вашингтон. Мамлекеттик тили - англис тили. Акча бирдиги - АКШ доллары. Административдик аймактары - штат укугун алган өзүнчө Аляска, Гавайи штаттарынан жана Колумбия федерация (борбордук) округунан турат . АКШнын ээликтери: Вест-Индиядагы Виргиния аралы, Чыгыш Самоа, Гуам жана Океаниядагы бир топ майда аралдар. АКШнын убактылуу «опекасында» Тынч океандагы Каролина, Мариана жана Маршалл аралдарынан турат. 1903-жылдан бери ушунун таандык Панама каналынын зонасы АКШнын ижарасында.',
+            usa[0].tema,
             dropCap: DropCap(
               width: 130,
               height: 130,
-              child: Image.asset(
-                  'assets/images/capitals/USA_orthographic.svg.png'),
+              child: CachedNetworkImage(
+                imageUrl: "${usa[0].image}",
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              ),
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            'АКШнын штаттары',
-            style: TextStyle(
+          Text(
+            tema,
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -42,10 +50,10 @@ class UnitedStates extends StatelessWidget {
             textDirection: TextDirection.rtl,
             defaultVerticalAlignment: TableCellVerticalAlignment.top,
             border: TableBorder.all(width: 0.2, color: Colors.black),
-            children: const [
+            children: [
               TableRow(children: [
                 Text(
-                  "Админ. борборлору",
+                  usaStates![0].adminCountry,
                   textScaleFactor: 1,
                   style: TextStyle(
                       color: Colors.black,
@@ -54,7 +62,7 @@ class UnitedStates extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  "Калкы, млн киши (1996)",
+                  usaStates[0].population,
                   textScaleFactor: 1,
                   style: TextStyle(
                       color: Colors.black,
@@ -63,7 +71,7 @@ class UnitedStates extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  "Штаттары",
+                  usaStates[0].state,
                   textScaleFactor: 1,
                   style: TextStyle(
                       color: Colors.black,
@@ -73,265 +81,265 @@ class UnitedStates extends StatelessWidget {
                 ),
               ]),
               TableRow(children: [
-                Text("Бойсе", textScaleFactor: 1),
-                Text("1,2", textScaleFactor: 1),
-                Text("Айдахо", textScaleFactor: 1),
+                Text(usaStates[1].adminCountry, textScaleFactor: 1),
+                Text(usaStates[1].population, textScaleFactor: 1),
+                Text(usaStates[1].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Де-Мойн", textScaleFactor: 1),
-                Text("2,9", textScaleFactor: 1),
-                Text("Айова", textScaleFactor: 1),
+                Text(usaStates[2].adminCountry, textScaleFactor: 1),
+                Text(usaStates[2].population, textScaleFactor: 1),
+                Text(usaStates[2].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Монтгомери", textScaleFactor: 1),
-                Text("4,3", textScaleFactor: 1),
-                Text("Алабама", textScaleFactor: 1),
+                Text(usaStates[3].adminCountry, textScaleFactor: 1),
+                Text(usaStates[3].population, textScaleFactor: 1),
+                Text(usaStates[3].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Жуно", textScaleFactor: 1),
-                Text("0,6", textScaleFactor: 1),
-                Text("Аляска", textScaleFactor: 1),
+                Text(usaStates[4].adminCountry, textScaleFactor: 1),
+                Text(usaStates[4].population, textScaleFactor: 1),
+                Text(usaStates[4].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Финикс", textScaleFactor: 1),
-                Text("4,4", textScaleFactor: 1),
-                Text("Аризона", textScaleFactor: 1),
+                Text(usaStates[5].adminCountry, textScaleFactor: 1),
+                Text(usaStates[5].population, textScaleFactor: 1),
+                Text(usaStates[5].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Литл-Рок", textScaleFactor: 1),
-                Text("2,5", textScaleFactor: 1),
-                Text("Арканзас", textScaleFactor: 1),
+                Text(usaStates[6].adminCountry, textScaleFactor: 1),
+                Text(usaStates[6].population, textScaleFactor: 1),
+                Text(usaStates[6].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Чарлстон", textScaleFactor: 1),
-                Text("1,8", textScaleFactor: 1),
-                Text("Батыш Виргиния", textScaleFactor: 1),
+                Text(usaStates[7].adminCountry, textScaleFactor: 1),
+                Text(usaStates[7].population, textScaleFactor: 1),
+                Text(usaStates[7].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Шайенн", textScaleFactor: 1),
-                Text("0,5", textScaleFactor: 1),
-                Text("Вайоминг", textScaleFactor: 1),
+                Text(usaStates[8].adminCountry, textScaleFactor: 1),
+                Text(usaStates[8].population, textScaleFactor: 1),
+                Text(usaStates[8].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Олимпия", textScaleFactor: 1),
-                Text("5,5", textScaleFactor: 1),
-                Text("Вашингтон Штат", textScaleFactor: 1),
+                Text(usaStates[9].adminCountry, textScaleFactor: 1),
+                Text(usaStates[9].population, textScaleFactor: 1),
+                Text(usaStates[9].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Монтпильер", textScaleFactor: 1),
-                Text("0,6", textScaleFactor: 1),
-                Text("Вермонт", textScaleFactor: 1),
+                Text(usaStates[10].adminCountry, textScaleFactor: 1),
+                Text(usaStates[10].population, textScaleFactor: 1),
+                Text(usaStates[10].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Ричмонд", textScaleFactor: 1),
-                Text("6,7", textScaleFactor: 1),
-                Text("Виржиния", textScaleFactor: 1),
+                Text(usaStates[11].adminCountry, textScaleFactor: 1),
+                Text(usaStates[11].population, textScaleFactor: 1),
+                Text(usaStates[11].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Мадисон", textScaleFactor: 1),
-                Text("5,2", textScaleFactor: 1),
-                Text("Висконсин", textScaleFactor: 1),
+                Text(usaStates[12].adminCountry, textScaleFactor: 1),
+                Text(usaStates[12].population, textScaleFactor: 1),
+                Text(usaStates[12].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Гонолулу", textScaleFactor: 1),
-                Text("1,2", textScaleFactor: 1),
-                Text("Гавайи", textScaleFactor: 1),
+                Text(usaStates[13].adminCountry, textScaleFactor: 1),
+                Text(usaStates[13].population, textScaleFactor: 1),
+                Text(usaStates[13].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Атланта", textScaleFactor: 1),
-                Text("7,4", textScaleFactor: 1),
-                Text("Жоржия", textScaleFactor: 1),
+                Text(usaStates[14].adminCountry, textScaleFactor: 1),
+                Text(usaStates[14].population, textScaleFactor: 1),
+                Text(usaStates[14].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Довер", textScaleFactor: 1),
-                Text("0,7", textScaleFactor: 1),
-                Text("Делавэр", textScaleFactor: 1),
+                Text(usaStates[15].adminCountry, textScaleFactor: 1),
+                Text(usaStates[15].population, textScaleFactor: 1),
+                Text(usaStates[15].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Спрингфилд", textScaleFactor: 1),
-                Text("11,9", textScaleFactor: 1),
-                Text("Иллинойс", textScaleFactor: 1),
+                Text(usaStates[16].adminCountry, textScaleFactor: 1),
+                Text(usaStates[16].population, textScaleFactor: 1),
+                Text(usaStates[16].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Индианаполис", textScaleFactor: 1),
-                Text("5,8", textScaleFactor: 1),
-                Text("Индиана", textScaleFactor: 1),
+                Text(usaStates[17].adminCountry, textScaleFactor: 1),
+                Text(usaStates[17].population, textScaleFactor: 1),
+                Text(usaStates[17].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Сакраменто", textScaleFactor: 1),
-                Text("31,9", textScaleFactor: 1),
-                Text("Калифорния", textScaleFactor: 1),
+                Text(usaStates[18].adminCountry, textScaleFactor: 1),
+                Text(usaStates[18].population, textScaleFactor: 1),
+                Text(usaStates[18].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Топика", textScaleFactor: 1),
-                Text("2,56", textScaleFactor: 1),
-                Text("Канзас", textScaleFactor: 1),
+                Text(usaStates[19].adminCountry, textScaleFactor: 1),
+                Text(usaStates[19].population, textScaleFactor: 1),
+                Text(usaStates[19].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Франкфорт", textScaleFactor: 1),
-                Text("3,9", textScaleFactor: 1),
-                Text("Кентукки", textScaleFactor: 1),
+                Text(usaStates[20].adminCountry, textScaleFactor: 1),
+                Text(usaStates[20].population, textScaleFactor: 1),
+                Text(usaStates[20].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Денвер", textScaleFactor: 1),
-                Text("3,8", textScaleFactor: 1),
-                Text("Колорадо", textScaleFactor: 1),
+                Text(usaStates[21].adminCountry, textScaleFactor: 1),
+                Text(usaStates[21].population, textScaleFactor: 1),
+                Text(usaStates[21].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Хартфорд", textScaleFactor: 1),
-                Text("3,3", textScaleFactor: 1),
-                Text("Коннектикут", textScaleFactor: 1),
+                Text(usaStates[22].adminCountry, textScaleFactor: 1),
+                Text(usaStates[22].population, textScaleFactor: 1),
+                Text(usaStates[22].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Батон-Руж", textScaleFactor: 1),
-                Text("4,4", textScaleFactor: 1),
-                Text("Луизиана", textScaleFactor: 1),
+                Text(usaStates[23].adminCountry, textScaleFactor: 1),
+                Text(usaStates[23].population, textScaleFactor: 1),
+                Text(usaStates[23].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Бостон", textScaleFactor: 1),
-                Text("6,1", textScaleFactor: 1),
-                Text("Массачусетс", textScaleFactor: 1),
+                Text(usaStates[24].adminCountry, textScaleFactor: 1),
+                Text(usaStates[24].population, textScaleFactor: 1),
+                Text(usaStates[24].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Сент-Пол", textScaleFactor: 1),
-                Text("4,7", textScaleFactor: 1),
-                Text("Миннесота", textScaleFactor: 1),
+                Text(usaStates[25].adminCountry, textScaleFactor: 1),
+                Text(usaStates[25].population, textScaleFactor: 1),
+                Text(usaStates[25].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Жэксон", textScaleFactor: 1),
-                Text("2,7", textScaleFactor: 1),
-                Text("Миссисипи", textScaleFactor: 1),
+                Text(usaStates[26].adminCountry, textScaleFactor: 1),
+                Text(usaStates[26].population, textScaleFactor: 1),
+                Text(usaStates[26].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Жефферсон-Сити", textScaleFactor: 1),
-                Text("5,4", textScaleFactor: 1),
-                Text("Миссури", textScaleFactor: 1),
+                Text(usaStates[27].adminCountry, textScaleFactor: 1),
+                Text(usaStates[27].population, textScaleFactor: 1),
+                Text(usaStates[27].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Лансинг", textScaleFactor: 1),
-                Text("9,6", textScaleFactor: 1),
-                Text("Мичиган", textScaleFactor: 1),
+                Text(usaStates[28].adminCountry, textScaleFactor: 1),
+                Text(usaStates[28].population, textScaleFactor: 1),
+                Text(usaStates[28].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Хелина", textScaleFactor: 1),
-                Text("0,9", textScaleFactor: 1),
-                Text("Монтана", textScaleFactor: 1),
+                Text(usaStates[29].adminCountry, textScaleFactor: 1),
+                Text(usaStates[29].population, textScaleFactor: 1),
+                Text(usaStates[29].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Огаста", textScaleFactor: 1),
-                Text("1,2", textScaleFactor: 1),
-                Text("Мэн", textScaleFactor: 1),
+                Text(usaStates[30].adminCountry, textScaleFactor: 1),
+                Text(usaStates[30].population, textScaleFactor: 1),
+                Text(usaStates[30].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Аннаполис", textScaleFactor: 1),
-                Text("5,07", textScaleFactor: 1),
-                Text("Мэриленд", textScaleFactor: 1),
+                Text(usaStates[31].adminCountry, textScaleFactor: 1),
+                Text(usaStates[31].population, textScaleFactor: 1),
+                Text(usaStates[31].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Линкольн", textScaleFactor: 1),
-                Text("1,7", textScaleFactor: 1),
-                Text("Небраска", textScaleFactor: 1),
+                Text(usaStates[32].adminCountry, textScaleFactor: 1),
+                Text(usaStates[32].population, textScaleFactor: 1),
+                Text(usaStates[32].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Карсон-Сити", textScaleFactor: 1),
-                Text("1,6", textScaleFactor: 1),
-                Text("Невада", textScaleFactor: 1),
+                Text(usaStates[33].adminCountry, textScaleFactor: 1),
+                Text(usaStates[33].population, textScaleFactor: 1),
+                Text(usaStates[33].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Трентон ", textScaleFactor: 1),
-                Text("8", textScaleFactor: 1),
-                Text("Нью-Жерси", textScaleFactor: 1),
+                Text(usaStates[34].adminCountry, textScaleFactor: 1),
+                Text(usaStates[34].population, textScaleFactor: 1),
+                Text(usaStates[34].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Олбани", textScaleFactor: 1),
-                Text("18,2", textScaleFactor: 1),
-                Text("Нью-Йорк", textScaleFactor: 1),
+                Text(usaStates[35].adminCountry, textScaleFactor: 1),
+                Text(usaStates[35].population, textScaleFactor: 1),
+                Text(usaStates[35].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Санта-Фе", textScaleFactor: 1),
-                Text("1,7", textScaleFactor: 1),
-                Text("Нью-Мексико", textScaleFactor: 1),
+                Text(usaStates[36].adminCountry, textScaleFactor: 1),
+                Text(usaStates[36].population, textScaleFactor: 1),
+                Text(usaStates[36].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Конкорд", textScaleFactor: 1),
-                Text("1,2", textScaleFactor: 1),
-                Text("Нью-Хемпшир", textScaleFactor: 1),
+                Text(usaStates[37].adminCountry, textScaleFactor: 1),
+                Text(usaStates[37].population, textScaleFactor: 1),
+                Text(usaStates[37].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Колумбус", textScaleFactor: 1),
-                Text("11,2", textScaleFactor: 1),
-                Text("Огайо", textScaleFactor: 1),
+                Text(usaStates[38].adminCountry, textScaleFactor: 1),
+                Text(usaStates[38].population, textScaleFactor: 1),
+                Text(usaStates[38].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Оклахома-Сити", textScaleFactor: 1),
-                Text("3,3", textScaleFactor: 1),
-                Text("Оклахома", textScaleFactor: 1),
+                Text(usaStates[39].adminCountry, textScaleFactor: 1),
+                Text(usaStates[39].population, textScaleFactor: 1),
+                Text(usaStates[39].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Сейлем", textScaleFactor: 1),
-                Text("3,2", textScaleFactor: 1),
-                Text("Орегон", textScaleFactor: 1),
+                Text(usaStates[40].adminCountry, textScaleFactor: 1),
+                Text(usaStates[40].population, textScaleFactor: 1),
+                Text(usaStates[40].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Харрисберг", textScaleFactor: 1),
-                Text("12,1 (1994)", textScaleFactor: 1),
-                Text("Пенсильвания", textScaleFactor: 1),
+                Text(usaStates[41].adminCountry, textScaleFactor: 1),
+                Text(usaStates[41].population, textScaleFactor: 1),
+                Text(usaStates[41].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Провиденс", textScaleFactor: 1),
-                Text("1,0", textScaleFactor: 1),
-                Text("Род-Айленд", textScaleFactor: 1),
+                Text(usaStates[42].adminCountry, textScaleFactor: 1),
+                Text(usaStates[42].population, textScaleFactor: 1),
+                Text(usaStates[42].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Бисмарк", textScaleFactor: 1),
-                Text("0,7", textScaleFactor: 1),
-                Text("Түндүк Дакота", textScaleFactor: 1),
+                Text(usaStates[43].adminCountry, textScaleFactor: 1),
+                Text(usaStates[43].population, textScaleFactor: 1),
+                Text(usaStates[43].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Роли", textScaleFactor: 1),
-                Text("7,3", textScaleFactor: 1),
-                Text("Түндүк Каролина", textScaleFactor: 1),
+                Text(usaStates[44].adminCountry, textScaleFactor: 1),
+                Text(usaStates[44].population, textScaleFactor: 1),
+                Text(usaStates[44].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Нашвилл", textScaleFactor: 1),
-                Text("5,3", textScaleFactor: 1),
-                Text("Теннесси", textScaleFactor: 1),
+                Text(usaStates[45].adminCountry, textScaleFactor: 1),
+                Text(usaStates[45].population, textScaleFactor: 1),
+                Text(usaStates[45].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Остин", textScaleFactor: 1),
-                Text("19", textScaleFactor: 1),
-                Text("Техас", textScaleFactor: 1),
+                Text(usaStates[46].adminCountry, textScaleFactor: 1),
+                Text(usaStates[46].population, textScaleFactor: 1),
+                Text(usaStates[46].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Пирр", textScaleFactor: 1),
-                Text("0,7", textScaleFactor: 1),
-                Text("Түн. Дакота", textScaleFactor: 1),
+                Text(usaStates[47].adminCountry, textScaleFactor: 1),
+                Text(usaStates[47].population, textScaleFactor: 1),
+                Text(usaStates[47].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Колумбия", textScaleFactor: 1),
-                Text("3,7", textScaleFactor: 1),
-                Text("Түш. Каролина", textScaleFactor: 1),
+                Text(usaStates[48].adminCountry, textScaleFactor: 1),
+                Text(usaStates[48].population, textScaleFactor: 1),
+                Text(usaStates[48].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Таллахасси", textScaleFactor: 1),
-                Text("14,4", textScaleFactor: 1),
-                Text("Флорида", textScaleFactor: 1),
+                Text(usaStates[49].adminCountry, textScaleFactor: 1),
+                Text(usaStates[49].population, textScaleFactor: 1),
+                Text(usaStates[49].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Солт-Лейк-Сити", textScaleFactor: 1),
-                Text("2", textScaleFactor: 1),
-                Text("Юта", textScaleFactor: 1),
+                Text(usaStates[50].adminCountry, textScaleFactor: 1),
+                Text(usaStates[50].population, textScaleFactor: 1),
+                Text(usaStates[50].state, textScaleFactor: 1),
               ]),
               TableRow(children: [
-                Text("Вашингтон", textScaleFactor: 1),
-                Text("0,5", textScaleFactor: 1),
-                Text("Колумбия (Columbia) округу (борб.)", textScaleFactor: 1),
+                Text(usaStates[51].adminCountry, textScaleFactor: 1),
+                Text(usaStates[51].population, textScaleFactor: 1),
+                Text(usaStates[51].state, textScaleFactor: 1),
               ]),
             ],
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Конституция жана саясат',
+          Text(
+            usa[2].tema,
             style: TextStyle(
               color: Colors.black,
               fontSize: 15,
@@ -339,13 +347,13 @@ class UnitedStates extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
-            'АКШ - федеративдүү мамлекет. АКШнын Конституциясы 1787-ж. 17-сентябрда кабыл алынып, 1789-ж. 4-мартта күчүнө кирген. Башкаруу формасы - президенттик республика. Мамлекет жана өкмөт башчысы - президент; ал ошондой эле куралдуу күчтөрдүн да башкы башчысы. Президент жана вице-президент эки баскычтуу шайлоо менен 4 жылга шайланат. Мыйзам чыгаруу бийлигинин жогорку органы - Конгресс, ал 2 палатадан – өкүлдөр (435 депутат 2 жылга шайланат) жана сенаттар палаталарынан (ар бир штаттан 2ден сенатор 6 жылга шайланат) турат. Сенаттын курамынын үчтөн бир бөлүгү ар 2 жылда жаңыртылат. Өкүлдөр палатасынын укугу сенаттан кененирээк. Ар бир штат өз конституциясына, мыйзам чыгаруу (легислатура) жана аткаруу органдарына ээ. Штаттарды башкаруу губернаторлор тарабынан ишке ашырылат. АКШда негизинен эки партиялуу система орун алган: Демократиялык (1828) жана Республикалык (1854) партиялар. Мындан сырткары Коммунисттик ж. б. саясий партиялар да бар.',
+          Text(
+            usa[2].text ?? '',
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Мамлекеттер',
-            style: TextStyle(
+          Text(
+            usa[3].tema,
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -353,38 +361,43 @@ class UnitedStates extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           DropCapText(
-            'Америкада азыркы учурда 50 штат бар. Аляска менен Хавайга кошулган эң акыркы жаңы штаттар.Калифорния - эң көп калк жашаган штат, 38,332,521 тургуну (2013-жылкы эсептөө); Вайомиңг эң аз калк отурукташкан, болжол менен 582 658 киши жашайт. 2012-жылга карата 646,449 жашоочусу бар Колумбия округу эң аз калк жашаган эки штатка (Вайомиңг жана Вермонт) караганда жогору. Аянты боюнча эң ири штат - Аляска, 665,384 чарчы милди (1,723,340 км2), эң кичинеси - Род-Айленд, 1545 чарчы милди (4,000 км2) камтыйт. Азыркы Конституцияны биринчи жолу ратификациялаган Делавэр, ал аны 1787-жылы 7-декабрда жасаган, ал эми эң жаңы штат - [[Гавайи, ал 1959-жылы 21-августта Союзга кабыл алынган. Калкы жана саны жагынан эң чоң аймак болуп саналат. Пуэрто-Рико, 2010-жылдагы эл каттоодо 3,725,789 тургундары жана жалпы аянты 5325 чарчы мил (13,790 км2).',
+            usa[3].text ?? '',
             dropCap: DropCap(
               width: 130,
               height: 130,
-              child: Image.asset('assets/images/capitals/usaa.png'),
+              child: CachedNetworkImage(
+                imageUrl: "${usa[3].image}",
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              ),
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Табияты',
-            style: TextStyle(
+          Text(
+            usa[4].tema,
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
-            'АКШнын аймагынын 1/2ин (дээрлик батыш бөлүгүн) Түндүк Америка Кордильерасынын бийик кырка жана бөксө тоолору, платолор ээлейт. Кордильеранын чыгыш чет жакасын бийиктиги 4000 мден ашкан Аскалуу тоолору, батышын Тынч океанды бойлой жайгашкан Жээк кырка тоолору түзөт. АКШнын эң бийик жери (6193 м) - Мак-Кинли чокусу Аляска кыркатоосунда. Чыгышын Аппалачи тоолору (бийиктиги 2037 м) ээлейт. Кордильера менен Аппалачинин аралыгында жазы - Борбордук түздүктөр (бийиктиги 500 мге чейин), Улуу түздүктөр (бийиктиги 1600 мге чейин), түштүктө Жээк түздүктөрү Мексика бою ойдуңу, Атлантика бою ойдуңу (Флорида жарым аралы кошо) орун алган. АКШнын аймагынын, ошондой эле жалпы материктин эң чуңкур жери - Чоң Бассейндеги (Мохаве чөлүндөгү) Ажал өрөөнү, ал деңиз деңгээли - 86 м төмөн жайгашкан. АКШ табигый ресурстарга бай: көмүр, жез (өндүрүшү боюнча дүйнөдө 2-орунда), темир, сымап, күмүш, алтын, никель, цинк (дүйнөдө алдыңкылардын бири), вольфрам, уран, фосфат, нефть жана табигый газ (казып алынуусу боюнча дүйнөдө 2-орунда), жыгач даярдоо.',
+          Text(
+            usa[4].text ?? '',
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Климаты',
-            style: TextStyle(
+          Text(
+            usa[5].tema,
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 5),
-          const Text(
-            'Мелүүн жана субтропиктик континенттик климат басымдуу; Флорида жарым аралына тропиктик, Аляскага мелүүн субарктикалык климат мүнөздүү. Январдын орточо температурасы Аляскада -24,8°С, Борбордук түздүктөрдүн түндүгүндө -18°С, өлкөнүн түштүк-батышында -12°С, Флорида жарым аралында 20 Сге чейин. Июлдун орточо температурасы батыш жээктеринде 14-22°С, чыгышында 1626°С, ички платолор менен бөксө тоолордун түштүгүндө 32°С. Өлкөнүн, ошондой эле бүт материктин эң ысык жана кургакчыл жери да Мохаве чөлүндөгү Ажал өрөөнү, анда абанын абсолюттук максимуму 57,7°С катталган; жылдык жаан-чачындын өлчөмү 50-100 мм. Жаан-чачын чыгышында жана түндүк-батыш жээк тилкелеринде 1000-2000 түздүктөрдө 600-900 мм,Улуу түздүктөрдө 400-600 мм, ички бөксө тоолор менен платолордо 400 ммден, айрым жерлеринде 100 ммден аз (Мохаве чөлүндө) жаайт. Ири дарыялары: Миссисипи жана анын куймалары Миссури, Огайо, Колумбия, Колорадо, Юкон. Миссисипинин сол куймаларынын суусу мол, көп жерлерде кеме жүрөт, гидроэнергия ресурстарына бай. Оң куймаларынын суусу аз, агымы шар. Өлкөнүн түндүк-чыгышында Улуу көлдөр системасы (жарым-жартылайы Канадада) жайгашкан.',
+          Text(
+            usa[5].text ?? '',
           ),
           const SizedBox(height: 5),
           SizedBox(

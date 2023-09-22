@@ -1,10 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:education/model/geography_model.dart';
+import 'package:education/model/world_capitals.dart';
 import 'package:education/model/world_capitals_suroo.dart';
 import 'package:education/pages/geography_test/world_capitals_test_page.dart';
-import 'package:flutter/material.dart';
-import 'package:education/model/world_capitals.dart';
 
 class WorldCapitals extends StatefulWidget {
-  const WorldCapitals({super.key});
+  const WorldCapitals({Key? key, required this.geographyTopicsModel})
+      : super(key: key);
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   State<WorldCapitals> createState() => _WorldCapitalsState();

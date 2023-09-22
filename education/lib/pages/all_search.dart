@@ -87,7 +87,10 @@ class _AllSearchPageState extends State<AllSearchPage> {
       case "Борбор шаарлар":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const WorldCapitals()),
+          MaterialPageRoute(
+              builder: (context) => WorldCapitals(
+                    geographyTopicsModel: widget.geographyTopicsModel,
+                  )),
         );
         break;
       case "Кишинин сүт эмүүчү жаныбарлар менен окшоштугу жана айырмачылыгы":
