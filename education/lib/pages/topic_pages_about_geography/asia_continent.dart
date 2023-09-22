@@ -22,14 +22,6 @@ class AsiaContinenti extends StatelessWidget {
         child: ListView(
           children: [
             const Text(
-              'Азия Континенти',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const Text(
               'Азиянын географиясы',
               style: TextStyle(
                 fontSize: 20,

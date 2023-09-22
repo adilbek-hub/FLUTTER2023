@@ -1,9 +1,12 @@
+import 'package:education/bloc/education_bloc.dart';
 import 'package:education/components/biology_bolumu/biologgy.dart';
 import 'package:education/components/history_bolumu/history.dart';
 import 'package:education/components/informatica_bolumu/informatica.dart';
 import 'package:education/components/subject_card.dart';
 import 'package:education/components/geography_bolumu/geography.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BooksView extends StatefulWidget {
   const BooksView({super.key});
@@ -65,69 +68,80 @@ class _BooksViewState extends State<BooksView> {
                 indent: 20,
                 endIndent: 20,
               ),
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  padding: const EdgeInsets.all(16),
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  children: [
-                    SubjectsCard(
-                      color: const Color(0xffFAADAD),
-                      text1: 'ИНФОРМАТИКА',
-                      image: 'assets/images/capitals/informatica.png',
-                      text2: 'ТЕМАЛАР 40',
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Informatica(),
-                        ),
-                      ),
-                    ),
-                    SubjectsCard(
-                        color: const Color(0xffe4c9f9),
-                        text1: 'ГЕОГРАФИЯ',
-                        text2: '4 темалар',
-                        image: 'assets/images/capitals/geography.png',
-                        onTap: () {
-                          Navigator.push(
+              BlocBuilder<EducationBloc, EducationState>(
+                  builder: (context, state) {
+                if (state is EducationLoading) {
+                  return const CupertinoActivityIndicator(color: Colors.blue);
+                } else if (state is EducationError) {
+                  return Text(state.text);
+                } else if (state is EducationSuccess) {
+                  return Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      padding: const EdgeInsets.all(16),
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      children: [
+                        SubjectsCard(
+                          color: const Color(0xffFAADAD),
+                          text1: state.subjectsTopicsModel[0].name,
+                          image: state.subjectsTopicsModel[0].image,
+                          text2: state.subjectsTopicsModel[0].title,
+                          onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Geography(),
+                              builder: (context) => const Informatica(),
                             ),
-                          );
-                        }),
-                    SubjectsCard(
-                      color: const Color(0xffAAF1CB),
-                      text1: 'ТАРЫХ',
-                      text2: '40 темалар',
-                      image: 'assets/images/capitals/history.png',
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const History(),
                           ),
-                        );
-                      },
+                        ),
+                        SubjectsCard(
+                            color: const Color(0xffe4c9f9),
+                            text1: state.subjectsTopicsModel[1].name,
+                            image: state.subjectsTopicsModel[1].image,
+                            text2: state.subjectsTopicsModel[1].title,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Geography(),
+                                ),
+                              );
+                            }),
+                        SubjectsCard(
+                          color: const Color(0xffAAF1CB),
+                          text1: state.subjectsTopicsModel[2].name,
+                          image: state.subjectsTopicsModel[2].image,
+                          text2: state.subjectsTopicsModel[2].title,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const History(),
+                              ),
+                            );
+                          },
+                        ),
+                        SubjectsCard(
+                          color: const Color(0xffFFE99D),
+                          text1: state.subjectsTopicsModel[3].name,
+                          image: state.subjectsTopicsModel[3].image,
+                          text2: state.subjectsTopicsModel[3].title,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Biologgy(),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
-                    SubjectsCard(
-                      color: const Color(0xffFFE99D),
-                      text1: 'БИОЛОГИЯ',
-                      text2: '40 темалар',
-                      image: 'assets/images/capitals/biologe.png',
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Biologgy(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
+                  );
+                } else {
+                  throw ('Error in $state');
+                }
+              }),
             ],
           ),
         ),

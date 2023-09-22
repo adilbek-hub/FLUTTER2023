@@ -2,6 +2,7 @@ import 'package:education/bloc/education_bloc.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/history_toics_service.dart';
+import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => EducationBloc(
+        subjectsTopicsService,
         subjectService,
         historyTopicsService,
         biologyTopicsService,
