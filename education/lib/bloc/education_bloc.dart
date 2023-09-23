@@ -40,12 +40,14 @@ class EducationBloc extends Bloc<EducationEvent, EducationState> {
     final dataHistory = await historyTopicsService.getData();
     final dataBiology = await biologyTopicsService.getData();
     final dataGeography = await geographyTopicsService.getData();
+    final dataTest = await testTopicsService.getData();
 
     if (dataSubjects != null &&
         dataSubject != null &&
         dataHistory != null &&
         dataBiology != null &&
-        dataGeography != null) {
+        dataGeography != null &&
+        dataTest != null) {
       emit(
         EducationSuccess(
           subjectsTopicsModel: dataSubjects,
@@ -53,6 +55,7 @@ class EducationBloc extends Bloc<EducationEvent, EducationState> {
           historyTopicsModel: dataHistory,
           biologyTopicsModel: dataBiology,
           geographyTopicsModel: dataGeography,
+          testTopicsModel: dataTest,
         ),
       );
     } else {
