@@ -1,6 +1,5 @@
 import 'package:education/model/informatica_model.dart';
 import 'package:flutter/material.dart';
-import 'package:education/model/informatica_suroo.dart';
 import 'package:education/pages/informatica_test/personal_computer_test_page.dart';
 
 class PersonalComputers extends StatelessWidget {
@@ -151,9 +150,7 @@ class PersonalComputers extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      PersonalComputerTestPage(
-                                    personalComputer: personalComputer,
-                                  ),
+                                      const PersonalComputerTestPage(),
                                 ),
                               );
                             },

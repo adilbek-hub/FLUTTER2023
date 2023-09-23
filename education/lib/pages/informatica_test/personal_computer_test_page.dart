@@ -2,16 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
 import 'package:education/constants/app_color.dart';
-import 'package:education/model/informatica_suroo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PersonalComputerTestPage extends StatefulWidget {
-  const PersonalComputerTestPage({
-    super.key,
-    required this.personalComputer,
-  });
-  final List<InformaticaQuestions> personalComputer;
+  const PersonalComputerTestPage({super.key});
 
   @override
   State<PersonalComputerTestPage> createState() =>

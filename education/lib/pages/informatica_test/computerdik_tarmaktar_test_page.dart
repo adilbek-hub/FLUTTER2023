@@ -1,17 +1,13 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/constants/app_color.dart';
-import 'package:education/model/informatica_suroo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/education_bloc.dart';
 
 class ComputerdikTarmaktarTestPage extends StatefulWidget {
-  const ComputerdikTarmaktarTestPage({
-    super.key,
-    required this.computerdikTarmaktar,
-  });
-  final List<InformaticaQuestions> computerdikTarmaktar;
+  const ComputerdikTarmaktarTestPage({super.key});
 
   @override
   State<ComputerdikTarmaktarTestPage> createState() =>
@@ -117,9 +113,21 @@ class _ComputerdikTarmaktarTestPageState
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: Image.asset(
-                        'assets/images/informatica/computerdik_tarmaktar/${widget.computerdikTarmaktar[indexcomputerdikTarmaktar].images}.jpg',
+                      child: CachedNetworkImage(
+                        imageUrl: state
+                            .testTopicsModel
+                            .informatica[0]
+                            .computerdicTarmaktar[indexcomputerdikTarmaktar]
+                            .image,
                         fit: BoxFit.cover,
+                        placeholder: (context, url) => Transform.scale(
+                            scale: 0.2,
+                            child: const CircularProgressIndicator(
+                              color: Colors.red,
+                              strokeWidth: 20,
+                            )),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                   ),

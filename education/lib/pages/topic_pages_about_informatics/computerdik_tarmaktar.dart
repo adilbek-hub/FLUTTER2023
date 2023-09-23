@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:education/model/informatica_suroo.dart';
 import 'package:education/pages/informatica_test/computerdik_tarmaktar_test_page.dart';
 
 import '../../model/informatica_model.dart';
@@ -128,9 +127,7 @@ class ComputerdicTarmaktar extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      ComputerdikTarmaktarTestPage(
-                                    computerdikTarmaktar: computerdicTarmaktar,
-                                  ),
+                                      const ComputerdikTarmaktarTestPage(),
                                 ),
                               );
                             },
