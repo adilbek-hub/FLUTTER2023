@@ -16,6 +16,7 @@ class EducationSuccess extends EducationState {
     required this.historyTopicsModel,
     required this.biologyTopicsModel,
     required this.geographyTopicsModel,
+    required this.testTopicsModel,
   });
   // төрт предмет
   final List<SubjectsTopicsModel> subjectsTopicsModel;
@@ -27,6 +28,8 @@ class EducationSuccess extends EducationState {
   final List<BiologyTopicsModel> biologyTopicsModel;
   // география предмет
   final List<GeographyTopicsModel> geographyTopicsModel;
+  // Тесттер
+  final TestTopicsModel testTopicsModel;
 }
 
 class EducationError extends EducationState {

@@ -1,9 +1,11 @@
 import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
 import 'package:education/model/subjects_topics_model.dart';
+import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/subjects_topics_service.dart';
+import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../model/history_model.dart';
@@ -20,6 +22,7 @@ class EducationBloc extends Bloc<EducationEvent, EducationState> {
     this.historyTopicsService,
     this.biologyTopicsService,
     this.geographyTopicsService,
+    this.testTopicsService,
   ) : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
     on<EducationRefreshEvent>(_getSubjectsByInformation);
@@ -29,6 +32,7 @@ class EducationBloc extends Bloc<EducationEvent, EducationState> {
   final HistoryTopicsService historyTopicsService;
   final BiologyTopicsService biologyTopicsService;
   final GeograhyTopicsService geographyTopicsService;
+  final TestTopicsService testTopicsService;
   Future<void> _getSubjectsByInformation(
       EducationRefreshEvent event, Emitter<EducationState> emit) async {
     final dataSubjects = await subjectsTopicsService.getData();
