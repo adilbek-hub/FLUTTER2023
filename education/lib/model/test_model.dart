@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final testTopicsModel = testTopicsModelFromJson(jsonString);
+
 import 'dart:convert';
 
 TestTopicsModel testTopicsModelFromJson(String str) =>
@@ -25,19 +29,53 @@ class TestTopicsModel {
 }
 
 class Informatica {
+  List<ComputerdicTarmaktar> personalComputer;
+  List<ComputerdicTarmaktar> computerdicTarmaktar;
+  List<ComputerdicTarmaktar> sistemalykKamsyzdoo;
+
+  Informatica({
+    required this.personalComputer,
+    required this.computerdicTarmaktar,
+    required this.sistemalykKamsyzdoo,
+  });
+
+  factory Informatica.fromJson(Map<String, dynamic> json) => Informatica(
+        personalComputer: List<ComputerdicTarmaktar>.from(
+            json["personal_computer"]
+                .map((x) => ComputerdicTarmaktar.fromJson(x))),
+        computerdicTarmaktar: List<ComputerdicTarmaktar>.from(
+            json["computerdic_tarmaktar"]
+                .map((x) => ComputerdicTarmaktar.fromJson(x))),
+        sistemalykKamsyzdoo: List<ComputerdicTarmaktar>.from(
+            json["sistemalyk_kamsyzdoo"]
+                .map((x) => ComputerdicTarmaktar.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "personal_computer":
+            List<dynamic>.from(personalComputer.map((x) => x.toJson())),
+        "computerdic_tarmaktar":
+            List<dynamic>.from(computerdicTarmaktar.map((x) => x.toJson())),
+        "sistemalyk_kamsyzdoo":
+            List<dynamic>.from(sistemalykKamsyzdoo.map((x) => x.toJson())),
+      };
+}
+
+class ComputerdicTarmaktar {
   int id;
   String guestion;
   String image;
   List<Option> options;
 
-  Informatica({
+  ComputerdicTarmaktar({
     required this.id,
     required this.guestion,
     required this.image,
     required this.options,
   });
 
-  factory Informatica.fromJson(Map<String, dynamic> json) => Informatica(
+  factory ComputerdicTarmaktar.fromJson(Map<String, dynamic> json) =>
+      ComputerdicTarmaktar(
         id: json["id"],
         guestion: json["guestion"],
         image: json["image"],

@@ -101,8 +101,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: AutoSizeText(
-                        state.testTopicsModel.informatica[indexpersonalComputer]
-                            .guestion,
+                        state.testTopicsModel.informatica[0]
+                            .personalComputer[indexpersonalComputer].guestion,
                         // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
@@ -118,8 +118,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                         width: double.infinity,
                         height: double.infinity,
                         child: CachedNetworkImage(
-                          imageUrl: state.testTopicsModel
-                              .informatica[indexpersonalComputer].image,
+                          imageUrl: state.testTopicsModel.informatica[0]
+                              .personalComputer[indexpersonalComputer].image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -153,7 +153,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexpersonalComputer + 1 ==
-                                      state.testTopicsModel.informatica.length
+                                      state.testTopicsModel.informatica[0]
+                                          .personalComputer.length
                                   // indexpersonalComputer + 1 ==
                                   //   widget.personalComputer.length
                                   ) {
@@ -182,7 +183,9 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                               } else {
                                 if (state
                                             .testTopicsModel
-                                            .informatica[indexpersonalComputer]
+                                            .informatica[0]
+                                            .personalComputer[
+                                                indexpersonalComputer]
                                             .options[index]
                                             .correct ==
                                         true
@@ -205,7 +208,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                               child: AutoSizeText(
                                 state
                                     .testTopicsModel
-                                    .informatica[indexpersonalComputer]
+                                    .informatica[0]
+                                    .personalComputer[indexpersonalComputer]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,
