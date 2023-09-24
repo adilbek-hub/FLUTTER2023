@@ -94,21 +94,19 @@ class _BayrkyGermandyktarTestPageState
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 10,
+                      max: 8,
                       value: indexbairkyGermandyktar.toDouble(),
                       onChanged: (value) {},
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: FittedBox(
-                      child: Text(
-                        state.testTopicsModel.history[0]
-                            .baiyrkyGermandar[indexbairkyGermandyktar].guestion,
-                        style: const TextStyle(fontSize: 20, height: 2),
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                      ),
+                    child: Text(
+                      state.testTopicsModel.history[0]
+                          .baiyrkyGermandar[indexbairkyGermandyktar].guestion,
+                      style: const TextStyle(fontSize: 20, height: 2),
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
                     ),
                   ),
                   Expanded(

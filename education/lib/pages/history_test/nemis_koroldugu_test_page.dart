@@ -92,7 +92,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 8,
+                      max: 9,
                       value: indexgermania.toDouble(),
                       onChanged: (value) {},
                     ),
