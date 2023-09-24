@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final testTopicsModel = testTopicsModelFromJson(jsonString);
+
 import 'dart:convert';
 
 TestTopicsModel testTopicsModelFromJson(String str) =>
@@ -9,10 +13,12 @@ String testTopicsModelToJson(TestTopicsModel data) =>
 class TestTopicsModel {
   List<Informatica> informatica;
   List<History> history;
+  List<Geography> geography;
 
   TestTopicsModel({
     required this.informatica,
     required this.history,
+    required this.geography,
   });
 
   factory TestTopicsModel.fromJson(Map<String, dynamic> json) =>
@@ -21,63 +27,61 @@ class TestTopicsModel {
             json["informatica"].map((x) => Informatica.fromJson(x))),
         history:
             List<History>.from(json["history"].map((x) => History.fromJson(x))),
+        geography: List<Geography>.from(
+            json["geography"].map((x) => Geography.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "informatica": List<dynamic>.from(informatica.map((x) => x.toJson())),
         "history": List<dynamic>.from(history.map((x) => x.toJson())),
+        "geography": List<dynamic>.from(geography.map((x) => x.toJson())),
       };
 }
 
-class History {
-  List<BaiyrkyGermandar> nemisKoroldugy;
-  List<BaiyrkyGermandar> baiyrkyGermandar;
-  List<BaiyrkyGermandar> italiaVX;
-  List<BaiyrkyGermandar> rim;
+class Geography {
+  List<Asia> europeCountry;
+  List<Asia> usa;
+  List<Asia> asia;
+  List<Asia> rim;
 
-  History({
-    required this.nemisKoroldugy,
-    required this.baiyrkyGermandar,
-    required this.italiaVX,
+  Geography({
+    required this.europeCountry,
+    required this.usa,
+    required this.asia,
     required this.rim,
   });
 
-  factory History.fromJson(Map<String, dynamic> json) => History(
-        nemisKoroldugy: List<BaiyrkyGermandar>.from(
-            json["nemis_koroldugy"].map((x) => BaiyrkyGermandar.fromJson(x))),
-        baiyrkyGermandar: List<BaiyrkyGermandar>.from(
-            json["baiyrky_germandar"].map((x) => BaiyrkyGermandar.fromJson(x))),
-        italiaVX: List<BaiyrkyGermandar>.from(
-            json["italia_V_X"].map((x) => BaiyrkyGermandar.fromJson(x))),
-        rim: List<BaiyrkyGermandar>.from(
-            json["rim"].map((x) => BaiyrkyGermandar.fromJson(x))),
+  factory Geography.fromJson(Map<String, dynamic> json) => Geography(
+        europeCountry: List<Asia>.from(
+            json["europe_country"].map((x) => Asia.fromJson(x))),
+        usa: List<Asia>.from(json["usa"].map((x) => Asia.fromJson(x))),
+        asia: List<Asia>.from(json["asia"].map((x) => Asia.fromJson(x))),
+        rim: List<Asia>.from(json["rim"].map((x) => Asia.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
-        "nemis_koroldugy":
-            List<dynamic>.from(nemisKoroldugy.map((x) => x.toJson())),
-        "baiyrky_germandar":
-            List<dynamic>.from(baiyrkyGermandar.map((x) => x.toJson())),
-        "italia_V_X": List<dynamic>.from(italiaVX.map((x) => x.toJson())),
+        "europe_country":
+            List<dynamic>.from(europeCountry.map((x) => x.toJson())),
+        "usa": List<dynamic>.from(usa.map((x) => x.toJson())),
+        "asia": List<dynamic>.from(asia.map((x) => x.toJson())),
         "rim": List<dynamic>.from(rim.map((x) => x.toJson())),
       };
 }
 
-class BaiyrkyGermandar {
+class Asia {
   int id;
   String guestion;
   String image;
   List<Option> options;
 
-  BaiyrkyGermandar({
+  Asia({
     required this.id,
     required this.guestion,
     required this.image,
     required this.options,
   });
 
-  factory BaiyrkyGermandar.fromJson(Map<String, dynamic> json) =>
-      BaiyrkyGermandar(
+  factory Asia.fromJson(Map<String, dynamic> json) => Asia(
         id: json["id"],
         guestion: json["guestion"],
         image: json["image"],
@@ -113,10 +117,43 @@ class Option {
       };
 }
 
+class History {
+  List<Asia> nemisKoroldugy;
+  List<Asia> baiyrkyGermandar;
+  List<Asia> italiaVX;
+  List<Asia> rim;
+
+  History({
+    required this.nemisKoroldugy,
+    required this.baiyrkyGermandar,
+    required this.italiaVX,
+    required this.rim,
+  });
+
+  factory History.fromJson(Map<String, dynamic> json) => History(
+        nemisKoroldugy: List<Asia>.from(
+            json["nemis_koroldugy"].map((x) => Asia.fromJson(x))),
+        baiyrkyGermandar: List<Asia>.from(
+            json["baiyrky_germandar"].map((x) => Asia.fromJson(x))),
+        italiaVX:
+            List<Asia>.from(json["italia_V_X"].map((x) => Asia.fromJson(x))),
+        rim: List<Asia>.from(json["rim"].map((x) => Asia.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "nemis_koroldugy":
+            List<dynamic>.from(nemisKoroldugy.map((x) => x.toJson())),
+        "baiyrky_germandar":
+            List<dynamic>.from(baiyrkyGermandar.map((x) => x.toJson())),
+        "italia_V_X": List<dynamic>.from(italiaVX.map((x) => x.toJson())),
+        "rim": List<dynamic>.from(rim.map((x) => x.toJson())),
+      };
+}
+
 class Informatica {
-  List<BaiyrkyGermandar> personalComputer;
-  List<BaiyrkyGermandar> computerdicTarmaktar;
-  List<BaiyrkyGermandar> sistemalykKamsyzdoo;
+  List<Asia> personalComputer;
+  List<Asia> computerdicTarmaktar;
+  List<Asia> sistemalykKamsyzdoo;
 
   Informatica({
     required this.personalComputer,
@@ -125,14 +162,12 @@ class Informatica {
   });
 
   factory Informatica.fromJson(Map<String, dynamic> json) => Informatica(
-        personalComputer: List<BaiyrkyGermandar>.from(
-            json["personal_computer"].map((x) => BaiyrkyGermandar.fromJson(x))),
-        computerdicTarmaktar: List<BaiyrkyGermandar>.from(
-            json["computerdic_tarmaktar"]
-                .map((x) => BaiyrkyGermandar.fromJson(x))),
-        sistemalykKamsyzdoo: List<BaiyrkyGermandar>.from(
-            json["sistemalyk_kamsyzdoo"]
-                .map((x) => BaiyrkyGermandar.fromJson(x))),
+        personalComputer: List<Asia>.from(
+            json["personal_computer"].map((x) => Asia.fromJson(x))),
+        computerdicTarmaktar: List<Asia>.from(
+            json["computerdic_tarmaktar"].map((x) => Asia.fromJson(x))),
+        sistemalykKamsyzdoo: List<Asia>.from(
+            json["sistemalyk_kamsyzdoo"].map((x) => Asia.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
