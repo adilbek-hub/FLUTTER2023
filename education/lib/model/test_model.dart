@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final testTopicsModel = testTopicsModelFromJson(jsonString);
-
 import 'dart:convert';
 
 TestTopicsModel testTopicsModelFromJson(String str) =>
@@ -12,70 +8,76 @@ String testTopicsModelToJson(TestTopicsModel data) =>
 
 class TestTopicsModel {
   List<Informatica> informatica;
+  List<History> history;
 
   TestTopicsModel({
     required this.informatica,
+    required this.history,
   });
 
   factory TestTopicsModel.fromJson(Map<String, dynamic> json) =>
       TestTopicsModel(
         informatica: List<Informatica>.from(
             json["informatica"].map((x) => Informatica.fromJson(x))),
+        history:
+            List<History>.from(json["history"].map((x) => History.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "informatica": List<dynamic>.from(informatica.map((x) => x.toJson())),
+        "history": List<dynamic>.from(history.map((x) => x.toJson())),
       };
 }
 
-class Informatica {
-  List<ComputerdicTarmaktar> personalComputer;
-  List<ComputerdicTarmaktar> computerdicTarmaktar;
-  List<ComputerdicTarmaktar> sistemalykKamsyzdoo;
+class History {
+  List<BaiyrkyGermandar> nemisKoroldugy;
+  List<BaiyrkyGermandar> baiyrkyGermandar;
+  List<BaiyrkyGermandar> italiaVX;
+  List<BaiyrkyGermandar> rim;
 
-  Informatica({
-    required this.personalComputer,
-    required this.computerdicTarmaktar,
-    required this.sistemalykKamsyzdoo,
+  History({
+    required this.nemisKoroldugy,
+    required this.baiyrkyGermandar,
+    required this.italiaVX,
+    required this.rim,
   });
 
-  factory Informatica.fromJson(Map<String, dynamic> json) => Informatica(
-        personalComputer: List<ComputerdicTarmaktar>.from(
-            json["personal_computer"]
-                .map((x) => ComputerdicTarmaktar.fromJson(x))),
-        computerdicTarmaktar: List<ComputerdicTarmaktar>.from(
-            json["computerdic_tarmaktar"]
-                .map((x) => ComputerdicTarmaktar.fromJson(x))),
-        sistemalykKamsyzdoo: List<ComputerdicTarmaktar>.from(
-            json["sistemalyk_kamsyzdoo"]
-                .map((x) => ComputerdicTarmaktar.fromJson(x))),
+  factory History.fromJson(Map<String, dynamic> json) => History(
+        nemisKoroldugy: List<BaiyrkyGermandar>.from(
+            json["nemis_koroldugy"].map((x) => BaiyrkyGermandar.fromJson(x))),
+        baiyrkyGermandar: List<BaiyrkyGermandar>.from(
+            json["baiyrky_germandar"].map((x) => BaiyrkyGermandar.fromJson(x))),
+        italiaVX: List<BaiyrkyGermandar>.from(
+            json["italia_V_X"].map((x) => BaiyrkyGermandar.fromJson(x))),
+        rim: List<BaiyrkyGermandar>.from(
+            json["rim"].map((x) => BaiyrkyGermandar.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
-        "personal_computer":
-            List<dynamic>.from(personalComputer.map((x) => x.toJson())),
-        "computerdic_tarmaktar":
-            List<dynamic>.from(computerdicTarmaktar.map((x) => x.toJson())),
-        "sistemalyk_kamsyzdoo":
-            List<dynamic>.from(sistemalykKamsyzdoo.map((x) => x.toJson())),
+        "nemis_koroldugy":
+            List<dynamic>.from(nemisKoroldugy.map((x) => x.toJson())),
+        "baiyrky_germandar":
+            List<dynamic>.from(baiyrkyGermandar.map((x) => x.toJson())),
+        "italia_V_X": List<dynamic>.from(italiaVX.map((x) => x.toJson())),
+        "rim": List<dynamic>.from(rim.map((x) => x.toJson())),
       };
 }
 
-class ComputerdicTarmaktar {
+class BaiyrkyGermandar {
   int id;
   String guestion;
   String image;
   List<Option> options;
 
-  ComputerdicTarmaktar({
+  BaiyrkyGermandar({
     required this.id,
     required this.guestion,
     required this.image,
     required this.options,
   });
 
-  factory ComputerdicTarmaktar.fromJson(Map<String, dynamic> json) =>
-      ComputerdicTarmaktar(
+  factory BaiyrkyGermandar.fromJson(Map<String, dynamic> json) =>
+      BaiyrkyGermandar(
         id: json["id"],
         guestion: json["guestion"],
         image: json["image"],
@@ -108,5 +110,37 @@ class Option {
   Map<String, dynamic> toJson() => {
         "answer": answer,
         "correct": correct,
+      };
+}
+
+class Informatica {
+  List<BaiyrkyGermandar> personalComputer;
+  List<BaiyrkyGermandar> computerdicTarmaktar;
+  List<BaiyrkyGermandar> sistemalykKamsyzdoo;
+
+  Informatica({
+    required this.personalComputer,
+    required this.computerdicTarmaktar,
+    required this.sistemalykKamsyzdoo,
+  });
+
+  factory Informatica.fromJson(Map<String, dynamic> json) => Informatica(
+        personalComputer: List<BaiyrkyGermandar>.from(
+            json["personal_computer"].map((x) => BaiyrkyGermandar.fromJson(x))),
+        computerdicTarmaktar: List<BaiyrkyGermandar>.from(
+            json["computerdic_tarmaktar"]
+                .map((x) => BaiyrkyGermandar.fromJson(x))),
+        sistemalykKamsyzdoo: List<BaiyrkyGermandar>.from(
+            json["sistemalyk_kamsyzdoo"]
+                .map((x) => BaiyrkyGermandar.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "personal_computer":
+            List<dynamic>.from(personalComputer.map((x) => x.toJson())),
+        "computerdic_tarmaktar":
+            List<dynamic>.from(computerdicTarmaktar.map((x) => x.toJson())),
+        "sistemalyk_kamsyzdoo":
+            List<dynamic>.from(sistemalykKamsyzdoo.map((x) => x.toJson())),
       };
 }
