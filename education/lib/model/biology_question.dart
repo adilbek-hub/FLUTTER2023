@@ -694,7 +694,7 @@ Biology mee15 = const Biology(
   image: 'mee15',
   jooptor: [
     BiologyJoop(name: 'Убактылуу лобдор', tuuraJoop: false),
-    BiologyJoop(name: 'Париеталдык лобдор', tuuraJoop: false),
+    BiologyJoop(name: 'Борбордук жана перифериялык', tuuraJoop: false),
     BiologyJoop(name: 'Желке бөлүктөрү', tuuraJoop: false),
     BiologyJoop(name: 'Гиппокамп', tuuraJoop: true),
   ],
