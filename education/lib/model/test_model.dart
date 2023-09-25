@@ -42,13 +42,13 @@ class Geography {
   List<Asia> europeCountry;
   List<Asia> usa;
   List<Asia> asia;
-  List<Asia> rim;
+  List<Asia> worldCountryCapitals;
 
   Geography({
     required this.europeCountry,
     required this.usa,
     required this.asia,
-    required this.rim,
+    required this.worldCountryCapitals,
   });
 
   factory Geography.fromJson(Map<String, dynamic> json) => Geography(
@@ -56,7 +56,8 @@ class Geography {
             json["europe_country"].map((x) => Asia.fromJson(x))),
         usa: List<Asia>.from(json["usa"].map((x) => Asia.fromJson(x))),
         asia: List<Asia>.from(json["asia"].map((x) => Asia.fromJson(x))),
-        rim: List<Asia>.from(json["rim"].map((x) => Asia.fromJson(x))),
+        worldCountryCapitals: List<Asia>.from(
+            json["world_country_capitals"].map((x) => Asia.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -64,7 +65,8 @@ class Geography {
             List<dynamic>.from(europeCountry.map((x) => x.toJson())),
         "usa": List<dynamic>.from(usa.map((x) => x.toJson())),
         "asia": List<dynamic>.from(asia.map((x) => x.toJson())),
-        "rim": List<dynamic>.from(rim.map((x) => x.toJson())),
+        "world_country_capitals":
+            List<dynamic>.from(worldCountryCapitals.map((x) => x.toJson())),
       };
 }
 
