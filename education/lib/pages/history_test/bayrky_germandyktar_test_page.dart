@@ -27,7 +27,7 @@ class _BayrkyGermandyktarTestPageState
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubjectsBloc, EducationState>(
+    return BlocBuilder<TestBloc, EducationState>(
       builder: (context, state) {
         if (state is TestSuccess) {
           return SafeArea(
