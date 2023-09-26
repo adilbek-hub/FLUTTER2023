@@ -11,7 +11,7 @@ class GeographyTopics extends StatelessWidget {
   final _pageController = PageController();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubjectsBloc, EducationState>(
+    return BlocBuilder<GeographyBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const CupertinoActivityIndicator(color: Colors.blue);

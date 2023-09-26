@@ -8,7 +8,7 @@ class HistoryTopics extends StatelessWidget {
   final _pageController = PageController();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubjectsBloc, EducationState>(
+    return BlocBuilder<HistoryBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const CupertinoActivityIndicator();
