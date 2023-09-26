@@ -15,46 +15,142 @@ import '../services/informatica_topics_service.dart';
 part 'education_event.dart';
 part 'education_state.dart';
 
-class EducationBloc extends Bloc<EducationEvent, EducationState> {
-  EducationBloc(
+class SubjectsBloc extends Bloc<EducationEvent, EducationState> {
+  SubjectsBloc(
     this.subjectsTopicsService,
-    this.subjectService,
+  ) : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataEvent1>(_getSubjects);
+  }
+  final SubjectsTopicsService subjectsTopicsService;
+
+  Future<void> _getSubjects(
+      FetchDataEvent1 event, Emitter<EducationState> emit) async {
+    final dataSubjects = await subjectsTopicsService.getData();
+
+    if (dataSubjects != null) {
+      emit(
+        SubjectsSuccess(
+          subjectsTopicsModel: dataSubjects,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class InformaticaBloc extends Bloc<EducationEvent, EducationState> {
+  InformaticaBloc(
+    this.informaticaTopicsService,
+  ) : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataEvent2>(_getInformatica);
+  }
+  final InformaticaTopicsService informaticaTopicsService;
+
+  Future<void> _getInformatica(
+      FetchDataEvent2 event, Emitter<EducationState> emit) async {
+    final dataInformatica = await informaticaTopicsService.getData();
+    if (dataInformatica != null) {
+      emit(
+        InformaticaSuccess(
+          informaticaModel: dataInformatica,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class HistoryBloc extends Bloc<EducationEvent, EducationState> {
+  HistoryBloc(
     this.historyTopicsService,
+  ) : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataEvent3>(_getHistory);
+  }
+  final HistoryTopicsService historyTopicsService;
+
+  Future<void> _getHistory(
+      FetchDataEvent3 event, Emitter<EducationState> emit) async {
+    final dataHistory = await historyTopicsService.getData();
+    if (dataHistory != null) {
+      emit(
+        HistorySuccess(
+          historyTopicsModel: dataHistory,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class BiologyBloc extends Bloc<EducationEvent, EducationState> {
+  BiologyBloc(
     this.biologyTopicsService,
+  ) : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataEvent4>(_getBiology);
+  }
+  final BiologyTopicsService biologyTopicsService;
+
+  Future<void> _getBiology(
+      FetchDataEvent4 event, Emitter<EducationState> emit) async {
+    final dataBiology = await biologyTopicsService.getData();
+    if (dataBiology != null) {
+      emit(
+        BiologySuccess(
+          biologyTopicsModel: dataBiology,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class GeographyBloc extends Bloc<EducationEvent, EducationState> {
+  GeographyBloc(
     this.geographyTopicsService,
+  ) : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataEvent5>(_getGeography);
+  }
+  final GeograhyTopicsService geographyTopicsService;
+
+  Future<void> _getGeography(
+      FetchDataEvent5 event, Emitter<EducationState> emit) async {
+    final dataGeography = await geographyTopicsService.getData();
+    if (dataGeography != null) {
+      emit(
+        GeographySuccess(
+          geographyTopicsModel: dataGeography,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class TestBloc extends Bloc<EducationEvent, EducationState> {
+  TestBloc(
     this.testTopicsService,
   ) : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<EducationRefreshEvent>(_getSubjectsByInformation);
+    on<FetchDataEvent6>(_getTest);
   }
-  final SubjectsTopicsService subjectsTopicsService;
-  final InformaticaTopicsService subjectService;
-  final HistoryTopicsService historyTopicsService;
-  final BiologyTopicsService biologyTopicsService;
-  final GeograhyTopicsService geographyTopicsService;
   final TestTopicsService testTopicsService;
-  Future<void> _getSubjectsByInformation(
-      EducationRefreshEvent event, Emitter<EducationState> emit) async {
-    final dataSubjects = await subjectsTopicsService.getData();
-    final dataSubject = await subjectService.getData();
-    final dataHistory = await historyTopicsService.getData();
-    final dataBiology = await biologyTopicsService.getData();
-    final dataGeography = await geographyTopicsService.getData();
-    final dataTest = await testTopicsService.getData();
 
-    if (dataSubjects != null &&
-        dataSubject != null &&
-        dataHistory != null &&
-        dataBiology != null &&
-        dataGeography != null &&
-        dataTest != null) {
+  Future<void> _getTest(
+      FetchDataEvent6 event, Emitter<EducationState> emit) async {
+    final dataTest = await testTopicsService.getData();
+    if (dataTest != null) {
       emit(
-        EducationSuccess(
-          subjectsTopicsModel: dataSubjects,
-          subjects2: dataSubject,
-          historyTopicsModel: dataHistory,
-          biologyTopicsModel: dataBiology,
-          geographyTopicsModel: dataGeography,
+        TestSuccess(
           testTopicsModel: dataTest,
         ),
       );

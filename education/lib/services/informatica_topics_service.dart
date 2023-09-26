@@ -22,6 +22,6 @@ class InformaticaTopicsService {
   }
 }
 
-final subjectService = InformaticaTopicsService(
+final inforMaticaTopicsService = InformaticaTopicsService(
   client: http.Client(),
 );

@@ -25,9 +25,9 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EducationBloc, EducationState>(
+    return BlocBuilder<SubjectsBloc, EducationState>(
       builder: (context, state) {
-        if (state is EducationSuccess) {
+        if (state is TestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(

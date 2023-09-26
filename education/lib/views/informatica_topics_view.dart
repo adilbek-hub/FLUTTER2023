@@ -10,14 +10,13 @@ class InformaticaTopics extends StatelessWidget {
   final _pageController = PageController();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EducationBloc, EducationState>(
-        builder: (context, state) {
+    return BlocBuilder<SubjectsBloc, EducationState>(builder: (context, state) {
       if (state is EducationLoading) {
         return const LoadingWidget();
-      } else if (state is EducationSuccess) {
+      } else if (state is InformaticaSuccess) {
         return InformaticaBolumuWidget(
           pageController: _pageController,
-          informaticaTopics: state.subjects2,
+          informaticaTopics: state.informaticaModel,
         );
       } else if (state is EducationError) {
         return ErrorTextWidget(errorText: state.text);

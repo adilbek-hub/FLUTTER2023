@@ -68,13 +68,13 @@ class _BooksViewState extends State<BooksView> {
                 indent: 20,
                 endIndent: 20,
               ),
-              BlocBuilder<EducationBloc, EducationState>(
+              BlocBuilder<SubjectsBloc, EducationState>(
                   builder: (context, state) {
                 if (state is EducationLoading) {
                   return const CupertinoActivityIndicator(color: Colors.blue);
                 } else if (state is EducationError) {
                   return Text(state.text);
-                } else if (state is EducationSuccess) {
+                } else if (state is SubjectsSuccess) {
                   return Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,

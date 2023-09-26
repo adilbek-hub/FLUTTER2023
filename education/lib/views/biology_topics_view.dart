@@ -10,13 +10,13 @@ class BiologyTopics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EducationBloc, EducationState>(
+    return BlocBuilder<BiologyBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const CupertinoActivityIndicator(color: Colors.red);
         } else if (state is EducationError) {
           return Text(state.text);
-        } else if (state is EducationSuccess) {
+        } else if (state is BiologySuccess) {
           return BiologyBolumuWidget(
             pageController: _pageController,
             biologyBolumuTopicsModel: state.biologyTopicsModel,

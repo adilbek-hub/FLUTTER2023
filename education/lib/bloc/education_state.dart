@@ -9,26 +9,33 @@ sealed class EducationState extends Equatable {
 
 class EducationLoading extends EducationState {}
 
-class EducationSuccess extends EducationState {
-  const EducationSuccess({
-    required this.subjectsTopicsModel,
-    required this.subjects2,
-    required this.historyTopicsModel,
-    required this.biologyTopicsModel,
-    required this.geographyTopicsModel,
-    required this.testTopicsModel,
-  });
-  // төрт предмет
+class SubjectsSuccess extends EducationState {
+  const SubjectsSuccess({required this.subjectsTopicsModel});
   final List<SubjectsTopicsModel> subjectsTopicsModel;
-  // информатика предмет
-  final InformaticaTopics subjects2;
-  // история предмет
+}
+
+class InformaticaSuccess extends EducationState {
+  const InformaticaSuccess({required this.informaticaModel});
+  final InformaticaTopics informaticaModel;
+}
+
+class HistorySuccess extends EducationState {
+  const HistorySuccess({required this.historyTopicsModel});
   final List<HistoryTopicsModel> historyTopicsModel;
-  // биология предмет
+}
+
+class BiologySuccess extends EducationState {
+  const BiologySuccess({required this.biologyTopicsModel});
   final List<BiologyTopicsModel> biologyTopicsModel;
-  // география предмет
+}
+
+class GeographySuccess extends EducationState {
+  const GeographySuccess({required this.geographyTopicsModel});
   final List<GeographyTopicsModel> geographyTopicsModel;
-  // Тесттер
+}
+
+class TestSuccess extends EducationState {
+  const TestSuccess({required this.testTopicsModel});
   final TestTopicsModel testTopicsModel;
 }
 

@@ -8,22 +8,41 @@ import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../services/informatica_topics_service.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => EducationBloc(
-        subjectsTopicsService,
-        subjectService,
-        historyTopicsService,
-        biologyTopicsService,
-        geographyTopicsService,
-        testTopicsService,
-      )..add(EducationRefreshEvent()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SubjectsBloc>(
+          create: (BuildContext context) => SubjectsBloc(subjectsTopicsService)
+            ..add(
+              FetchDataEvent1(),
+            ),
+        ),
+        BlocProvider<InformaticaBloc>(
+          create: (BuildContext context) =>
+              InformaticaBloc(inforMaticaTopicsService)..add(FetchDataEvent2()),
+        ),
+        BlocProvider<HistoryBloc>(
+          create: (BuildContext context) =>
+              HistoryBloc(historyTopicsService)..add(FetchDataEvent3()),
+        ),
+        BlocProvider<BiologyBloc>(
+          create: (BuildContext context) =>
+              BiologyBloc(biologyTopicsService)..add(FetchDataEvent4()),
+        ),
+        BlocProvider<GeographyBloc>(
+          create: (BuildContext context) =>
+              GeographyBloc(geographyTopicsService)..add(FetchDataEvent5()),
+        ),
+        BlocProvider<TestBloc>(
+          create: (BuildContext context) =>
+              TestBloc(testTopicsService)..add(FetchDataEvent6()),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

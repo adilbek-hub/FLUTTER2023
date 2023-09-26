@@ -8,13 +8,13 @@ class HistoryTopics extends StatelessWidget {
   final _pageController = PageController();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EducationBloc, EducationState>(
+    return BlocBuilder<SubjectsBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const CupertinoActivityIndicator();
         } else if (state is EducationError) {
           return Text(state.text);
-        } else if (state is EducationSuccess) {
+        } else if (state is HistorySuccess) {
           return HistoryBolumuWidget(
             pageController: _pageController,
             historyTopicsModel: state.historyTopicsModel,
