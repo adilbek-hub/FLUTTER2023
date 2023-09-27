@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +23,9 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<TestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        } else if (state is TestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -220,6 +223,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
           throw ('ERROR in TEST');
         }
