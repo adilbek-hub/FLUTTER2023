@@ -1,3 +1,4 @@
+import 'package:education/services/test_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -11,12 +12,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  @override
-  void initState() {
-    super.initState();
-    inforMaticaTopicsService.getData();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

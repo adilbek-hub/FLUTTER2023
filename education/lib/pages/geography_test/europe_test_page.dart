@@ -25,7 +25,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TestBloc, EducationState>(
+    return BlocBuilder<TestsBloc, EducationState>(
       builder: (context, state) {
         if (state is TestSuccess) {
           return SafeArea(

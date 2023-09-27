@@ -138,20 +138,20 @@ class GeographyBloc extends Bloc<EducationEvent, EducationState> {
 
 class TestsBloc extends Bloc<EducationEvent, EducationState> {
   TestsBloc(
-    this.informaticaTopicsService,
+    this.testTopicsService,
   ) : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchDataEvent2>(_getInformatica);
+    on<FetchDataEvent6>(_getTest);
   }
-  final InformaticaTopicsService informaticaTopicsService;
+  final TestTopicsService testTopicsService;
 
-  Future<void> _getInformatica(
-      FetchDataEvent2 event, Emitter<EducationState> emit) async {
-    final dataInformatica = await informaticaTopicsService.getData();
-    if (dataInformatica != null) {
+  Future<void> _getTest(
+      FetchDataEvent6 event, Emitter<EducationState> emit) async {
+    final dataTest = await testTopicsService.getData();
+    if (dataTest != null) {
       emit(
-        InformaticaSuccess(
-          informaticaModel: dataInformatica,
+        TestSuccess(
+          testTopicsModel: dataTest,
         ),
       );
     } else {

@@ -38,9 +38,9 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) =>
               GeographyBloc(geographyTopicsService)..add(FetchDataEvent5()),
         ),
-        BlocProvider<TestBloc>(
+        BlocProvider<TestsBloc>(
           create: (BuildContext context) =>
-              TestBloc(testTopicsService)..add(FetchDataEvent6()),
+              TestsBloc(testTopicsService)..add(FetchDataEvent6()),
         ),
       ],
       child: MaterialApp(

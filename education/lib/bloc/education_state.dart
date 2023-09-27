@@ -36,7 +36,7 @@ class GeographySuccess extends EducationState {
 
 class TestSuccess extends EducationState {
   const TestSuccess({required this.testTopicsModel});
-  final TestTopicsModel testTopicsModel;
+  final TestTopicModel testTopicsModel;
 }
 
 class EducationError extends EducationState {

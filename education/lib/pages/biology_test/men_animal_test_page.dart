@@ -24,7 +24,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TestBloc, EducationState>(
+    return BlocBuilder<TestsBloc, EducationState>(
       builder: (context, state) {
         if (state is TestSuccess) {
           return SafeArea(

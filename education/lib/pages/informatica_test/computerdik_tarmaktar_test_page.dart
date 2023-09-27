@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/constants/app_color.dart';
+import 'package:education/services/test_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +23,7 @@ class _ComputerdikTarmaktarTestPageState
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TestBloc, EducationState>(
+    return BlocBuilder<TestsBloc, EducationState>(
       builder: (context, state) {
         if (state is TestSuccess) {
           return SafeArea(
