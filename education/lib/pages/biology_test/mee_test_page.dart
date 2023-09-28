@@ -91,7 +91,7 @@ class _MeeTestPageState extends State<MeeTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 14,
+                      max: 15,
                       value: indexmee.toDouble(),
                       onChanged: (value) {},
                     ),

@@ -97,30 +97,37 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      state.testTopicsModel[0].geography[0]
-                          .worldCountryCapitals[indexWorldCapitals].guestion,
-                      style: const TextStyle(fontSize: 20, height: 2),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
+                    child: Center(
+                      child: AutoSizeText(
+                        state.testTopicsModel[0].geography[0]
+                            .worldCapitals[indexWorldCapitals].guestion,
+                        // widget.personalComputer[indexpersonalComputer].text,
+                        style: const TextStyle(fontSize: 20, height: 2),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                      ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel[0].geography[0]
-                            .worldCountryCapitals[indexWorldCapitals].image,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Transform.scale(
-                            scale: 0.2,
-                            child: const CircularProgressIndicator(
-                              color: Colors.red,
-                              strokeWidth: 20,
-                            )),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: CachedNetworkImage(
+                          imageUrl: state.testTopicsModel[0].geography[0]
+                              .worldCapitals[indexWorldCapitals].image,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Transform.scale(
+                              scale: 0.2,
+                              child: const CircularProgressIndicator(
+                                color: Colors.red,
+                                strokeWidth: 20,
+                              )),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                     ),
                   ),
@@ -144,8 +151,15 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexWorldCapitals + 1 ==
-                                  state.testTopicsModel[0].geography[0]
-                                      .worldCountryCapitals.length) {
+                                      state
+                                          .testTopicsModel[0]
+                                          .geography[0]
+                                          .worldCapitals[indexWorldCapitals]
+                                          .options
+                                          .length
+                                  // indexpersonalComputer + 1 ==
+                                  //   widget.personalComputer.length
+                                  ) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -172,8 +186,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                                 if (state
                                         .testTopicsModel[0]
                                         .geography[0]
-                                        .worldCountryCapitals[
-                                            indexWorldCapitals]
+                                        .worldCapitals[indexWorldCapitals]
                                         .options[index]
                                         .correct ==
                                     true) {
@@ -191,7 +204,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                                 state
                                     .testTopicsModel[0]
                                     .geography[0]
-                                    .worldCountryCapitals[indexWorldCapitals]
+                                    .worldCapitals[indexWorldCapitals]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,

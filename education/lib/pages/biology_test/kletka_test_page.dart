@@ -93,7 +93,7 @@ class _KletkaJonundoTushunukTestPageState
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 13,
+                      max: 15,
                       value: indexkletka.toDouble(),
                       onChanged: (value) {},
                     ),

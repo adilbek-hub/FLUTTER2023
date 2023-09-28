@@ -92,7 +92,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 9,
+                      max: 11,
                       value: indexitalia.toDouble(),
                       onChanged: (value) {},
                     ),

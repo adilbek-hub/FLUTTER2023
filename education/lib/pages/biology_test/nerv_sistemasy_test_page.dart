@@ -91,7 +91,7 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 14,
+                      max: 15,
                       value: indexnervSistemasy.toDouble(),
                       onChanged: (value) {},
                     ),

@@ -4,13 +4,13 @@ import 'package:http/http.dart' as http;
 class TestTopicsService {
   const TestTopicsService({required this.client});
   final http.Client client;
-  Future<List<TestTopicModel>?> getData() async {
+  Future<List<TestToicsModel>?> getData() async {
     try {
       final response = await http
-          .get(Uri.parse('https://adilbek-hub.github.io/my_data/biology.json'));
+          .get(Uri.parse('https://adilbek-hub.github.io/my_data/test.json'));
 
       if (response.statusCode == 200) {
-        final data = testTopicModelFromJson(response.body);
+        final data = testToicsModelFromJson(response.body);
         return data;
       } else {
         throw Exception('Failed to load computer data');

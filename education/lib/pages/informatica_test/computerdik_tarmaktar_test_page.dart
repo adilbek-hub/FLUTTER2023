@@ -90,23 +90,24 @@ class _ComputerdikTarmaktarTestPageState
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 6,
+                      max: 4,
                       value: indexcomputerdikTarmaktar.toDouble(),
                       onChanged: (value) {},
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: FittedBox(
-                      child: Text(
+                    child: Center(
+                      child: AutoSizeText(
                         state
                             .testTopicsModel[0]
                             .informatica[0]
-                            .computerdicTarmaktar[indexcomputerdikTarmaktar]
+                            .computerdikTarmaktar[indexcomputerdikTarmaktar]
                             .guestion,
+                        // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 2,
+                        maxLines: 1,
                       ),
                     ),
                   ),
@@ -114,21 +115,25 @@ class _ComputerdikTarmaktarTestPageState
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: CachedNetworkImage(
-                        imageUrl: state
-                            .testTopicsModel[0]
-                            .informatica[0]
-                            .computerdicTarmaktar[indexcomputerdikTarmaktar]
-                            .image,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Transform.scale(
-                            scale: 0.2,
-                            child: const CircularProgressIndicator(
-                              color: Colors.red,
-                              strokeWidth: 20,
-                            )),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: CachedNetworkImage(
+                          imageUrl: state
+                              .testTopicsModel[0]
+                              .informatica[0]
+                              .computerdikTarmaktar[indexcomputerdikTarmaktar]
+                              .image,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Transform.scale(
+                              scale: 0.2,
+                              child: const CircularProgressIndicator(
+                                color: Colors.red,
+                                strokeWidth: 20,
+                              )),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                     ),
                   ),
@@ -152,8 +157,16 @@ class _ComputerdikTarmaktarTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexcomputerdikTarmaktar + 1 ==
-                                  state.testTopicsModel[0].informatica[0]
-                                      .computerdicTarmaktar.length) {
+                                      state
+                                          .testTopicsModel[0]
+                                          .informatica[0]
+                                          .computerdikTarmaktar[
+                                              indexcomputerdikTarmaktar]
+                                          .options
+                                          .length
+                                  // indexpersonalComputer + 1 ==
+                                  //   widget.personalComputer.length
+                                  ) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -180,7 +193,7 @@ class _ComputerdikTarmaktarTestPageState
                                 if (state
                                         .testTopicsModel[0]
                                         .informatica[0]
-                                        .computerdicTarmaktar[
+                                        .computerdikTarmaktar[
                                             indexcomputerdikTarmaktar]
                                         .options[index]
                                         .correct ==
@@ -199,7 +212,7 @@ class _ComputerdikTarmaktarTestPageState
                                 state
                                     .testTopicsModel[0]
                                     .informatica[0]
-                                    .computerdicTarmaktar[
+                                    .computerdikTarmaktar[
                                         indexcomputerdikTarmaktar]
                                     .options[index]
                                     .answer,

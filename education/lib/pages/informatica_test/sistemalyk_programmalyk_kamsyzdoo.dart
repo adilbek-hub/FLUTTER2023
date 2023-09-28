@@ -92,7 +92,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 6,
+                      max: 5,
                       value: indexsistemalykKamsyzdoo.toDouble(),
                       onChanged: (value) {},
                     ),
@@ -104,7 +104,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                         state
                             .testTopicsModel[0]
                             .informatica[0]
-                            .sistemalykKamsyzdoo[indexsistemalykKamsyzdoo]
+                            .sistemalykComputer[indexsistemalykKamsyzdoo]
                             .guestion,
                         // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
@@ -124,7 +124,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                           imageUrl: state
                               .testTopicsModel[0]
                               .informatica[0]
-                              .sistemalykKamsyzdoo[indexsistemalykKamsyzdoo]
+                              .sistemalykComputer[indexsistemalykKamsyzdoo]
                               .image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
@@ -159,8 +159,13 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexsistemalykKamsyzdoo + 1 ==
-                                      state.testTopicsModel[0].informatica[0]
-                                          .sistemalykKamsyzdoo.length
+                                      state
+                                          .testTopicsModel[0]
+                                          .informatica[0]
+                                          .sistemalykComputer[
+                                              indexsistemalykKamsyzdoo]
+                                          .options
+                                          .length
                                   // indexpersonalComputer + 1 ==
                                   //   widget.personalComputer.length
                                   ) {
@@ -190,7 +195,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                                 if (state
                                         .testTopicsModel[0]
                                         .informatica[0]
-                                        .sistemalykKamsyzdoo[
+                                        .sistemalykComputer[
                                             indexsistemalykKamsyzdoo]
                                         .options[index]
                                         .correct ==
@@ -209,7 +214,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                                 state
                                     .testTopicsModel[0]
                                     .informatica[0]
-                                    .sistemalykKamsyzdoo[
+                                    .sistemalykComputer[
                                         indexsistemalykKamsyzdoo]
                                     .options[index]
                                     .answer,

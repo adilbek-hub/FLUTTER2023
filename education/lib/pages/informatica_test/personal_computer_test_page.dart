@@ -90,7 +90,7 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 6,
+                      max: 5,
                       value: indexpersonalComputer.toDouble(),
                       onChanged: (value) {},
                     ),
@@ -151,8 +151,13 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexpersonalComputer + 1 ==
-                                      state.testTopicsModel[0].informatica[0]
-                                          .personalComputer.length
+                                      state
+                                          .testTopicsModel[0]
+                                          .informatica[0]
+                                          .personalComputer[
+                                              indexpersonalComputer]
+                                          .options
+                                          .length
                                   // indexpersonalComputer + 1 ==
                                   //   widget.personalComputer.length
                                   ) {
@@ -180,19 +185,12 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                                 );
                               } else {
                                 if (state
-                                            .testTopicsModel[0]
-                                            .informatica[0]
-                                            .personalComputer[
-                                                indexpersonalComputer]
-                                            .options[index]
-                                            .correct ==
-                                        true
-                                    // widget
-                                    //       .personalComputer[indexpersonalComputer]
-                                    //       .jooptor[index]
-                                    //       .isTrue ==
-                                    //   true
-                                    ) {
+                                        .testTopicsModel[0]
+                                        .informatica[0]
+                                        .personalComputer[indexpersonalComputer]
+                                        .options[index]
+                                        .correct ==
+                                    true) {
                                   tuuraJooptor++;
                                 } else {
                                   kataJooptor++;

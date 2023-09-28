@@ -94,37 +94,50 @@ class _BayrkyGermandyktarTestPageState
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 8,
+                      max: 10,
                       value: indexbairkyGermandyktar.toDouble(),
                       onChanged: (value) {},
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      state.testTopicsModel[0].history[0]
-                          .baiyrkyGermandar[indexbairkyGermandyktar].guestion,
-                      style: const TextStyle(fontSize: 20, height: 2),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
+                    child: Center(
+                      child: AutoSizeText(
+                        state
+                            .testTopicsModel[0]
+                            .history[0]
+                            .baiyrkyGermandyktar[indexbairkyGermandyktar]
+                            .guestion,
+                        // widget.personalComputer[indexpersonalComputer].text,
+                        style: const TextStyle(fontSize: 20, height: 2),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                      ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel[0].history[0]
-                            .baiyrkyGermandar[indexbairkyGermandyktar].image,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Transform.scale(
-                            scale: 0.2,
-                            child: const CircularProgressIndicator(
-                              color: Colors.red,
-                              strokeWidth: 20,
-                            )),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: CachedNetworkImage(
+                          imageUrl: state
+                              .testTopicsModel[0]
+                              .history[0]
+                              .baiyrkyGermandyktar[indexbairkyGermandyktar]
+                              .image,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Transform.scale(
+                              scale: 0.2,
+                              child: const CircularProgressIndicator(
+                                color: Colors.red,
+                                strokeWidth: 20,
+                              )),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                     ),
                   ),
@@ -148,8 +161,16 @@ class _BayrkyGermandyktarTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexbairkyGermandyktar + 1 ==
-                                  state.testTopicsModel[0].history[0]
-                                      .baiyrkyGermandar.length) {
+                                      state
+                                          .testTopicsModel[0]
+                                          .history[0]
+                                          .baiyrkyGermandyktar[
+                                              indexbairkyGermandyktar]
+                                          .options
+                                          .length
+                                  // indexpersonalComputer + 1 ==
+                                  //   widget.personalComputer.length
+                                  ) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -176,7 +197,7 @@ class _BayrkyGermandyktarTestPageState
                                 if (state
                                         .testTopicsModel[0]
                                         .history[0]
-                                        .baiyrkyGermandar[
+                                        .baiyrkyGermandyktar[
                                             indexbairkyGermandyktar]
                                         .options[index]
                                         .correct ==
@@ -195,7 +216,8 @@ class _BayrkyGermandyktarTestPageState
                                 state
                                     .testTopicsModel[0]
                                     .history[0]
-                                    .baiyrkyGermandar[indexbairkyGermandyktar]
+                                    .baiyrkyGermandyktar[
+                                        indexbairkyGermandyktar]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,
