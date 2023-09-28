@@ -187,8 +187,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                                 if (state
                                         .testTopicsModel[0]
                                         .informatica[0]
-                                        .personalComputer[indexpersonalComputer]
-                                        .options[index]
+                                        .personalComputer[index]
+                                        .options[indexpersonalComputer]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -205,8 +205,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                                 state
                                     .testTopicsModel[0]
                                     .informatica[0]
-                                    .personalComputer[indexpersonalComputer]
-                                    .options[index]
+                                    .personalComputer[0]
+                                    .options[indexpersonalComputer]
                                     .answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,
