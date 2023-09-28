@@ -1,4 +1,7 @@
+// Equatable => Чтобы облегчить сравнение значений, это поможет нам позже в управлении состоянием в BLOC. Equatable поставляется со свойством props, которое имеет свою собственную цель, и реквизиты для сравнения объектов. proparty решает, какие объекты мы должны рассматривать для сравнения объектов. все объекты, доступные в нашем классе.
+
 // класс ArticleEntity, который наследует от класса Equatable. Класс Equatable является частью пакета equatable, который предоставляет удобный способ реализации сравнения объектов в Dart.
+
 import 'package:equatable/equatable.dart';
 
 class ArticleEntity extends Equatable {
@@ -26,13 +29,13 @@ class ArticleEntity extends Equatable {
 //Это позволяет сравнивать два объекта типа ArticleEntity, и если все их свойства имеют одинаковые значения, то эти объекты будут считаться равными.
   @override
   List<Object?> get props => [
-        id,
-        author,
-        title,
-        description,
-        url,
-        urlToImage,
-        publishedAt,
-        content,
-      ];
+id,
+author,
+title,
+description,
+url,
+urlToImage,
+publishedAt,
+content,
+  ];
 }
