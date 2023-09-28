@@ -99,8 +99,8 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.biology[0].nerv[indexnervSistemasy]
-                          .guestion,
+                      state.testTopicsModel[0].biology[0]
+                          .nerv[indexnervSistemasy].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -111,7 +111,7 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.biology[0]
+                        imageUrl: state.testTopicsModel[0].biology[0]
                             .nerv[indexnervSistemasy].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -145,8 +145,8 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexnervSistemasy + 1 ==
-                                  state
-                                      .testTopicsModel.biology[0].nerv.length) {
+                                  state.testTopicsModel[0].biology[0].nerv
+                                      .length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -171,7 +171,7 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .biology[0]
                                         .nerv[indexnervSistemasy]
                                         .options[index]
@@ -189,7 +189,7 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .biology[0]
                                     .nerv[indexnervSistemasy]
                                     .options[index]

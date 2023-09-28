@@ -100,7 +100,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.history[0]
+                      state.testTopicsModel[0].history[0]
                           .nemisKoroldugy[indexgermania].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -112,7 +112,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.history[0]
+                        imageUrl: state.testTopicsModel[0].history[0]
                             .nemisKoroldugy[indexgermania].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -146,7 +146,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexgermania + 1 ==
-                                  state.testTopicsModel.history[0]
+                                  state.testTopicsModel[0].history[0]
                                       .nemisKoroldugy.length) {
                                 showDialog<String>(
                                   context: context,
@@ -172,7 +172,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .history[0]
                                         .nemisKoroldugy[indexgermania]
                                         .options[index]
@@ -190,7 +190,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .history[0]
                                     .nemisKoroldugy[indexgermania]
                                     .options[index]

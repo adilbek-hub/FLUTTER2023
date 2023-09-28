@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class TestTopicsService {
   const TestTopicsService({required this.client});
   final http.Client client;
-  Future<TestTopicModel?> getData() async {
+  Future<List<TestTopicModel>?> getData() async {
     try {
       final response = await http
           .get(Uri.parse('https://adilbek-hub.github.io/my_data/biology.json'));

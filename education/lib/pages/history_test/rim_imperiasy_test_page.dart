@@ -100,7 +100,7 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.history[0].rim[indexpimImperiasy]
+                      state.testTopicsModel[0].history[0].rim[indexpimImperiasy]
                           .guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -112,7 +112,7 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.history[0]
+                        imageUrl: state.testTopicsModel[0].history[0]
                             .rim[indexpimImperiasy].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -146,7 +146,8 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexpimImperiasy + 1 ==
-                                  state.testTopicsModel.history[0].rim.length) {
+                                  state.testTopicsModel[0].history[0].rim
+                                      .length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -171,7 +172,7 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .history[0]
                                         .rim[indexpimImperiasy]
                                         .options[index]
@@ -189,7 +190,7 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .history[0]
                                     .rim[indexpimImperiasy]
                                     .options[index]

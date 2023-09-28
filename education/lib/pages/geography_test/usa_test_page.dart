@@ -96,8 +96,8 @@ class _UsaTestPageState extends State<UsaTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.geography[0].usa[indexUsaSurooJoop]
-                          .guestion,
+                      state.testTopicsModel[0].geography[0]
+                          .usa[indexUsaSurooJoop].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -108,7 +108,7 @@ class _UsaTestPageState extends State<UsaTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.geography[0]
+                        imageUrl: state.testTopicsModel[0].geography[0]
                             .usa[indexUsaSurooJoop].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -142,7 +142,7 @@ class _UsaTestPageState extends State<UsaTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexUsaSurooJoop + 1 ==
-                                  state.testTopicsModel.geography[0].usa
+                                  state.testTopicsModel[0].geography[0].usa
                                       .length) {
                                 showDialog<String>(
                                   context: context,
@@ -168,7 +168,7 @@ class _UsaTestPageState extends State<UsaTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .geography[0]
                                         .usa[indexUsaSurooJoop]
                                         .options[index]
@@ -186,7 +186,7 @@ class _UsaTestPageState extends State<UsaTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .geography[0]
                                     .usa[indexUsaSurooJoop]
                                     .options[index]

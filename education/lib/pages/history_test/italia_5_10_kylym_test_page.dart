@@ -100,7 +100,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.history[0].italiaVX[indexitalia]
+                      state.testTopicsModel[0].history[0].italiaVX[indexitalia]
                           .guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -112,7 +112,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.history[0]
+                        imageUrl: state.testTopicsModel[0].history[0]
                             .italiaVX[indexitalia].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -146,7 +146,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexitalia + 1 ==
-                                  state.testTopicsModel.history[0].italiaVX
+                                  state.testTopicsModel[0].history[0].italiaVX
                                       .length) {
                                 showDialog<String>(
                                   context: context,
@@ -172,7 +172,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .history[0]
                                         .italiaVX[indexitalia]
                                         .options[index]
@@ -190,7 +190,7 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .history[0]
                                     .italiaVX[indexitalia]
                                     .options[index]

@@ -100,7 +100,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.geography[0]
+                      state.testTopicsModel[0].geography[0]
                           .europeCountry[europeCountryIndex].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -112,7 +112,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.geography[0]
+                        imageUrl: state.testTopicsModel[0].geography[0]
                             .europeCountry[europeCountryIndex].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -146,7 +146,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (europeCountryIndex + 1 ==
-                                  state.testTopicsModel.geography[0]
+                                  state.testTopicsModel[0].geography[0]
                                       .europeCountry.length) {
                                 showDialog<String>(
                                   context: context,
@@ -172,7 +172,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .geography[0]
                                         .europeCountry[europeCountryIndex]
                                         .options[index]
@@ -190,7 +190,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .geography[0]
                                     .europeCountry[europeCountryIndex]
                                     .options[index]

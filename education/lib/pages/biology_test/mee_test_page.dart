@@ -99,7 +99,8 @@ class _MeeTestPageState extends State<MeeTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.biology[0].mee[indexmee].guestion,
+                      state
+                          .testTopicsModel[0].biology[0].mee[indexmee].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -111,7 +112,7 @@ class _MeeTestPageState extends State<MeeTestPage> {
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
                         imageUrl: state
-                            .testTopicsModel.biology[0].mee[indexmee].image,
+                            .testTopicsModel[0].biology[0].mee[indexmee].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
                             scale: 0.2,
@@ -144,7 +145,8 @@ class _MeeTestPageState extends State<MeeTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexmee + 1 ==
-                                  state.testTopicsModel.biology[0].mee.length) {
+                                  state.testTopicsModel[0].biology[0].mee
+                                      .length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -168,7 +170,7 @@ class _MeeTestPageState extends State<MeeTestPage> {
                                   ),
                                 );
                               } else {
-                                if (state.testTopicsModel.biology[0]
+                                if (state.testTopicsModel[0].biology[0]
                                         .mee[indexmee].options[index].correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -182,8 +184,8 @@ class _MeeTestPageState extends State<MeeTestPage> {
                             },
                             child: Center(
                               child: AutoSizeText(
-                                state.testTopicsModel.biology[0].mee[indexmee]
-                                    .options[index].answer,
+                                state.testTopicsModel[0].biology[0]
+                                    .mee[indexmee].options[index].answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,
                               ),

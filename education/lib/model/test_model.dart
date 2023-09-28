@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final testTopicModel = testTopicModelFromJson(jsonString);
-
 import 'dart:convert';
 
 TestTopicModel testTopicModelFromJson(String str) =>
@@ -10,19 +6,35 @@ TestTopicModel testTopicModelFromJson(String str) =>
 String testTopicModelToJson(TestTopicModel data) => json.encode(data.toJson());
 
 class TestTopicModel {
+  List<Test> test;
+
+  TestTopicModel({
+    required this.test,
+  });
+
+  factory TestTopicModel.fromJson(Map<String, dynamic> json) => TestTopicModel(
+        test: List<Test>.from(json["test"].map((x) => Test.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "test": List<dynamic>.from(test.map((x) => x.toJson())),
+      };
+}
+
+class Test {
   List<Informatica> informatica;
   List<History> history;
   List<Geography> geography;
   List<Biology> biology;
 
-  TestTopicModel({
+  Test({
     required this.informatica,
     required this.history,
     required this.geography,
     required this.biology,
   });
 
-  factory TestTopicModel.fromJson(Map<String, dynamic> json) => TestTopicModel(
+  factory Test.fromJson(Map<String, dynamic> json) => Test(
         informatica: List<Informatica>.from(
             json["informatica"].map((x) => Informatica.fromJson(x))),
         history:

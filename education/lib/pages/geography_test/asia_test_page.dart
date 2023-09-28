@@ -99,7 +99,7 @@ class _AsiaTestPageState extends State<AsiaTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.geography[0].asia[indexAsia]
+                      state.testTopicsModel[0].geography[0].asia[indexAsia]
                           .guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -111,8 +111,8 @@ class _AsiaTestPageState extends State<AsiaTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state
-                            .testTopicsModel.geography[0].asia[indexAsia].image,
+                        imageUrl: state.testTopicsModel[0].geography[0]
+                            .asia[indexAsia].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
                             scale: 0.2,
@@ -145,7 +145,7 @@ class _AsiaTestPageState extends State<AsiaTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexAsia + 1 ==
-                                  state.testTopicsModel.geography[0].asia
+                                  state.testTopicsModel[0].geography[0].asia
                                       .length) {
                                 showDialog<String>(
                                   context: context,
@@ -171,7 +171,7 @@ class _AsiaTestPageState extends State<AsiaTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .geography[0]
                                         .asia[indexAsia]
                                         .options[index]
@@ -188,7 +188,7 @@ class _AsiaTestPageState extends State<AsiaTestPage> {
                             },
                             child: Center(
                               child: AutoSizeText(
-                                state.testTopicsModel.geography[0]
+                                state.testTopicsModel[0].geography[0]
                                     .asia[indexAsia].options[index].answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,

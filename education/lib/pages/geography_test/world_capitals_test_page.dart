@@ -98,7 +98,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.geography[0]
+                      state.testTopicsModel[0].geography[0]
                           .worldCountryCapitals[indexWorldCapitals].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -110,7 +110,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.geography[0]
+                        imageUrl: state.testTopicsModel[0].geography[0]
                             .worldCountryCapitals[indexWorldCapitals].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -144,7 +144,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexWorldCapitals + 1 ==
-                                  state.testTopicsModel.geography[0]
+                                  state.testTopicsModel[0].geography[0]
                                       .worldCountryCapitals.length) {
                                 showDialog<String>(
                                   context: context,
@@ -170,7 +170,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .geography[0]
                                         .worldCountryCapitals[
                                             indexWorldCapitals]
@@ -189,7 +189,7 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .geography[0]
                                     .worldCountryCapitals[indexWorldCapitals]
                                     .options[index]

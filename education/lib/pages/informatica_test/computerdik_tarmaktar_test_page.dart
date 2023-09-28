@@ -100,7 +100,7 @@ class _ComputerdikTarmaktarTestPageState
                     child: FittedBox(
                       child: Text(
                         state
-                            .testTopicsModel
+                            .testTopicsModel[0]
                             .informatica[0]
                             .computerdicTarmaktar[indexcomputerdikTarmaktar]
                             .guestion,
@@ -116,7 +116,7 @@ class _ComputerdikTarmaktarTestPageState
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
                         imageUrl: state
-                            .testTopicsModel
+                            .testTopicsModel[0]
                             .informatica[0]
                             .computerdicTarmaktar[indexcomputerdikTarmaktar]
                             .image,
@@ -152,7 +152,7 @@ class _ComputerdikTarmaktarTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexcomputerdikTarmaktar + 1 ==
-                                  state.testTopicsModel.informatica[0]
+                                  state.testTopicsModel[0].informatica[0]
                                       .computerdicTarmaktar.length) {
                                 showDialog<String>(
                                   context: context,
@@ -178,7 +178,7 @@ class _ComputerdikTarmaktarTestPageState
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .informatica[0]
                                         .computerdicTarmaktar[
                                             indexcomputerdikTarmaktar]
@@ -197,7 +197,7 @@ class _ComputerdikTarmaktarTestPageState
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .informatica[0]
                                     .computerdicTarmaktar[
                                         indexcomputerdikTarmaktar]

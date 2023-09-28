@@ -102,7 +102,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                     child: Center(
                       child: AutoSizeText(
                         state
-                            .testTopicsModel
+                            .testTopicsModel[0]
                             .informatica[0]
                             .sistemalykKamsyzdoo[indexsistemalykKamsyzdoo]
                             .guestion,
@@ -122,7 +122,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state
-                              .testTopicsModel
+                              .testTopicsModel[0]
                               .informatica[0]
                               .sistemalykKamsyzdoo[indexsistemalykKamsyzdoo]
                               .image,
@@ -159,7 +159,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexsistemalykKamsyzdoo + 1 ==
-                                      state.testTopicsModel.informatica[0]
+                                      state.testTopicsModel[0].informatica[0]
                                           .sistemalykKamsyzdoo.length
                                   // indexpersonalComputer + 1 ==
                                   //   widget.personalComputer.length
@@ -188,7 +188,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .informatica[0]
                                         .sistemalykKamsyzdoo[
                                             indexsistemalykKamsyzdoo]
@@ -207,7 +207,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .informatica[0]
                                     .sistemalykKamsyzdoo[
                                         indexsistemalykKamsyzdoo]

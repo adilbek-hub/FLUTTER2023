@@ -101,7 +101,7 @@ class _KletkaJonundoTushunukTestPageState
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.biology[0].kletka[indexkletka]
+                      state.testTopicsModel[0].biology[0].kletka[indexkletka]
                           .guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -113,7 +113,7 @@ class _KletkaJonundoTushunukTestPageState
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.biology[0]
+                        imageUrl: state.testTopicsModel[0].biology[0]
                             .kletka[indexkletka].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -147,7 +147,7 @@ class _KletkaJonundoTushunukTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexkletka + 1 ==
-                                  state.testTopicsModel.biology[0].kletka
+                                  state.testTopicsModel[0].biology[0].kletka
                                       .length) {
                                 showDialog<String>(
                                   context: context,
@@ -173,7 +173,7 @@ class _KletkaJonundoTushunukTestPageState
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .biology[0]
                                         .kletka[indexkletka]
                                         .options[index]
@@ -190,7 +190,7 @@ class _KletkaJonundoTushunukTestPageState
                             },
                             child: Center(
                               child: AutoSizeText(
-                                state.testTopicsModel.biology[0]
+                                state.testTopicsModel[0].biology[0]
                                     .kletka[indexkletka].options[index].answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,

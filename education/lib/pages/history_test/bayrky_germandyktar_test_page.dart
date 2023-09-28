@@ -102,7 +102,7 @@ class _BayrkyGermandyktarTestPageState
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.history[0]
+                      state.testTopicsModel[0].history[0]
                           .baiyrkyGermandar[indexbairkyGermandyktar].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -114,7 +114,7 @@ class _BayrkyGermandyktarTestPageState
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.history[0]
+                        imageUrl: state.testTopicsModel[0].history[0]
                             .baiyrkyGermandar[indexbairkyGermandyktar].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -148,7 +148,7 @@ class _BayrkyGermandyktarTestPageState
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexbairkyGermandyktar + 1 ==
-                                  state.testTopicsModel.history[0]
+                                  state.testTopicsModel[0].history[0]
                                       .baiyrkyGermandar.length) {
                                 showDialog<String>(
                                   context: context,
@@ -174,7 +174,7 @@ class _BayrkyGermandyktarTestPageState
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .history[0]
                                         .baiyrkyGermandar[
                                             indexbairkyGermandyktar]
@@ -193,7 +193,7 @@ class _BayrkyGermandyktarTestPageState
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .history[0]
                                     .baiyrkyGermandar[indexbairkyGermandyktar]
                                     .options[index]

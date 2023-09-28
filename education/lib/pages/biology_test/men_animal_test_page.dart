@@ -99,7 +99,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      state.testTopicsModel.biology[0]
+                      state.testTopicsModel[0].biology[0]
                           .menAndAnimal[indexadamJanybar].guestion,
                       style: const TextStyle(fontSize: 20, height: 2),
                       textAlign: TextAlign.center,
@@ -111,7 +111,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel.biology[0]
+                        imageUrl: state.testTopicsModel[0].biology[0]
                             .menAndAnimal[indexadamJanybar].image,
                         fit: BoxFit.cover,
                         placeholder: (context, url) => Transform.scale(
@@ -145,8 +145,8 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexadamJanybar + 1 ==
-                                  state.testTopicsModel.biology[0].menAndAnimal
-                                      .length) {
+                                  state.testTopicsModel[0].biology[0]
+                                      .menAndAnimal.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -171,7 +171,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel
+                                        .testTopicsModel[0]
                                         .biology[0]
                                         .menAndAnimal[indexadamJanybar]
                                         .options[index]
@@ -189,7 +189,7 @@ class _KishiJanybarTestPageState extends State<KishiJanybarTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel
+                                    .testTopicsModel[0]
                                     .biology[0]
                                     .menAndAnimal[indexadamJanybar]
                                     .options[index]
