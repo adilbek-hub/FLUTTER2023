@@ -188,8 +188,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                 if (state
                                         .testTopicsModel[0]
                                         .history[0]
-                                        .nemisKoroldugu[indexgermania]
-                                        .options[index]
+                                        .nemisKoroldugu[index]
+                                        .options[indexgermania]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -206,7 +206,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                 state
                                     .testTopicsModel[0]
                                     .history[0]
-                                    .nemisKoroldugu[indexgermania]
+                                    .nemisKoroldugu[index]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,

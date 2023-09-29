@@ -117,7 +117,7 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state.testTopicsModel[0].informatica[0]
-                              .personalComputer[indexpersonalComputer].image,
+                              .personalComputer[0].image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
