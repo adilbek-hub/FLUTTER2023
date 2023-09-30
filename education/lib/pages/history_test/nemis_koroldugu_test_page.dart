@@ -96,7 +96,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 11,
+                      max: 10,
                       value: indexgermania.toDouble(),
                       onChanged: (value) {},
                     ),
@@ -157,8 +157,13 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexgermania + 1 ==
-                                  state.testTopicsModel[0].history[0]
-                                      .nemisKoroldugu[index].options.length) {
+                                  state
+                                      .testTopicsModel[0]
+                                      .history[0]
+                                      .nemisKoroldugu[indexgermania]
+                                      .options[0]
+                                      .answer
+                                      .length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
