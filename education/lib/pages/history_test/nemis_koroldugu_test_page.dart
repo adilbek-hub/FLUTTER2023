@@ -169,9 +169,11 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                               setState(() {
                                 indexgermania++;
                               });
+
                               if (indexgermania ==
                                   state.testTopicsModel[0].history[0]
-                                      .nemisKoroldugu.length) {
+                                          .nemisKoroldugu.length -
+                                      1) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
