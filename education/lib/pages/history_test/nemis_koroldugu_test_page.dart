@@ -105,8 +105,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: AutoSizeText(
-                        state.testTopicsModel[0].history[0]
-                            .nemisKoroldugu[indexgermania].guestion,
+                        state.testTopicsModel[0].history[0].nemisKoroldugu[0]
+                            .guestion,
                         // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
@@ -160,7 +160,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                   state
                                       .testTopicsModel[0]
                                       .history[0]
-                                      .nemisKoroldugu[0]
+                                      .nemisKoroldugu[index]
                                       .options[index]
                                       .answer
                                       .length) {
@@ -190,7 +190,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                 if (state
                                         .testTopicsModel[0]
                                         .history[0]
-                                        .nemisKoroldugu[indexgermania]
+                                        .nemisKoroldugu[0]
                                         .options[index]
                                         .correct ==
                                     true) {
