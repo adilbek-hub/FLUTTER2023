@@ -155,8 +155,21 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
-                              if (indexgermania + 1 ==
+                              if (state
+                                      .testTopicsModel[0]
+                                      .history[0]
+                                      .nemisKoroldugu[0]
+                                      .options[index]
+                                      .correct ==
+                                  true) {
+                                tuuraJooptor++;
+                              } else {
+                                kataJooptor++;
+                              }
+                              setState(() {
+                                indexgermania++;
+                              });
+                              if (indexgermania ==
                                   state.testTopicsModel[0].history[0]
                                       .nemisKoroldugu.length) {
                                 showDialog<String>(
@@ -181,21 +194,6 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                     ],
                                   ),
                                 );
-                              } else {
-                                if (state
-                                        .testTopicsModel[0]
-                                        .history[0]
-                                        .nemisKoroldugu[0]
-                                        .options[index]
-                                        .correct ==
-                                    true) {
-                                  tuuraJooptor++;
-                                } else {
-                                  kataJooptor++;
-                                }
-                                setState(() {
-                                  indexgermania++;
-                                });
                               }
                             },
                             child: Center(
