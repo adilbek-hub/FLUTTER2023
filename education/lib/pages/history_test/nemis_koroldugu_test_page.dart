@@ -32,6 +32,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
           return const LoadingWidget();
         }
         if (state is TestSuccess) {
+          final question = state
+              .testTopicsModel[0].history[0].nemisKoroldugu[0].guestion.length;
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -166,14 +168,12 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                               } else {
                                 kataJooptor++;
                               }
-                              setState(() {
-                                indexgermania++;
-                              });
 
-                              if (indexgermania ==
-                                  state.testTopicsModel[0].history[0]
-                                          .nemisKoroldugu.length -
-                                      1) {
+                              if (indexgermania < question) {
+                                setState(() {
+                                  indexgermania++;
+                                });
+                              } else {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
