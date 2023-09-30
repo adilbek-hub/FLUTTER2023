@@ -96,7 +96,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 10,
+                      max: 11,
                       value: indexgermania.toDouble(),
                       onChanged: (value) {},
                     ),
@@ -160,8 +160,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                   state
                                       .testTopicsModel[0]
                                       .history[0]
-                                      .nemisKoroldugu[indexgermania]
-                                      .options[0]
+                                      .nemisKoroldugu[0]
+                                      .options[index]
                                       .answer
                                       .length) {
                                 showDialog<String>(
