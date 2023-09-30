@@ -96,7 +96,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                         trackShape: const RectangularSliderTrackShape()),
                     child: Slider(
                       min: 0,
-                      max: 11,
+                      max: 8,
                       value: indexgermania.toDouble(),
                       onChanged: (value) {},
                     ),
@@ -105,8 +105,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: AutoSizeText(
-                        state.testTopicsModel[0].history[0].nemisKoroldugu[0]
-                            .guestion,
+                        state.testTopicsModel[0].history[0]
+                            .nemisKoroldugu[indexgermania].guestion,
                         // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
@@ -157,13 +157,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexgermania + 1 ==
-                                  state
-                                      .testTopicsModel[0]
-                                      .history[0]
-                                      .nemisKoroldugu[index]
-                                      .options[index]
-                                      .answer
-                                      .length) {
+                                  state.testTopicsModel[0].history[0]
+                                      .nemisKoroldugu.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
