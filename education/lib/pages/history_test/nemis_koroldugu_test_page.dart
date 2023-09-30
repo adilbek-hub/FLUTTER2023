@@ -157,11 +157,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexgermania + 1 ==
-                                      state.testTopicsModel[0].history[0]
-                                          .nemisKoroldugu[index].options.length
-                                  // indexpersonalComputer + 1 ==
-                                  //   widget.personalComputer.length
-                                  ) {
+                                  state.testTopicsModel[0].history[0]
+                                      .nemisKoroldugu[index].options.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
