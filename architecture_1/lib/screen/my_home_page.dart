@@ -48,7 +48,7 @@ class Provider extends InheritedWidget {
     required this.state,
   }) : super(key: key, child: child);
   static Provider? watch(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<Provider>();
+    return context.dependOnInheritedWidgetOfExactType<Provider>(); 
   }
 
   static Provider? read(BuildContext context) {

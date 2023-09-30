@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:education/model/history_question.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,9 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<TestsBloc, EducationState>(
       builder: (context, state) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        }
         if (state is TestSuccess) {
           return SafeArea(
             child: Scaffold(
@@ -119,7 +123,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state.testTopicsModel[0].history[0]
-                              .nemisKoroldugu[indexgermania].image,
+                              .nemisKoroldugu[0].image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -153,12 +157,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexgermania + 1 ==
-                                      state
-                                          .testTopicsModel[0]
-                                          .history[0]
-                                          .nemisKoroldugu[indexgermania]
-                                          .options
-                                          .length
+                                      state.testTopicsModel[0].history[0]
+                                          .nemisKoroldugu[index].options.length
                                   // indexpersonalComputer + 1 ==
                                   //   widget.personalComputer.length
                                   ) {
@@ -188,8 +188,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                 if (state
                                         .testTopicsModel[0]
                                         .history[0]
-                                        .nemisKoroldugu[index]
-                                        .options[indexgermania]
+                                        .nemisKoroldugu[indexgermania]
+                                        .options[index]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -206,7 +206,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                 state
                                     .testTopicsModel[0]
                                     .history[0]
-                                    .nemisKoroldugu[index]
+                                    .nemisKoroldugu[indexgermania]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,
@@ -222,6 +222,8 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
           throw ('ERROR in nemis Koroldugu');
         }
