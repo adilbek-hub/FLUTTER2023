@@ -32,8 +32,6 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
           return const LoadingWidget();
         }
         if (state is TestSuccess) {
-          final question = state
-              .testTopicsModel[0].history[0].nemisKoroldugu[0].guestion.length;
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -109,7 +107,6 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                       child: AutoSizeText(
                         state.testTopicsModel[0].history[0]
                             .nemisKoroldugu[indexgermania].guestion,
-                        // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -125,7 +122,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state.testTopicsModel[0].history[0]
-                              .nemisKoroldugu[0].image,
+                              .nemisKoroldugu[indexgermania].image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -157,22 +154,10 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              if (state
-                                      .testTopicsModel[0]
-                                      .history[0]
-                                      .nemisKoroldugu[0]
-                                      .options[index]
-                                      .correct ==
-                                  true) {
-                                tuuraJooptor++;
-                              } else {
-                                kataJooptor++;
-                              }
-                              if (indexgermania < question) {
-                                setState(() {
-                                  indexgermania++;
-                                });
-                              } else {
+                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
+                              if (indexgermania + 1 ==
+                                  state.testTopicsModel[index].history[index]
+                                      .nemisKoroldugu.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -195,6 +180,21 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                                     ],
                                   ),
                                 );
+                              } else {
+                                if (state
+                                        .testTopicsModel[0]
+                                        .history[0]
+                                        .nemisKoroldugu[index]
+                                        .options[indexgermania]
+                                        .correct ==
+                                    true) {
+                                  tuuraJooptor++;
+                                } else {
+                                  kataJooptor++;
+                                }
+                                setState(() {
+                                  indexgermania++;
+                                });
                               }
                             },
                             child: Center(

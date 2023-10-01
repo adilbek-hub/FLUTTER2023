@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
+import 'package:education/components/correct_incorrect_card.dart';
 import 'package:education/components/informatica_bolumu/loading_widget.dart';
+import 'package:education/components/slider_widget.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,38 +40,9 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '$kataJooptor',
-                              style: const TextStyle(
-                                  color: AppColors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  '|',
-                                  style: TextStyle(fontSize: 17),
-                                )),
-                            Text(
-                              '$tuuraJooptor',
-                              style: const TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                    CorrectIncorrectCard(
+                      kataJooptor: kataJooptor,
+                      tuuraJooptor: tuuraJooptor,
                     ),
                     const SizedBox(
                       width: 5,
@@ -80,28 +53,16 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
               ),
               body: Column(
                 children: [
-                  SliderTheme(
-                    data: SliderThemeData(
-                        thumbShape: SliderComponentShape.noThumb,
-                        trackHeight: 3,
-                        activeTrackColor: Colors.red,
-                        inactiveTrackColor: Colors.black,
-                        activeTickMarkColor: Colors.blue,
-                        trackShape: const RectangularSliderTrackShape()),
-                    child: Slider(
-                      min: 0,
-                      max: 5,
-                      value: indexpersonalComputer.toDouble(),
-                      onChanged: (value) {},
-                    ),
+                  SliderWidget(
+                    max: 4,
+                    valueIndex: indexpersonalComputer.toDouble(),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
-                      child: AutoSizeText(
+                      child: Text(
                         state.testTopicsModel[0].informatica[0]
                             .personalComputer[indexpersonalComputer].guestion,
-                        // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -117,7 +78,7 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state.testTopicsModel[0].informatica[0]
-                              .personalComputer[0].image,
+                              .personalComputer[indexpersonalComputer].image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -137,7 +98,6 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                         left: 5,
                         right: 5,
                       ),
-                      // physics: NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -149,18 +109,9 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexpersonalComputer + 1 ==
-                                      state
-                                          .testTopicsModel[0]
-                                          .informatica[0]
-                                          .personalComputer[
-                                              indexpersonalComputer]
-                                          .options
-                                          .length
-                                  // indexpersonalComputer + 1 ==
-                                  //   widget.personalComputer.length
-                                  ) {
+                                  state.testTopicsModel[0].informatica[0]
+                                      .personalComputer.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -178,7 +129,7 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                                           setState(() {});
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('Cancel'),
+                                        child: const Text('чыгуу'),
                                       ),
                                     ],
                                   ),
@@ -205,8 +156,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                                 state
                                     .testTopicsModel[0]
                                     .informatica[0]
-                                    .personalComputer[0]
-                                    .options[indexpersonalComputer]
+                                    .personalComputer[indexpersonalComputer]
+                                    .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,
