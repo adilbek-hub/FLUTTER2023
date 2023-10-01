@@ -19,20 +19,11 @@ class Car extends Transport {
 
 class Bycicle extends Transport {
   @override
-  String getDescription() {
-    // TODO: implement getDescription
-    throw UnimplementedError();
-  }
+  String getDescription() => 'Велосипед';
 
   @override
-  Widget getIcon() {
-    // TODO: implement getIcon
-    throw UnimplementedError();
-  }
+  Widget getIcon() => const Icon(Icons.directions_bike);
 
   @override
-  String getName() {
-    // TODO: implement getName
-    throw UnimplementedError();
-  }
+  String getName() => 'Это велосипед. Он передвигается на мускульной силе.';
 }
