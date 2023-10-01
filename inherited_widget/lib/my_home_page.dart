@@ -76,3 +76,15 @@ class _DataConsumerStateFullState extends State<DataConsumerStateFull> {
     return Text('$_value');
   }
 }
+
+class DataProviderInherited extends InheritedWidget {
+  const DataProviderInherited(
+      {Key? key, required this.value, required Widget child})
+      : super(key: key, child: child);
+  final int value;
+
+  @override
+  bool updateShouldNotify(DataProviderInherited oldWidget) {
+    return value != oldWidget.value;
+  }
+}
