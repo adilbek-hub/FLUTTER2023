@@ -16,3 +16,23 @@ class Car extends Transport {
   @override
   String getName() => 'Это автомобилью Он ездить на дорогах';
 }
+
+class Bycicle extends Transport {
+  @override
+  String getDescription() {
+    // TODO: implement getDescription
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget getIcon() {
+    // TODO: implement getIcon
+    throw UnimplementedError();
+  }
+
+  @override
+  String getName() {
+    // TODO: implement getName
+    throw UnimplementedError();
+  }
+}
