@@ -168,7 +168,6 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
                               } else {
                                 kataJooptor++;
                               }
-
                               if (indexgermania < question) {
                                 setState(() {
                                   indexgermania++;
