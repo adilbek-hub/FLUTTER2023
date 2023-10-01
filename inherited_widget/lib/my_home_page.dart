@@ -46,9 +46,10 @@ class DataConsumerStateless extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final value =
-        context.findAncestorStateOfType<_DataOwnerStateFullState>()?._value ??
-            0;
+    final value = context
+            .dependOnInheritedWidgetOfExactType<DataProviderInherited>()
+            ?.value ??
+        0;
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,10 +72,11 @@ class DataConsumerStateFull extends StatefulWidget {
 class _DataConsumerStateFullState extends State<DataConsumerStateFull> {
   @override
   Widget build(BuildContext context) {
-    final _value =
-        context.findAncestorStateOfType<_DataOwnerStateFullState>()?._value ??
-            0;
-    return Text('$_value');
+    final element = context
+        .getElementForInheritedWidgetOfExactType<DataProviderInherited>();
+    final dataProvider = element?.widget as DataProviderInherited;
+    final value = dataProvider.value;
+    return Text('$value');
   }
 }
 
