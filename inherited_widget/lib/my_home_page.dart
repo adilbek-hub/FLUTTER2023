@@ -34,7 +34,8 @@ class _DataOwnerStateFullState extends State<DataOwnerStateFull> {
           onPressed: () => _increment(),
           child: const Text('Жми'),
         ),
-        const DataConsumerStateless(),
+        DataProviderInherited(
+            value: _value, child: const DataConsumerStateless()),
       ],
     );
   }
