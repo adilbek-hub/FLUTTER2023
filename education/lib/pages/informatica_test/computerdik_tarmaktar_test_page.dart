@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:education/constants/app_color.dart';
+import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/slider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,38 +38,9 @@ class _ComputerdikTarmaktarTestPageState
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '$kataJooptor',
-                              style: const TextStyle(
-                                  color: AppColors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  '|',
-                                  style: TextStyle(fontSize: 17),
-                                )),
-                            Text(
-                              '$tuuraJooptor',
-                              style: const TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                    CorrectIncorrectCard(
+                      kataJooptor: kataJooptor,
+                      tuuraJooptor: tuuraJooptor,
                     ),
                     const SizedBox(
                       width: 5,
@@ -79,31 +51,19 @@ class _ComputerdikTarmaktarTestPageState
               ),
               body: Column(
                 children: [
-                  SliderTheme(
-                    data: SliderThemeData(
-                        thumbShape: SliderComponentShape.noThumb,
-                        trackHeight: 3,
-                        activeTrackColor: Colors.red,
-                        inactiveTrackColor: Colors.black,
-                        activeTickMarkColor: Colors.blue,
-                        trackShape: const RectangularSliderTrackShape()),
-                    child: Slider(
-                      min: 0,
-                      max: 4,
-                      value: indexcomputerdikTarmaktar.toDouble(),
-                      onChanged: (value) {},
-                    ),
+                  SliderWidget(
+                    max: 4,
+                    valueIndex: indexcomputerdikTarmaktar.toDouble(),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
-                      child: AutoSizeText(
+                      child: Text(
                         state
                             .testTopicsModel[0]
                             .informatica[0]
                             .computerdikTarmaktar[indexcomputerdikTarmaktar]
                             .guestion,
-                        // widget.personalComputer[indexpersonalComputer].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -142,7 +102,6 @@ class _ComputerdikTarmaktarTestPageState
                         left: 5,
                         right: 5,
                       ),
-                      // physics: NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -154,18 +113,9 @@ class _ComputerdikTarmaktarTestPageState
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexcomputerdikTarmaktar + 1 ==
-                                      state
-                                          .testTopicsModel[0]
-                                          .informatica[0]
-                                          .computerdikTarmaktar[
-                                              indexcomputerdikTarmaktar]
-                                          .options
-                                          .length
-                                  // indexpersonalComputer + 1 ==
-                                  //   widget.personalComputer.length
-                                  ) {
+                                  state.testTopicsModel[0].informatica[0]
+                                      .computerdikTarmaktar.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -183,7 +133,7 @@ class _ComputerdikTarmaktarTestPageState
                                           setState(() {});
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('Cancel'),
+                                        child: const Text('чыгуу'),
                                       ),
                                     ],
                                   ),
@@ -192,9 +142,8 @@ class _ComputerdikTarmaktarTestPageState
                                 if (state
                                         .testTopicsModel[0]
                                         .informatica[0]
-                                        .computerdikTarmaktar[
-                                            indexcomputerdikTarmaktar]
-                                        .options[index]
+                                        .computerdikTarmaktar[index]
+                                        .options[indexcomputerdikTarmaktar]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
