@@ -11,7 +11,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Информация о транспорте'),
       ),
-      body: const Column(children: []),
+      body: const Center(
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.center, children: []),
+      ),
     );
   }
 }

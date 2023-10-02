@@ -55,7 +55,7 @@ class DataConsumerStateless extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('$value'),
-          const DataConsumerStateFull(),
+          DataConsumerStateFull(),
         ],
       ),
     );
@@ -63,7 +63,7 @@ class DataConsumerStateless extends StatelessWidget {
 }
 
 class DataConsumerStateFull extends StatefulWidget {
-  const DataConsumerStateFull({super.key});
+  DataConsumerStateFull({super.key});
 
   @override
   State<DataConsumerStateFull> createState() => _DataConsumerStateFullState();
