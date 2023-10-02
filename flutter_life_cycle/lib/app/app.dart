@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_life_cycle/home.dart';
+import 'package:flutter_life_cycle/life_cykle_example/home.dart';
+import 'package:flutter_life_cycle/pages/sign_up.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: const SignUp(),
     );
   }
 }

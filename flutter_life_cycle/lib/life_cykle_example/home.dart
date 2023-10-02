@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_life_cycle/second_page.dart';
+import 'package:flutter_life_cycle/life_cykle_example/second_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
