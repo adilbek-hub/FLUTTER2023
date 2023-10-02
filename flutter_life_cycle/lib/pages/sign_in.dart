@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_life_cycle/service/user_state.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class SignIn extends StatelessWidget {
+  SignIn({super.key});
 
-  @override
-  State<SignIn> createState() => _SignInState();
-}
+  final ctrName = TextEditingController();
 
-class _SignInState extends State<SignIn> {
+  final ctrPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,11 +17,15 @@ class _SignInState extends State<SignIn> {
       ),
       body: Column(
         children: [
-          TextFormField(),
-          TextFormField(),
-          TextFormField(),
+          TextFormField(controller: ctrName),
+          TextFormField(controller: ctrPassword),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              await userService.signIn(
+                name: ctrName.text,
+                password: ctrPassword.text,
+              );
+            },
             child: const Text('Sign In'),
           ),
           TextButton(

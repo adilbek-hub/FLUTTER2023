@@ -17,6 +17,23 @@ class UserStateService {
     preference.setString(_lastNameKey, lastName);
     preference.setString(_passwordKey, password);
   }
+
+  Future<bool> signIn({
+    required String name,
+    required String password,
+  }) async {
+    //Через SignUp болуп сакталган name  менен passwordту окуш керек
+    // Эгер _nameKey == name жана _passwordKey == password true кайтарсын
+    // else false кайтарсын.
+    final preference = await SharedPreferences.getInstance();
+    preference.getString(_nameKey);
+    preference.getString(_passwordKey);
+    if (_nameKey == name && _passwordKey == password) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 final userService = UserStateService();

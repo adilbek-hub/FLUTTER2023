@@ -23,9 +23,9 @@ class _SignUpState extends State<SignUp> {
       ),
       body: Column(
         children: [
-          TextFormField(),
-          TextFormField(),
-          TextFormField(),
+          TextFormField(controller: ctrName),
+          TextFormField(controller: ctrLastName),
+          TextFormField(controller: ctrPassword),
           ElevatedButton(
             onPressed: () async {
               await userService.signUp(
