@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:oop_abstract_class/model.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+   HomePage({super.key});
+   final Transport transport = Car();
   @override
   Widget build(BuildContext context) {
-    final Transport transport = Car();
+ 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Информация о транспорте'),
       ),
       body: const Center(
         child:
-            Column(mainAxisAlignment: MainAxisAlignment.center, children: []),
+            Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(transport.getName())
+            ],),
       ),
     );
   }
