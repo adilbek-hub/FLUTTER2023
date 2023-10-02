@@ -26,9 +26,9 @@ class UserStateService {
     // Эгер _nameKey == name жана _passwordKey == password true кайтарсын
     // else false кайтарсын.
     final preference = await SharedPreferences.getInstance();
-    preference.getString(_nameKey);
-    preference.getString(_passwordKey);
-    if (_nameKey == name && _passwordKey == password) {
+    final cashedName = preference.getString(_nameKey);
+    final cashedPassword = preference.getString(_passwordKey);
+    if (name == cashedName && password == cashedPassword) {
       return true;
     } else {
       return false;

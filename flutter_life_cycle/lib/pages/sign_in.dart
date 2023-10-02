@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_life_cycle/pages/home_page.dart';
 import 'package:flutter_life_cycle/service/user_state.dart';
 
 class SignIn extends StatelessWidget {
@@ -21,10 +22,19 @@ class SignIn extends StatelessWidget {
           TextFormField(controller: ctrPassword),
           ElevatedButton(
             onPressed: () async {
-              await userService.signIn(
+              final isTrue = await userService.signIn(
                 name: ctrName.text,
                 password: ctrPassword.text,
               );
+              if (isTrue) {
+                // ignore: use_build_context_synchronously
+                await Navigator.pushAndRemoveUntil<void>(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyHomePage()),
+                    (route) => false);
+              } else {
+                print('Логин же паролуңуз туура эмес');
+              }
             },
             child: const Text('Sign In'),
           ),

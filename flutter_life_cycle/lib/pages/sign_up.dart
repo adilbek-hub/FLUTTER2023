@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_life_cycle/pages/home_page.dart';
+import 'package:flutter_life_cycle/pages/sign_in.dart';
 import 'package:flutter_life_cycle/service/user_state.dart';
 
 class SignUp extends StatefulWidget {
@@ -41,7 +42,10 @@ class _SignUpState extends State<SignUp> {
             child: const Text('Register'),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => SignIn()));
+            },
             child: const Text('Sign In'),
           ),
         ],
