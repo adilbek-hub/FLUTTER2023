@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_life_cycle/pages/home_page.dart';
+import 'package:flutter_life_cycle/service/user_state.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -8,6 +10,10 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final ctrName = TextEditingController();
+  final ctrLastName = TextEditingController();
+  final ctrPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +27,22 @@ class _SignUpState extends State<SignUp> {
           TextFormField(),
           TextFormField(),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              await userService.signUp(
+                  name: ctrName.text,
+                  lastName: ctrLastName.text,
+                  password: ctrPassword.text);
+              // ignore: use_build_context_synchronously
+              await Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  (route) => false);
+            },
             child: const Text('Register'),
           ),
           TextButton(
             onPressed: () {},
-            child: Text('Sign In'),
+            child: const Text('Sign In'),
           ),
         ],
       ),
