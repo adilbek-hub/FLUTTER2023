@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_life_cycle/life_cykle_example/home.dart';
-import 'package:flutter_life_cycle/pages/sign_up.dart';
+import 'package:flutter_life_cycle/route.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp(this.route, {super.key});
+  final bool route;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignUp(),
+      onGenerateRoute: (settings) => RoutePage.onGenerateRoute(settings, route),
     );
   }
 }

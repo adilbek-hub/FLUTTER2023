@@ -1,9 +1,16 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserStateService {
-  static const String _nameKey = 'name_key';
-  static const String _lastNameKey = 'last_name_key';
-  static const String _passwordKey = 'password_key';
+  static const String _nameKey = 'name-key';
+  static const String _lastNameKey = 'last_name-key';
+  static const String _passwordKey = 'password-key';
+  static const String _isRegisteredKey = 'registered-key';
+
+  Future<bool> isRegistered() async {
+    final preference = await SharedPreferences.getInstance();
+    return preference.getBool(_isRegisteredKey) ?? false;
+  }
+
   Future<void> signUp(
       {required String name,
       required String lastName,
@@ -13,9 +20,10 @@ class UserStateService {
     // Password alysh kerek
     // Ushul nerselerdi saktap kyush kerek(cashe) paket Shared Preference
     final preference = await SharedPreferences.getInstance();
-    preference.setString(_nameKey, name);
-    preference.setString(_lastNameKey, lastName);
-    preference.setString(_passwordKey, password);
+    await preference.setString(_nameKey, name);
+    await preference.setString(_lastNameKey, lastName);
+    await preference.setString(_passwordKey, password);
+    await preference.setBool(_isRegisteredKey, true);
   }
 
   Future<bool> signIn({
