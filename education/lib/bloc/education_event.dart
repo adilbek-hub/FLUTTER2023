@@ -19,4 +19,6 @@ final class FetchDataEvent5 extends EducationEvent {}
 
 final class FetchDataEvent6 extends EducationEvent {}
 
-final class FetchDataGeographyTest extends EducationEvent {}
+final class FetchDataEuropeCapitalTest extends EducationEvent {}
+
+final class FetchDataUsaTest extends EducationEvent {}

@@ -1,11 +1,13 @@
 import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
+import 'package:education/model/model_test/usa_test.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
+import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
@@ -166,12 +168,35 @@ class EuropeCapitalTestBloc extends Bloc<EducationEvent, EducationState> {
   EuropeCapitalTestBloc({required this.geographyTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchDataGeographyTest>(_getGeographyTest);
+    on<FetchDataEuropeCapitalTest>(_getGeographyTest);
   }
   final EuropeCapitalsTestTopicsService geographyTestTopicsService;
 
   Future<void> _getGeographyTest(
-      FetchDataGeographyTest event, Emitter<EducationState> emit) async {
+      FetchDataEuropeCapitalTest event, Emitter<EducationState> emit) async {
+    final geographyDataTest = await geographyTestTopicsService.getData();
+    if (geographyDataTest != null) {
+      emit(
+        EuropeCapitalTestSuccess(
+          europeCapitalTestToicsModel: geographyDataTest,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class UsaTestBloc extends Bloc<EducationEvent, EducationState> {
+  UsaTestBloc({required this.usaTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataEuropeCapitalTest>(_getGeographyTest);
+  }
+  final UsaTestTopicsService usaTestTopicsService;
+
+  Future<void> _getGeographyTest(
+      FetchDataEuropeCapitalTest event, Emitter<EducationState> emit) async {
     final geographyDataTest = await geographyTestTopicsService.getData();
     if (geographyDataTest != null) {
       emit(

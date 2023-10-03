@@ -44,6 +44,11 @@ class EuropeCapitalTestSuccess extends EducationState {
   final List<EuropeCapitalsToicsModel> europeCapitalTestToicsModel;
 }
 
+class UsaTestSuccess extends EducationState {
+  const UsaTestSuccess({required this.usaTestToicsModel});
+  final List<UsaTestToicsModel> usaTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

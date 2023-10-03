@@ -148,7 +148,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                                 if (state
                                         .europeCapitalTestToicsModel[
                                             europeCountryIndex]
-                                        .options[europeCountryIndex]
+                                        .options[index]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;

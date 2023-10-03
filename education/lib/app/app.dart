@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<EuropeCapitalTestBloc>(
           create: (BuildContext context) => EuropeCapitalTestBloc(
               geographyTestTopicsService: europeCApitalsTestTopicsService)
-            ..add(FetchDataGeographyTest()),
+            ..add(FetchDataEuropeCapitalTest()),
         ),
       ],
       child: MaterialApp(

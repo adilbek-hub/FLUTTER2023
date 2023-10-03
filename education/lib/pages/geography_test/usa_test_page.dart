@@ -149,8 +149,8 @@ class _UsaTestPageState extends State<UsaTestPage> {
                             onTap: () {
                               // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexUsaSurooJoop + 1 ==
-                                      state.testTopicsModel[0].geography[0]
-                                          .usa[indexUsaSurooJoop].options.length
+                                      state.testTopicsModel[0].geography[index]
+                                          .usa.length
                                   // indexpersonalComputer + 1 ==
                                   //   widget.personalComputer.length
                                   ) {
@@ -180,8 +180,8 @@ class _UsaTestPageState extends State<UsaTestPage> {
                                 if (state
                                         .testTopicsModel[0]
                                         .geography[0]
-                                        .usa[indexUsaSurooJoop]
-                                        .options[index]
+                                        .usa[index]
+                                        .options[indexUsaSurooJoop]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
