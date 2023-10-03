@@ -1,15 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/components/correct_incorrect_card.dart';
-import 'package:education/components/slider_widget.dart';
-import 'package:education/components/test_page_appbar_title.dart';
-import 'package:education/components/test_slider.dart';
-import 'package:education/components/variants.dart';
-import 'package:education/constants/app_color.dart';
 import 'package:education/model/europe_suroo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../bloc/education_bloc.dart';
 
 class EuropeTestPage extends StatefulWidget {
@@ -29,7 +23,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<GeographyTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is GeographyTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -74,8 +68,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: Text(
-                        state.testTopicsModel[0].geography[0]
-                            .europeCapital[europeCountryIndex].guestion,
+                        state.geographyTestToicsModel[europeCountryIndex].text,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -90,8 +83,9 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                         width: double.infinity,
                         height: double.infinity,
                         child: CachedNetworkImage(
-                          imageUrl: state.testTopicsModel[0].geography[0]
-                              .europeCapital[europeCountryIndex].image,
+                          imageUrl: state
+                              .geographyTestToicsModel[europeCountryIndex]
+                              .image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -123,8 +117,7 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                           child: InkWell(
                             onTap: () {
                               if (europeCountryIndex + 1 ==
-                                  state.testTopicsModel[0].geography[0]
-                                      .europeCapital.length) {
+                                  state.geographyTestToicsModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -149,11 +142,10 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel[0]
-                                        .geography[0]
-                                        .europeCapital[index]
-                                        .options[europeCountryIndex]
-                                        .correct ==
+                                        .geographyTestToicsModel[
+                                            europeCountryIndex]
+                                        .jooptor[index]
+                                        .isTrue ==
                                     true) {
                                   tuuraJooptor++;
                                 } else {
@@ -167,11 +159,9 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel[0]
-                                    .geography[0]
-                                    .europeCapital[europeCountryIndex]
-                                    .options[index]
-                                    .answer,
+                                    .geographyTestToicsModel[europeCountryIndex]
+                                    .jooptor[index]
+                                    .text,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,
                               ),
