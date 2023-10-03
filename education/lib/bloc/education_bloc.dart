@@ -2,6 +2,7 @@ import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
 import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
+import 'package:education/model/model_test/geography_test/world_capitals.dart';
 import 'package:education/model/model_test/usa_test.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
@@ -10,6 +11,7 @@ import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
+import 'package:education/services/service_test/geography_test/world_capitals.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
@@ -225,6 +227,26 @@ class AsiaTestBloc extends Bloc<EducationEvent, EducationState> {
       emit(
         AsiaTestSuccess(asiaTestToicsModel: asiaTestData),
       );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class WorldCapitalsTestBloc extends Bloc<EducationEvent, EducationState> {
+  WorldCapitalsTestBloc({required this.worldCapitalsTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataWorldCapitalsTest>(_getWorldCapitalsTest);
+  }
+  final WorldCapitalsTestTopicsService worldCapitalsTestTopicsService;
+
+  Future<void> _getWorldCapitalsTest(
+      FetchDataWorldCapitalsTest event, Emitter<EducationState> emit) async {
+    final worldCaitalTestData = await worldCapitalsTestTopicsService.getData();
+    if (worldCaitalTestData != null) {
+      emit(WorlCapitalsTestSuccess(
+          worldCapitalsTestToicsModel: worldCaitalTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }
