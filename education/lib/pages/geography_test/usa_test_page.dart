@@ -1,14 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
+import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
+import 'package:education/components/slider_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:education/constants/app_color.dart';
-import 'package:education/model/usa_suroo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UsaTestPage extends StatefulWidget {
-  const UsaTestPage({Key? key, required this.usaSuroo}) : super(key: key);
-  final List<UsaSuroo> usaSuroo;
+  const UsaTestPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<UsaTestPage> createState() => _UsaTestPageState();
@@ -21,9 +23,11 @@ class _UsaTestPageState extends State<UsaTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<UsaTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        } else if (state is UsaTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -36,38 +40,9 @@ class _UsaTestPageState extends State<UsaTestPage> {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '$kataJooptor',
-                              style: const TextStyle(
-                                  color: AppColors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  '|',
-                                  style: TextStyle(fontSize: 17),
-                                )),
-                            Text(
-                              '$tuuraJooptor',
-                              style: const TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                    CorrectIncorrectCard(
+                      kataJooptor: kataJooptor,
+                      tuuraJooptor: tuuraJooptor,
                     ),
                     const SizedBox(
                       width: 5,
@@ -78,28 +53,13 @@ class _UsaTestPageState extends State<UsaTestPage> {
               ),
               body: Column(
                 children: [
-                  SliderTheme(
-                    data: SliderThemeData(
-                        thumbShape: SliderComponentShape.noThumb,
-                        trackHeight: 3,
-                        activeTrackColor: Colors.red,
-                        inactiveTrackColor: Colors.black,
-                        activeTickMarkColor: Colors.blue,
-                        trackShape: const RectangularSliderTrackShape()),
-                    child: Slider(
-                      min: 0,
-                      max: 28,
-                      value: indexUsaSurooJoop.toDouble(),
-                      onChanged: (value) {},
-                    ),
-                  ),
+                  SliderWidget(
+                      max: 28, valueIndex: indexUsaSurooJoop.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
-                      child: AutoSizeText(
-                        state.testTopicsModel[0].geography[0]
-                            .usa[indexUsaSurooJoop].guestion,
-                        // widget.personalComputer[indexpersonalComputer].text,
+                      child: Text(
+                        state.usaTestToicsModel[indexUsaSurooJoop].guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -114,8 +74,8 @@ class _UsaTestPageState extends State<UsaTestPage> {
                         width: double.infinity,
                         height: double.infinity,
                         child: CachedNetworkImage(
-                          imageUrl: state.testTopicsModel[0].geography[0]
-                              .usa[indexUsaSurooJoop].image,
+                          imageUrl:
+                              state.usaTestToicsModel[indexUsaSurooJoop].image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -135,7 +95,6 @@ class _UsaTestPageState extends State<UsaTestPage> {
                         left: 5,
                         right: 5,
                       ),
-                      // physics: NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -147,13 +106,8 @@ class _UsaTestPageState extends State<UsaTestPage> {
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexUsaSurooJoop + 1 ==
-                                      state.testTopicsModel[0].geography[index]
-                                          .usa.length
-                                  // indexpersonalComputer + 1 ==
-                                  //   widget.personalComputer.length
-                                  ) {
+                                  state.usaTestToicsModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -171,18 +125,14 @@ class _UsaTestPageState extends State<UsaTestPage> {
                                           setState(() {});
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('Cancel'),
+                                        child: const Text('чыгуу'),
                                       ),
                                     ],
                                   ),
                                 );
                               } else {
-                                if (state
-                                        .testTopicsModel[0]
-                                        .geography[0]
-                                        .usa[index]
-                                        .options[indexUsaSurooJoop]
-                                        .correct ==
+                                if (state.usaTestToicsModel[indexUsaSurooJoop]
+                                        .options[index].correct ==
                                     true) {
                                   tuuraJooptor++;
                                 } else {
@@ -195,12 +145,8 @@ class _UsaTestPageState extends State<UsaTestPage> {
                             },
                             child: Center(
                               child: AutoSizeText(
-                                state
-                                    .testTopicsModel[0]
-                                    .geography[0]
-                                    .usa[indexUsaSurooJoop]
-                                    .options[index]
-                                    .answer,
+                                state.usaTestToicsModel[indexUsaSurooJoop]
+                                    .options[index].answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,
                               ),

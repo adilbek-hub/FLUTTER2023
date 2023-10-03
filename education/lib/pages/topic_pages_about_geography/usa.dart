@@ -426,9 +426,8 @@ class UnitedStates extends StatelessWidget {
                         Navigator.push<void>(
                           context,
                           MaterialPageRoute<void>(
-                            builder: (BuildContext context) => UsaTestPage(
-                              usaSuroo: usaSuroo,
-                            ),
+                            builder: (BuildContext context) =>
+                                const UsaTestPage(),
                           ),
                         );
                       },
