@@ -55,9 +55,20 @@ class _EuropeTestPageState extends State<EuropeTestPage> {
               ),
               body: Column(
                 children: [
-                  SliderWidget(
-                    max: 10,
-                    valueIndex: europeCountryIndex.toDouble(),
+                  SliderTheme(
+                    data: SliderThemeData(
+                        thumbShape: SliderComponentShape.noThumb,
+                        trackHeight: 3,
+                        activeTrackColor: Colors.red,
+                        inactiveTrackColor: Colors.black,
+                        activeTickMarkColor: Colors.blue,
+                        trackShape: const RectangularSliderTrackShape()),
+                    child: Slider(
+                      min: 0,
+                      max: 10,
+                      value: europeCountryIndex.toDouble(),
+                      onChanged: (value) {},
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
