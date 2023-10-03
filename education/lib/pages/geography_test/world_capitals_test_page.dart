@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
+import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
+import 'package:education/components/slider_widget.dart';
 import 'package:education/model/world_capitals_suroo.dart';
 import 'package:flutter/material.dart';
-import 'package:education/constants/app_color.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WorldCapitalsTestPage extends StatefulWidget {
@@ -23,9 +25,12 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<WorldCapitalsTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        }
+        if (state is WorlCapitalsTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -38,38 +43,9 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '$kataJooptor',
-                              style: const TextStyle(
-                                  color: AppColors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  '|',
-                                  style: TextStyle(fontSize: 17),
-                                )),
-                            Text(
-                              '$tuuraJooptor',
-                              style: const TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                    CorrectIncorrectCard(
+                      kataJooptor: kataJooptor,
+                      tuuraJooptor: tuuraJooptor,
                     ),
                     const SizedBox(
                       width: 5,
@@ -80,28 +56,14 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
               ),
               body: Column(
                 children: [
-                  SliderTheme(
-                    data: SliderThemeData(
-                        thumbShape: SliderComponentShape.noThumb,
-                        trackHeight: 3,
-                        activeTrackColor: Colors.red,
-                        inactiveTrackColor: Colors.black,
-                        activeTickMarkColor: Colors.blue,
-                        trackShape: const RectangularSliderTrackShape()),
-                    child: Slider(
-                      min: 0,
-                      max: 26,
-                      value: indexWorldCapitals.toDouble(),
-                      onChanged: (value) {},
-                    ),
-                  ),
+                  SliderWidget(
+                      max: 26, valueIndex: indexWorldCapitals.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
-                      child: AutoSizeText(
-                        state.testTopicsModel[0].geography[0]
-                            .worldCapitals[indexWorldCapitals].guestion,
-                        // widget.personalComputer[indexpersonalComputer].text,
+                      child: Text(
+                        state.worldCapitalsTestToicsModel[indexWorldCapitals]
+                            .guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -116,8 +78,9 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                         width: double.infinity,
                         height: double.infinity,
                         child: CachedNetworkImage(
-                          imageUrl: state.testTopicsModel[0].geography[0]
-                              .worldCapitals[indexWorldCapitals].image,
+                          imageUrl: state
+                              .worldCapitalsTestToicsModel[indexWorldCapitals]
+                              .image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -137,7 +100,6 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                         left: 5,
                         right: 5,
                       ),
-                      // physics: NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -149,17 +111,8 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexWorldCapitals + 1 ==
-                                      state
-                                          .testTopicsModel[0]
-                                          .geography[0]
-                                          .worldCapitals[indexWorldCapitals]
-                                          .options
-                                          .length
-                                  // indexpersonalComputer + 1 ==
-                                  //   widget.personalComputer.length
-                                  ) {
+                                  state.worldCapitalsTestToicsModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -177,16 +130,15 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                                           setState(() {});
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('Cancel'),
+                                        child: const Text('чыгуу'),
                                       ),
                                     ],
                                   ),
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel[0]
-                                        .geography[0]
-                                        .worldCapitals[indexWorldCapitals]
+                                        .worldCapitalsTestToicsModel[
+                                            indexWorldCapitals]
                                         .options[index]
                                         .correct ==
                                     true) {
@@ -202,9 +154,8 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel[0]
-                                    .geography[0]
-                                    .worldCapitals[indexWorldCapitals]
+                                    .worldCapitalsTestToicsModel[
+                                        indexWorldCapitals]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,
@@ -220,6 +171,8 @@ class _WorldCapitalsTestPageState extends State<WorldCapitalsTestPage> {
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
           throw ('ERROR in World Country Capitals');
         }
