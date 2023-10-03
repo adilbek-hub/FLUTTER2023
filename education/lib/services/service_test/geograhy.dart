@@ -1,16 +1,16 @@
-import 'package:education/model/test_model.dart';
+import 'package:education/model/model_test/geography.dart';
 import 'package:http/http.dart' as http;
 
-class TestTopicsService {
-  const TestTopicsService({required this.client});
+class GeographyTopicsService {
+  const GeographyTopicsService({required this.client});
   final http.Client client;
-  Future<List<TestToicsModel>?> getData() async {
+  Future<List<GeographyTestToicsModel>?> getData() async {
     try {
-      final response = await http
-          .get(Uri.parse('https://adilbek-hub.github.io/my_data/test.json'));
+      final response = await http.get(Uri.parse(
+          'https://adilbek-hub.github.io/my_data/geography_test.json'));
 
       if (response.statusCode == 200) {
-        final data = testToicsModelFromJson(response.body);
+        final data = geographyToicsModelFromJson(response.body);
         return data;
       } else {
         throw Exception('Failed to load computer data');
@@ -22,6 +22,6 @@ class TestTopicsService {
   }
 }
 
-final testTopicsService = TestTopicsService(
+final geographyTopicsService = GeographyTopicsService(
   client: http.Client(),
 );

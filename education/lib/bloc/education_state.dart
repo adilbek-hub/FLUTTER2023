@@ -39,6 +39,11 @@ class TestSuccess extends EducationState {
   final List<TestToicsModel> testTopicsModel;
 }
 
+class GeographyTestSuccess extends EducationState {
+  const GeographyTestSuccess({required this.geographyTestToicsModel});
+  final List<GeographyTestToicsModel> geographyTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

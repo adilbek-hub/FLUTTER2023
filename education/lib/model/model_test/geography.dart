@@ -1,25 +1,25 @@
 import 'dart:convert';
 
-List<GeographyToicsModel> geographyToicsModelFromJson(String str) =>
-    List<GeographyToicsModel>.from(
-        json.decode(str).map((x) => GeographyToicsModel.fromJson(x)));
+List<GeographyTestToicsModel> geographyToicsModelFromJson(String str) =>
+    List<GeographyTestToicsModel>.from(
+        json.decode(str).map((x) => GeographyTestToicsModel.fromJson(x)));
 
-String geographyToicsModelToJson(List<GeographyToicsModel> data) =>
+String geographyToicsModelToJson(List<GeographyTestToicsModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class GeographyToicsModel {
+class GeographyTestToicsModel {
   String text;
   List<Jooptor> jooptor;
   String image;
 
-  GeographyToicsModel({
+  GeographyTestToicsModel({
     required this.text,
     required this.jooptor,
     required this.image,
   });
 
-  factory GeographyToicsModel.fromJson(Map<String, dynamic> json) =>
-      GeographyToicsModel(
+  factory GeographyTestToicsModel.fromJson(Map<String, dynamic> json) =>
+      GeographyTestToicsModel(
         text: json["text"],
         jooptor:
             List<Jooptor>.from(json["jooptor"].map((x) => Jooptor.fromJson(x))),
