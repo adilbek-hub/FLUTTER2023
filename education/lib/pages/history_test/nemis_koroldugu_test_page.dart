@@ -26,7 +26,7 @@ class _NemisKorolduguTestPageState extends State<NemisKorolduguTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TestsBloc, EducationState>(
+    return BlocBuilder<GeographyTestBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const LoadingWidget();

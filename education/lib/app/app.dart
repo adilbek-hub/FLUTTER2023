@@ -2,6 +2,7 @@ import 'package:education/bloc/education_bloc.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/history_toics_service.dart';
+import 'package:education/services/service_test/geograhy.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:education/views/pages_nav_bar.dart';
@@ -41,6 +42,11 @@ class MyApp extends StatelessWidget {
         BlocProvider<TestsBloc>(
           create: (BuildContext context) =>
               TestsBloc(testTopicsService)..add(FetchDataEvent6()),
+        ),
+        BlocProvider<GeographyTestBloc>(
+          create: (BuildContext context) => GeographyTestBloc(
+              geographyTestTopicsService: geographyTestTopicsService)
+            ..add(FetchDataGeographyTest()),
         ),
       ],
       child: MaterialApp(

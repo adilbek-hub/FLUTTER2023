@@ -5,6 +5,7 @@ import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
+import 'package:education/services/service_test/geograhy.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
@@ -153,6 +154,29 @@ class TestsBloc extends Bloc<EducationEvent, EducationState> {
       emit(
         TestSuccess(
           testTopicsModel: dataTest,
+        ),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class GeographyTestBloc extends Bloc<EducationEvent, EducationState> {
+  GeographyTestBloc({required this.geographyTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataGeographyTest>(_getGeographyTest);
+  }
+  final GeographyTestTopicsService geographyTestTopicsService;
+
+  Future<void> _getGeographyTest(
+      FetchDataGeographyTest event, Emitter<EducationState> emit) async {
+    final geographyDataTest = await geographyTestTopicsService.getData();
+    if (geographyDataTest != null) {
+      emit(
+        GeographyTestSuccess(
+          geographyTestToicsModel: geographyDataTest,
         ),
       );
     } else {

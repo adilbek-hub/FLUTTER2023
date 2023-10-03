@@ -1,8 +1,8 @@
 import 'package:education/model/model_test/geography.dart';
 import 'package:http/http.dart' as http;
 
-class GeographyTopicsService {
-  const GeographyTopicsService({required this.client});
+class GeographyTestTopicsService {
+  const GeographyTestTopicsService({required this.client});
   final http.Client client;
   Future<List<GeographyTestToicsModel>?> getData() async {
     try {
@@ -22,6 +22,6 @@ class GeographyTopicsService {
   }
 }
 
-final geographyTopicsService = GeographyTopicsService(
+final geographyTestTopicsService = GeographyTestTopicsService(
   client: http.Client(),
 );
