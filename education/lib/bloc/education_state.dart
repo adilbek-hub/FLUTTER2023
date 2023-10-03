@@ -39,9 +39,9 @@ class TestSuccess extends EducationState {
   final List<TestToicsModel> testTopicsModel;
 }
 
-class GeographyTestSuccess extends EducationState {
-  const GeographyTestSuccess({required this.geographyTestToicsModel});
-  final List<GeographyTestToicsModel> geographyTestToicsModel;
+class EuropeCapitalTestSuccess extends EducationState {
+  const EuropeCapitalTestSuccess({required this.europeCapitalTestToicsModel});
+  final List<EuropeCapitalsToicsModel> europeCapitalTestToicsModel;
 }
 
 class EducationError extends EducationState {

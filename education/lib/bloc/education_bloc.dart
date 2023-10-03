@@ -1,11 +1,11 @@
 import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
-import 'package:education/model/model_test/geography.dart';
+import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
-import 'package:education/services/service_test/geograhy.dart';
+import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
@@ -162,21 +162,21 @@ class TestsBloc extends Bloc<EducationEvent, EducationState> {
   }
 }
 
-class GeographyTestBloc extends Bloc<EducationEvent, EducationState> {
-  GeographyTestBloc({required this.geographyTestTopicsService})
+class EuropeCapitalTestBloc extends Bloc<EducationEvent, EducationState> {
+  EuropeCapitalTestBloc({required this.geographyTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
     on<FetchDataGeographyTest>(_getGeographyTest);
   }
-  final GeographyTestTopicsService geographyTestTopicsService;
+  final EuropeCapitalsTestTopicsService geographyTestTopicsService;
 
   Future<void> _getGeographyTest(
       FetchDataGeographyTest event, Emitter<EducationState> emit) async {
     final geographyDataTest = await geographyTestTopicsService.getData();
     if (geographyDataTest != null) {
       emit(
-        GeographyTestSuccess(
-          geographyTestToicsModel: geographyDataTest,
+        EuropeCapitalTestSuccess(
+          europeCapitalTestToicsModel: geographyDataTest,
         ),
       );
     } else {
