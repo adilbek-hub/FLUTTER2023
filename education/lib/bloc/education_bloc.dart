@@ -1,11 +1,13 @@
 import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
+import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/usa_test.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
+import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/subjects_topics_service.dart';
@@ -201,6 +203,27 @@ class UsaTestBloc extends Bloc<EducationEvent, EducationState> {
     if (usaTestData != null) {
       emit(
         UsaTestSuccess(usaTestToicsModel: usaTestData),
+      );
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class AsiaTestBloc extends Bloc<EducationEvent, EducationState> {
+  AsiaTestBloc({required this.asiaTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataAsiaTest>(_getAsiaTest);
+  }
+  final AsiaTestTopicsService asiaTestTopicsService;
+
+  Future<void> _getAsiaTest(
+      FetchDataAsiaTest event, Emitter<EducationState> emit) async {
+    final asiaTestData = await asiaTestTopicsService.getData();
+    if (asiaTestData != null) {
+      emit(
+        AsiaTestSuccess(asiaTestToicsModel: asiaTestData),
       );
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
