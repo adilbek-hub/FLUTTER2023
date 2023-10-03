@@ -101,9 +101,8 @@ class AsiaContinenti extends StatelessWidget {
                           Navigator.push<void>(
                             context,
                             MaterialPageRoute<void>(
-                              builder: (BuildContext context) => AsiaTestPage(
-                                asiaSuroo: asiaSuroo,
-                              ),
+                              builder: (BuildContext context) =>
+                                  const AsiaTestPage(),
                             ),
                           );
                         },

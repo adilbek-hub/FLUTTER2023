@@ -2,6 +2,7 @@ import 'package:education/bloc/education_bloc.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/history_toics_service.dart';
+import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/subjects_topics_service.dart';
@@ -53,6 +54,11 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) =>
               UsaTestBloc(usaTestTopicsService: usaTestTopicsService)
                 ..add(FetchDataUsaTest()),
+        ),
+        BlocProvider<AsiaTestBloc>(
+          create: (BuildContext context) =>
+              AsiaTestBloc(asiaTestTopicsService: asiaTestTopicsService)
+                ..add(FetchDataAsiaTest()),
         ),
       ],
       child: MaterialApp(
