@@ -191,18 +191,16 @@ class UsaTestBloc extends Bloc<EducationEvent, EducationState> {
   UsaTestBloc({required this.usaTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchDataEuropeCapitalTest>(_getGeographyTest);
+    on<FetchDataUsaTest>(_getUsaTest);
   }
   final UsaTestTopicsService usaTestTopicsService;
 
-  Future<void> _getGeographyTest(
-      FetchDataEuropeCapitalTest event, Emitter<EducationState> emit) async {
-    final geographyDataTest = await geographyTestTopicsService.getData();
-    if (geographyDataTest != null) {
+  Future<void> _getUsaTest(
+      FetchDataUsaTest event, Emitter<EducationState> emit) async {
+    final usaTestData = await usaTestTopicsService.getData();
+    if (usaTestData != null) {
       emit(
-        EuropeCapitalTestSuccess(
-          europeCapitalTestToicsModel: geographyDataTest,
-        ),
+        UsaTestSuccess(usaTestToicsModel: usaTestData),
       );
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));

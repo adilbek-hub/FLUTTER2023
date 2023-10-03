@@ -3,6 +3,7 @@ import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/history_toics_service.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
+import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:education/views/pages_nav_bar.dart';
@@ -47,6 +48,11 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => EuropeCapitalTestBloc(
               geographyTestTopicsService: europeCApitalsTestTopicsService)
             ..add(FetchDataEuropeCapitalTest()),
+        ),
+        BlocProvider<UsaTestBloc>(
+          create: (BuildContext context) =>
+              UsaTestBloc(usaTestTopicsService: usaTestTopicsService)
+                ..add(FetchDataUsaTest()),
         ),
       ],
       child: MaterialApp(
