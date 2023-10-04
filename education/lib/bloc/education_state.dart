@@ -59,6 +59,11 @@ class WorlCapitalsTestSuccess extends EducationState {
   final List<WorldCapitalToicsModel> worldCapitalsTestToicsModel;
 }
 
+class ManAndAnimalsTestSuccess extends EducationState {
+  const ManAndAnimalsTestSuccess({required this.manAndAnimalsTestToicsModel});
+  final List<ManAndAnimalsTestSuccess> manAndAnimalsTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

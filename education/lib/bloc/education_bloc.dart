@@ -8,6 +8,7 @@ import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
+import 'package:education/services/service_test/biology_test/man_and_animal.dart';
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
@@ -240,6 +241,26 @@ class WorldCapitalsTestBloc extends Bloc<EducationEvent, EducationState> {
     on<FetchDataWorldCapitalsTest>(_getWorldCapitalsTest);
   }
   final WorldCapitalsTestTopicsService worldCapitalsTestTopicsService;
+
+  Future<void> _getWorldCapitalsTest(
+      FetchDataWorldCapitalsTest event, Emitter<EducationState> emit) async {
+    final worldCaitalTestData = await worldCapitalsTestTopicsService.getData();
+    if (worldCaitalTestData != null) {
+      emit(WorlCapitalsTestSuccess(
+          worldCapitalsTestToicsModel: worldCaitalTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class ManAndAnimalTestBloc extends Bloc<EducationEvent, EducationState> {
+  ManAndAnimalTestBloc({required this.manAndAnimalTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchDataWorldCapitalsTest>(_getWorldCapitalsTest);
+  }
+  final ManAndAnimalTestTopicsService manAndAnimalTestTopicsService;
 
   Future<void> _getWorldCapitalsTest(
       FetchDataWorldCapitalsTest event, Emitter<EducationState> emit) async {

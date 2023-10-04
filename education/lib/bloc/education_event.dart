@@ -26,3 +26,5 @@ final class FetchDataUsaTest extends EducationEvent {}
 final class FetchDataAsiaTest extends EducationEvent {}
 
 final class FetchDataWorldCapitalsTest extends EducationEvent {}
+
+final class FetchDataManAndAnimalTest extends EducationEvent {}
