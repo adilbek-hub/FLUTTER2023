@@ -1,6 +1,7 @@
 import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
 import 'package:education/model/model_test/biology_test/kletka.dart';
+import 'package:education/model/model_test/biology_test/mee.dart';
 import 'package:education/model/model_test/biology_test/men_and_animal.dart';
 import 'package:education/model/model_test/biology_test/nerv_sistemasy.dart';
 import 'package:education/model/model_test/geography_test/asia.dart';
@@ -13,6 +14,7 @@ import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/service_test/biology_test/kletka_service.dart';
 import 'package:education/services/service_test/biology_test/man_and_animal.dart';
+import 'package:education/services/service_test/biology_test/mee_service.dart';
 import 'package:education/services/service_test/biology_test/nerv_sistemasy_service.dart';
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
@@ -316,6 +318,25 @@ class NervSistemasyTestBloc extends Bloc<EducationEvent, EducationState> {
     if (nervSistemasyTestData != null) {
       emit(NervSistemasyTestSuccess(
           nervSistemasyTestToicsModel: nervSistemasyTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class MeeTestBloc extends Bloc<EducationEvent, EducationState> {
+  MeeTestBloc({required this.meeTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchMeeTest>(_getMeeTest);
+  }
+  final MeeTestTopicsService meeTestTopicsService;
+
+  Future<void> _getMeeTest(
+      FetchMeeTest event, Emitter<EducationState> emit) async {
+    final meeTestData = await meeTestTopicsService.getData();
+    if (meeTestData != null) {
+      emit(MeeTestSuccess(meeTestToicsModel: meeTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

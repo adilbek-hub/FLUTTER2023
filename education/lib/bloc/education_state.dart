@@ -75,6 +75,11 @@ class NervSistemasyTestSuccess extends EducationState {
   final List<NervSystemasyTestToicsModel> nervSistemasyTestToicsModel;
 }
 
+class MeeTestSuccess extends EducationState {
+  const MeeTestSuccess({required this.meeTestToicsModel});
+  final List<MeeTestToicsModel> meeTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;
