@@ -85,6 +85,11 @@ class NemisKorolduguTestSuccess extends EducationState {
   final List<NemisKorolduguTestToicsModel> nemisKorolduguTestToicsModel;
 }
 
+class RimTestSuccess extends EducationState {
+  const RimTestSuccess({required this.rimTestToicsModel});
+  final List<RimTestToicsModel> rimTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

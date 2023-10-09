@@ -8,6 +8,7 @@ import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/geography_test/world_capitals.dart';
 import 'package:education/model/model_test/history/nemis_koroldugu.dart';
+import 'package:education/model/model_test/history/rim.dart';
 import 'package:education/model/model_test/usa_test.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
@@ -22,6 +23,7 @@ import 'package:education/services/service_test/geography_test/europe_capitals.d
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/service_test/geography_test/world_capitals.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
+import 'package:education/services/service_test/history/rim_service.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
@@ -360,6 +362,25 @@ class NemisKorolduguTestBloc extends Bloc<EducationEvent, EducationState> {
     if (nemisKorolduguTestData != null) {
       emit(NemisKorolduguTestSuccess(
           nemisKorolduguTestToicsModel: nemisKorolduguTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class RimTestBloc extends Bloc<EducationEvent, EducationState> {
+  RimTestBloc({required this.rimTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchRimTest>(_getRimTest);
+  }
+  final RimTestTopicsService rimTestTopicsService;
+
+  Future<void> _getRimTest(
+      FetchRimTest event, Emitter<EducationState> emit) async {
+    final rimTestData = await rimTestTopicsService.getData();
+    if (rimTestData != null) {
+      emit(RimTestSuccess(rimTestToicsModel: rimTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }
