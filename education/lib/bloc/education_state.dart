@@ -80,6 +80,11 @@ class MeeTestSuccess extends EducationState {
   final List<MeeTestToicsModel> meeTestToicsModel;
 }
 
+class NemisKorolduguTestSuccess extends EducationState {
+  const NemisKorolduguTestSuccess({required this.nemisKorolduguTestToicsModel});
+  final List<NemisKorolduguTestToicsModel> nemisKorolduguTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

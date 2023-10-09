@@ -1,4 +1,3 @@
-import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/history/nemis_koroldugu.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,7 +7,7 @@ class NemisKorolduguTestTopicsService {
   Future<List<NemisKorolduguTestToicsModel>?> getData() async {
     try {
       final response = await http.get(Uri.parse(
-          'https://adilbek-hub.github.io/my_data/tests_data/geography/nemis_koroldugu.json'));
+          'https://adilbek-hub.github.io/my_data/tests_data/history/nemis_koroldugu.json'));
 
       if (response.statusCode == 200) {
         final data = nemisKorolduguTestToicsModelFromJson(response.body);
