@@ -24,6 +24,6 @@ class NervSistemasyTestTopicsService {
   }
 }
 
-final nervSistemasyTopicsService = NervSistemasyTestTopicsService(
+final nervSistemasyTestTopicsService = NervSistemasyTestTopicsService(
   client: http.Client(),
 );

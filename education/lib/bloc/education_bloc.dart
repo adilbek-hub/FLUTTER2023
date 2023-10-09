@@ -2,6 +2,7 @@ import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
 import 'package:education/model/model_test/biology_test/kletka.dart';
 import 'package:education/model/model_test/biology_test/men_and_animal.dart';
+import 'package:education/model/model_test/biology_test/nerv_sistemasy.dart';
 import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/geography_test/world_capitals.dart';
@@ -12,6 +13,7 @@ import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
 import 'package:education/services/service_test/biology_test/kletka_service.dart';
 import 'package:education/services/service_test/biology_test/man_and_animal.dart';
+import 'package:education/services/service_test/biology_test/nerv_sistemasy_service.dart';
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
@@ -282,15 +284,38 @@ class KletkaTestBloc extends Bloc<EducationEvent, EducationState> {
   KletkaTestBloc({required this.kletkaTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchKletkaTest>(_getKletkaTest);
+    on<FetchDataManAndAnimalTest>(_getKletkaTest);
   }
   final KletkaTestTopicsService kletkaTestTopicsService;
 
   Future<void> _getKletkaTest(
-      FetchKletkaTest event, Emitter<EducationState> emit) async {
-    final kletkaTestData = await kletkaTestTopicsService.getData();
-    if (kletkaTestData != null) {
-      emit(KletkaTestSuccess(kletkaTestToicsModel: kletkaTestData));
+      FetchDataManAndAnimalTest event, Emitter<EducationState> emit) async {
+    final manAndAnimalCaitalTestData =
+        await manAndAnimalTestTopicsService.getData();
+    if (manAndAnimalCaitalTestData != null) {
+      emit(ManAndAnimalsTestSuccess(
+          manAndAnimalsTestToicsModel: manAndAnimalCaitalTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class NervSistemasyTestBloc extends Bloc<EducationEvent, EducationState> {
+  NervSistemasyTestBloc({required this.nervSistemasyTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchNervSistemasyTest>(_getNervSistemasyTest);
+  }
+  final NervSistemasyTestTopicsService nervSistemasyTestTopicsService;
+
+  Future<void> _getNervSistemasyTest(
+      FetchNervSistemasyTest event, Emitter<EducationState> emit) async {
+    final nervSistemasyTestData =
+        await nervSistemasyTestTopicsService.getData();
+    if (nervSistemasyTestData != null) {
+      emit(NervSistemasyTestSuccess(
+          nervSistemasyTestToicsModel: nervSistemasyTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

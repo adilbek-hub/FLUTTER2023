@@ -70,6 +70,11 @@ class KletkaTestSuccess extends EducationState {
   final List<KletkaTestToicsModel> kletkaTestToicsModel;
 }
 
+class NervSistemasyTestSuccess extends EducationState {
+  const NervSistemasyTestSuccess({required this.nervSistemasyTestToicsModel});
+  final List<NervSystemasyTestToicsModel> nervSistemasyTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

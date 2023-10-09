@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
+import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
+import 'package:education/components/slider_widget.dart';
 import 'package:education/constants/app_color.dart';
 import 'package:education/model/biology_question.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +27,11 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<NervSistemasyTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        } else if (state is NervSistemasyTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -39,38 +44,9 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '$kataJooptor',
-                              style: const TextStyle(
-                                  color: AppColors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  '|',
-                                  style: TextStyle(fontSize: 17),
-                                )),
-                            Text(
-                              '$tuuraJooptor',
-                              style: const TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                    CorrectIncorrectCard(
+                      kataJooptor: kataJooptor,
+                      tuuraJooptor: tuuraJooptor,
                     ),
                     const SizedBox(
                       width: 5,
@@ -81,47 +57,41 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
               ),
               body: Column(
                 children: [
-                  SliderTheme(
-                    data: SliderThemeData(
-                        thumbShape: SliderComponentShape.noThumb,
-                        trackHeight: 3,
-                        activeTrackColor: Colors.red,
-                        inactiveTrackColor: Colors.black,
-                        activeTickMarkColor: Colors.blue,
-                        trackShape: const RectangularSliderTrackShape()),
-                    child: Slider(
-                      min: 0,
-                      max: 15,
-                      value: indexnervSistemasy.toDouble(),
-                      onChanged: (value) {},
-                    ),
-                  ),
+                  SliderWidget(
+                      max: 14, valueIndex: indexnervSistemasy.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      state.testTopicsModel[0].biology[0]
-                          .nerv[indexnervSistemasy].guestion,
-                      style: const TextStyle(fontSize: 20, height: 2),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
+                    child: Center(
+                      child: Text(
+                        state.nervSistemasyTestToicsModel[indexnervSistemasy]
+                            .guestion,
+                        style: const TextStyle(fontSize: 20, height: 2),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                      ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel[0].biology[0]
-                            .nerv[indexnervSistemasy].image,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Transform.scale(
-                            scale: 0.2,
-                            child: const CircularProgressIndicator(
-                              color: Colors.red,
-                              strokeWidth: 20,
-                            )),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: CachedNetworkImage(
+                          imageUrl: state
+                              .nervSistemasyTestToicsModel[indexnervSistemasy]
+                              .image,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Transform.scale(
+                              scale: 0.2,
+                              child: const CircularProgressIndicator(
+                                color: Colors.red,
+                                strokeWidth: 20,
+                              )),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                     ),
                   ),
@@ -131,7 +101,6 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                         left: 5,
                         right: 5,
                       ),
-                      // physics: NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -143,10 +112,8 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexnervSistemasy + 1 ==
-                                  state.testTopicsModel[0].biology[0].nerv
-                                      .length) {
+                                  state.nervSistemasyTestToicsModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -164,16 +131,15 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                                           setState(() {});
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('Cancel'),
+                                        child: const Text('чыгуу'),
                                       ),
                                     ],
                                   ),
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel[0]
-                                        .biology[0]
-                                        .nerv[indexnervSistemasy]
+                                        .nervSistemasyTestToicsModel[
+                                            indexnervSistemasy]
                                         .options[index]
                                         .correct ==
                                     true) {
@@ -189,9 +155,8 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel[0]
-                                    .biology[0]
-                                    .nerv[indexnervSistemasy]
+                                    .nervSistemasyTestToicsModel[
+                                        indexnervSistemasy]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,
@@ -207,6 +172,8 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
           throw ('ERROR in NERV');
         }
