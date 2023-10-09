@@ -6,6 +6,13 @@ part 'example_state.dart';
 
 class ExampleBloc extends Bloc<ExampleEvent, ExampleState> {
   ExampleBloc() : super(ExampleInitial()) {
-    on<ExampleEvent>((event, emit) {});
+    on<PrintEvent>((event, emit) async {
+      //emit - как только наступил PrintEvent, первым делом  мы должны UI отправить состояния загрузки.
+      emit(ExampleLoading());
+      await Future.delayed(const Duration(seconds: 3));
+      final String data = '${event.data}Added to Event';
+      print(event.data);
+      emit(ExampleSuccess(returnedData: data));
+    });
   }
 }
