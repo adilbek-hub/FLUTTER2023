@@ -35,7 +35,9 @@ class Home extends StatelessWidget {
                 if (state is ExampleLoading) {
                   return const CircularProgressIndicator();
                 } else if (state is ExampleSuccess) {
-                  return Text(state.returnedData);
+                  return Text(state.returnedData.toString());
+                } else if (state is ExampleError) {
+                  return Text(state.errorText);
                 }
                 return SizedBox();
               },

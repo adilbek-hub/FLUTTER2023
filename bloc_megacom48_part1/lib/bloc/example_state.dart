@@ -8,9 +8,12 @@ final class ExampleInitial extends ExampleState {}
 final class ExampleLoading extends ExampleState {}
 
 final class ExampleSuccess extends ExampleState {
-  final String returnedData;
+  final int returnedData;
 
   ExampleSuccess({required this.returnedData});
 }
 
-final class ExampleError extends ExampleState {}
+final class ExampleError extends ExampleState {
+  final String errorText;
+  ExampleError({required this.errorText});
+}
