@@ -1,5 +1,7 @@
 import 'package:education/model/biology_model.dart';
 import 'package:education/model/geography_model.dart';
+import 'package:education/model/model_test/biology_test/kletka.dart';
+import 'package:education/model/model_test/biology_test/men_and_animal.dart';
 import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/geography_test/world_capitals.dart';
@@ -8,6 +10,7 @@ import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
 import 'package:education/services/biology_topics_service.dart';
 import 'package:education/services/geography_topics_service.dart';
+import 'package:education/services/service_test/biology_test/kletka_service.dart';
 import 'package:education/services/service_test/biology_test/man_and_animal.dart';
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
@@ -258,16 +261,36 @@ class ManAndAnimalTestBloc extends Bloc<EducationEvent, EducationState> {
   ManAndAnimalTestBloc({required this.manAndAnimalTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchDataWorldCapitalsTest>(_getWorldCapitalsTest);
+    on<FetchDataManAndAnimalTest>(_getManAndAnimalTest);
   }
   final ManAndAnimalTestTopicsService manAndAnimalTestTopicsService;
 
-  Future<void> _getWorldCapitalsTest(
-      FetchDataWorldCapitalsTest event, Emitter<EducationState> emit) async {
-    final worldCaitalTestData = await worldCapitalsTestTopicsService.getData();
-    if (worldCaitalTestData != null) {
-      emit(WorlCapitalsTestSuccess(
-          worldCapitalsTestToicsModel: worldCaitalTestData));
+  Future<void> _getManAndAnimalTest(
+      FetchDataManAndAnimalTest event, Emitter<EducationState> emit) async {
+    final manAndAnimalCaitalTestData =
+        await manAndAnimalTestTopicsService.getData();
+    if (manAndAnimalCaitalTestData != null) {
+      emit(ManAndAnimalsTestSuccess(
+          manAndAnimalsTestToicsModel: manAndAnimalCaitalTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class KletkaTestBloc extends Bloc<EducationEvent, EducationState> {
+  KletkaTestBloc({required this.kletkaTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchKletkaAnimalTest>(_getKletkaTest);
+  }
+  final KletkaTestTopicsService kletkaTestTopicsService;
+
+  Future<void> _getKletkaTest(
+      FetchKletkaAnimalTest event, Emitter<EducationState> emit) async {
+    final kletkaTestData = await kletkaTestTopicsService.getData();
+    if (kletkaTestData != null) {
+      emit(KletkaTestSuccess(kletkaTestToicsModel: kletkaTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

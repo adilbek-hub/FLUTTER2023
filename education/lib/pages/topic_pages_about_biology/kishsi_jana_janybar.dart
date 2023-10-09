@@ -247,9 +247,7 @@ class KishiJanaJanybar extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      KishiJanybarTestPage(
-                                    adamJanybar: adamJanybar,
-                                  ),
+                                      const KishiJanybarTestPage(),
                                 ),
                               );
                             },
