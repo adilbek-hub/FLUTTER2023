@@ -23,6 +23,6 @@ class KletkaTestTopicsService {
   }
 }
 
-final manAndAnimalTestTopicsService = KletkaTestTopicsService(
+final kletkaTopicsService = KletkaTestTopicsService(
   client: http.Client(),
 );

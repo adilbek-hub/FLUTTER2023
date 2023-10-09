@@ -282,12 +282,12 @@ class KletkaTestBloc extends Bloc<EducationEvent, EducationState> {
   KletkaTestBloc({required this.kletkaTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchKletkaAnimalTest>(_getKletkaTest);
+    on<FetchKletkaTest>(_getKletkaTest);
   }
   final KletkaTestTopicsService kletkaTestTopicsService;
 
   Future<void> _getKletkaTest(
-      FetchKletkaAnimalTest event, Emitter<EducationState> emit) async {
+      FetchKletkaTest event, Emitter<EducationState> emit) async {
     final kletkaTestData = await kletkaTestTopicsService.getData();
     if (kletkaTestData != null) {
       emit(KletkaTestSuccess(kletkaTestToicsModel: kletkaTestData));

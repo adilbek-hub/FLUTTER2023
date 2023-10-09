@@ -133,9 +133,7 @@ class Kletka extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      KletkaJonundoTushunukTestPage(
-                                    kletka: kletka,
-                                  ),
+                                      KletkaJonundoTushunukTestPage(),
                                 ),
                               );
                             },

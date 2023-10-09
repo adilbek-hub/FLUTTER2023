@@ -1,17 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
-import 'package:education/constants/app_color.dart';
-import 'package:education/model/biology_question.dart';
+import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
+import 'package:education/components/slider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class KletkaJonundoTushunukTestPage extends StatefulWidget {
   const KletkaJonundoTushunukTestPage({
     super.key,
-    required this.kletka,
   });
-  final List<Biology> kletka;
 
   @override
   State<KletkaJonundoTushunukTestPage> createState() =>
@@ -26,9 +25,11 @@ class _KletkaJonundoTushunukTestPageState
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<KletkaTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        } else if (state is KletkaTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -41,38 +42,9 @@ class _KletkaJonundoTushunukTestPageState
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '$kataJooptor',
-                              style: const TextStyle(
-                                  color: AppColors.red,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  '|',
-                                  style: TextStyle(fontSize: 17),
-                                )),
-                            Text(
-                              '$tuuraJooptor',
-                              style: const TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
+                    CorrectIncorrectCard(
+                      kataJooptor: kataJooptor,
+                      tuuraJooptor: tuuraJooptor,
                     ),
                     const SizedBox(
                       width: 5,
@@ -83,47 +55,38 @@ class _KletkaJonundoTushunukTestPageState
               ),
               body: Column(
                 children: [
-                  SliderTheme(
-                    data: SliderThemeData(
-                        thumbShape: SliderComponentShape.noThumb,
-                        trackHeight: 3,
-                        activeTrackColor: Colors.red,
-                        inactiveTrackColor: Colors.black,
-                        activeTickMarkColor: Colors.blue,
-                        trackShape: const RectangularSliderTrackShape()),
-                    child: Slider(
-                      min: 0,
-                      max: 15,
-                      value: indexkletka.toDouble(),
-                      onChanged: (value) {},
-                    ),
-                  ),
+                  SliderWidget(max: 14, valueIndex: indexkletka.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      state.testTopicsModel[0].biology[0].kletka[indexkletka]
-                          .guestion,
-                      style: const TextStyle(fontSize: 20, height: 2),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
+                    child: Center(
+                      child: Text(
+                        state.kletkaTestToicsModel[indexkletka].guestion,
+                        style: const TextStyle(fontSize: 20, height: 2),
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                      ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: CachedNetworkImage(
-                        imageUrl: state.testTopicsModel[0].biology[0]
-                            .kletka[indexkletka].image,
-                        fit: BoxFit.cover,
-                        placeholder: (context, url) => Transform.scale(
-                            scale: 0.2,
-                            child: const CircularProgressIndicator(
-                              color: Colors.red,
-                              strokeWidth: 20,
-                            )),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              state.kletkaTestToicsModel[indexkletka].image,
+                          fit: BoxFit.cover,
+                          placeholder: (context, url) => Transform.scale(
+                              scale: 0.2,
+                              child: const CircularProgressIndicator(
+                                color: Colors.red,
+                                strokeWidth: 20,
+                              )),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                        ),
                       ),
                     ),
                   ),
@@ -133,7 +96,6 @@ class _KletkaJonundoTushunukTestPageState
                         left: 5,
                         right: 5,
                       ),
-                      // physics: NeverScrollableScrollPhysics(),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -145,10 +107,8 @@ class _KletkaJonundoTushunukTestPageState
                           color: Colors.grey[400],
                           child: InkWell(
                             onTap: () {
-                              // usaSuroo[indexUsaSurooJoop].jooptor[index].isBool;
                               if (indexkletka + 1 ==
-                                  state.testTopicsModel[0].biology[0].kletka
-                                      .length) {
+                                  state.kletkaTestToicsModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -166,18 +126,14 @@ class _KletkaJonundoTushunukTestPageState
                                           setState(() {});
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('Cancel'),
+                                        child: const Text('чыгуу'),
                                       ),
                                     ],
                                   ),
                                 );
                               } else {
-                                if (state
-                                        .testTopicsModel[0]
-                                        .biology[0]
-                                        .kletka[indexkletka]
-                                        .options[index]
-                                        .correct ==
+                                if (state.kletkaTestToicsModel[indexkletka]
+                                        .options[index].correct ==
                                     true) {
                                   tuuraJooptor++;
                                 } else {
@@ -190,8 +146,8 @@ class _KletkaJonundoTushunukTestPageState
                             },
                             child: Center(
                               child: AutoSizeText(
-                                state.testTopicsModel[0].biology[0]
-                                    .kletka[indexkletka].options[index].answer,
+                                state.kletkaTestToicsModel[indexkletka]
+                                    .options[index].answer,
                                 textAlign: TextAlign.center,
                                 maxLines: 5,
                               ),
@@ -205,6 +161,8 @@ class _KletkaJonundoTushunukTestPageState
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
           throw ('ERROR in KLETKA');
         }
