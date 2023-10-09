@@ -32,6 +32,11 @@ class Home extends StatelessWidget {
             BlocBuilder<ExampleBloc, ExampleState>(
               builder: (context, state) {
                 print(state);
+                if (state is ExampleLoading) {
+                  return const CircularProgressIndicator();
+                } else if (state is ExampleSuccess) {
+                  return Text(state.returnedData);
+                }
                 return SizedBox();
               },
             ),
