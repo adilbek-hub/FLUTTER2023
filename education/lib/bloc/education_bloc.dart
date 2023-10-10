@@ -8,6 +8,7 @@ import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/geography_test/world_capitals.dart';
 import 'package:education/model/model_test/history/bayrky_germandar.dart';
+import 'package:education/model/model_test/history/italia_V_IX.dart';
 import 'package:education/model/model_test/history/nemis_koroldugu.dart';
 import 'package:education/model/model_test/history/rim.dart';
 import 'package:education/model/model_test/usa_test.dart';
@@ -24,6 +25,7 @@ import 'package:education/services/service_test/geography_test/europe_capitals.d
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/service_test/geography_test/world_capitals.dart';
 import 'package:education/services/service_test/history/bayirky_germandar.dart';
+import 'package:education/services/service_test/history/italia_V_IX_service.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
 import 'package:education/services/subjects_topics_service.dart';
@@ -404,6 +406,25 @@ class BayirkyGermandarTestBloc extends Bloc<EducationEvent, EducationState> {
     if (bayirkyGermandarTestData != null) {
       emit(BayirkyGermandarTestSuccess(
           bayirkyGermandarTestToicsModel: bayirkyGermandarTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class ItaliaVIXTestBloc extends Bloc<EducationEvent, EducationState> {
+  ItaliaVIXTestBloc({required this.italiaVIXTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchItaliaVIXTest>(_getItaliaVIXTest);
+  }
+  final ItaliaVIXTestTopicsService italiaVIXTestTopicsService;
+
+  Future<void> _getItaliaVIXTest(
+      FetchItaliaVIXTest event, Emitter<EducationState> emit) async {
+    final italiaVIXTestData = await italiaVIXTestTopicsService.getData();
+    if (italiaVIXTestData != null) {
+      emit(ItaliaVIXTestSuccess(italiaVIXTestToicsModel: italiaVIXTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

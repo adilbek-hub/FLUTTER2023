@@ -40,3 +40,5 @@ final class FetchNemisKorolduguTest extends EducationEvent {}
 final class FetchRimTest extends EducationEvent {}
 
 final class FetchBayirkyGermandarTest extends EducationEvent {}
+
+final class FetchItaliaVIXTest extends EducationEvent {}
