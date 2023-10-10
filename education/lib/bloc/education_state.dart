@@ -90,6 +90,12 @@ class RimTestSuccess extends EducationState {
   final List<RimTestToicsModel> rimTestToicsModel;
 }
 
+class BayirkyGermandarTestSuccess extends EducationState {
+  const BayirkyGermandarTestSuccess(
+      {required this.bayirkyGermandarTestToicsModel});
+  final List<BayrkGermandarTestToicsModel> bayirkyGermandarTestToicsModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

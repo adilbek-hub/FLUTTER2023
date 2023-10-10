@@ -10,6 +10,7 @@ import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/service_test/geography_test/world_capitals.dart';
+import 'package:education/services/service_test/history/bayirky_germandar.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
 import 'package:education/services/subjects_topics_service.dart';
@@ -104,6 +105,14 @@ class MyApp extends StatelessWidget {
                 ..add(
                   FetchRimTest(),
                 ),
+        ),
+        BlocProvider<BayirkyGermandarTestBloc>(
+          create: (BuildContext context) => BayirkyGermandarTestBloc(
+              bayirkyGermandarTestTopicsService:
+                  bayirkyGermandarTestTopicsService)
+            ..add(
+              FetchBayirkyGermandarTest(),
+            ),
         ),
       ],
       child: MaterialApp(

@@ -7,6 +7,7 @@ import 'package:education/model/model_test/biology_test/nerv_sistemasy.dart';
 import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/geography_test/world_capitals.dart';
+import 'package:education/model/model_test/history/bayrky_germandar.dart';
 import 'package:education/model/model_test/history/nemis_koroldugu.dart';
 import 'package:education/model/model_test/history/rim.dart';
 import 'package:education/model/model_test/usa_test.dart';
@@ -22,6 +23,7 @@ import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/service_test/geography_test/world_capitals.dart';
+import 'package:education/services/service_test/history/bayirky_germandar.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
 import 'package:education/services/subjects_topics_service.dart';
@@ -381,6 +383,27 @@ class RimTestBloc extends Bloc<EducationEvent, EducationState> {
     final rimTestData = await rimTestTopicsService.getData();
     if (rimTestData != null) {
       emit(RimTestSuccess(rimTestToicsModel: rimTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class BayirkyGermandarTestBloc extends Bloc<EducationEvent, EducationState> {
+  BayirkyGermandarTestBloc({required this.bayirkyGermandarTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchBayirkyGermandarTest>(_getBayirkyGermandarTest);
+  }
+  final BayirkyGermandarTestTopicsService bayirkyGermandarTestTopicsService;
+
+  Future<void> _getBayirkyGermandarTest(
+      FetchBayirkyGermandarTest event, Emitter<EducationState> emit) async {
+    final bayirkyGermandarTestData =
+        await bayirkyGermandarTestTopicsService.getData();
+    if (bayirkyGermandarTestData != null) {
+      emit(BayirkyGermandarTestSuccess(
+          bayirkyGermandarTestToicsModel: bayirkyGermandarTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

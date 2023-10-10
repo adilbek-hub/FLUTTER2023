@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final bayrkGermandarTestToicsModel = bayrkGermandarTestToicsModelFromJson(jsonString);
+
 import 'dart:convert';
 
 List<BayrkGermandarTestToicsModel> bayrkGermandarTestToicsModelFromJson(
@@ -11,8 +15,8 @@ String bayrkGermandarTestToicsModelToJson(
 
 class BayrkGermandarTestToicsModel {
   int id;
-  String name;
-  String title;
+  Name name;
+  Title title;
   String guestion;
   String image;
   List<Option> options;
@@ -29,8 +33,8 @@ class BayrkGermandarTestToicsModel {
   factory BayrkGermandarTestToicsModel.fromJson(Map<String, dynamic> json) =>
       BayrkGermandarTestToicsModel(
         id: json["id"],
-        name: json["name"],
-        title: json["title"],
+        name: nameValues.map[json["name"]]!,
+        title: titleValues.map[json["title"]]!,
         guestion: json["guestion"],
         image: json["image"],
         options:
@@ -39,13 +43,17 @@ class BayrkGermandarTestToicsModel {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": name,
-        "title": title,
+        "name": nameValues.reverse[name],
+        "title": titleValues.reverse[title],
         "guestion": guestion,
         "image": image,
         "options": List<dynamic>.from(options.map((x) => x.toJson())),
       };
 }
+
+enum Name { EMPTY }
+
+final nameValues = EnumValues({"Тарых": Name.EMPTY});
 
 class Option {
   String answer;
@@ -65,4 +73,20 @@ class Option {
         "answer": answer,
         "correct": correct,
       };
+}
+
+enum Title { EMPTY }
+
+final titleValues = EnumValues({"Байыркы германдыктар": Title.EMPTY});
+
+class EnumValues<T> {
+  Map<String, T> map;
+  late Map<T, String> reverseMap;
+
+  EnumValues(this.map);
+
+  Map<T, String> get reverse {
+    reverseMap = map.map((k, v) => MapEntry(v, k));
+    return reverseMap;
+  }
 }

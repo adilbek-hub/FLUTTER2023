@@ -1,5 +1,4 @@
 import 'package:education/model/model_test/history/bayrky_germandar.dart';
-import 'package:education/model/model_test/history/rim.dart';
 import 'package:http/http.dart' as http;
 
 class BayirkyGermandarTestTopicsService {
@@ -23,6 +22,6 @@ class BayirkyGermandarTestTopicsService {
   }
 }
 
-final bayirkyGermandyktarTestTopicsService = BayirkyGermandarTestTopicsService(
+final bayirkyGermandarTestTopicsService = BayirkyGermandarTestTopicsService(
   client: http.Client(),
 );

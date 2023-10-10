@@ -66,9 +66,7 @@ class Germandyktar extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      BayrkyGermandyktarTestPage(
-                                    bairkyGermandyktar: bairkyGermandyktar,
-                                  ),
+                                      const BayrkyGermandyktarTestPage(),
                                 ),
                               );
                             },

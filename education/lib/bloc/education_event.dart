@@ -38,3 +38,5 @@ final class FetchMeeTest extends EducationEvent {}
 final class FetchNemisKorolduguTest extends EducationEvent {}
 
 final class FetchRimTest extends EducationEvent {}
+
+final class FetchBayirkyGermandarTest extends EducationEvent {}
