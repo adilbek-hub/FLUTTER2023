@@ -13,7 +13,11 @@ class EmailRepository {
       "template_id": AppConsts.templateId,
       "user_id": AppConsts.userId,
       "accessToken": AppConsts.accessToken,
-      "template_params": {"to_name": name, "email": email, ""}
+      "template_params": {
+        "to_name": name,
+        "email": email,
+        "message": message,
+      }
     });
   }
 }
