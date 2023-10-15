@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:megacom_dio_post_email_js/app_consts/app_consts.dart';
+import 'package:megacom_dio_post_email_js/email_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,8 +35,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController fromNameController = TextEditingController();
+  final TextEditingController tonameController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -51,14 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CustomText(
-                hintext: 'Email',
+                hintext: 'ToName',
                 maxline: 1,
-                controller: emailController,
+                controller: tonameController,
               ),
               CustomText(
-                hintext: 'Name',
+                hintext: 'FromName',
                 maxline: 1,
-                controller: nameController,
+                controller: fromNameController,
               ),
               CustomText(
                 hintext: 'Message',
@@ -78,22 +79,22 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> sendEmail() async {
-    final Dio dio = Dio();
+    final Dio dio =
+        Dio(BaseOptions(baseUrl: 'https://api.emailjs.com/api/v1.0'));
     try {
       await dio.post(
-        'https://api.emailjs.com/api/v1.0/email/send',
-        data: {
-          "service_id": AppConst().serviceId,
-          "template_id": AppConst().templateId,
-          "user_id": AppConst().userId,
-          "accessToken": AppConst().accessToken,
-          "template_params": {
-            "from_name": nameController.text,
-            "to_name": emailController.text,
-            "message": messageController.text,
-            "data": DateTime.now().toString(),
-          },
-        },
+        '/email/send',
+        data: EmailModel(
+            serviceId: AppConst().serviceId,
+            templateId: AppConst().templateId,
+            userId: AppConst().userId,
+            accessToken: AppConst().accessToken,
+            templateParams: TemplateParams(
+              toName: tonameController.text,
+              fromName: fromNameController.text,
+              message: messageController.text,
+              data: DateTime.now().toString(),
+            )).toJson(),
       );
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
