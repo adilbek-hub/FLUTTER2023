@@ -101,6 +101,24 @@ class ItaliaVIXTestSuccess extends EducationState {
   final List<ItaliaVixTestToicsModel> italiaVIXTestToicsModel;
 }
 
+class PersonalComputerTestSuccess extends EducationState {
+  const PersonalComputerTestSuccess(
+      {required this.personalComputerTestToicsModel});
+  final List<PersonalComputerTestToicsModel> personalComputerTestToicsModel;
+}
+
+class ComputerTarmaktaryTestSuccess extends EducationState {
+  const ComputerTarmaktaryTestSuccess(
+      {required this.computerdikTarmaktarTestModel});
+  final List<ComputerdikTarmaktarTestModel> computerdikTarmaktarTestModel;
+}
+
+class SistemalykTarmaktarTestSuccess extends EducationState {
+  const SistemalykTarmaktarTestSuccess(
+      {required this.sistemalykComputerTestModel});
+  final List<SistemalykComputerTestModel> sistemalykComputerTestModel;
+}
+
 class EducationError extends EducationState {
   const EducationError({required this.text});
   final String text;

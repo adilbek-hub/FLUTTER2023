@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:education/bloc/education_bloc.dart';
 import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/components/slider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../bloc/education_bloc.dart';
 
 class ComputerdikTarmaktarTestPage extends StatefulWidget {
   const ComputerdikTarmaktarTestPage({super.key});
@@ -23,9 +23,11 @@ class _ComputerdikTarmaktarTestPageState
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<ComputerTarmaktaryTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is TestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        } else if (state is ComputerTarmaktaryTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -52,17 +54,14 @@ class _ComputerdikTarmaktarTestPageState
               body: Column(
                 children: [
                   SliderWidget(
-                    max: 4,
-                    valueIndex: indexcomputerdikTarmaktar.toDouble(),
-                  ),
+                      max: 4, valueIndex: indexcomputerdikTarmaktar.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: Text(
                         state
-                            .testTopicsModel[0]
-                            .informatica[0]
-                            .computerdikTarmaktar[indexcomputerdikTarmaktar]
+                            .computerdikTarmaktarTestModel[
+                                indexcomputerdikTarmaktar]
                             .guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
@@ -79,9 +78,8 @@ class _ComputerdikTarmaktarTestPageState
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state
-                              .testTopicsModel[0]
-                              .informatica[0]
-                              .computerdikTarmaktar[indexcomputerdikTarmaktar]
+                              .computerdikTarmaktarTestModel[
+                                  indexcomputerdikTarmaktar]
                               .image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
@@ -114,8 +112,7 @@ class _ComputerdikTarmaktarTestPageState
                           child: InkWell(
                             onTap: () {
                               if (indexcomputerdikTarmaktar + 1 ==
-                                  state.testTopicsModel[0].informatica[0]
-                                      .computerdikTarmaktar.length) {
+                                  state.computerdikTarmaktarTestModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -140,10 +137,9 @@ class _ComputerdikTarmaktarTestPageState
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel[0]
-                                        .informatica[0]
-                                        .computerdikTarmaktar[index]
-                                        .options[indexcomputerdikTarmaktar]
+                                        .computerdikTarmaktarTestModel[
+                                            indexcomputerdikTarmaktar]
+                                        .options[index]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -158,9 +154,7 @@ class _ComputerdikTarmaktarTestPageState
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel[0]
-                                    .informatica[0]
-                                    .computerdikTarmaktar[
+                                    .computerdikTarmaktarTestModel[
                                         indexcomputerdikTarmaktar]
                                     .options[index]
                                     .answer,
@@ -177,6 +171,8 @@ class _ComputerdikTarmaktarTestPageState
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
           throw ('Error in ComputerStructure');
         }

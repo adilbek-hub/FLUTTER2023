@@ -22,11 +22,11 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<PersonalComputerTestBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const LoadingWidget();
-        } else if (state is TestSuccess) {
+        } else if (state is PersonalComputerTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -53,15 +53,15 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
               body: Column(
                 children: [
                   SliderWidget(
-                    max: 4,
-                    valueIndex: indexpersonalComputer.toDouble(),
-                  ),
+                      max: 4, valueIndex: indexpersonalComputer.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: Text(
-                        state.testTopicsModel[0].informatica[0]
-                            .personalComputer[indexpersonalComputer].guestion,
+                        state
+                            .personalComputerTestToicsModel[
+                                indexpersonalComputer]
+                            .guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -76,8 +76,10 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                         width: double.infinity,
                         height: double.infinity,
                         child: CachedNetworkImage(
-                          imageUrl: state.testTopicsModel[0].informatica[0]
-                              .personalComputer[indexpersonalComputer].image,
+                          imageUrl: state
+                              .personalComputerTestToicsModel[
+                                  indexpersonalComputer]
+                              .image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
                               scale: 0.2,
@@ -109,8 +111,7 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                           child: InkWell(
                             onTap: () {
                               if (indexpersonalComputer + 1 ==
-                                  state.testTopicsModel[0].informatica[0]
-                                      .personalComputer.length) {
+                                  state.personalComputerTestToicsModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -135,10 +136,9 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel[0]
-                                        .informatica[0]
-                                        .personalComputer[index]
-                                        .options[indexpersonalComputer]
+                                        .personalComputerTestToicsModel[
+                                            indexpersonalComputer]
+                                        .options[index]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -153,9 +153,8 @@ class _PersonalComputerTestPageState extends State<PersonalComputerTestPage> {
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel[0]
-                                    .informatica[0]
-                                    .personalComputer[indexpersonalComputer]
+                                    .personalComputerTestToicsModel[
+                                        indexpersonalComputer]
                                     .options[index]
                                     .answer,
                                 textAlign: TextAlign.center,

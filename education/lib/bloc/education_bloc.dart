@@ -11,6 +11,9 @@ import 'package:education/model/model_test/history/bayrky_germandar.dart';
 import 'package:education/model/model_test/history/italia_V_IX.dart';
 import 'package:education/model/model_test/history/nemis_koroldugu.dart';
 import 'package:education/model/model_test/history/rim.dart';
+import 'package:education/model/model_test/informatica_test/computerdik_tarmaktar.dart';
+import 'package:education/model/model_test/informatica_test/personal_computer.dart';
+import 'package:education/model/model_test/informatica_test/sistemalyk_computer.dart';
 import 'package:education/model/model_test/usa_test.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
@@ -28,6 +31,9 @@ import 'package:education/services/service_test/history/bayirky_germandar.dart';
 import 'package:education/services/service_test/history/italia_V_IX_service.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
+import 'package:education/services/service_test/informatica_test/computerdik_tarmaktar.dart';
+import 'package:education/services/service_test/informatica_test/personal_computer.dart';
+import 'package:education/services/service_test/informatica_test/sistemalyk_computer.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:equatable/equatable.dart';
@@ -425,6 +431,73 @@ class ItaliaVIXTestBloc extends Bloc<EducationEvent, EducationState> {
     final italiaVIXTestData = await italiaVIXTestTopicsService.getData();
     if (italiaVIXTestData != null) {
       emit(ItaliaVIXTestSuccess(italiaVIXTestToicsModel: italiaVIXTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class PersonalComputerTestBloc extends Bloc<EducationEvent, EducationState> {
+  PersonalComputerTestBloc({required this.personalComputerTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<PersonalComputerTest>(_getPersonalComputerTest);
+  }
+  final PersonalComputerTestTopicsService personalComputerTestTopicsService;
+
+  Future<void> _getPersonalComputerTest(
+      PersonalComputerTest event, Emitter<EducationState> emit) async {
+    final personalComputerTestData =
+        await personalComputerTestTopicsService.getData();
+    if (personalComputerTestData != null) {
+      emit(PersonalComputerTestSuccess(
+          personalComputerTestToicsModel: personalComputerTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class ComputerTarmaktaryTestBloc extends Bloc<EducationEvent, EducationState> {
+  ComputerTarmaktaryTestBloc(
+      {required this.computerdikTarmaktarTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchComputerdikTarmaktarTest>(_getComputerdikTarmaktarTest);
+  }
+  final ComputerdikTarmaktarTestTopicsService
+      computerdikTarmaktarTestTopicsService;
+
+  Future<void> _getComputerdikTarmaktarTest(
+      FetchComputerdikTarmaktarTest event, Emitter<EducationState> emit) async {
+    final computerdikTarmaktarTestData =
+        await computerdikTarmaktarTestTopicsService.getData();
+    if (computerdikTarmaktarTestData != null) {
+      emit(ComputerTarmaktaryTestSuccess(
+          computerdikTarmaktarTestModel: computerdikTarmaktarTestData));
+    } else {
+      emit(const EducationError(text: 'EDUCATIONERROR'));
+    }
+  }
+}
+
+class SistemalykTarmaktarTestBloc extends Bloc<EducationEvent, EducationState> {
+  SistemalykTarmaktarTestBloc(
+      {required this.sistemalykTarmaktarTestTopicsService})
+      : super(EducationLoading()) {
+    on<EducationEvent>((event, emit) {});
+    on<FetchSistemakykTarmaktarTest>(_getComputerdikTarmaktarTest);
+  }
+  final SistemalykTarmaktarTestTopicsService
+      sistemalykTarmaktarTestTopicsService;
+
+  Future<void> _getComputerdikTarmaktarTest(
+      FetchSistemakykTarmaktarTest event, Emitter<EducationState> emit) async {
+    final sistemalykTarmaktarTestData =
+        await sistemalykTarmaktarTestTopicsService.getData();
+    if (sistemalykTarmaktarTestData != null) {
+      emit(SistemalykTarmaktarTestSuccess(
+          sistemalykComputerTestModel: sistemalykTarmaktarTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

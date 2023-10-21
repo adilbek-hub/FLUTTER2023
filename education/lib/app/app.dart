@@ -9,11 +9,13 @@ import 'package:education/services/service_test/biology_test/nerv_sistemasy_serv
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
-import 'package:education/services/service_test/geography_test/world_capitals.dart';
 import 'package:education/services/service_test/history/bayirky_germandar.dart';
 import 'package:education/services/service_test/history/italia_V_IX_service.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
+import 'package:education/services/service_test/informatica_test/computerdik_tarmaktar.dart';
+import 'package:education/services/service_test/informatica_test/personal_computer.dart';
+import 'package:education/services/service_test/informatica_test/sistemalyk_computer.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:education/views/pages_nav_bar.dart';
@@ -120,6 +122,30 @@ class MyApp extends StatelessWidget {
               italiaVIXTestTopicsService: italiaVIXTestTopicsService)
             ..add(
               FetchItaliaVIXTest(),
+            ),
+        ),
+        BlocProvider<PersonalComputerTestBloc>(
+          create: (BuildContext context) => PersonalComputerTestBloc(
+              personalComputerTestTopicsService:
+                  personalComputerTestTopicsService)
+            ..add(
+              PersonalComputerTest(),
+            ),
+        ),
+        BlocProvider<ComputerTarmaktaryTestBloc>(
+          create: (BuildContext context) => ComputerTarmaktaryTestBloc(
+              computerdikTarmaktarTestTopicsService:
+                  computerdikTarmaktarTestTopicsService)
+            ..add(
+              FetchComputerdikTarmaktarTest(),
+            ),
+        ),
+        BlocProvider<SistemalykTarmaktarTestBloc>(
+          create: (BuildContext context) => SistemalykTarmaktarTestBloc(
+              sistemalykTarmaktarTestTopicsService:
+                  sistemalykComputerTestTopicsService)
+            ..add(
+              FetchSistemakykTarmaktarTest(),
             ),
         ),
       ],

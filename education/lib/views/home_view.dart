@@ -1,8 +1,5 @@
-import 'package:education/services/test_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../services/informatica_topics_service.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

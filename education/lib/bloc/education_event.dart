@@ -42,3 +42,9 @@ final class FetchRimTest extends EducationEvent {}
 final class FetchBayirkyGermandarTest extends EducationEvent {}
 
 final class FetchItaliaVIXTest extends EducationEvent {}
+
+final class PersonalComputerTest extends EducationEvent {}
+
+final class FetchComputerdikTarmaktarTest extends EducationEvent {}
+
+final class FetchSistemakykTarmaktarTest extends EducationEvent {}

@@ -3,7 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/components/correct_incorrect_card.dart';
 import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/components/slider_widget.dart';
-import 'package:education/constants/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,11 +24,11 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EuropeCapitalTestBloc, EducationState>(
+    return BlocBuilder<SistemalykTarmaktarTestBloc, EducationState>(
       builder: (context, state) {
         if (state is EducationLoading) {
           return const LoadingWidget();
-        } else if (state is TestSuccess) {
+        } else if (state is SistemalykTarmaktarTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -56,17 +55,14 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
               body: Column(
                 children: [
                   SliderWidget(
-                    max: 4,
-                    valueIndex: indexsistemalykKamsyzdoo.toDouble(),
-                  ),
+                      max: 4, valueIndex: indexsistemalykKamsyzdoo.toDouble()),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Center(
                       child: Text(
                         state
-                            .testTopicsModel[0]
-                            .informatica[0]
-                            .sistemalykComputer[indexsistemalykKamsyzdoo]
+                            .sistemalykComputerTestModel[
+                                indexsistemalykKamsyzdoo]
                             .guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
@@ -83,9 +79,8 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                         height: double.infinity,
                         child: CachedNetworkImage(
                           imageUrl: state
-                              .testTopicsModel[0]
-                              .informatica[0]
-                              .sistemalykComputer[indexsistemalykKamsyzdoo]
+                              .sistemalykComputerTestModel[
+                                  indexsistemalykKamsyzdoo]
                               .image,
                           fit: BoxFit.cover,
                           placeholder: (context, url) => Transform.scale(
@@ -118,8 +113,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                           child: InkWell(
                             onTap: () {
                               if (indexsistemalykKamsyzdoo + 1 ==
-                                  state.testTopicsModel[0].informatica[0]
-                                      .sistemalykComputer.length) {
+                                  state.sistemalykComputerTestModel.length) {
                                 showDialog<String>(
                                   context: context,
                                   builder: (BuildContext context) =>
@@ -144,10 +138,9 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                                 );
                               } else {
                                 if (state
-                                        .testTopicsModel[0]
-                                        .informatica[0]
-                                        .sistemalykComputer[index]
-                                        .options[indexsistemalykKamsyzdoo]
+                                        .sistemalykComputerTestModel[
+                                            indexsistemalykKamsyzdoo]
+                                        .options[index]
                                         .correct ==
                                     true) {
                                   tuuraJooptor++;
@@ -162,9 +155,7 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                             child: Center(
                               child: AutoSizeText(
                                 state
-                                    .testTopicsModel[0]
-                                    .informatica[0]
-                                    .sistemalykComputer[
+                                    .sistemalykComputerTestModel[
                                         indexsistemalykKamsyzdoo]
                                     .options[index]
                                     .answer,
@@ -181,8 +172,10 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
               ),
             ),
           );
+        } else if (state is EducationError) {
+          return Text(state.text);
         } else {
-          throw ('Error in SistemalykProgrammalykKamsyzdoo');
+          throw ('Error in ComputerStructure');
         }
       },
     );
