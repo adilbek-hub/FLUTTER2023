@@ -46,7 +46,7 @@ class _BooksViewState extends State<BooksView> {
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage('assets/images/capitals/education.jpg'),
+              image: AssetImage('images/capitals/education.jpg'),
             ),
           ),
           child: Column(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:education/model/biology_model.dart';
-import 'package:education/model/biology_question.dart';
+
 import 'package:education/pages/biology_test/biology_test.dart';
 
 class KishiJanaJanybar extends StatelessWidget {
@@ -34,7 +34,7 @@ class KishiJanaJanybar extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   biologyTopicsModel[0].aboutManAndAnimal![0].description1,
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
@@ -158,7 +158,7 @@ class KishiJanaJanybar extends StatelessWidget {
                         text: biologyTopicsModel[0]
                             .aboutManAndAnimal![0]
                             .description16,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
@@ -174,8 +174,7 @@ class KishiJanaJanybar extends StatelessWidget {
                 /////////////
                 const SizedBox(height: 10),
                 Text(
-                  biologyTopicsModel[0].aboutManAndAnimal![0].description18 ??
-                      '',
+                  biologyTopicsModel[0].aboutManAndAnimal![0].description18,
                   style: const TextStyle(
                     color: Colors.black,
                     fontStyle: FontStyle.italic,

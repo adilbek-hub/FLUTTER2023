@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final bayrkGermandarTestToicsModel = bayrkGermandarTestToicsModelFromJson(jsonString);
-
 import 'dart:convert';
 
 List<BayrkGermandarTestToicsModel> bayrkGermandarTestToicsModelFromJson(

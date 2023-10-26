@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:education/components/my_button.dart';
 import 'package:education/components/my_textfield.dart';
 import 'package:education/components/square_tile.dart';
@@ -47,6 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
       showErrorMessage(e.code);
     }
@@ -200,7 +199,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       onTap: () => AuthService().signInWithGoogle(),
                     ),
 
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
 
                     // apple button
                     SquareTile(

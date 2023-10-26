@@ -81,7 +81,7 @@ class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
                               dropCap: DropCap(
                                 width: 100,
                                 height: 100,
-                                child: Image.asset(geography.image),
+                                child: Image.network(geography.image),
                               ),
                             ),
                             const Divider(),
@@ -127,9 +127,9 @@ class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
       MaterialPageRoute(
         builder: (context) {
           return currentIndex == 0
-              ? EuropeContinenti(
-                  geographyTopicsModel: widget.geographyTopicsModel,
-                )
+              ? const EuropeContinenti(
+                  // geographyTopicsModel: widget.geographyTopicsModel,
+                  )
               : currentIndex == 1
                   ? UnitedStates(
                       geographyTopicsModel: widget.geographyTopicsModel,

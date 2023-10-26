@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:education/model/biology_question.dart';
 import 'package:education/pages/biology_test/kletka_test_page.dart';
 
 import '../../model/biology_model.dart';
@@ -34,7 +33,7 @@ class Kletka extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   biologyTopicsModel[1].aboutKletka![0].description0,
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
@@ -133,7 +132,7 @@ class Kletka extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      KletkaJonundoTushunukTestPage(),
+                                      const KletkaJonundoTushunukTestPage(),
                                 ),
                               );
                             },

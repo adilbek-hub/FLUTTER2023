@@ -67,7 +67,7 @@ class ComputerdicTarmaktar extends StatelessWidget {
                       ),
                       TextSpan(
                         text: '\n${computerTarmaktary.tema4} ',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
@@ -76,7 +76,7 @@ class ComputerdicTarmaktar extends StatelessWidget {
                       ),
                       TextSpan(
                         text: '\n${computerTarmaktary.text5} ',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
@@ -85,7 +85,7 @@ class ComputerdicTarmaktar extends StatelessWidget {
                       ),
                       TextSpan(
                         text: '\n${computerTarmaktary.tema6} ',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),

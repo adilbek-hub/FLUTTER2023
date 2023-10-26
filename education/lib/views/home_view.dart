@@ -20,7 +20,7 @@ class _HomeViewState extends State<HomeView> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SvgPicture.asset(
-                'assets/images/home_view_images/undraw_online_test_re_kyfx 1.svg',
+                'images/home_view_images/undraw_online_test_re_kyfx 1.svg',
               ),
               const Text(
                 'Билим өргөөсүнө куш келдиң!',
@@ -42,7 +42,7 @@ class _HomeViewState extends State<HomeView> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0))),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'BooksView');
+                      Navigator.pushNamed(context, 'booksView');
                     },
                     child: const Text(
                       'Баштоо',

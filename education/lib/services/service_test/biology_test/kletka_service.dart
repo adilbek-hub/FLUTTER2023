@@ -1,5 +1,4 @@
 import 'package:education/model/model_test/biology_test/kletka.dart';
-import 'package:education/model/model_test/biology_test/men_and_animal.dart';
 import 'package:http/http.dart' as http;
 
 class KletkaTestTopicsService {

@@ -110,6 +110,7 @@ class Kletka {
       };
 }
 
+// ignore: constant_identifier_names
 enum Name { EMPTY, FLUFFY, NAME, PURPLE }
 
 final nameValues = EnumValues({

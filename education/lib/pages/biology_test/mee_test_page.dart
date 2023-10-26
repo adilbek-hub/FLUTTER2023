@@ -4,7 +4,6 @@ import 'package:education/bloc/education_bloc.dart';
 import 'package:education/components/correct_incorrect_card.dart';
 import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/components/slider_widget.dart';
-import 'package:education/constants/app_color.dart';
 import 'package:education/model/biology_question.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

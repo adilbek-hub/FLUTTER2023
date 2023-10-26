@@ -34,7 +34,7 @@ class Mee extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   biologyTopicsModel[3].aboutBrain![0].description0 ?? '',
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
@@ -142,7 +142,7 @@ class Mee extends StatelessWidget {
                       TextSpan(
                         text:
                             biologyTopicsModel[3].aboutBrain![0].description17,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),

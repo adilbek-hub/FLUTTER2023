@@ -18,6 +18,7 @@ import 'package:education/services/service_test/informatica_test/personal_comput
 import 'package:education/services/service_test/informatica_test/sistemalyk_computer.dart';
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
+import 'package:education/views/books_view.dart';
 import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
@@ -159,7 +160,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const HomeView(),
           // 'HomeView': (context) => const HomeView(),
-          'BooksView': (context) => const NavBarPages(),
+          // 'BooksView': (context) => const NavBarPages(),
+          'booksView': (context) => const BooksView(),
         },
       ),
     );

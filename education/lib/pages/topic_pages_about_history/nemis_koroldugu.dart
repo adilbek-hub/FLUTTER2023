@@ -25,7 +25,7 @@ class NemisKoroldugu extends StatelessWidget {
                 const SizedBox(height: 5),
                 Text(
                   historyTopicsModel[0].aboutGermans![0].title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),

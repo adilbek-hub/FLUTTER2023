@@ -1,6 +1,5 @@
-import 'package:education/model/model_test/biology_test/kletka.dart';
 import 'package:education/model/model_test/biology_test/nerv_sistemasy.dart';
-import 'package:education/pages/topic_pages_about_biology/nerv_sistemasy.dart';
+
 import 'package:http/http.dart' as http;
 
 class NervSistemasyTestTopicsService {

@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
-import 'package:education/model/usa_suroo.dart';
 import 'package:education/pages/geography_test/usa_test_page.dart';
 import 'package:flutter/material.dart';
-
 import '../../model/geography_model.dart';
 
 class UnitedStates extends StatelessWidget {
@@ -55,7 +53,7 @@ class UnitedStates extends StatelessWidget {
                 Text(
                   usaStates![0].adminCountry,
                   textScaleFactor: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
                       fontWeight: FontWeight.w600),
@@ -64,7 +62,7 @@ class UnitedStates extends StatelessWidget {
                 Text(
                   usaStates[0].population,
                   textScaleFactor: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
                       fontWeight: FontWeight.w600),
@@ -73,7 +71,7 @@ class UnitedStates extends StatelessWidget {
                 Text(
                   usaStates[0].state,
                   textScaleFactor: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
                       fontWeight: FontWeight.w600),
@@ -340,7 +338,7 @@ class UnitedStates extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             usa[2].tema,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 15,
               fontWeight: FontWeight.w600,

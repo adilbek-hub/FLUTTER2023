@@ -5,8 +5,6 @@ import 'package:education/pages/topic_pages_about_biology/topic_pages_about_biol
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../pages/topic_pages_about_biology/kishsi_jana_janybar.dart';
-
 class BiologyBolumuWidget extends StatefulWidget {
   const BiologyBolumuWidget({
     super.key,

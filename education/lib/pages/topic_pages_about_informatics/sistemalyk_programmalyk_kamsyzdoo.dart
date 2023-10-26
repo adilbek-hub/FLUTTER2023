@@ -73,7 +73,7 @@ class SistemalykProgrammalykKamsyzdoo extends StatelessWidget {
                       ),
                       TextSpan(
                         text: '\n${sistemalykProgramdykKamsyzdoo.tema4} ',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 250, 125, 80),
                             fontWeight: FontWeight.w600),
                       ),
