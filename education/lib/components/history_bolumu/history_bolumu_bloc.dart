@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/pages/topic_pages_about_history/bairky_germandyktar.dart';
 import 'package:education/pages/topic_pages_about_history/italia_5_10_vek.dart';
@@ -82,7 +83,13 @@ class _HistoryBolumuWidgetState extends State<HistoryBolumuWidget> {
                               dropCap: DropCap(
                                 width: 100,
                                 height: 100,
-                                child: Image.asset(historyTopic.image),
+                                child: CachedNetworkImage(
+                                  imageUrl: historyTopic.image,
+                                  placeholder: (context, url) =>
+                                      const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
                               ),
                             ),
                             const Divider(),
