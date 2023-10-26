@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 
+import 'package:education/model/geography_model.dart';
+
 class EastTable extends StatelessWidget {
   const EastTable({
-    super.key,
-  });
+    Key? key,
+    required this.geographyTopicsModel,
+  }) : super(key: key);
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   Widget build(BuildContext context) {
     return Table(
       border: TableBorder.all(color: const Color(0xffdddddd)),
-      children: const [
+      children: [
         TableRow(
           children: [
             TableCell(
-              child: Text('Андорра (Andorra la Vella)'),
+              child: Text(geographyTopicsModel[0].eastCountry1!),
             ),
             TableCell(
-              child: Text('Австрия (Вена)'),
+              child: Text(geographyTopicsModel[0].eastCountry2!),
             ),
           ],
         ),
@@ -29,56 +33,31 @@ class EastTable extends StatelessWidget {
           children: [
             TableCell(
               child: Text(
-                'Германия (Берлин)',
+                geographyTopicsModel[0].eastCountry3!,
               ),
             ),
             TableCell(
-              child: Text('Бельгия (Брюссель)'),
+              child: Text(geographyTopicsModel[0].eastCountry4!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Text('Франция (Париж)'),
+              child: Text(geographyTopicsModel[0].eastCountry5!),
             ),
             TableCell(
-              child: Text('Италия (Рим)'),
+              child: Text(geographyTopicsModel[0].eastCountry6!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Center(child: Text('Греция (Афины)')),
+              child: Center(child: Text(geographyTopicsModel[0].eastCountry7!)),
             ),
             TableCell(
-              child: Text('Ирландия (Дублин)'),
-            ),
-          ],
-        ),
-        TableRow(
-          decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(width: 1.0, color: Colors.grey),
-            ),
-          ),
-          children: [
-            TableCell(
-              child: Text('Мальта (Валлетта)'),
-            ),
-            TableCell(
-              child: Text('Лихтенштейн (Вадуз)'),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            TableCell(
-              child: Text('Люксембург (Люксембург)'),
-            ),
-            TableCell(
-              child: Text('Португалия (Лиссабон)'),
+              child: Text(geographyTopicsModel[0].eastCountry8!),
             ),
           ],
         ),
@@ -90,20 +69,45 @@ class EastTable extends StatelessWidget {
           ),
           children: [
             TableCell(
-              child: Text('Хорватия (Загреб)'),
+              child: Text(geographyTopicsModel[0].eastCountry9!),
             ),
             TableCell(
-              child: Text('Нидерландтар (Амстердам)'),
+              child: Text(geographyTopicsModel[0].eastCountry10!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Text('Швейцария (Берн)'),
+              child: Text(geographyTopicsModel[0].eastCountry11!),
             ),
             TableCell(
-              child: Text('Сан-Марино (Сан-Марино)'),
+              child: Text(geographyTopicsModel[0].eastCountry12!),
+            ),
+          ],
+        ),
+        TableRow(
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(width: 1.0, color: Colors.grey),
+            ),
+          ),
+          children: [
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry13!),
+            ),
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry14!),
+            ),
+          ],
+        ),
+        TableRow(
+          children: [
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry15!),
+            ),
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry16!),
             ),
           ],
         ),
@@ -116,56 +120,32 @@ class EastTable extends StatelessWidget {
           children: [
             TableCell(
               child: Text(
-                'Испания (Мадрид)',
+                geographyTopicsModel[0].eastCountry17!,
               ),
             ),
             TableCell(
-              child: Text('Улуу Британия (Лондон)'),
+              child: Text(geographyTopicsModel[0].eastCountry18!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Text('Түркия (Анкара)'),
+              child: Text(geographyTopicsModel[0].eastCountry19!),
             ),
             TableCell(
-              child: Text('Азербайжан (Баку)'),
+              child: Text(geographyTopicsModel[0].eastCountry20!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Center(child: Text('Беларусь (Минск)')),
+              child:
+                  Center(child: Text(geographyTopicsModel[0].eastCountry21!)),
             ),
             TableCell(
-              child: Text('Сербия (Белград)'),
-            ),
-          ],
-        ),
-        TableRow(
-          decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(width: 1.0, color: Colors.grey),
-            ),
-          ),
-          children: [
-            TableCell(
-              child: Text('Словакия (Братислава)'),
-            ),
-            TableCell(
-              child: Text('Украина (Киев)'),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            TableCell(
-              child: Text('Польша (Варшава)'),
-            ),
-            TableCell(
-              child: Text('Молдова Республикасы (Кишинев)'),
+              child: Text(geographyTopicsModel[0].eastCountry22!),
             ),
           ],
         ),
@@ -177,10 +157,20 @@ class EastTable extends StatelessWidget {
           ),
           children: [
             TableCell(
-              child: Text('Россия (Москва)'),
+              child: Text(geographyTopicsModel[0].eastCountry23!),
             ),
             TableCell(
-              child: Text('Чех Республикасы (Прага)'),
+              child: Text(geographyTopicsModel[0].eastCountry24!),
+            ),
+          ],
+        ),
+        TableRow(
+          children: [
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry25!),
+            ),
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry26!),
             ),
           ],
         ),
@@ -192,10 +182,10 @@ class EastTable extends StatelessWidget {
           ),
           children: [
             TableCell(
-              child: Text('Эстония (Таллин)'),
+              child: Text(geographyTopicsModel[0].eastCountry27!),
             ),
             TableCell(
-              child: Text('Грузия (Тбилиси)'),
+              child: Text(geographyTopicsModel[0].eastCountry28!),
             ),
           ],
         ),
@@ -207,10 +197,10 @@ class EastTable extends StatelessWidget {
           ),
           children: [
             TableCell(
-              child: Text('Венгрия (Будапешт)'),
+              child: Text(geographyTopicsModel[0].eastCountry29!),
             ),
             TableCell(
-              child: Text('Латвия (Рига)'),
+              child: Text(geographyTopicsModel[0].eastCountry30!),
             ),
           ],
         ),
@@ -222,10 +212,25 @@ class EastTable extends StatelessWidget {
           ),
           children: [
             TableCell(
-              child: Text('Литва (Вильнюс)'),
+              child: Text(geographyTopicsModel[0].eastCountry31!),
             ),
             TableCell(
-              child: Text('Армения (Ереван)'),
+              child: Text(geographyTopicsModel[0].eastCountry32!),
+            ),
+          ],
+        ),
+        TableRow(
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(width: 1.0, color: Colors.grey),
+            ),
+          ),
+          children: [
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry33!),
+            ),
+            TableCell(
+              child: Text(geographyTopicsModel[0].eastCountry34!),
             ),
           ],
         ),

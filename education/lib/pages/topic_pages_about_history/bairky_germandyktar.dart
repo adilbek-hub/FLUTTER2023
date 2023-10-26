@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:education/pages/history_test/bayrky_germandyktar_test_page.dart';
-
 import '../../model/history_model.dart';
 
 class Germandyktar extends StatelessWidget {

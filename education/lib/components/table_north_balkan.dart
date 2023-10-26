@@ -1,27 +1,28 @@
+import 'package:education/model/geography_model.dart';
 import 'package:flutter/material.dart';
 
 class NorthBalkanTable extends StatelessWidget {
-  const NorthBalkanTable({
-    super.key,
-  });
+  const NorthBalkanTable({Key? key, required this.geographyTopicsModel})
+      : super(key: key);
+  final List<GeographyTopicsModel> geographyTopicsModel;
 
   @override
   Widget build(BuildContext context) {
     return Table(
       border: TableBorder.all(color: const Color(0xffdddddd)),
-      children: const [
+      children: [
         TableRow(
           children: [
             TableCell(
-              child: Text('Дания (Копенгаген)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry1!),
             ),
             TableCell(
-              child: Text('Норвегия (Осло)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry2!),
             ),
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -29,20 +30,20 @@ class NorthBalkanTable extends StatelessWidget {
           children: [
             TableCell(
               child: Text(
-                'Словения (Любляна)',
+                geographyTopicsModel[0].northAndBalcanCountry3!,
               ),
             ),
             TableCell(
-              child: Text('Түндүк Македония (Скопье)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry4!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Text('Черногория (Подгорица)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry5!),
             ),
-            TableCell(
+            const TableCell(
               child: Text('Швеция (Стокгольм)'),
             ),
           ],
@@ -50,50 +51,51 @@ class NorthBalkanTable extends StatelessWidget {
         TableRow(
           children: [
             TableCell(
-              child: Center(child: Text('Исландия (Рейкьявик)')),
+              child: Center(
+                  child: Text(geographyTopicsModel[0].northAndBalcanCountry6!)),
             ),
             TableCell(
-              child: Text('Албания (Тирана)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry7!),
             ),
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
           ),
           children: [
             TableCell(
-              child: Text('Болгария (София)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry8!),
             ),
             TableCell(
-              child: Text('Румыния (Бухарест)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry9!),
             ),
           ],
         ),
         TableRow(
           children: [
             TableCell(
-              child: Text('Финляндия (Хельсинки)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry10!),
             ),
             TableCell(
-              child: Text('Косово (Приштина)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry11!),
             ),
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
           ),
           children: [
             TableCell(
-              child: Text('Хорватия (Загреб)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry12!),
             ),
             TableCell(
-              child: Text('Босния жана Герцеговина (Сараево)'),
+              child: Text(geographyTopicsModel[0].northAndBalcanCountry13!),
             ),
           ],
         ),

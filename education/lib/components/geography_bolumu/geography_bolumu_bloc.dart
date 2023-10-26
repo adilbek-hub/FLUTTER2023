@@ -135,9 +135,9 @@ class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
                       geographyTopicsModel: widget.geographyTopicsModel,
                     )
                   : currentIndex == 2
-                      ? AsiaContinenti(
-                          geographyTopicsModel: widget.geographyTopicsModel,
-                        )
+                      ? const AsiaContinenti(
+                          // geographyTopicsModel: widget.geographyTopicsModel,
+                          )
                       : WorldCapitals(
                           geographyTopicsModel: widget.geographyTopicsModel,
                         );

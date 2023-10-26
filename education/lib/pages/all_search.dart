@@ -68,9 +68,9 @@ class _AllSearchPageState extends State<AllSearchPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => EuropeContinenti(
-              geographyTopicsModel: widget.geographyTopicsModel,
-            ),
+            builder: (context) => const EuropeContinenti(
+                // geographyTopicsModel: widget.geographyTopicsModel,
+                ),
           ),
         );
         break;
