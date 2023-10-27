@@ -62,7 +62,6 @@ class _UsaTestPageState extends State<UsaTestPage> {
                         state.usaTestToicsModel[indexUsaSurooJoop].guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
                       ),
                     ),
                   ),

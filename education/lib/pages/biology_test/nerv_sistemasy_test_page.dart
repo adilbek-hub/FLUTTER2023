@@ -4,17 +4,13 @@ import 'package:education/bloc/education_bloc.dart';
 import 'package:education/components/correct_incorrect_card.dart';
 import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/components/slider_widget.dart';
-
-import 'package:education/model/biology_question.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NervSistemasyTestPage extends StatefulWidget {
   const NervSistemasyTestPage({
     super.key,
-    required this.nervSistemasy,
   });
-  final List<Biology> nervSistemasy;
 
   @override
   State<NervSistemasyTestPage> createState() => _NervSistemasyTestPageState();
@@ -67,7 +63,6 @@ class _NervSistemasyTestPageState extends State<NervSistemasyTestPage> {
                             .guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
                       ),
                     ),
                   ),

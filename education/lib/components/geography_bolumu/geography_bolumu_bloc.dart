@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -81,7 +82,13 @@ class _GeographyBolumuWidgetState extends State<GeographyBolumuWidget> {
                               dropCap: DropCap(
                                 width: 100,
                                 height: 100,
-                                child: Image.network(geography.image),
+                                child: CachedNetworkImage(
+                                  imageUrl: geography.image,
+                                  placeholder: (context, url) =>
+                                      const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
                               ),
                             ),
                             const Divider(),

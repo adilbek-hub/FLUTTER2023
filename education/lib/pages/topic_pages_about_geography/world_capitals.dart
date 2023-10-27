@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:education/model/geography_model.dart';
 import 'package:education/model/world_capitals.dart';
-import 'package:education/model/world_capitals_suroo.dart';
 import 'package:education/pages/geography_test/world_capitals_test_page.dart';
 
 class WorldCapitals extends StatefulWidget {
@@ -247,9 +246,7 @@ class _WorldCapitalsState extends State<WorldCapitals> {
                           context,
                           MaterialPageRoute<void>(
                             builder: (BuildContext context) =>
-                                WorldCapitalsTestPage(
-                              worldCapitalsList: capitalsWorld,
-                            ),
+                                const WorldCapitalsTestPage(),
                           ),
                         );
                       },

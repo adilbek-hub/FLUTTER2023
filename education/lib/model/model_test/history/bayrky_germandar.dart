@@ -11,8 +11,8 @@ String bayrkGermandarTestToicsModelToJson(
 
 class BayrkGermandarTestToicsModel {
   int id;
-  Name name;
-  Title title;
+  String name;
+  String title;
   String guestion;
   String image;
   List<Option> options;
@@ -29,8 +29,8 @@ class BayrkGermandarTestToicsModel {
   factory BayrkGermandarTestToicsModel.fromJson(Map<String, dynamic> json) =>
       BayrkGermandarTestToicsModel(
         id: json["id"],
-        name: nameValues.map[json["name"]]!,
-        title: titleValues.map[json["title"]]!,
+        name: json["name"],
+        title: json["title"],
         guestion: json["guestion"],
         image: json["image"],
         options:
@@ -39,17 +39,13 @@ class BayrkGermandarTestToicsModel {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": nameValues.reverse[name],
-        "title": titleValues.reverse[title],
+        "name": name,
+        "title": title,
         "guestion": guestion,
         "image": image,
         "options": List<dynamic>.from(options.map((x) => x.toJson())),
       };
 }
-
-enum Name { EMPTY }
-
-final nameValues = EnumValues({"Тарых": Name.EMPTY});
 
 class Option {
   String answer;
@@ -69,20 +65,4 @@ class Option {
         "answer": answer,
         "correct": correct,
       };
-}
-
-enum Title { EMPTY }
-
-final titleValues = EnumValues({"Байыркы германдыктар": Title.EMPTY});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

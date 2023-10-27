@@ -66,7 +66,6 @@ class _SistemalykProgrammalykKamsyzdooTestPageState
                             .guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
                       ),
                     ),
                   ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:education/model/biology_question.dart';
 import 'package:education/pages/biology_test/nerv_sistemasy_test_page.dart';
 
 import '../../model/biology_model.dart';
@@ -108,9 +107,7 @@ class NervSistemasy extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      NervSistemasyTestPage(
-                                    nervSistemasy: nervSistemasy,
-                                  ),
+                                      NervSistemasyTestPage(),
                                 ),
                               );
                             },

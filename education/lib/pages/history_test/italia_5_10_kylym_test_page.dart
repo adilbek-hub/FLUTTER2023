@@ -2,17 +2,13 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/bloc/education_bloc.dart';
 import 'package:education/components/correct_incorrect_card.dart';
+import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/components/slider_widget.dart';
-import 'package:education/model/history_question.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItaliaKorolduguTestPage extends StatefulWidget {
-  const ItaliaKorolduguTestPage({
-    super.key,
-    required this.italia,
-  });
-  final List<HistoryQuestions> italia;
+  const ItaliaKorolduguTestPage({super.key});
 
   @override
   State<ItaliaKorolduguTestPage> createState() =>
@@ -26,9 +22,11 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ItaliaVIXTestBloc, EducationState>(
+    return BlocBuilder<ItaliaTestBloc, EducationState>(
       builder: (context, state) {
-        if (state is ItaliaVIXTestSuccess) {
+        if (state is EducationLoading) {
+          return const LoadingWidget();
+        } else if (state is ItaliaTestSuccess) {
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -62,7 +60,6 @@ class _ItaliaKorolduguTestPageState extends State<ItaliaKorolduguTestPage> {
                         state.italiaVIXTestToicsModel[indexitalia].guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
                       ),
                     ),
                   ),

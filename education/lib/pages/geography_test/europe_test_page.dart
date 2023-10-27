@@ -2,14 +2,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/components/correct_incorrect_card.dart';
 import 'package:education/components/informatica_bolumu/loading_widget.dart';
-import 'package:education/model/europe_suroo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/education_bloc.dart';
 
 class EuropeTestPage extends StatefulWidget {
-  const EuropeTestPage({super.key, required this.suroo});
-  final List<EuropeSuroo> suroo;
+  const EuropeTestPage({super.key});
 
   @override
   State<EuropeTestPage> createState() => _EuropeTestPageState();

@@ -96,9 +96,9 @@ class BayirkyGermandarTestSuccess extends EducationState {
   final List<BayrkGermandarTestToicsModel> bayirkyGermandarTestToicsModel;
 }
 
-class ItaliaVIXTestSuccess extends EducationState {
-  const ItaliaVIXTestSuccess({required this.italiaVIXTestToicsModel});
-  final List<ItaliaVixTestToicsModel> italiaVIXTestToicsModel;
+class ItaliaTestSuccess extends EducationState {
+  const ItaliaTestSuccess({required this.italiaVIXTestToicsModel});
+  final List<ItaliaTestToicsModel> italiaVIXTestToicsModel;
 }
 
 class PersonalComputerTestSuccess extends EducationState {

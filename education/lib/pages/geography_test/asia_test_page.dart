@@ -59,7 +59,6 @@ class _AsiaTestPageState extends State<AsiaTestPage> {
                         state.asiaTestToicsModel[indexAsia].guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
                       ),
                     ),
                   ),

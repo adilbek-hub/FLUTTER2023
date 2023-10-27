@@ -8,17 +8,17 @@ import 'package:education/model/model_test/geography_test/asia.dart';
 import 'package:education/model/model_test/geography_test/europe_capitals.dart';
 import 'package:education/model/model_test/geography_test/world_capitals.dart';
 import 'package:education/model/model_test/history/bayrky_germandar.dart';
-import 'package:education/model/model_test/history/italia_V_IX.dart';
+import 'package:education/model/model_test/history/italia.dart';
 import 'package:education/model/model_test/history/nemis_koroldugu.dart';
 import 'package:education/model/model_test/history/rim.dart';
 import 'package:education/model/model_test/informatica_test/computerdik_tarmaktar.dart';
 import 'package:education/model/model_test/informatica_test/personal_computer.dart';
 import 'package:education/model/model_test/informatica_test/sistemalyk_computer.dart';
-import 'package:education/model/model_test/usa_test.dart';
+import 'package:education/model/model_test/geography_test/usa_test.dart';
 import 'package:education/model/subjects_topics_model.dart';
 import 'package:education/model/test_model.dart';
-import 'package:education/services/biology_topics_service.dart';
-import 'package:education/services/geography_topics_service.dart';
+import 'package:education/services/service_topic/biology_topics_service.dart';
+import 'package:education/services/service_topic/geography_topics_service.dart';
 import 'package:education/services/service_test/biology_test/kletka_service.dart';
 import 'package:education/services/service_test/biology_test/man_and_animal.dart';
 import 'package:education/services/service_test/biology_test/mee_service.dart';
@@ -28,7 +28,7 @@ import 'package:education/services/service_test/geography_test/europe_capitals.d
 import 'package:education/services/service_test/geography_test/usa.dart';
 import 'package:education/services/service_test/geography_test/world_capitals.dart';
 import 'package:education/services/service_test/history/bayirky_germandar.dart';
-import 'package:education/services/service_test/history/italia_V_IX_service.dart';
+import 'package:education/services/service_test/history/italia_service.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
 import 'package:education/services/service_test/informatica_test/computerdik_tarmaktar.dart';
@@ -40,8 +40,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../model/history_model.dart';
 import '../model/informatica_model.dart';
-import '../services/history_toics_service.dart';
-import '../services/informatica_topics_service.dart';
+import '../services/service_topic/history_toics_service.dart';
+import '../services/service_topic/informatica_topics_service.dart';
 part 'education_event.dart';
 part 'education_state.dart';
 
@@ -300,17 +300,15 @@ class KletkaTestBloc extends Bloc<EducationEvent, EducationState> {
   KletkaTestBloc({required this.kletkaTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
-    on<FetchDataManAndAnimalTest>(_getKletkaTest);
+    on<FetchKletkaTest>(_getKletkaTest);
   }
   final KletkaTestTopicsService kletkaTestTopicsService;
 
   Future<void> _getKletkaTest(
-      FetchDataManAndAnimalTest event, Emitter<EducationState> emit) async {
-    final manAndAnimalCaitalTestData =
-        await manAndAnimalTestTopicsService.getData();
-    if (manAndAnimalCaitalTestData != null) {
-      emit(ManAndAnimalsTestSuccess(
-          manAndAnimalsTestToicsModel: manAndAnimalCaitalTestData));
+      FetchKletkaTest event, Emitter<EducationState> emit) async {
+    final kletkaTestTopicsData = await kletkaTestTopicsService.getData();
+    if (kletkaTestTopicsData != null) {
+      emit(KletkaTestSuccess(kletkaTestToicsModel: kletkaTestTopicsData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }
@@ -418,19 +416,19 @@ class BayirkyGermandarTestBloc extends Bloc<EducationEvent, EducationState> {
   }
 }
 
-class ItaliaVIXTestBloc extends Bloc<EducationEvent, EducationState> {
-  ItaliaVIXTestBloc({required this.italiaVIXTestTopicsService})
+class ItaliaTestBloc extends Bloc<EducationEvent, EducationState> {
+  ItaliaTestBloc({required this.italiaVIXTestTopicsService})
       : super(EducationLoading()) {
     on<EducationEvent>((event, emit) {});
     on<FetchItaliaVIXTest>(_getItaliaVIXTest);
   }
-  final ItaliaVIXTestTopicsService italiaVIXTestTopicsService;
+  final ItaliaTestTopicsService italiaVIXTestTopicsService;
 
   Future<void> _getItaliaVIXTest(
       FetchItaliaVIXTest event, Emitter<EducationState> emit) async {
     final italiaVIXTestData = await italiaVIXTestTopicsService.getData();
     if (italiaVIXTestData != null) {
-      emit(ItaliaVIXTestSuccess(italiaVIXTestToicsModel: italiaVIXTestData));
+      emit(ItaliaTestSuccess(italiaVIXTestToicsModel: italiaVIXTestData));
     } else {
       emit(const EducationError(text: 'EDUCATIONERROR'));
     }

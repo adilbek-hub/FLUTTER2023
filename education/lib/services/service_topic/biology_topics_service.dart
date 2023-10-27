@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import '../model/biology_model.dart';
+import '../../model/biology_model.dart';
 
 class BiologyTopicsService {
   const BiologyTopicsService({required this.client});
@@ -16,9 +16,8 @@ class BiologyTopicsService {
         throw Exception('Failed to load computer data');
       }
     } catch (e) {
-      print('Кештен ката: ${e.toString()}');
+      throw ('Кештен ката: ${e.toString()}');
     }
-    return null;
   }
 }
 

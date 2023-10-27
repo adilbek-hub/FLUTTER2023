@@ -1,4 +1,4 @@
-import 'package:education/model/model_test/usa_test.dart';
+import 'package:education/model/model_test/geography_test/usa_test.dart';
 import 'package:http/http.dart' as http;
 
 class UsaTestTopicsService {
@@ -16,9 +16,8 @@ class UsaTestTopicsService {
         throw Exception('Failed to load computer data');
       }
     } catch (e) {
-      print('Кештен ката: ${e.toString()}');
+      throw ('Кештен ката: ${e.toString()}');
     }
-    return null;
   }
 }
 

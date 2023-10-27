@@ -17,9 +17,8 @@ class NervSistemasyTestTopicsService {
         throw Exception('Failed to load computer data');
       }
     } catch (e) {
-      print('Кештен ката: ${e.toString()}');
+      throw ('Кештен ката: ${e.toString()}');
     }
-    return null;
   }
 }
 

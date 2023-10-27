@@ -1,7 +1,7 @@
 import 'package:education/bloc/education_bloc.dart';
-import 'package:education/services/biology_topics_service.dart';
-import 'package:education/services/geography_topics_service.dart';
-import 'package:education/services/history_toics_service.dart';
+import 'package:education/services/service_topic/biology_topics_service.dart';
+import 'package:education/services/service_topic/geography_topics_service.dart';
+import 'package:education/services/service_topic/history_toics_service.dart';
 import 'package:education/services/service_test/biology_test/kletka_service.dart';
 import 'package:education/services/service_test/biology_test/man_and_animal.dart';
 import 'package:education/services/service_test/biology_test/mee_service.dart';
@@ -9,8 +9,9 @@ import 'package:education/services/service_test/biology_test/nerv_sistemasy_serv
 import 'package:education/services/service_test/geography_test/asia.dart';
 import 'package:education/services/service_test/geography_test/europe_capitals.dart';
 import 'package:education/services/service_test/geography_test/usa.dart';
+import 'package:education/services/service_test/geography_test/world_capitals.dart';
 import 'package:education/services/service_test/history/bayirky_germandar.dart';
-import 'package:education/services/service_test/history/italia_V_IX_service.dart';
+import 'package:education/services/service_test/history/italia_service.dart';
 import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
 import 'package:education/services/service_test/history/rim_service.dart';
 import 'package:education/services/service_test/informatica_test/computerdik_tarmaktar.dart';
@@ -19,11 +20,10 @@ import 'package:education/services/service_test/informatica_test/sistemalyk_comp
 import 'package:education/services/subjects_topics_service.dart';
 import 'package:education/services/test_service.dart';
 import 'package:education/views/books_view.dart';
-import 'package:education/views/pages_nav_bar.dart';
 import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../services/informatica_topics_service.dart';
+import '../services/service_topic/informatica_topics_service.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -72,6 +72,12 @@ class MyApp extends StatelessWidget {
               AsiaTestBloc(asiaTestTopicsService: asiaTestTopicsService)
                 ..add(FetchDataAsiaTest()),
         ),
+        BlocProvider<WorldCapitalsTestBloc>(
+          create: (BuildContext context) => WorldCapitalsTestBloc(
+              worldCapitalsTestTopicsService: worldCapitalsTestTopicsService)
+            ..add(FetchDataWorldCapitalsTest())
+            ..add(FetchDataAsiaTest()),
+        ),
         BlocProvider<ManAndAnimalTestBloc>(
           create: (BuildContext context) => ManAndAnimalTestBloc(
               manAndAnimalTestTopicsService: manAndAnimalTestTopicsService)
@@ -118,8 +124,8 @@ class MyApp extends StatelessWidget {
               FetchBayirkyGermandarTest(),
             ),
         ),
-        BlocProvider<ItaliaVIXTestBloc>(
-          create: (BuildContext context) => ItaliaVIXTestBloc(
+        BlocProvider<ItaliaTestBloc>(
+          create: (BuildContext context) => ItaliaTestBloc(
               italiaVIXTestTopicsService: italiaVIXTestTopicsService)
             ..add(
               FetchItaliaVIXTest(),

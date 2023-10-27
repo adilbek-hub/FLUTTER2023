@@ -25,7 +25,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -62,7 +62,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -87,7 +87,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -112,7 +112,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -150,7 +150,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -175,7 +175,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -190,7 +190,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -205,7 +205,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),
@@ -220,7 +220,7 @@ class EastTable extends StatelessWidget {
           ],
         ),
         TableRow(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               top: BorderSide(width: 1.0, color: Colors.grey),
             ),

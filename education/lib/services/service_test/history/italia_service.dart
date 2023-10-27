@@ -1,11 +1,10 @@
-import 'package:education/model/model_test/history/italia_V_IX.dart';
-
+import 'package:education/model/model_test/history/italia.dart';
 import 'package:http/http.dart' as http;
 
-class ItaliaVIXTestTopicsService {
-  const ItaliaVIXTestTopicsService({required this.client});
+class ItaliaTestTopicsService {
+  const ItaliaTestTopicsService({required this.client});
   final http.Client client;
-  Future<List<ItaliaVixTestToicsModel>?> getData() async {
+  Future<List<ItaliaTestToicsModel>?> getData() async {
     try {
       final response = await http.get(Uri.parse(
           'https://adilbek-hub.github.io/my_data/tests_data/history/italia.json'));
@@ -17,12 +16,11 @@ class ItaliaVIXTestTopicsService {
         throw Exception('Failed to load computer data');
       }
     } catch (e) {
-      print('Кештен ката: ${e.toString()}');
+      throw ('Кештен ката: ${e.toString()}');
     }
-    return null;
   }
 }
 
-final italiaVIXTestTopicsService = ItaliaVIXTestTopicsService(
+final italiaVIXTestTopicsService = ItaliaTestTopicsService(
   client: http.Client(),
 );

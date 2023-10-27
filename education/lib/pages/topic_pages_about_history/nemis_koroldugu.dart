@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:education/model/history_model.dart';
-import 'package:education/model/history_question.dart';
+
 import 'package:education/pages/history_test/nemis_koroldugu_test_page.dart';
 
 class NemisKoroldugu extends StatelessWidget {
@@ -110,9 +110,7 @@ class NemisKoroldugu extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      NemisKorolduguTestPage(
-                                    germania: germania,
-                                  ),
+                                      const NemisKorolduguTestPage(),
                                 ),
                               );
                             },

@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/model/biology_model.dart';
 import 'package:education/pages/topic_pages_about_biology/topic_pages_about_biology.dart';
@@ -79,7 +80,13 @@ class _BiologyBolumuWidgetState extends State<BiologyBolumuWidget> {
                               dropCap: DropCap(
                                 width: 100,
                                 height: 100,
-                                child: Image.asset(biology.image),
+                                child: CachedNetworkImage(
+                                  imageUrl: biology.image,
+                                  placeholder: (context, url) =>
+                                      const CircularProgressIndicator(),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
                               ),
                             ),
                             const Divider(),

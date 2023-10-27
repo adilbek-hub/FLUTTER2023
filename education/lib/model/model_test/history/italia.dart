@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-List<ItaliaVixTestToicsModel> italiaVixTestToicsModelFromJson(String str) =>
-    List<ItaliaVixTestToicsModel>.from(
-        json.decode(str).map((x) => ItaliaVixTestToicsModel.fromJson(x)));
+List<ItaliaTestToicsModel> italiaVixTestToicsModelFromJson(String str) =>
+    List<ItaliaTestToicsModel>.from(
+        json.decode(str).map((x) => ItaliaTestToicsModel.fromJson(x)));
 
-String italiaVixTestToicsModelToJson(List<ItaliaVixTestToicsModel> data) =>
+String italiaVixTestToicsModelToJson(List<ItaliaTestToicsModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class ItaliaVixTestToicsModel {
+class ItaliaTestToicsModel {
   int id;
   String name;
   String title;
@@ -15,7 +15,7 @@ class ItaliaVixTestToicsModel {
   String image;
   List<Option> options;
 
-  ItaliaVixTestToicsModel({
+  ItaliaTestToicsModel({
     required this.id,
     required this.name,
     required this.title,
@@ -24,8 +24,8 @@ class ItaliaVixTestToicsModel {
     required this.options,
   });
 
-  factory ItaliaVixTestToicsModel.fromJson(Map<String, dynamic> json) =>
-      ItaliaVixTestToicsModel(
+  factory ItaliaTestToicsModel.fromJson(Map<String, dynamic> json) =>
+      ItaliaTestToicsModel(
         id: json["id"],
         name: json["name"],
         title: json["title"],

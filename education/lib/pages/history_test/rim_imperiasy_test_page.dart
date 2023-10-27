@@ -3,18 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/components/correct_incorrect_card.dart';
 import 'package:education/components/informatica_bolumu/loading_widget.dart';
 import 'package:education/components/slider_widget.dart';
-import 'package:education/model/history_question.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/education_bloc.dart';
 
 class RimImperiasyTestPage extends StatefulWidget {
-  const RimImperiasyTestPage({
-    super.key,
-    required this.pimImperiasy,
-  });
-  final List<HistoryQuestions> pimImperiasy;
+  const RimImperiasyTestPage({super.key});
 
   @override
   State<RimImperiasyTestPage> createState() => _RimImperiasyTestPageState();
@@ -66,7 +61,6 @@ class _RimImperiasyTestPageState extends State<RimImperiasyTestPage> {
                         state.rimTestToicsModel[indexpimImperiasy].guestion,
                         style: const TextStyle(fontSize: 20, height: 2),
                         textAlign: TextAlign.center,
-                        maxLines: 1,
                       ),
                     ),
                   ),

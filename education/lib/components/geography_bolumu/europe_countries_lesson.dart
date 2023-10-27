@@ -1,6 +1,5 @@
 import 'package:education/components/table_east.dart';
 import 'package:education/components/table_north_balkan.dart';
-import 'package:education/model/europe_suroo.dart';
 import 'package:education/pages/geography_test/europe_test_page.dart';
 import 'package:flutter/material.dart';
 import '../../model/geography_model.dart';
@@ -143,7 +142,7 @@ class EuropeCountriesLesson extends StatelessWidget {
                           context,
                           MaterialPageRoute<void>(
                             builder: (BuildContext context) =>
-                                EuropeTestPage(suroo: europeQuestion),
+                                const EuropeTestPage(),
                           ),
                         );
                       },

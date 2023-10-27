@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:education/model/history_question.dart';
 import 'package:education/pages/history_test/rim_imperiasy_test_page.dart';
-
 import '../../model/history_model.dart';
 
 class Rim extends StatelessWidget {
@@ -65,9 +62,7 @@ class Rim extends StatelessWidget {
                                 context,
                                 MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      RimImperiasyTestPage(
-                                    pimImperiasy: pimImperiasy,
-                                  ),
+                                      const RimImperiasyTestPage(),
                                 ),
                               );
                             },
