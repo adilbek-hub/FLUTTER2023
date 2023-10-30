@@ -19,17 +19,70 @@ class _MyHomePageState extends State<MyHomePage> {
     secondDice = random.nextInt(6) + 1;
     esepte = esepte + firstDice + secondDice;
     setState(() {});
+    result();
   }
 
   int computerFirstDice = 1;
   int computerSeconsdDice = 2;
-  int esept = 0;
+  int compEsep = 0;
 
   computerAction() {
     computerFirstDice = random.nextInt(6) + 1;
     computerSeconsdDice = random.nextInt(6) + 1;
-    esept = esept + computerFirstDice + computerSeconsdDice;
+    compEsep = compEsep + computerFirstDice + computerSeconsdDice;
     setState(() {});
+    result();
+  }
+
+  void result() {
+    if (esepte >= 50) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Adam Uttu'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  resetAll();
+                  setState(() {});
+                  Navigator.pop(context);
+                },
+                child: const Text('Чыгуу'),
+              ),
+            ],
+          );
+        },
+      );
+    } else if (compEsep >= 50) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Comp Uttu'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  resetAll();
+                  setState(() {});
+                  Navigator.pop(context);
+                },
+                child: const Text('Чыгуу'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  void resetAll() {
+    firstDice = 1;
+    secondDice = 1;
+    esepte = 0;
+    computerFirstDice = 1;
+    computerSeconsdDice = 1;
+    compEsep = 0;
   }
 
   @override
@@ -80,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text('Random'),
             ),
             Text(
-              esept.toString(),
+              compEsep.toString(),
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
