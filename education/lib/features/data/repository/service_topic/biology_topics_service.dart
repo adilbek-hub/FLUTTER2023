@@ -1,5 +1,5 @@
+import 'package:education/features/data/model/biology_model.dart';
 import 'package:http/http.dart' as http;
-import '../../../../model/biology_model.dart';
 
 class BiologyTopicsService {
   const BiologyTopicsService({required this.client});

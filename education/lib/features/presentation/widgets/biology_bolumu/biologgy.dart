@@ -1,4 +1,4 @@
-import 'package:education/views/biology_topics_view.dart';
+import 'package:education/features/presentation/views/biology_topics_view.dart';
 
 import 'package:flutter/material.dart';
 

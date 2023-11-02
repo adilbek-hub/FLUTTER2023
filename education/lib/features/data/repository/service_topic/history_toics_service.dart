@@ -1,5 +1,5 @@
+import 'package:education/features/data/model/history_model.dart';
 import 'package:http/http.dart' as http;
-import '../../../../model/history_model.dart';
 
 class HistoryTopicsService {
   const HistoryTopicsService({required this.client});

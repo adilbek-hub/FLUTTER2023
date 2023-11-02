@@ -19,8 +19,8 @@ import 'package:education/features/data/data_sources/remote/services/service_tes
 import 'package:education/features/data/data_sources/remote/services/service_test/informatica_test/sistemalyk_computer.dart';
 import 'package:education/features/data/data_sources/remote/services/subjects_topics_service.dart';
 import 'package:education/features/data/data_sources/remote/services/test_service.dart';
-import 'package:education/views/books_view.dart';
-import 'package:education/views/home_view.dart';
+import 'package:education/features/presentation/views/books_view.dart';
+import 'package:education/features/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../features/data/data_sources/remote/services/service_topic/informatica_topics_service.dart';

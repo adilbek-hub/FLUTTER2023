@@ -1,9 +1,8 @@
+import 'package:education/features/presentation/pages/biology_test/men_animal_test_page.dart';
 import 'package:education/features/presentation/widgets/to_test_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:education/features/data/model/biology_model.dart';
-
-import 'package:education/features/presentation/pages/biology_test/biology_test.dart';
 
 class KishiJanaJanybar extends StatelessWidget {
   const KishiJanaJanybar({Key? key, required this.biologyTopicsModel})

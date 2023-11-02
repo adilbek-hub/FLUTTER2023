@@ -1,5 +1,5 @@
+import 'package:education/features/data/model/subjects_topics_model.dart';
 import 'package:http/http.dart' as http;
-import '../../../model/subjects_topics_model.dart';
 
 class SubjectsTopicsService {
   const SubjectsTopicsService({required this.client});

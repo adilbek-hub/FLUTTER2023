@@ -2,7 +2,7 @@ import 'package:education/features/presentation/bloc/education_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../features/presentation/widgets/biology_bolumu/biology_bolumu_bloc.dart';
+import '../widgets/biology_bolumu/biology_bolumu_bloc.dart';
 
 class BiologyTopics extends StatelessWidget {
   BiologyTopics({super.key});

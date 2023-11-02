@@ -1,4 +1,4 @@
-import 'package:education/views/history_topics_view.dart';
+import 'package:education/features/presentation/views/history_topics_view.dart';
 import 'package:flutter/material.dart';
 
 import 'history_container.dart';

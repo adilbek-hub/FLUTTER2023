@@ -1,4 +1,4 @@
-import 'package:education/views/informatica_topics_view.dart';
+import 'package:education/features/presentation/views/informatica_topics_view.dart';
 import 'package:flutter/material.dart';
 
 class Informatica extends StatelessWidget {

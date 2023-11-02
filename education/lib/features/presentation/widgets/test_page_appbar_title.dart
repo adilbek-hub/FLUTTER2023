@@ -1,4 +1,4 @@
-import 'package:education/constants/app_color.dart';
+import 'package:education/config/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
 class TestPageAppBarTitle extends StatelessWidget {
