@@ -1,29 +1,29 @@
-import 'package:education/bloc/education_bloc.dart';
-import 'package:education/services/service_topic/biology_topics_service.dart';
-import 'package:education/services/service_topic/geography_topics_service.dart';
-import 'package:education/services/service_topic/history_toics_service.dart';
-import 'package:education/services/service_test/biology_test/kletka_service.dart';
-import 'package:education/services/service_test/biology_test/man_and_animal.dart';
-import 'package:education/services/service_test/biology_test/mee_service.dart';
-import 'package:education/services/service_test/biology_test/nerv_sistemasy_service.dart';
-import 'package:education/services/service_test/geography_test/asia.dart';
-import 'package:education/services/service_test/geography_test/europe_capitals.dart';
-import 'package:education/services/service_test/geography_test/usa.dart';
-import 'package:education/services/service_test/geography_test/world_capitals.dart';
-import 'package:education/services/service_test/history/bayirky_germandar.dart';
-import 'package:education/services/service_test/history/italia_service.dart';
-import 'package:education/services/service_test/history/nemis_koroldugu_service.dart';
-import 'package:education/services/service_test/history/rim_service.dart';
-import 'package:education/services/service_test/informatica_test/computerdik_tarmaktar.dart';
-import 'package:education/services/service_test/informatica_test/personal_computer.dart';
-import 'package:education/services/service_test/informatica_test/sistemalyk_computer.dart';
-import 'package:education/services/subjects_topics_service.dart';
-import 'package:education/services/test_service.dart';
+import 'package:education/features/presentation/bloc/education_bloc.dart';
+import 'package:education/features/data/data_sources/remote/services/service_topic/biology_topics_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_topic/geography_topics_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_topic/history_toics_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/biology_test/kletka_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/biology_test/man_and_animal.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/biology_test/mee_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/biology_test/nerv_sistemasy_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/geography_test/asia.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/geography_test/europe_capitals.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/geography_test/usa.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/geography_test/world_capitals.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/history/bayirky_germandar.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/history/italia_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/history/nemis_koroldugu_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/history/rim_service.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/informatica_test/computerdik_tarmaktar.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/informatica_test/personal_computer.dart';
+import 'package:education/features/data/data_sources/remote/services/service_test/informatica_test/sistemalyk_computer.dart';
+import 'package:education/features/data/data_sources/remote/services/subjects_topics_service.dart';
+import 'package:education/features/data/data_sources/remote/services/test_service.dart';
 import 'package:education/views/books_view.dart';
 import 'package:education/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../services/service_topic/informatica_topics_service.dart';
+import '../features/data/data_sources/remote/services/service_topic/informatica_topics_service.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -165,8 +165,6 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => const HomeView(),
-          // 'HomeView': (context) => const HomeView(),
-          // 'BooksView': (context) => const NavBarPages(),
           'booksView': (context) => const BooksView(),
         },
       ),
