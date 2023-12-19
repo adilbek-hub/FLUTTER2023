@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:capitals_of_the_world/features/data/model/test.dart';
 import 'package:capitals_of_the_world/features/presentation/theme/app_size.dart';
 import 'package:capitals_of_the_world/features/presentation/theme/app_text_style.dart';
@@ -19,13 +17,13 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   final double sl = 0;
   int indexs = 0;
-  late int tuuraJoop;
-  late int kataJoop;
+  int tuuraJoop = 0;
+  int kataJoop = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _detailAppBar(),
+      appBar: _detailAppBar(tuuraJoop: tuuraJoop, kataJoop: kataJoop),
       body: Column(
         children: [
           SizedBox(
@@ -62,8 +60,55 @@ class _DetailPageState extends State<DetailPage> {
                 4,
                 (index) {
                   return InkWell(
-                    onTap: (){
-                      if()
+                    onTap: () {
+                      if (indexs + 1 == widget.test[index].capitalName.length) {
+                        showDialog<void>(
+                          context: context,
+                          barrierDismissible: false, // user must tap button!
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              // <-- SEE HERE
+                              title: const Text('Cancel booking'),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[
+                                    Text("Туура жооп: ${tuuraJoop.toString()}"),
+                                    Text(
+                                      "Ката жооп: ${kataJoop.toString()}",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: const Text('No'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                                TextButton(
+                                  child: const Text('Yes'),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        kataJoop = 0;
+                        tuuraJoop = 0;
+                        indexs = 0;
+                        Navigator.pop(context);
+                      } else {
+                        if (widget.test[indexs].answers[index].isTrue == true) {
+                          tuuraJoop++;
+                        } else {
+                          kataJoop++;
+                        }
+                        setState(() {});
+                        indexs++;
+                      }
                     },
                     child: Card(
                       color: Colors.grey[500],
@@ -88,18 +133,18 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  AppBar _detailAppBar() {
+  AppBar _detailAppBar({required int tuuraJoop, required int kataJoop}) {
     return AppBar(
-      title: const Row(
+      title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '22',
+            tuuraJoop.toString(),
             style: AppTextStyles.numberFalseStyle,
           ),
           Text('|'),
           Text(
-            '10',
+            kataJoop.toString(),
             style: AppTextStyles.numberTrueStyle,
           ),
         ],
