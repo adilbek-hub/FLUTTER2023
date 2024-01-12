@@ -1,7 +1,7 @@
-import 'package:education/features/presentation/widgets/biology_bolumu/biologgy.dart';
-import 'package:education/features/presentation/widgets/geography_bolumu/geography.dart';
-import 'package:education/features/presentation/widgets/history_bolumu/history.dart';
-import 'package:education/features/presentation/widgets/informatica_bolumu/informatica.dart';
+import 'package:education/features/presentation/components/biology_bolumu/biologgy.dart';
+import 'package:education/features/presentation/components/geography_bolumu/geography.dart';
+import 'package:education/features/presentation/components/history_bolumu/history.dart';
+import 'package:education/features/presentation/components/informatica_bolumu/informatica.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchDelegate extends SearchDelegate {

@@ -1,6 +1,6 @@
 import 'package:education/features/presentation/bloc/education_bloc.dart';
-import 'package:education/features/presentation/widgets/custom_serach_delegate.dart';
-import 'package:education/features/presentation/widgets/subjects.dart';
+import 'package:education/features/presentation/components/custom_serach_delegate.dart';
+import 'package:education/features/presentation/components/subjects.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

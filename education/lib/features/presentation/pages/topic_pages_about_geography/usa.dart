@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
 import 'package:education/features/presentation/pages/geography_test/usa_test_page.dart';
-import 'package:education/features/presentation/widgets/to_test_button.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/geography_model.dart';
+import '../../components/test_synagy_button.dart';
 
 class UnitedStates extends StatelessWidget {
   const UnitedStates({super.key, required this.geographyTopicsModel});
@@ -53,7 +53,6 @@ class UnitedStates extends StatelessWidget {
               TableRow(children: [
                 Text(
                   usaStates![0].adminCountry,
-                  textScaleFactor: 1,
                   style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
@@ -62,7 +61,6 @@ class UnitedStates extends StatelessWidget {
                 ),
                 Text(
                   usaStates[0].population,
-                  textScaleFactor: 1,
                   style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
@@ -71,7 +69,6 @@ class UnitedStates extends StatelessWidget {
                 ),
                 Text(
                   usaStates[0].state,
-                  textScaleFactor: 1,
                   style: const TextStyle(
                       color: Colors.black,
                       fontSize: 12,
@@ -80,259 +77,565 @@ class UnitedStates extends StatelessWidget {
                 ),
               ]),
               TableRow(children: [
-                Text(usaStates[1].adminCountry, textScaleFactor: 1),
-                Text(usaStates[1].population, textScaleFactor: 1),
-                Text(usaStates[1].state, textScaleFactor: 1),
+                Text(
+                  usaStates[1].adminCountry,
+                ),
+                Text(
+                  usaStates[1].population,
+                ),
+                Text(
+                  usaStates[1].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[2].adminCountry, textScaleFactor: 1),
-                Text(usaStates[2].population, textScaleFactor: 1),
-                Text(usaStates[2].state, textScaleFactor: 1),
+                Text(
+                  usaStates[2].adminCountry,
+                ),
+                Text(
+                  usaStates[2].population,
+                ),
+                Text(
+                  usaStates[2].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[3].adminCountry, textScaleFactor: 1),
-                Text(usaStates[3].population, textScaleFactor: 1),
-                Text(usaStates[3].state, textScaleFactor: 1),
+                Text(
+                  usaStates[3].adminCountry,
+                ),
+                Text(
+                  usaStates[3].population,
+                ),
+                Text(
+                  usaStates[3].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[4].adminCountry, textScaleFactor: 1),
-                Text(usaStates[4].population, textScaleFactor: 1),
-                Text(usaStates[4].state, textScaleFactor: 1),
+                Text(
+                  usaStates[4].adminCountry,
+                ),
+                Text(
+                  usaStates[4].population,
+                ),
+                Text(
+                  usaStates[4].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[5].adminCountry, textScaleFactor: 1),
-                Text(usaStates[5].population, textScaleFactor: 1),
-                Text(usaStates[5].state, textScaleFactor: 1),
+                Text(
+                  usaStates[5].adminCountry,
+                ),
+                Text(
+                  usaStates[5].population,
+                ),
+                Text(
+                  usaStates[5].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[6].adminCountry, textScaleFactor: 1),
-                Text(usaStates[6].population, textScaleFactor: 1),
-                Text(usaStates[6].state, textScaleFactor: 1),
+                Text(
+                  usaStates[6].adminCountry,
+                ),
+                Text(
+                  usaStates[6].population,
+                ),
+                Text(
+                  usaStates[6].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[7].adminCountry, textScaleFactor: 1),
-                Text(usaStates[7].population, textScaleFactor: 1),
-                Text(usaStates[7].state, textScaleFactor: 1),
+                Text(
+                  usaStates[7].adminCountry,
+                ),
+                Text(
+                  usaStates[7].population,
+                ),
+                Text(
+                  usaStates[7].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[8].adminCountry, textScaleFactor: 1),
-                Text(usaStates[8].population, textScaleFactor: 1),
-                Text(usaStates[8].state, textScaleFactor: 1),
+                Text(
+                  usaStates[8].adminCountry,
+                ),
+                Text(
+                  usaStates[8].population,
+                ),
+                Text(
+                  usaStates[8].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[9].adminCountry, textScaleFactor: 1),
-                Text(usaStates[9].population, textScaleFactor: 1),
-                Text(usaStates[9].state, textScaleFactor: 1),
+                Text(
+                  usaStates[9].adminCountry,
+                ),
+                Text(
+                  usaStates[9].population,
+                ),
+                Text(
+                  usaStates[9].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[10].adminCountry, textScaleFactor: 1),
-                Text(usaStates[10].population, textScaleFactor: 1),
-                Text(usaStates[10].state, textScaleFactor: 1),
+                Text(
+                  usaStates[10].adminCountry,
+                ),
+                Text(
+                  usaStates[10].population,
+                ),
+                Text(
+                  usaStates[10].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[11].adminCountry, textScaleFactor: 1),
-                Text(usaStates[11].population, textScaleFactor: 1),
-                Text(usaStates[11].state, textScaleFactor: 1),
+                Text(
+                  usaStates[11].adminCountry,
+                ),
+                Text(
+                  usaStates[11].population,
+                ),
+                Text(
+                  usaStates[11].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[12].adminCountry, textScaleFactor: 1),
-                Text(usaStates[12].population, textScaleFactor: 1),
-                Text(usaStates[12].state, textScaleFactor: 1),
+                Text(
+                  usaStates[12].adminCountry,
+                ),
+                Text(
+                  usaStates[12].population,
+                ),
+                Text(
+                  usaStates[12].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[13].adminCountry, textScaleFactor: 1),
-                Text(usaStates[13].population, textScaleFactor: 1),
-                Text(usaStates[13].state, textScaleFactor: 1),
+                Text(
+                  usaStates[13].adminCountry,
+                ),
+                Text(
+                  usaStates[13].population,
+                ),
+                Text(
+                  usaStates[13].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[14].adminCountry, textScaleFactor: 1),
-                Text(usaStates[14].population, textScaleFactor: 1),
-                Text(usaStates[14].state, textScaleFactor: 1),
+                Text(
+                  usaStates[14].adminCountry,
+                ),
+                Text(
+                  usaStates[14].population,
+                ),
+                Text(
+                  usaStates[14].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[15].adminCountry, textScaleFactor: 1),
-                Text(usaStates[15].population, textScaleFactor: 1),
-                Text(usaStates[15].state, textScaleFactor: 1),
+                Text(
+                  usaStates[15].adminCountry,
+                ),
+                Text(
+                  usaStates[15].population,
+                ),
+                Text(
+                  usaStates[15].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[16].adminCountry, textScaleFactor: 1),
-                Text(usaStates[16].population, textScaleFactor: 1),
-                Text(usaStates[16].state, textScaleFactor: 1),
+                Text(
+                  usaStates[16].adminCountry,
+                ),
+                Text(
+                  usaStates[16].population,
+                ),
+                Text(
+                  usaStates[16].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[17].adminCountry, textScaleFactor: 1),
-                Text(usaStates[17].population, textScaleFactor: 1),
-                Text(usaStates[17].state, textScaleFactor: 1),
+                Text(
+                  usaStates[17].adminCountry,
+                ),
+                Text(
+                  usaStates[17].population,
+                ),
+                Text(
+                  usaStates[17].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[18].adminCountry, textScaleFactor: 1),
-                Text(usaStates[18].population, textScaleFactor: 1),
-                Text(usaStates[18].state, textScaleFactor: 1),
+                Text(
+                  usaStates[18].adminCountry,
+                ),
+                Text(
+                  usaStates[18].population,
+                ),
+                Text(
+                  usaStates[18].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[19].adminCountry, textScaleFactor: 1),
-                Text(usaStates[19].population, textScaleFactor: 1),
-                Text(usaStates[19].state, textScaleFactor: 1),
+                Text(
+                  usaStates[19].adminCountry,
+                ),
+                Text(
+                  usaStates[19].population,
+                ),
+                Text(
+                  usaStates[19].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[20].adminCountry, textScaleFactor: 1),
-                Text(usaStates[20].population, textScaleFactor: 1),
-                Text(usaStates[20].state, textScaleFactor: 1),
+                Text(
+                  usaStates[20].adminCountry,
+                ),
+                Text(
+                  usaStates[20].population,
+                ),
+                Text(
+                  usaStates[20].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[21].adminCountry, textScaleFactor: 1),
-                Text(usaStates[21].population, textScaleFactor: 1),
-                Text(usaStates[21].state, textScaleFactor: 1),
+                Text(
+                  usaStates[21].adminCountry,
+                ),
+                Text(
+                  usaStates[21].population,
+                ),
+                Text(
+                  usaStates[21].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[22].adminCountry, textScaleFactor: 1),
-                Text(usaStates[22].population, textScaleFactor: 1),
-                Text(usaStates[22].state, textScaleFactor: 1),
+                Text(
+                  usaStates[22].adminCountry,
+                ),
+                Text(
+                  usaStates[22].population,
+                ),
+                Text(
+                  usaStates[22].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[23].adminCountry, textScaleFactor: 1),
-                Text(usaStates[23].population, textScaleFactor: 1),
-                Text(usaStates[23].state, textScaleFactor: 1),
+                Text(
+                  usaStates[23].adminCountry,
+                ),
+                Text(
+                  usaStates[23].population,
+                ),
+                Text(
+                  usaStates[23].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[24].adminCountry, textScaleFactor: 1),
-                Text(usaStates[24].population, textScaleFactor: 1),
-                Text(usaStates[24].state, textScaleFactor: 1),
+                Text(
+                  usaStates[24].adminCountry,
+                ),
+                Text(
+                  usaStates[24].population,
+                ),
+                Text(
+                  usaStates[24].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[25].adminCountry, textScaleFactor: 1),
-                Text(usaStates[25].population, textScaleFactor: 1),
-                Text(usaStates[25].state, textScaleFactor: 1),
+                Text(
+                  usaStates[25].adminCountry,
+                ),
+                Text(
+                  usaStates[25].population,
+                ),
+                Text(
+                  usaStates[25].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[26].adminCountry, textScaleFactor: 1),
-                Text(usaStates[26].population, textScaleFactor: 1),
-                Text(usaStates[26].state, textScaleFactor: 1),
+                Text(
+                  usaStates[26].adminCountry,
+                ),
+                Text(
+                  usaStates[26].population,
+                ),
+                Text(
+                  usaStates[26].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[27].adminCountry, textScaleFactor: 1),
-                Text(usaStates[27].population, textScaleFactor: 1),
-                Text(usaStates[27].state, textScaleFactor: 1),
+                Text(
+                  usaStates[27].adminCountry,
+                ),
+                Text(
+                  usaStates[27].population,
+                ),
+                Text(
+                  usaStates[27].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[28].adminCountry, textScaleFactor: 1),
-                Text(usaStates[28].population, textScaleFactor: 1),
-                Text(usaStates[28].state, textScaleFactor: 1),
+                Text(
+                  usaStates[28].adminCountry,
+                ),
+                Text(
+                  usaStates[28].population,
+                ),
+                Text(
+                  usaStates[28].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[29].adminCountry, textScaleFactor: 1),
-                Text(usaStates[29].population, textScaleFactor: 1),
-                Text(usaStates[29].state, textScaleFactor: 1),
+                Text(
+                  usaStates[29].adminCountry,
+                ),
+                Text(
+                  usaStates[29].population,
+                ),
+                Text(
+                  usaStates[29].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[30].adminCountry, textScaleFactor: 1),
-                Text(usaStates[30].population, textScaleFactor: 1),
-                Text(usaStates[30].state, textScaleFactor: 1),
+                Text(
+                  usaStates[30].adminCountry,
+                ),
+                Text(
+                  usaStates[30].population,
+                ),
+                Text(
+                  usaStates[30].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[31].adminCountry, textScaleFactor: 1),
-                Text(usaStates[31].population, textScaleFactor: 1),
-                Text(usaStates[31].state, textScaleFactor: 1),
+                Text(
+                  usaStates[31].adminCountry,
+                ),
+                Text(
+                  usaStates[31].population,
+                ),
+                Text(
+                  usaStates[31].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[32].adminCountry, textScaleFactor: 1),
-                Text(usaStates[32].population, textScaleFactor: 1),
-                Text(usaStates[32].state, textScaleFactor: 1),
+                Text(
+                  usaStates[32].adminCountry,
+                ),
+                Text(
+                  usaStates[32].population,
+                ),
+                Text(
+                  usaStates[32].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[33].adminCountry, textScaleFactor: 1),
-                Text(usaStates[33].population, textScaleFactor: 1),
-                Text(usaStates[33].state, textScaleFactor: 1),
+                Text(
+                  usaStates[33].adminCountry,
+                ),
+                Text(
+                  usaStates[33].population,
+                ),
+                Text(
+                  usaStates[33].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[34].adminCountry, textScaleFactor: 1),
-                Text(usaStates[34].population, textScaleFactor: 1),
-                Text(usaStates[34].state, textScaleFactor: 1),
+                Text(
+                  usaStates[34].adminCountry,
+                ),
+                Text(
+                  usaStates[34].population,
+                ),
+                Text(
+                  usaStates[34].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[35].adminCountry, textScaleFactor: 1),
-                Text(usaStates[35].population, textScaleFactor: 1),
-                Text(usaStates[35].state, textScaleFactor: 1),
+                Text(
+                  usaStates[35].adminCountry,
+                ),
+                Text(
+                  usaStates[35].population,
+                ),
+                Text(
+                  usaStates[35].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[36].adminCountry, textScaleFactor: 1),
-                Text(usaStates[36].population, textScaleFactor: 1),
-                Text(usaStates[36].state, textScaleFactor: 1),
+                Text(
+                  usaStates[36].adminCountry,
+                ),
+                Text(
+                  usaStates[36].population,
+                ),
+                Text(
+                  usaStates[36].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[37].adminCountry, textScaleFactor: 1),
-                Text(usaStates[37].population, textScaleFactor: 1),
-                Text(usaStates[37].state, textScaleFactor: 1),
+                Text(
+                  usaStates[37].adminCountry,
+                ),
+                Text(
+                  usaStates[37].population,
+                ),
+                Text(
+                  usaStates[37].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[38].adminCountry, textScaleFactor: 1),
-                Text(usaStates[38].population, textScaleFactor: 1),
-                Text(usaStates[38].state, textScaleFactor: 1),
+                Text(
+                  usaStates[38].adminCountry,
+                ),
+                Text(
+                  usaStates[38].population,
+                ),
+                Text(
+                  usaStates[38].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[39].adminCountry, textScaleFactor: 1),
-                Text(usaStates[39].population, textScaleFactor: 1),
-                Text(usaStates[39].state, textScaleFactor: 1),
+                Text(
+                  usaStates[39].adminCountry,
+                ),
+                Text(
+                  usaStates[39].population,
+                ),
+                Text(
+                  usaStates[39].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[40].adminCountry, textScaleFactor: 1),
-                Text(usaStates[40].population, textScaleFactor: 1),
-                Text(usaStates[40].state, textScaleFactor: 1),
+                Text(
+                  usaStates[40].adminCountry,
+                ),
+                Text(
+                  usaStates[40].population,
+                ),
+                Text(
+                  usaStates[40].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[41].adminCountry, textScaleFactor: 1),
-                Text(usaStates[41].population, textScaleFactor: 1),
-                Text(usaStates[41].state, textScaleFactor: 1),
+                Text(
+                  usaStates[41].adminCountry,
+                ),
+                Text(
+                  usaStates[41].population,
+                ),
+                Text(
+                  usaStates[41].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[42].adminCountry, textScaleFactor: 1),
-                Text(usaStates[42].population, textScaleFactor: 1),
-                Text(usaStates[42].state, textScaleFactor: 1),
+                Text(
+                  usaStates[42].adminCountry,
+                ),
+                Text(
+                  usaStates[42].population,
+                ),
+                Text(
+                  usaStates[42].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[43].adminCountry, textScaleFactor: 1),
-                Text(usaStates[43].population, textScaleFactor: 1),
-                Text(usaStates[43].state, textScaleFactor: 1),
+                Text(
+                  usaStates[43].adminCountry,
+                ),
+                Text(
+                  usaStates[43].population,
+                ),
+                Text(
+                  usaStates[43].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[44].adminCountry, textScaleFactor: 1),
-                Text(usaStates[44].population, textScaleFactor: 1),
-                Text(usaStates[44].state, textScaleFactor: 1),
+                Text(
+                  usaStates[44].adminCountry,
+                ),
+                Text(
+                  usaStates[44].population,
+                ),
+                Text(
+                  usaStates[44].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[45].adminCountry, textScaleFactor: 1),
-                Text(usaStates[45].population, textScaleFactor: 1),
-                Text(usaStates[45].state, textScaleFactor: 1),
+                Text(
+                  usaStates[45].adminCountry,
+                ),
+                Text(
+                  usaStates[45].population,
+                ),
+                Text(
+                  usaStates[45].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[46].adminCountry, textScaleFactor: 1),
-                Text(usaStates[46].population, textScaleFactor: 1),
-                Text(usaStates[46].state, textScaleFactor: 1),
+                Text(
+                  usaStates[46].adminCountry,
+                ),
+                Text(
+                  usaStates[46].population,
+                ),
+                Text(
+                  usaStates[46].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[47].adminCountry, textScaleFactor: 1),
-                Text(usaStates[47].population, textScaleFactor: 1),
-                Text(usaStates[47].state, textScaleFactor: 1),
+                Text(
+                  usaStates[47].adminCountry,
+                ),
+                Text(
+                  usaStates[47].population,
+                ),
+                Text(
+                  usaStates[47].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[48].adminCountry, textScaleFactor: 1),
-                Text(usaStates[48].population, textScaleFactor: 1),
-                Text(usaStates[48].state, textScaleFactor: 1),
+                Text(
+                  usaStates[48].adminCountry,
+                ),
+                Text(
+                  usaStates[48].population,
+                ),
+                Text(
+                  usaStates[48].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[49].adminCountry, textScaleFactor: 1),
-                Text(usaStates[49].population, textScaleFactor: 1),
-                Text(usaStates[49].state, textScaleFactor: 1),
+                Text(
+                  usaStates[49].adminCountry,
+                ),
+                Text(
+                  usaStates[49].population,
+                ),
+                Text(
+                  usaStates[49].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[50].adminCountry, textScaleFactor: 1),
-                Text(usaStates[50].population, textScaleFactor: 1),
-                Text(usaStates[50].state, textScaleFactor: 1),
+                Text(
+                  usaStates[50].adminCountry,
+                ),
+                Text(
+                  usaStates[50].population,
+                ),
+                Text(
+                  usaStates[50].state,
+                ),
               ]),
               TableRow(children: [
-                Text(usaStates[51].adminCountry, textScaleFactor: 1),
-                Text(usaStates[51].population, textScaleFactor: 1),
-                Text(usaStates[51].state, textScaleFactor: 1),
+                Text(
+                  usaStates[51].adminCountry,
+                ),
+                Text(
+                  usaStates[51].population,
+                ),
+                Text(
+                  usaStates[51].state,
+                ),
               ]),
             ],
           ),
@@ -399,17 +702,13 @@ class UnitedStates extends StatelessWidget {
             usa[5].text ?? '',
           ),
           const SizedBox(height: 5),
-          ToTestButton(
-            text: 'Урматтуу окуучу!! Тест сынагынан өтүңүз.',
-            text2: 'ТЕСТ',
-            onPressed: () {
-              Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const UsaTestPage(),
-                ),
-              );
-            },
+          TestSynagyButton(
+            onTap: () => Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const UsaTestPage(),
+              ),
+            ),
           ),
           const SizedBox(height: 5),
         ]),

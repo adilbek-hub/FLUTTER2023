@@ -1,8 +1,10 @@
-import 'package:education/features/presentation/widgets/to_test_button.dart';
+import 'package:education/features/presentation/components/to_test_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:education/features/data/model/geography_model.dart';
 import 'package:education/features/presentation/pages/geography_test/asia_test_page.dart';
+
+import '../../components/test_synagy_button.dart';
 
 class AsiaLesson extends StatelessWidget {
   const AsiaLesson({Key? key, required this.geographyTopicsModel})
@@ -68,17 +70,13 @@ class AsiaLesson extends StatelessWidget {
             geographyTopicsModel[2].asia![3].tema,
           ),
           const SizedBox(height: 5),
-          ToTestButton(
-            text: 'Урматтуу окуучу!! Тест сынагынан өтүңүз.',
-            text2: 'ТЕСТ',
-            onPressed: () {
-              Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const AsiaTestPage(),
-                ),
-              );
-            },
+          TestSynagyButton(
+            onTap: () => Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const AsiaTestPage(),
+              ),
+            ),
           ),
           const SizedBox(height: 10),
         ],

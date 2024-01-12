@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:education/features/presentation/bloc/education_bloc.dart';
-import 'package:education/features/presentation/widgets/correct_incorrect_card.dart';
-import 'package:education/features/presentation/widgets/informatica_bolumu/loading_widget.dart';
-import 'package:education/features/presentation/widgets/slider_widget.dart';
+import 'package:education/features/presentation/components/correct_incorrect_card.dart';
+import 'package:education/features/presentation/components/informatica_bolumu/loading_widget.dart';
+import 'package:education/features/presentation/components/slider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

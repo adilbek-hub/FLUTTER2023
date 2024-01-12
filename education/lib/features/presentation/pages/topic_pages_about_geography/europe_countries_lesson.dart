@@ -1,9 +1,9 @@
-import 'package:education/features/presentation/widgets/table_east.dart';
-import 'package:education/features/presentation/widgets/table_north_balkan.dart';
+import 'package:education/features/presentation/components/table_east.dart';
+import 'package:education/features/presentation/components/table_north_balkan.dart';
 import 'package:education/features/presentation/pages/geography_test/europe_test_page.dart';
-import 'package:education/features/presentation/widgets/to_test_button.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/geography_model.dart';
+import '../../components/test_synagy_button.dart';
 
 class EuropeCountriesLesson extends StatelessWidget {
   const EuropeCountriesLesson({
@@ -116,17 +116,13 @@ class EuropeCountriesLesson extends StatelessWidget {
             geographyTopicsModel[0].joop5!,
           ),
           const SizedBox(height: 20),
-          ToTestButton(
-            text: 'Урматтуу окуучу!! Тест сынагынан өтүңүз.',
-            text2: 'ТЕСТ',
-            onPressed: () {
-              Navigator.push<void>(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (BuildContext context) => const EuropeTestPage(),
-                ),
-              );
-            },
+          TestSynagyButton(
+            onTap: () => Navigator.push<void>(
+              context,
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => const EuropeTestPage(),
+              ),
+            ),
           ),
         ],
       ),

@@ -1,9 +1,9 @@
-import 'package:education/features/presentation/widgets/to_test_button.dart';
 import 'package:flutter/material.dart';
 
 import 'package:education/features/presentation/pages/biology_test/kletka_test_page.dart';
 
 import '../../../data/model/biology_model.dart';
+import '../../components/test_synagy_button.dart';
 
 class Kletka extends StatelessWidget {
   const Kletka({Key? key, required this.biologyTopicsModel}) : super(key: key);
@@ -106,18 +106,14 @@ class Kletka extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
                 const SizedBox(height: 10),
-                ToTestButton(
-                  text: 'Урматтуу окуучу!! Тест сынагынан өтүңүз.',
-                  text2: 'ТЕСТ',
-                  onPressed: () {
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const KletkaJonundoTushunukTestPage(),
-                      ),
-                    );
-                  },
+                TestSynagyButton(
+                  onTap: () => Navigator.push<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const KletkaJonundoTushunukTestPage(),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 10),
               ],

@@ -1,7 +1,7 @@
 import 'package:education/features/presentation/bloc/education_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../widgets/history_bolumu/history_bolumu_bloc.dart';
+import '../components/history_bolumu/history_bolumu_bloc.dart';
 
 class HistoryTopics extends StatelessWidget {
   HistoryTopics({super.key});

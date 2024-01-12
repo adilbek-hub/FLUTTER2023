@@ -2,7 +2,7 @@ import 'package:education/features/presentation/bloc/education_bloc.dart';
 import 'package:education/features/presentation/pages/topic_pages_about_geography/asia.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:education/features/presentation/widgets/informatica_bolumu/loading_widget.dart';
+import 'package:education/features/presentation/components/informatica_bolumu/loading_widget.dart';
 
 class AsiaContinenti extends StatelessWidget {
   const AsiaContinenti({super.key});
