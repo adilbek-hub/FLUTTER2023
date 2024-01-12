@@ -53,7 +53,7 @@ I love the process of developing creative mobile applications. I love spending t
 
 ## 📈 GitHub Stats 
 
-[![Adilbek's github stats](https://github-readme-stats.vercel.app/api?username=yushi1007)](https://github.com/adilbek-hub)
+[![Adilbek's github stats](https://github-readme-stats.vercel.app/api?username=adilbek-hub)](https://github.com/adilbek-hub)
 
 
 ## 📷 Understand the Education project with pictures
