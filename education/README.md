@@ -60,8 +60,8 @@ I love the process of developing creative mobile applications. I love spending t
 <table>
   <tr>
     <td>First Screen Page</td>
-     <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
+     <td>Collection of books</td>
+     <td>Book search</td>
   </tr>
   <tr>
     <td><img src="https://github.com/adilbek-hub/FLUTTER2023/blob/main/education/assets/readme_images/Screenshot_1705059675.png?raw=true" width=270 height=480></td>
@@ -71,9 +71,9 @@ I love the process of developing creative mobile applications. I love spending t
  </table>
  <table>
   <tr>
-    <td>First Screen Page</td>
-     <td>Holiday Mention</td>
-     <td>Present day in purple and selected day in pink</td>
+    <td>Computer science book topics</td>
+     <td>One of the subjects of computer science</td>
+     <td>Study one of the computer science topics</td>
   </tr>
   <tr>
     <td><img src="https://github.com/adilbek-hub/FLUTTER2023/blob/main/education/assets/readme_images/Screenshot_1705060791.png?raw=true" width=270 height=480></td>
@@ -84,10 +84,12 @@ I love the process of developing creative mobile applications. I love spending t
   </table>
  <table>
   <tr>
-    <td>First Screen Page</td>
-     <td>Holiday Mention</td>
+    <td>Study one of the computer science topics</td>
+     <td>Passing a test about the studied topic</td>
+     <td>Your test results</td>
   </tr>
   <tr>
+    <td><img src="https://github.com/adilbek-hub/FLUTTER2023/blob/main/education/assets/readme_images/Screenshot_1705060992.png?raw=true" width=270 height=480></td>
     <td><img src="https://github.com/adilbek-hub/FLUTTER2023/blob/main/education/assets/readme_images/Screenshot_1705061026.png?raw=true" width=270 height=480></td>
     <td><img src="https://github.com/adilbek-hub/FLUTTER2023/blob/main/education/assets/readme_images/Screenshot_1705061065.png?raw=true" width=270 height=480></td>
   </tr>
