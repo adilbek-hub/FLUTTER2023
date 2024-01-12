@@ -112,7 +112,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
                                                 return Column(
                                                   children: [
                                                     SizedBox(
-                                                      height: 650,
+                                                      height: 500,
                                                       child: AlertDialog(
                                                         backgroundColor:
                                                             const Color(
