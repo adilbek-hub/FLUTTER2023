@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
+import 'package:education/config/constants/app_color.dart';
 import 'package:education/features/presentation/pages/geography_test/usa_test_page.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/geography_model.dart';
@@ -15,6 +16,7 @@ class UnitedStates extends StatelessWidget {
     final tema = geographyTopicsModel[1].usa![1].tema;
     final usaStates = geographyTopicsModel[1].usa![1].usaStates;
     return Scaffold(
+      backgroundColor: AppColors.bgc,
       appBar: AppBar(
         centerTitle: true,
         title: Text(usa![0].title ?? ''),

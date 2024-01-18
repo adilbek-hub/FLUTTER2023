@@ -16,7 +16,9 @@ class PersonalComputers extends StatelessWidget {
     final presonalComputers =
         informaticaTopics.informatica[1].personalComputer![0];
     return Scaffold(
+      backgroundColor: const Color(0xfffcf9da),
       appBar: AppBar(
+        backgroundColor: const Color(0xfffcf9da),
         title: Text(informaticaTopics.informatica[0].title),
       ),
       body: Padding(

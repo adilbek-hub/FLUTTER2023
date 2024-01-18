@@ -10,7 +10,10 @@ class EuropeContinenti extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: const Color(0xfffcf9da),
+      appBar: AppBar(
+        backgroundColor: const Color(0xfffcf9da),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<GeographyBloc, EducationState>(

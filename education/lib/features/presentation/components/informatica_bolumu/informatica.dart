@@ -8,7 +8,7 @@ class Informatica extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xfffcf9da),
         body: Column(
           children: [
             Stack(

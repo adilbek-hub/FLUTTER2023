@@ -66,18 +66,19 @@ class _BooksViewState extends State<BooksView> {
                 endIndent: 20,
               ),
               BlocBuilder<SubjectsBloc, EducationState>(
-                  builder: (context, state) {
-                if (state is EducationLoading) {
-                  return const CupertinoActivityIndicator(color: Colors.blue);
-                } else if (state is EducationError) {
-                  return Text(state.text);
-                } else if (state is SubjectsSuccess) {
-                  return SubjectsView(
-                      subjectsTopicsModel: state.subjectsTopicsModel);
-                } else {
-                  throw ('Error in $state');
-                }
-              }),
+                builder: (context, state) {
+                  if (state is EducationLoading) {
+                    return const CupertinoActivityIndicator(color: Colors.blue);
+                  } else if (state is EducationError) {
+                    return Text(state.text);
+                  } else if (state is SubjectsSuccess) {
+                    return SubjectsView(
+                        subjectsTopicsModel: state.subjectsTopicsModel);
+                  } else {
+                    throw ('Error in $state');
+                  }
+                },
+              ),
             ],
           ),
         ),

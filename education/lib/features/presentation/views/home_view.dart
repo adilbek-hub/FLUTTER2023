@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../components/informatica_bolumu/nav_bar.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -12,7 +14,11 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xfffcf9da),
+      appBar: AppBar(
+        backgroundColor: const Color(0xfffcf9da),
+      ),
+      drawer: const NavBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -51,7 +57,8 @@ class _HomeViewState extends State<HomeView> {
                         fontSize: 18,
                       ),
                     )),
-              )
+              ),
+              const Text('0.0.1'),
             ],
           ),
         ),
