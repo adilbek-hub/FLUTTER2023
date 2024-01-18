@@ -12,24 +12,27 @@ class NavBar extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(color: Colors.grey),
-            child: Column(
-              children: [
-                Text(
-                  'Мобилдик тиркеме тууралуу',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
+          const SizedBox(
+            height: 300,
+            child: DrawerHeader(
+              decoration: BoxDecoration(color: Colors.grey),
+              child: Column(
+                children: [
+                  Text(
+                    'Мобилдик тиркеме тууралуу',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                ),
-                Text(
-                  'Билим Ал тиркемеси тиркемедеги маалыматтар менен таанышып жана алган маалыматтын негизинде тесттен өтүү камсыздалган.',
-                  style: TextStyle(
-                    fontSize: 13,
+                  Text(
+                    '"Билим Ал тиркемеси" тиркемедеги маалыматтар менен таанышып жана алган маалыматтын негизинде тесттен өтүү камсыздалган.Урматтуу окурманым, сизде кандайдыр бир суроо талаптарыңыз болсо төмөндөгү платформалардын бири аркылуу тирмемени түзгөн програмисстин өзүнө кайрыла аласыз.',
+                    style: TextStyle(
+                      fontSize: 13,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           ListTile(
