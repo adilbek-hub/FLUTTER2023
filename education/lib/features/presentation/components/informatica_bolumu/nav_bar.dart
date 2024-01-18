@@ -12,11 +12,11 @@ class NavBar extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         children: [
-          const SizedBox(
+          SizedBox(
             height: 300,
             child: DrawerHeader(
-              decoration: BoxDecoration(color: Colors.grey),
-              child: Column(
+              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
+              child: const Column(
                 children: [
                   Text(
                     'Мобилдик тиркеме тууралуу',
