@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:drop_cap_text/drop_cap_text.dart';
-import 'package:education/config/constants/app_color.dart';
 import 'package:education/features/presentation/pages/geography_test/usa_test_page.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/geography_model.dart';
