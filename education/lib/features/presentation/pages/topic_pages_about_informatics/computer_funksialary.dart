@@ -21,9 +21,7 @@ class _ComputerFunksialaryState extends State<ComputerFunksialary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfffcf9da),
       appBar: AppBar(
-        backgroundColor: const Color(0xfffcf9da),
         title: Text(
           'Информатика'.toUpperCase(),
           style: const TextStyle(fontFamily: 'Lato-Black'),

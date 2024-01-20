@@ -16,7 +16,6 @@ class UnitedStates extends StatelessWidget {
     final tema = geographyTopicsModel[1].usa![1].tema;
     final usaStates = geographyTopicsModel[1].usa![1].usaStates;
     return Scaffold(
-      backgroundColor: AppColors.bgc,
       appBar: AppBar(
         centerTitle: true,
         title: Text(usa![0].title ?? ''),

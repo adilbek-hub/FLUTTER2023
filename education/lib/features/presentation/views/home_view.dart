@@ -14,10 +14,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfffcf9da),
-      appBar: AppBar(
-        backgroundColor: const Color(0xfffcf9da),
-      ),
+      appBar: AppBar(),
       drawer: const NavBar(),
       body: Center(
         child: Padding(

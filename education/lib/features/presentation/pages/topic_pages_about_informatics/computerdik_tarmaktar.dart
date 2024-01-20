@@ -17,9 +17,7 @@ class ComputerdicTarmaktar extends StatelessWidget {
     final computerTarmaktary =
         informaticaTopics.informatica[2].computerdicTarmaktar![0];
     return Scaffold(
-      backgroundColor: const Color(0xfffcf9da),
       appBar: AppBar(
-        backgroundColor: const Color(0xfffcf9da),
         title: Text("Информатика".toUpperCase()),
       ),
       body: Padding(

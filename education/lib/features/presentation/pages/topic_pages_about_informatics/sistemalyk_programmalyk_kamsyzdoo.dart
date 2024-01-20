@@ -15,9 +15,7 @@ class SistemalykProgrammalykKamsyzdoo extends StatelessWidget {
     final sistemalykProgramdykKamsyzdoo =
         informaticaTopics.informatica[3].sistemalykProgrammalykKamsyzdoo![0];
     return Scaffold(
-      backgroundColor: const Color(0xfffcf9da),
       appBar: AppBar(
-        backgroundColor: const Color(0xfffcf9da),
         title: Text('Информатика'.toUpperCase()),
       ),
       body: Padding(
