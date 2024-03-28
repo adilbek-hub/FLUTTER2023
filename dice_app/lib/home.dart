@@ -110,19 +110,25 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 20),
             Row(
               children: [
-                Expanded(child: Image.asset('assets/dice$firstDice.png')),
+                Expanded(
+                  child: Image.asset('assets/dice$firstDice.png'),
+                ),
                 const SizedBox(width: 10),
-                Expanded(child: Image.asset('assets/dice$secondDice.png')),
+                Expanded(
+                  child: Image.asset('assets/dice$secondDice.png'),
+                ),
               ],
             ),
             const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
-                    child: Image.asset('assets/dice$computerFirstDice.png')),
+                  child: Image.asset('assets/dice$computerFirstDice.png'),
+                ),
                 const SizedBox(width: 10),
                 Expanded(
-                    child: Image.asset('assets/dice$computerSeconsdDice.png')),
+                  child: Image.asset('assets/dice$computerSeconsdDice.png'),
+                ),
               ],
             ),
             const SizedBox(height: 20),

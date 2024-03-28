@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-import 'package:tata_dev/components/message_code.dart';
 import 'package:tata_dev/components/proceed_button.dart';
 import 'package:tata_dev/feastures/presentation/views/register3_view.dart';
 
@@ -41,16 +40,16 @@ class MessageView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Pinput(
-                      length: 4,
-                      defaultPinTheme: PinTheme(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffE6E5E5),
-                            borderRadius: BorderRadius.circular(8),
-                          )),
-                    )
+                    // Pinput(
+                    //   length: 4,
+                    //   defaultPinTheme: PinTheme(
+                    //       width: 50,
+                    //       height: 50,
+                    //       decoration: BoxDecoration(
+                    //         color: const Color(0xffE6E5E5),
+                    //         borderRadius: BorderRadius.circular(8),
+                    //       )),
+                    // )
                   ],
                 ),
                 const SizedBox(height: 5),
