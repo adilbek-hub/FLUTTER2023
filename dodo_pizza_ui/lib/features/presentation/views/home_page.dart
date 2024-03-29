@@ -1,8 +1,11 @@
 import 'package:dodo_pizza_ui/components/combo_pizza.dart';
 import 'package:dodo_pizza_ui/features/data/model.dart';
+import 'package:dodo_pizza_ui/features/presentation/views/detail_two_view.dart';
 import 'package:flutter/material.dart';
 import 'package:dodo_pizza_ui/components/components_export.dart';
 import 'package:dodo_pizza_ui/constants/costants_export.dart';
+
+import '../../data/models/profitable_tasty.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -71,7 +74,18 @@ class _HomePageState extends State<HomePage> {
                       itemCount: food.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return const UserChoosesTwo();
+                        return UserChoosesTwo(
+                          profitableTasty: profitableTastyList[index],
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailTwoView(
+                                          profitableTasty:
+                                              profitableTastyList[index],
+                                        )));
+                          },
+                        );
                       }),
                 ),
                 SizedBox(
