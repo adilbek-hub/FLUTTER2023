@@ -1,6 +1,6 @@
 import 'package:dodo_pizza_ui/components/combo_pizza.dart';
 import 'package:dodo_pizza_ui/features/data/model.dart';
-import 'package:dodo_pizza_ui/features/presentation/views/detail_two_view.dart';
+import 'package:dodo_pizza_ui/features/presentation/views/detail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:dodo_pizza_ui/components/components_export.dart';
 import 'package:dodo_pizza_ui/constants/costants_export.dart';
@@ -71,22 +71,24 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 100,
                   child: ListView.builder(
-                      itemCount: food.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return UserChoosesTwo(
-                          profitableTasty: profitableTastyList[index],
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DetailTwoView(
-                                          profitableTasty:
-                                              profitableTastyList[index],
-                                        )));
-                          },
-                        );
-                      }),
+                    itemCount: food.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return UserChoosesTwo(
+                        profitableTasty: profitableTastyList[index],
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailView(
+                                profitableTasty: profitableTastyList[index],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
                 SizedBox(
                   height: 100,
@@ -172,6 +174,7 @@ class _HomePageState extends State<HomePage> {
           LocationCard(),
         ],
       ),
+      automaticallyImplyLeading: false,
     );
   }
 }
