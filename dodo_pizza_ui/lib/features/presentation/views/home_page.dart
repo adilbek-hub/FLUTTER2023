@@ -1,8 +1,8 @@
-import 'package:dodo_pizza_ui/components/combo_pizza.dart';
+import 'package:dodo_pizza_ui/components/home_components/combo_pizza.dart';
 import 'package:dodo_pizza_ui/features/data/model.dart';
 import 'package:dodo_pizza_ui/features/presentation/views/detail_view.dart';
 import 'package:flutter/material.dart';
-import 'package:dodo_pizza_ui/components/components_export.dart';
+import 'package:dodo_pizza_ui/components/home_components/components_export.dart';
 import 'package:dodo_pizza_ui/constants/costants_export.dart';
 
 import '../../data/models/type_of_pizza.dart';
