@@ -1,4 +1,4 @@
-import 'package:dodo_pizza_ui/features/data/models/profitable_tasty.dart';
+import 'package:dodo_pizza_ui/features/data/models/type_of_pizza.dart';
 import 'package:flutter/material.dart';
 
 class UserChoosesTwo extends StatelessWidget {
@@ -8,7 +8,7 @@ class UserChoosesTwo extends StatelessWidget {
     required this.profitableTasty,
   });
   final void Function()? onTap;
-  final ProfitableTasty profitableTasty;
+  final TypeOfPizza profitableTasty;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class UserChoosesTwo extends StatelessWidget {
               borderRadius: BorderRadius.circular(18),
               child: SizedBox.fromSize(
                 size: const Size.fromRadius(50),
-                child: Image.network(
+                child: Image.asset(
                   profitableTasty.image,
                   fit: BoxFit.cover,
                 ),
@@ -31,18 +31,21 @@ class UserChoosesTwo extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(profitableTasty.title),
+                Text(
+                  profitableTasty.title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const SizedBox(height: 8),
                 Container(
-                  width: 85,
-                  height: 30,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 203, 202, 202),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Center(
-                    child: Text(profitableTasty.price),
-                  ),
+                  child: Text('от ${profitableTasty.price} сом'),
                 ),
               ],
             ),

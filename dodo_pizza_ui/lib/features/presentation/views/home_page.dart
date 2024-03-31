@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:dodo_pizza_ui/components/components_export.dart';
 import 'package:dodo_pizza_ui/constants/costants_export.dart';
 
-import '../../data/models/profitable_tasty.dart';
+import '../../data/models/type_of_pizza.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -71,17 +71,17 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 100,
                   child: ListView.builder(
-                    itemCount: food.length,
+                    itemCount: typeOfPizzaList.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return UserChoosesTwo(
-                        profitableTasty: profitableTastyList[index],
+                        profitableTasty: typeOfPizzaList[index],
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => DetailView(
-                                profitableTasty: profitableTastyList[index],
+                                profitableTasty: typeOfPizzaList[index],
                               ),
                             ),
                           );

@@ -1,10 +1,13 @@
-import 'package:dodo_pizza_ui/features/data/models/profitable_tasty.dart';
+import 'package:dodo_pizza_ui/features/data/models/small_type_pizza.dart';
+import 'package:dodo_pizza_ui/features/data/models/type_of_pizza.dart';
 import 'package:dodo_pizza_ui/features/presentation/views/home_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DetailView extends StatefulWidget {
   const DetailView({super.key, required this.profitableTasty});
-  final ProfitableTasty profitableTasty;
+  final TypeOfPizza profitableTasty;
 
   @override
   State<DetailView> createState() => _DetailViewState();
@@ -25,17 +28,17 @@ class _DetailViewState extends State<DetailView> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Image.network(
-                    widget.profitableTasty.image,
+                  Image.asset(
+                    widget.profitableTasty.smallPizza.image,
                     fit: BoxFit.cover,
-                    height: 250,
-                    width: 250,
+                    height: 300,
+                    width: 300,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.profitableTasty.title,
+                        widget.profitableTasty.smallPizza.name,
                         style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -50,7 +53,7 @@ class _DetailViewState extends State<DetailView> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      widget.profitableTasty.sizeTitle,
+                      widget.profitableTasty.smallPizza.sizePizza,
                       style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 13,
@@ -59,7 +62,7 @@ class _DetailViewState extends State<DetailView> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    widget.profitableTasty.description,
+                    widget.profitableTasty.smallPizza.description,
                     style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 13,
@@ -102,7 +105,7 @@ class _DetailViewState extends State<DetailView> {
                             child: Text(options[index]),
                           ),
                         ),
-                      ).toList(),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 18),
@@ -144,100 +147,51 @@ class _DetailViewState extends State<DetailView> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 120,
-                        height: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(13),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 3,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            Image.network(
-                              widget.profitableTasty.imageDetail[1],
-                            ),
-                            Text(widget.profitableTasty.titleDetail[0]),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 120,
-                        height: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(13),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 3,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
-                        ),
-                        child: Image.network(
-                          widget.profitableTasty.imageDetail[1],
-                        ),
-                      ),
-                      Container(
-                        width: 120,
-                        height: 150,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(13),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 3,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
-                        ),
-                        child: Image.network(
-                          widget.profitableTasty.imageDetail[2],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 120,
-                          height: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(13),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 3,
-                                offset: const Offset(0, 3),
+                  SizedBox(
+                    child: GridView.count(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 2.0,
+                      mainAxisSpacing: 5.0,
+                      childAspectRatio: 150 / 220,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: List.generate(
+                          widget.profitableTasty.smallPizza.suplements.image
+                              .length, (index) {
+                        final suplementName = widget
+                            .profitableTasty.smallPizza.suplements.name[index];
+                        final suplementImage = widget
+                            .profitableTasty.smallPizza.suplements.image[index];
+                        final suplementPrice = widget
+                            .profitableTasty.smallPizza.suplements.price[index];
+
+                        return Center(
+                          child: Card(
+                            elevation: 4.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0)),
+                            clipBehavior: Clip.antiAlias,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(suplementImage),
+                                  Text(
+                                    suplementName,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  Text('$suplementPrice сом'),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
-                          child: Image.network(
-                            widget.profitableTasty.imageDetail[3],
-                          ),
-                        ),
-                      ],
+                        );
+                      }),
                     ),
                   ),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
@@ -248,9 +202,11 @@ class _DetailViewState extends State<DetailView> {
               child: InkWell(
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
+                  );
                 },
                 child: Container(
                   height: 50,
