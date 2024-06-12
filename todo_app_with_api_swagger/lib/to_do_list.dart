@@ -32,8 +32,11 @@ class _ToDoListPageState extends State<ToDoListPage> {
         replacement: RefreshIndicator(
           onRefresh: fetchData,
           child: ListView.builder(
+            reverse: false,
             itemCount: items.length,
             itemBuilder: (context, index) {
+              final item = items[index] as Map;
+              final id = item['_id'] as String;
               return Card(
                 child: ListTile(
                   leading: CircleAvatar(child: Text('${index + 1}')),
@@ -43,7 +46,8 @@ class _ToDoListPageState extends State<ToDoListPage> {
                     if (value == 'Edit') {
                       //
                     } else if (value == 'Delete') {
-                      //
+                      // delete
+                      deleteById(id);
                     }
                   }, itemBuilder: (context) {
                     return [
@@ -77,6 +81,20 @@ class _ToDoListPageState extends State<ToDoListPage> {
     );
 
     Navigator.push(context, route);
+  }
+
+  Future<void> deleteById(String id) async {
+    // delete the item
+    final url = 'https://api.nstack.in/v1/todos/$id';
+    final uri = Uri.parse(url);
+    final response = await http.delete(uri);
+    if (response.statusCode == 200) {
+      // remove item from the list
+      final filtered = items.where((element) => element['_id'] != id).toList();
+      setState(() {
+        items = filtered;
+      });
+    }
   }
 
   Future<void> fetchData() async {
