@@ -112,12 +112,15 @@ class CodeVerificationScreen extends StatelessWidget {
         final data = jsonDecode(response.body);
         print('Response data: $data');
         final accessToken = data['access_token']; // Алынган токен
-        print('Token: $accessToken');
-        if (accessToken != null) {
+        final refreshToken = data['refresh_token']; // Алынган рефреш токен
+        print('AccessToken: $accessToken');
+        print('Refresh Token: $refreshToken');
+        if (accessToken != null && refreshToken != null) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeScreen(token: accessToken),
+              builder: (context) => HomeScreen(
+                  accesstoken: accessToken, refreshToken: refreshToken),
             ),
           );
         } else {
@@ -165,19 +168,95 @@ class CodeVerificationScreen extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  final String token;
+  final String accesstoken;
+  final String refreshToken;
 
-  const HomeScreen({super.key, required this.token});
+  const HomeScreen(
+      {super.key, required this.accesstoken, required this.refreshToken});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: Center(
-        child: Text('Token: $token'),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('Home'),
+        ),
+        body: Column(
+          children: [
+            Center(
+              child: Text('Token: $accesstoken'),
+            ),
+            Center(
+              child: Text('Refresh Token: $refreshToken'),
+            ),
+          ],
+        ));
   }
 }
+
+/*
+
+рефреш токен менен аксес токен эмне үчүн керек
+
+
+Access Token жана Refresh Token авторизация жана сессияларды башкаруу үчүн колдонулат. Алардын негизги максаттары жана айырмачылыктары төмөндө түшүндүрүлгөн.
+
+Access Token (Аксес Токен)
+Access Token негизги авторизация токени болуп саналат жана ал төмөнкү максаттар үчүн колдонулат:
+
+Авторизация: Бул токенди серверге жөнөтүп, ресурс же API-ге кирүү укугуңузду тастыктайсыз.
+Кыска мөөнөт: Аксес токен кыска убакытка жарактуу болот (мисалы, 15 мүнөт же 1 саат). Бул коопсуздукту жогорулатуу үчүн жасалат. Эгерде токен уурдалса, ал тез арада мөөнөтү бүтөт.
+Refresh Token (Рефреш Токен)
+Refresh Token сессияны узартуу үчүн колдонулат жана анын максаты:
+
+Узак мөөнөт: Рефреш токен көбүнчө узак убакытка жарактуу болот (мисалы, бир нече күн же жума).
+Аксес токенди жаңылоо: Аксес токендин мөөнөтү бүтүп калганда, рефреш токенди колдонуп жаңы аксес токенди алуу үчүн серверге кайрыла аласыз. Бул колдонуучуга кайрадан логин кылуу керектигин болтурбоого жардам берет.
+Колдонуу процессинин агымы
+Логин кылуу:
+
+Колдонуучу логин кылганда, серверден эки токен алат: аксес токен жана рефреш токен.
+Ресурстарга кирүү:
+
+Колдонуучу ресурс же API-ге кирүү үчүн аксес токенди колдонуп серверге кайрылат.
+Сервер аксес токенди текшерип, уруксат берилсе, ресурсту кайтарат.
+Аксес токендин мөөнөтү бүткөндө:
+
+Аксес токендин мөөнөтү бүтсө, колдонуучу рефреш токенди колдонуп жаңы аксес токенди сурайт.
+Сервер рефреш токенди текшерип, жаңы аксес токенди кайтарат.
+Рефреш токендин мөөнөтү бүткөндө:
+
+Рефреш токендин мөөнөтү бүтсө, колдонуучу кайрадан логин кылышы керек.
+Мисал
+Төмөндө рефреш токенди колдонуп жаңы аксес токенди алуу процесси көрсөтүлдү.
+
+Refresh Token менен жаңы Access Token алуу
+dart
+Копировать код
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<void> refreshAccessToken(String refreshToken) async {
+  final url = Uri.parse('https://namito.tatadev.pro/api/users/refresh-token/');
+  final headers = {'Content-Type': 'application/json'};
+  final body = jsonEncode({'refresh_token': refreshToken});
+
+  try {
+    final response = await http.post(url, headers: headers, body: body);
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final newAccessToken = data['access_token'];
+      print('New Access Token: $newAccessToken');
+    } else {
+      print('Failed to refresh access token. Status code: ${response.statusCode}');
+      print('Response body: ${response.body}');
+    }
+  } catch (e) {
+    print('Error: $e');
+  }
+}
+Түшүндүрмөлөр:
+refreshAccessToken функциясы:
+Рефреш токенди серверге жөнөтүп, жаңы аксес токен алат.
+Жаңы аксес токенди print кылат.
+Мына ушундайча, рефреш токен жана аксес токенди колдонуп, колдонуучунун сессиясын коопсуз жана үзгүлтүксүз башкарса болот.
+
+ */
