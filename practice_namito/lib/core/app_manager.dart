@@ -3,8 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppManager {
   AppManager._();
-  static final AppManager _instance = AppManager._();
-  static AppManager get instance => _instance;
+  static AppManager instance = AppManager._();
 
   Future<SharedPreferences> preferences() async {
     return await SharedPreferences.getInstance();
@@ -18,8 +17,8 @@ class AppManager {
   }
 
   Future<String?> getToken() async {
-    final pref = await preferences();
-    final accessToken = pref.getString(AppConstants.instance.accessToken);
-    return accessToken;
+    final prefs = await preferences();
+    final token = prefs.getString(AppConstants.instance.accessToken);
+    return token;
   }
 }

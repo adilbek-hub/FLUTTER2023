@@ -1,42 +1,96 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:practice_namito/core/app_manager.dart';
+import 'package:practice_namito/features/data/model/token.dart';
+import 'package:practice_namito/features/presentation/pages/code_verification/code_verification_screen.dart';
 
 class AuthService {
-  final String baseUrl = 'https://namito.tatadev.pro/api/users/';
+  static const String baseUrl = 'https://namito.tatadev.pro/api/users';
 
-  Future<bool> sendCode(String phoneNumber) async {
-    final url = Uri.parse('${baseUrl}login/');
-    final headers = {'Content-Type': 'application/json'};
-    final body = jsonEncode({'phone': phoneNumber});
+  static Future<Map<String, dynamic>?> postRequest(
+      String endpoint, Map<String, dynamic> body) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl$endpoint'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(body),
+      );
 
-    print('Sending phone number: $phoneNumber'); // Add this line for debugging
-
-    final response = await http.post(url, headers: headers, body: body);
-
-    // Print response for debugging
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-
-    return response.statusCode == 200;
-  }
-
-  Future<String?> verifyCode(String code) async {
-    final url = Uri.parse('${baseUrl}verify-code/');
-    final headers = {'Content-Type': 'application/json'};
-    final body = jsonEncode({'code': code});
-
-    final response = await http.post(url, headers: headers, body: body);
-
-    // Print response for debugging
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      return data['access_token'];
-    } else {
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        if (kDebugMode) {
+          print('Failed request. Status code: ${response.statusCode}');
+        }
+        if (kDebugMode) {
+          print('Response body: ${response.body}');
+        }
+        return null;
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error: $e');
+      }
       return null;
     }
+  }
+}
+
+class LoginRepo {
+  static Future<void> sendPhoneNumber(
+      BuildContext context, String phoneNumber) async {
+    if (!phoneNumber.startsWith('+996')) {
+      phoneNumber = '+996$phoneNumber';
+    }
+
+    final response =
+        await AuthService.postRequest('/login/', {'phone_number': phoneNumber});
+
+    if (response != null) {
+      final smsCode = response['code'];
+      if (kDebugMode) {
+        print('SMS Code: $smsCode');
+      }
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CodeVerificationScreen(
+            phoneNumber: phoneNumber,
+            smsCode: smsCode,
+          ),
+        ),
+      );
+    }
+  }
+
+  static Future<TokenModel?> verifyCode(String code) async {
+    final response =
+        await AuthService.postRequest('/verify-code/', {'code': code});
+
+    if (response != null) {
+      final tokenModel = TokenModel.fromJson(response);
+      if (kDebugMode) {
+        print('Аксесс токен: ${tokenModel.accessToken}');
+      }
+      if (kDebugMode) {
+        print('Рефреш токен: ${tokenModel.refreshToken}');
+      }
+
+      if (tokenModel.accessToken != null && tokenModel.refreshToken != null) {
+        await AppManager.instance.setToken(
+          accessToken: tokenModel.accessToken!,
+          refreshToken: tokenModel.refreshToken!,
+        );
+        return tokenModel;
+      } else {
+        if (kDebugMode) {
+          print('Token not found in response.');
+        }
+      }
+    }
+    return null;
   }
 }
