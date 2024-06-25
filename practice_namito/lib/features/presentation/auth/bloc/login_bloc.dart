@@ -7,7 +7,7 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final Repo repo;
+  final AuthService repo;
   LoginBloc({required this.repo}) : super(LoginInitial()) {
     on<PostLoginEvent>((PostLoginEvent event, Emitter<LoginState> emit) {
       emit(const LoginLoading(child: CircularProgressIndicator.adaptive()));

@@ -112,15 +112,12 @@ class CodeVerificationScreen extends StatelessWidget {
         final data = jsonDecode(response.body);
         print('Response data: $data');
         final accessToken = data['access_token']; // Алынган токен
-        final refreshToken = data['refresh_token']; // Алынган рефреш токен
-        print('AccessToken: $accessToken');
-        print('Refresh Token: $refreshToken');
-        if (accessToken != null && refreshToken != null) {
+        print('Token: $accessToken');
+        if (accessToken != null) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomeScreen(
-                  accesstoken: accessToken, refreshToken: refreshToken),
+              builder: (context) => HomeScreen(token: accessToken),
             ),
           );
         } else {
@@ -168,30 +165,24 @@ class CodeVerificationScreen extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  final String accesstoken;
-  final String refreshToken;
+  final String token;
 
-  const HomeScreen(
-      {super.key, required this.accesstoken, required this.refreshToken});
+  const HomeScreen({super.key, required this.token});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home'),
-        ),
-        body: Column(
-          children: [
-            Center(
-              child: Text('Token: $accesstoken'),
-            ),
-            Center(
-              child: Text('Refresh Token: $refreshToken'),
-            ),
-          ],
-        ));
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: Center(
+        child: Text('Token: $token'),
+      ),
+    );
   }
 }
+
+
 
 /*
 
