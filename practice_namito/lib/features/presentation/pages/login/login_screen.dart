@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:practice_namito/features/data/auth_service.dart';
+import 'package:practice_namito/features/data/repo/login_repo.dart';
+import 'package:practice_namito/features/presentation/pages/code_verification/code_verification_screen.dart';
 
 class LoginScreen extends StatelessWidget {
-  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
 
   LoginScreen({super.key});
 
@@ -10,24 +11,48 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Login Screen'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              controller: _phoneController,
-              decoration: const InputDecoration(labelText: 'Phone Number'),
+              controller: phoneNumberController,
+              decoration: const InputDecoration(
+                labelText: 'Phone Number',
+              ),
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                final phoneNumber = _phoneController.text;
-                LoginRepo.sendPhoneNumber(context, phoneNumber);
+              onPressed: () async {
+                final String phoneNumber = phoneNumberController.text;
+                if (phoneNumber.isNotEmpty) {
+                  try {
+                    final LoginRepo loginRepo = LoginRepo();
+                    await loginRepo.login(phoneNumber: phoneNumber);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            VerifyPinScreen(phoneNumber: phoneNumber),
+                      ),
+                    );
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Login failed: $e')),
+                    );
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text('Please enter your phone number')),
+                  );
+                }
               },
-              child: const Text('Send Code'),
+              child: const Text('Login'),
             ),
           ],
         ),

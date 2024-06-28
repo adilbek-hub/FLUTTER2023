@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice_namito/features/presentation/pages/login/login_screen.dart';
+import 'package:practice_namito/features/presentation/pages/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginScreen(),
+    return const MaterialApp(
+      home: HomeScreen(),
     );
   }
 }
