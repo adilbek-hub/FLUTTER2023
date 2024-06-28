@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practice_namito/features/data/model/token.dart';
 import 'package:practice_namito/features/data/repo/login_repo.dart';
-import 'package:practice_namito/features/presentation/pages/home/home_page.dart';
+import 'package:practice_namito/features/presentation/pages/home/top_product_page.dart';
 
 class VerifyPinScreen extends StatelessWidget {
   final String phoneNumber;
@@ -45,7 +45,7 @@ class VerifyPinScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
+                            builder: (context) => const TopProductPage()));
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Verification failed: $e')),

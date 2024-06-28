@@ -1,20 +1,24 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:practice_namito/features/data/model/top_products.dart';
 import 'package:practice_namito/features/data/repo/like_toggle.dart';
 import 'package:practice_namito/features/data/repo/top_products.dart';
+import 'package:practice_namito/features/presentation/pages/home/bloc/top_product_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/login/login_screen.dart';
+import 'package:practice_namito/features/presentation/pages/product_detail_page/product_detail_page.dart';
 import 'package:practice_namito/features/presentation/pages/profile_page.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class TopProductPage extends StatefulWidget {
+  const TopProductPage({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<TopProductPage> createState() => _TopProductPageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _TopProductPageState extends State<TopProductPage> {
   late Future<List<TopProduct>> topProducts;
+  bool? isLike;
   Map<int, bool> favoriteProducts = {}; // Продукт IDнин лайк абалын сактоо
   final LikeRepo likeRepo = LikeRepo(); // LikeRepo классын инстанция кылуу
 
@@ -55,48 +59,47 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: FutureBuilder<List<TopProduct>>(
-        future: topProducts,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
+      body: BlocBuilder<TopProductBloc, TopProductState>(
+        builder: (context, state) {
+          if (state is TopProductLoading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No products found'));
-          } else {
+          } else if (state is TopProductSuccess) {
             return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                final product = snapshot.data![index];
-                final isFavorite = favoriteProducts[product.id] ?? false;
-                return Stack(
-                  children: [
-                    Card(
+                itemCount: state.topProducts.length,
+                itemBuilder: (context, index) {
+                  final product = state.topProducts[index];
+                  final isFavorite = favoriteProducts[product.id] ?? false;
+                  isLike = isFavorite;
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetailPage(id: product.id);
+                          },
+                        ),
+                      );
+                    },
+                    child: Card(
                       child: ListTile(
                         leading: Text('ID: ${product.id}'),
                         title: Text(product.name),
-                        subtitle: Text(product.description),
-                        trailing: Text('\$${product.price.price}'),
-                      ),
-                    ),
-                    Positioned(
-                      right: 8,
-                      top: 8,
-                      child: InkWell(
-                        onTap: () => _toggleFavorite(productId: product.id),
-                        child: CircleAvatar(
-                          child: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_border,
-                            color: isFavorite ? Colors.red : null,
-                          ),
+                        subtitle: Text(product.price.price.toString()),
+                        trailing: IconButton(
+                          icon: Icon(isLike ?? false
+                              ? Icons.favorite
+                              : Icons.favorite_border),
+                          onPressed: () {
+                            _toggleFavorite(productId: product.id);
+                          },
                         ),
                       ),
                     ),
-                  ],
-                );
-              },
-            );
+                  );
+                });
+          } else {
+            return const Center(child: Text('Error'));
           }
         },
       ),
