@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:practice_namito/features/data/model/add_card_model.dart';
+import 'package:practice_namito/features/data/repo/cart_repo.dart';
 import 'package:practice_namito/features/data/repo/product_detail_repo.dart';
-import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/product_detail_bloc.dart';
+import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/add_to_card_bloc/add_to_card_bloc.dart';
+import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/product_detail_bloc/product_detail_bloc.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key, required this.id});
@@ -13,12 +16,21 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
   late final ProductDetailBloc _productDetailBloc;
+  late final AddToCardBloc _addToCardBloc;
   @override
   void initState() {
     super.initState();
     _productDetailBloc =
         ProductDetailBloc(productDetailRepo: ProductDetailRepo())
           ..add(GetProductDetail(productId: widget.id));
+    _addToCardBloc = AddToCardBloc(cardRepo: CartRepo());
+  }
+
+  @override
+  void dispose() {
+    _productDetailBloc.close();
+    _addToCardBloc.close();
+    super.dispose();
   }
 
   @override
@@ -44,7 +56,17 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.amberAccent),
-                      onPressed: () {},
+                      onPressed: () {
+                        final variant = AddCartModel(
+                          productVariant:
+                              state.productDetail.variants?.firstOrNull?.id,
+                          quantity: 1,
+                          toPurchase: true,
+                        );
+                        context
+                            .read<AddToCardBloc>()
+                            .add(AddToCard(addCartModel: variant));
+                      },
                       child: const Text('Add To Cart'))
                 ],
               ),
