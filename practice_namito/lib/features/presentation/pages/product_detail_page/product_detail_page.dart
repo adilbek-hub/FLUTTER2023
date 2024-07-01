@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:practice_namito/features/data/model/add_card_model.dart';
 import 'package:practice_namito/features/data/repo/cart_repo.dart';
 import 'package:practice_namito/features/data/repo/product_detail_repo.dart';
+import 'package:practice_namito/features/presentation/pages/cart_page/bloc/get_product_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/add_to_card_bloc/add_to_card_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/product_detail_bloc/product_detail_bloc.dart';
 
@@ -66,8 +67,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         context
                             .read<AddToCardBloc>()
                             .add(AddToCard(addCartModel: variant));
+                        context.read<GetProductBloc>().add(const GetProduct());
                       },
-                      child: const Text('Add To Cart'))
+                      child: const Text('Add To Cart')),
                 ],
               ),
             );

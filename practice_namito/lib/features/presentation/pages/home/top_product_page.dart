@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:practice_namito/features/data/model/top_products.dart';
 import 'package:practice_namito/features/data/repo/like_toggle.dart';
 import 'package:practice_namito/features/data/repo/top_products.dart';
+import 'package:practice_namito/features/presentation/pages/cart_page/cart_page.dart';
 import 'package:practice_namito/features/presentation/pages/home/bloc/top_product_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/login/login_screen.dart';
 import 'package:practice_namito/features/presentation/pages/product_detail_page/product_detail_page.dart';
@@ -103,12 +104,24 @@ class _TopProductPageState extends State<TopProductPage> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()));
-        },
-        child: const Icon(Icons.arrow_forward_ios_outlined),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const CartPage()));
+            },
+            child: const Text('Show Cart'),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+            },
+            child: const Icon(Icons.arrow_forward_ios_outlined),
+          ),
+        ],
       ),
     );
   }

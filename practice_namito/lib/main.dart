@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:practice_namito/features/data/model/add_card_model.dart';
 import 'package:practice_namito/features/data/repo/cart_repo.dart';
 import 'package:practice_namito/features/data/repo/top_products.dart';
+import 'package:practice_namito/features/presentation/pages/cart_page/bloc/get_product_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/home/bloc/top_product_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/home/top_product_page.dart';
 import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/add_to_card_bloc/add_to_card_bloc.dart';
@@ -25,7 +26,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AddToCardBloc(cardRepo: CartRepo())
             ..add(AddToCard(addCartModel: AddCartModel())),
-        )
+        ),
+        BlocProvider(
+            create: (context) =>
+                GetProductBloc(CartRepo())..add(const GetProduct()))
       ],
       child: const MaterialApp(
         home: TopProductPage(),
