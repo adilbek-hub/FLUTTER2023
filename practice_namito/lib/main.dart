@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:practice_namito/features/data/model/add_card_model.dart';
-import 'package:practice_namito/features/data/repo/cart_repo.dart';
-import 'package:practice_namito/features/data/repo/top_products.dart';
-import 'package:practice_namito/features/presentation/pages/cart_page/bloc/get_product_bloc.dart';
-import 'package:practice_namito/features/presentation/pages/home/bloc/top_product_bloc.dart';
-import 'package:practice_namito/features/presentation/pages/home/top_product_page.dart';
-import 'package:practice_namito/features/presentation/pages/product_detail_page/bloc/add_to_card_bloc/add_to_card_bloc.dart';
+import 'package:practice_namito/features/data/repo/like_toggle.dart';
+import 'package:practice_namito/features/data/repo/login_repo.dart';
+import 'package:practice_namito/features/data/repo/top_product_repo.dart';
+import 'package:practice_namito/features/presentation/pages/login/bloc/login_bloc_bloc.dart';
+import 'package:practice_namito/features/presentation/pages/top_product_page/like_bloc/like_bloc.dart';
+import 'package:practice_namito/features/presentation/pages/top_product_page/top_product_page.dart';
+import 'package:practice_namito/features/presentation/pages/top_product_page/top_products_bloc/top_product_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,16 +20,18 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => TopProductBloc(topProductRepo: TopProductRepo())
-            ..add(const GetTopProducts()),
+          create: (context) => LoginBloc(loginRepo: LoginRepo()),
+          child: Container(),
         ),
         BlocProvider(
-          create: (context) => AddToCardBloc(cardRepo: CartRepo())
-            ..add(AddToCard(addCartModel: AddCartModel())),
+          create: (context) =>
+              TopProductBloc(topProductsService: TopProductsService()),
+          child: Container(),
         ),
         BlocProvider(
-            create: (context) =>
-                GetProductBloc(CartRepo())..add(const GetProduct()))
+          create: (context) => LikeBloc(likeRepo: LikeRepo()),
+          child: Container(),
+        )
       ],
       child: const MaterialApp(
         home: TopProductPage(),

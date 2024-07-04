@@ -7,6 +7,9 @@ sealed class TopProductEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetTopProducts extends TopProductEvent {
-  const GetTopProducts();
+class GetTopProductEvent extends TopProductEvent {
+  const GetTopProductEvent();
+
+  @override
+  List<Object> get props => [];
 }

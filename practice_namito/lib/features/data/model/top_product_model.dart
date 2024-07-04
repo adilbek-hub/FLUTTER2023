@@ -24,7 +24,7 @@ class TopProduct {
   final ProductPrice price;
   final double averageRating;
   final List<Tag> tags;
-  final bool isFavorite;
+  bool isFavorite;
   final int cartQuantity;
   final List<Image> image;
 

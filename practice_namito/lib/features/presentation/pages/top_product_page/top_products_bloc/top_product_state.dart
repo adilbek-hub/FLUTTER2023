@@ -12,11 +12,17 @@ final class TopProductInitial extends TopProductState {}
 final class TopProductLoading extends TopProductState {}
 
 final class TopProductSuccess extends TopProductState {
-  final List<TopProduct> topProducts;
-  const TopProductSuccess({required this.topProducts});
+  final List<TopProduct> topProduct;
+  const TopProductSuccess({required this.topProduct});
+
+  @override
+  List<Object> get props => [topProduct];
 }
 
 final class TopProductError extends TopProductState {
   final String message;
-  const TopProductError({required this.message});
+  const TopProductError(this.message);
+
+  @override
+  List<Object> get props => [message];
 }

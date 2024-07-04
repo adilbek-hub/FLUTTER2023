@@ -11,8 +11,8 @@ class ProfilePage extends StatelessWidget {
         title: const Text('Profile'),
       ),
       body: Center(
-        child: InkWell(
-            onTap: () {
+        child: TextButton(
+            onPressed: () {
               AppManager.instance.setToken(accessToken: '', refreshToken: '');
             },
             child: const Text('Logout')),

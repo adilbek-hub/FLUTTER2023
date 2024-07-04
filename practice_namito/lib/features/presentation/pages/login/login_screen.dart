@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:practice_namito/features/data/repo/login_repo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:practice_namito/features/presentation/pages/code_verification/code_verification_screen.dart';
+import 'package:practice_namito/features/presentation/pages/login/bloc/login_bloc_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController phoneNumberController = TextEditingController();
@@ -26,33 +27,46 @@ class LoginScreen extends StatelessWidget {
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                final String phoneNumber = phoneNumberController.text;
-                if (phoneNumber.isNotEmpty) {
-                  try {
-                    final LoginRepo loginRepo = LoginRepo();
-                    await loginRepo.login(phoneNumber: phoneNumber);
+            BlocConsumer<LoginBloc, LoginBlocState>(
+              listener: (context, state) {
+                if (state is LoginBlocSuccess) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            VerifyPinScreen(phoneNumber: phoneNumber),
+                        builder: (context) => VerifyPinScreen(
+                            phoneNumber: phoneNumberController.text),
                       ),
                     );
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Login failed: $e')),
-                    );
-                  }
-                } else {
+                  });
+                } else if (state is LoginBlocError) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Please enter your phone number')),
+                    SnackBar(content: Text('Login failed: ${state.error}')),
                   );
                 }
               },
-              child: const Text('Login'),
+              builder: (context, state) {
+                if (state is LoginBlocLoading) {
+                  return const CircularProgressIndicator();
+                }
+
+                return ElevatedButton(
+                  onPressed: () {
+                    final String phoneNumber = phoneNumberController.value.text;
+                    if (phoneNumber.isNotEmpty) {
+                      context
+                          .read<LoginBloc>()
+                          .add(LoginEvent(phoneNumber: phoneNumber));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text('Please enter your phone number')),
+                      );
+                    }
+                  },
+                  child: const Text('Login'),
+                );
+              },
             ),
           ],
         ),

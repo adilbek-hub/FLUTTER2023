@@ -14,6 +14,13 @@ class AppManager {
     final prefs = await preferences();
     await prefs.setString(AppConstants.instance.accessToken, accessToken);
     await prefs.setString(AppConstants.instance.refreshToken, refreshToken);
+    // Show after logout
+    final clearedAccessToken =
+        prefs.getString(AppConstants.instance.accessToken);
+    final clearedRefreshToken =
+        prefs.getString(AppConstants.instance.refreshToken);
+    print('AccessToken: $clearedAccessToken');
+    print('RefreshToken: $clearedRefreshToken');
   }
 
   Future<String?> getToken() async {

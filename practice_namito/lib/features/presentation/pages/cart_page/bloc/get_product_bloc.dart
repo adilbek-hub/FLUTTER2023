@@ -8,7 +8,7 @@ part 'get_product_state.dart';
 
 class GetProductBloc extends Bloc<GetProductEvent, GetProductState> {
   final CartRepo cardRepo;
-  GetProductBloc(this.cardRepo) : super(GetProductInitial()) {
+  GetProductBloc({required this.cardRepo}) : super(GetProductInitial()) {
     on<GetProductEvent>((event, emit) async {
       emit(GetProductLoading());
       try {
