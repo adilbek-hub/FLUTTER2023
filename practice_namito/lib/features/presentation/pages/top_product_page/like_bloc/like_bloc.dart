@@ -9,21 +9,24 @@ part 'like_state.dart';
 class LikeBloc extends Bloc<LikeEvent, LikeState> {
   final LikeRepo likeRepo;
   LikeBloc({required this.likeRepo}) : super(LikeInitial()) {
-    on<LikeProductEvent>((event, emit) async {
-      emit(LikeLoading());
-
-      try {
-        final Response response =
-            await likeRepo.like(productId: event.productId);
-        if (response.statusCode == 200) {
-          emit(LikeSuccess());
+    on<LikeProductEvent>(
+      (event, emit) async {
+        emit(LikeLoading());
+        try {
+          final Response response =
+              await likeRepo.like(productId: event.productId);
+          emit(LikeSuccess(
+              response: response.data["message"], productId: event.productId));
+        } on DioException catch (e) {
+          if (e.response?.statusCode == 401) {
+            emit(Unauthorized(
+              errorMessage: e.response?.data["detail"],
+            ));
+          } else {
+            emit(LikeError(e.response?.data["detail"]));
+          }
         }
-      } on DioException catch (e) {
-        if (e.response?.statusCode == 401) {
-          emit(Unauthorized());
-        }
-        emit(LikeError(e.toString()));
-      }
-    });
+      },
+    );
   }
 }
