@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) =>
-              TopProductBloc(topProductsService: TopProductsService()),
+              TopProductBloc(topProductsService: TopProductsService())
+                ..add(const GetTopProductEvent()),
           child: Container(),
         ),
         BlocProvider(
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: const MaterialApp(
-        home: TopProductPage(),
+        home: TopProductsPage(),
       ),
     );
   }

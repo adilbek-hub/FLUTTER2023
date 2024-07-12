@@ -45,7 +45,7 @@ class VerifyPinScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const TopProductPage()));
+                            builder: (context) => const TopProductsPage()));
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Verification failed: $e')),

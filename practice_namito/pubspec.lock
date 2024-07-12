@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      sha256: "9c695cc963bf1d04a47bd6021f68befce8970bcd61d24938e1fb0918cf5d9c42"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.1"
   characters:
     dependency: transitive
     description:
@@ -81,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  fan_carousel_image_slider:
+    dependency: "direct main"
+    description:
+      name: fan_carousel_image_slider
+      sha256: af6fa57110a68d054a94784896f213b088f8debe94eea64eaf97b39ad5c8c21b
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   ffi:
     dependency: transitive
     description:
@@ -144,6 +160,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  infinite_carousel:
+    dependency: "direct main"
+    description:
+      name: infinite_carousel
+      sha256: "572967b028f4803e5f4be9adee5760b6c4834eb6912b0f2292f2d93a51912ba0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   leak_tracker:
     dependency: transitive
     description:

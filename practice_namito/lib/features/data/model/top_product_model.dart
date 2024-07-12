@@ -17,16 +17,16 @@ List<TopProduct> topProductFromJson(String str) {
 }
 
 class TopProduct {
-  final int id;
-  final String name;
-  final String description;
-  final String category;
-  final ProductPrice price;
-  final double averageRating;
-  final List<Tag> tags;
-  bool isFavorite;
-  final int cartQuantity;
-  final List<Image> image;
+  final int? id;
+  final String? name;
+  final String? description;
+  final String? category;
+  final ProductPrice? price;
+  final double? averageRating;
+  final List<Tag>? tags;
+  bool? isFavorite;
+  final int? cartQuantity;
+  final List<Image>? image;
 
   TopProduct({
     required this.id,
@@ -60,8 +60,8 @@ class TopProduct {
 }
 
 class Image {
-  final int variantId;
-  final String imageUrl;
+  final int? variantId;
+  final String? imageUrl;
 
   Image({
     required this.variantId,
@@ -75,8 +75,8 @@ class Image {
 }
 
 class Tag {
-  final String color;
-  final String name;
+  final String? color;
+  final String? name;
 
   Tag({
     required this.color,

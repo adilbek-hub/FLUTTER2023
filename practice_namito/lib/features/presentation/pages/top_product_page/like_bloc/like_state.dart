@@ -14,12 +14,17 @@ class LikeLoading extends LikeState {}
 class LikeSuccess extends LikeState {
   final String response;
   final int productId;
+  final bool isLiked;
 
-  const LikeSuccess({required this.response, required this.productId});
+  const LikeSuccess({
+    required this.response,
+    required this.productId,
+    required this.isLiked,
+  });
 }
 
 class LikeError extends LikeState {
-  const LikeError(this.error);
+  const LikeError({required this.error});
   final String error;
 
   @override

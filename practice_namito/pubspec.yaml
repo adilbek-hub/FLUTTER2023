@@ -41,6 +41,10 @@ dependencies:
   dio: ^5.4.3+1
   shared_preferences: ^2.2.2
   provider: ^6.1.2
+  carousel_slider: ^4.0.0
+  infinite_carousel: ^1.1.1
+  fan_carousel_image_slider: ^1.0.1
+  
 
 dev_dependencies:
   flutter_test:
