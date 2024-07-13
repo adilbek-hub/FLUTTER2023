@@ -9,7 +9,7 @@ part 'like_state.dart';
 class LikeBloc extends Bloc<LikeEvent, LikeState> {
   final LikeRepo likeRepo;
 
-  LikeBloc({required this.likeRepo}) : super(LikeInitial()) {
+  LikeBloc(this.likeRepo) : super(LikeInitial()) {
     on<LikeProductEvent>((event, emit) async {
       emit(LikeLoading());
       try {

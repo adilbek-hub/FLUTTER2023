@@ -30,13 +30,11 @@ class MyApp extends StatelessWidget {
           child: Container(),
         ),
         BlocProvider(
-          create: (context) => LikeBloc(likeRepo: LikeRepo()),
+          create: (context) => LikeBloc(LikeRepo()),
           child: Container(),
         )
       ],
-      child: const MaterialApp(
-        home: TopProductsPage(),
-      ),
+      child: const MaterialApp(home: TopProductsPage()),
     );
   }
 }
