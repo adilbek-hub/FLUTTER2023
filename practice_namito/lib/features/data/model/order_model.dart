@@ -222,7 +222,7 @@ class ProductSizeModel {
   }
 }
 
-class Images {
+class ImagesOrder {
   int? id;
   String? image;
   String? smallImage;
@@ -230,7 +230,7 @@ class Images {
   int? product;
   int? color;
 
-  Images(
+  ImagesOrder(
       {this.id,
       this.image,
       this.smallImage,
@@ -238,7 +238,7 @@ class Images {
       this.product,
       this.color});
 
-  Images.fromJson(Map<String, dynamic> json) {
+  ImagesOrder.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     image = json['image'];
     smallImage = json['small_image'];

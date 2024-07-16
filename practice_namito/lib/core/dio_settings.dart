@@ -1,7 +1,10 @@
 import "dart:async";
 
 import "package:dio/dio.dart";
+import "package:flutter_dotenv/flutter_dotenv.dart";
 import "package:practice_namito/core/app_manager.dart";
+
+final String baseUrl = dotenv.env['API_BASE_URL'] ?? 'https://default.url';
 
 class DioSettings {
   DioSettings() {
@@ -10,12 +13,12 @@ class DioSettings {
 
   Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'https://namito.tatadev.pro/api/',
+      baseUrl: baseUrl,
       headers: {
         "Accept": "application/json",
       },
-      // connectTimeout: const Duration(seconds: 10),
-      // receiveTimeout: const Duration(seconds: 10),
+      connectTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 10),
     ),
   );
 

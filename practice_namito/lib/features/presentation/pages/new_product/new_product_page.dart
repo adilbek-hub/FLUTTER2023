@@ -41,7 +41,7 @@ class NewProductsPage extends StatelessWidget {
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           childAspectRatio: MediaQuery.of(context).size.width /
-                              (MediaQuery.of(context).size.height / 1.2),
+                              (MediaQuery.of(context).size.height / 1.1),
                         ),
                         delegate: SliverChildBuilderDelegate(
                           (context, index) {

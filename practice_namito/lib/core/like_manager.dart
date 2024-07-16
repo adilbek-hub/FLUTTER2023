@@ -30,25 +30,27 @@ class _LikeButtonState extends State<LikeButton> {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.thumb_up,
-        color: isLiked ? Colors.red : null,
+    return BlocListener<LikeBloc, LikeState>(
+      listener: (context, state) {
+        if (state is LikeSuccess && state.productId == widget.productId) {
+          setState(() {
+            isLiked = state.isLiked;
+          });
+          widget.onLiked(isLiked);
+        }
+      },
+      child: IconButton(
+        icon: Icon(
+          Icons.thumb_up,
+          color: isLiked ? Colors.red : null,
+        ),
+        onPressed: () => _toggleLike(context),
       ),
-      onPressed: () => _toggleLike(context),
     );
   }
 
   void _toggleLike(BuildContext context) {
     context.read<LikeBloc>().add(LikeProductEvent(productId: widget.productId));
-    context.read<LikeBloc>().stream.listen((state) {
-      if (state is LikeSuccess && state.productId == widget.productId) {
-        setState(() {
-          isLiked = state.isLiked;
-        });
-        widget.onLiked(isLiked);
-      }
-    });
   }
 }
 
