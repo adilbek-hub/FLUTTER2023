@@ -11,36 +11,70 @@ class NavigationBars extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      backgroundColor: Colors.white,
-      onDestinationSelected: (index) {
-        // Эгерде "подать" тексти басылса, эч кандай логика аткарылбайт
-        if (index != 2) {
-          // "подать" тексти басылса, эч кандай иш-аракет болбойт
-          if (index > 2) {
-            // Эгер индекс 2ден чоң болсо, рут индексин бирге кыскартабыз
-            tabsRouter.setActiveIndex(index - 1);
-          } else {
-            // Калган учурларда индекс туура иштейт
-            tabsRouter.setActiveIndex(index);
+    return NavigationBarTheme(
+      data: NavigationBarThemeData(
+        indicatorColor: Colors.transparent,
+        labelTextStyle: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const TextStyle(
+              fontSize: 12,
+              color: Colors.green,
+            );
           }
-        }
-      },
-      selectedIndex: tabsRouter.activeIndex < 2
-          ? tabsRouter.activeIndex
-          : tabsRouter.activeIndex + 1,
-      destinations: const <Widget>[
-        NavigationDestination(
-            icon: Icon(Icons.home), label: 'главное'), // Индекс 0
-        NavigationDestination(
-            icon: Icon(Icons.favorite), label: 'избранные'), // Индекс 1
-        NavigationDestination(
-            icon: SizedBox.shrink(), label: 'подать'), // Индекс 2
-        NavigationDestination(
-            icon: Icon(Icons.chat), label: 'чаты'), // Индекс 3
-        NavigationDestination(
-            icon: Icon(Icons.person), label: 'профиль'), // Индекс 4
-      ],
+          return const TextStyle(
+            fontSize: 12,
+            color: Colors.grey,
+          );
+        }),
+        iconTheme: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const IconThemeData(
+              color: Colors.green,
+            );
+          }
+          return const IconThemeData(
+            color: Colors.grey,
+          );
+        }),
+      ),
+      child: NavigationBar(
+        backgroundColor: Colors.white,
+        onDestinationSelected: (index) {
+          if (index != 2) {
+            if (index > 2) {
+              tabsRouter.setActiveIndex(index - 1);
+            } else {
+              tabsRouter.setActiveIndex(index);
+            }
+          }
+        },
+        selectedIndex: tabsRouter.activeIndex < 2
+            ? tabsRouter.activeIndex
+            : tabsRouter.activeIndex + 1,
+        destinations: const <Widget>[
+          NavigationDestination(
+            icon: Icon(Icons.home),
+            label: 'главное',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.favorite),
+            label: 'избранные',
+          ),
+          NavigationDestination(
+            icon: SizedBox.shrink(),
+            label: 'подать',
+            enabled: false,
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.chat),
+            label: 'чаты',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person),
+            label: 'профиль',
+          ),
+        ],
+      ),
     );
   }
 }

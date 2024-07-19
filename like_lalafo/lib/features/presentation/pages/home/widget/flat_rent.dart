@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
 
 class FlatRent extends StatelessWidget {
   const FlatRent({
@@ -8,10 +9,10 @@ class FlatRent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 178, // Height of the horizontal list
+      height: 178,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 20, // Number of items
+        itemCount: 20,
         itemBuilder: (context, index) {
           return Column(
             children: [
@@ -21,7 +22,7 @@ class FlatRent extends StatelessWidget {
                   width: 100,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: Colors.grey[300],
+                    color: ColorConstants.grey.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Center(
@@ -34,7 +35,7 @@ class FlatRent extends StatelessWidget {
                 width: 100,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],
+                  color: ColorConstants.grey.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Center(

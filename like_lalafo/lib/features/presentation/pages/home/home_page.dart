@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
           slivers: <Widget>[
             const SliverToBoxAdapter(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 20),
                   SearchFilter(),
@@ -30,11 +31,14 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 20),
                   Banners(),
                   SizedBox(height: 20),
-                  AppText(
-                    title: 'Аренда квартир',
-                    textType: TextType.subtitle,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: AppText(
+                      title: 'Аренда квартир',
+                      textType: TextType.subtitle,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                   SizedBox(height: 20),
                   FlatRent(),
@@ -42,14 +46,22 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SliverGrid.builder(
-              itemCount: 30,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemBuilder: (BuildContext context, int index) {
-                return const Card();
-              },
-            )
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              sliver: SliverGrid(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return Container(child: const Card());
+                  },
+                  childCount: 30,
+                ),
+              ),
+            ),
           ],
         ),
       ),

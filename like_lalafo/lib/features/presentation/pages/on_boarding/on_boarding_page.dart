@@ -12,10 +12,10 @@ class OnBoardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: const [
-        HomeRoute(), // Индекс 0
-        FavoriteRoute(), // Индекс 1
-        ChatsRoute(), // Индекс 3
-        ProfileRoute(), // Индекс 4
+        HomeRoute(),
+        FavoriteRoute(),
+        ChatsRoute(),
+        ProfileRoute(),
       ],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
