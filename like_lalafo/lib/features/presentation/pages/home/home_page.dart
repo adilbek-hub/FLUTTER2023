@@ -52,11 +52,30 @@ class HomePage extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
+                  mainAxisExtent: 423,
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    return Container(child: const Card());
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blueAccent,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        children: [
+                          Card(
+                              child: Image.network(
+                                  'https://picsum.photos/200/300')),
+                          Center(
+                            child: Text(
+                              'Item $index',
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                   childCount: 30,
                 ),

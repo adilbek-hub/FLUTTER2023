@@ -26,8 +26,8 @@ class _CategoriesState extends State<Categories> {
       "Heavy Lifting"
     ];
 
-    final firstRowItems = items.sublist(0, (items.length / 2).ceil());
-    final secondRowItems = items.sublist((items.length / 2).ceil());
+    final firstRowItems = items.sublist((items.length / 2).ceil());
+    final secondRowItems = items.sublist(0, (items.length / 2).ceil());
 
     return Padding(
       padding: const EdgeInsets.all(10.0),
