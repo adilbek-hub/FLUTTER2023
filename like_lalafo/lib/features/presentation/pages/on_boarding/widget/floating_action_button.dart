@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/features/presentation/pages/home/ex.dart';
 import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
 
 class FloatingAction extends StatelessWidget {
@@ -11,7 +12,10 @@ class FloatingAction extends StatelessWidget {
     return FloatingActionButton(
       backgroundColor: ColorConstants.green,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const WovenPage()));
+      },
       child: const Icon(
         Icons.add,
         color: Colors.white,
