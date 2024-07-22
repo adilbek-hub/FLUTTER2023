@@ -15,102 +15,106 @@ class Categories extends StatefulWidget {
 class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
-    final firstRowItems = categories.sublist((categories.length / 2).ceil());
-    final secondRowItems =
-        categories.sublist(0, (categories.length / 2).ceil());
+    final firstRowItems = categories.sublist(0, (categories.length / 2).ceil());
+    final secondRowItems = categories.sublist((categories.length / 2).ceil());
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: firstRowItems
-                .map(
-                  (f) => GestureDetector(
-                    child: Container(
-                      margin: const EdgeInsets.all(4.0),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 7.0),
-                      decoration: BoxDecoration(
-                        color: ColorConstants.grey.withOpacity(0.2),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10.0),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: firstRowItems
+                  .map(
+                    (f) => GestureDetector(
+                      child: Container(
+                        margin: const EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 7.0),
+                        decoration: BoxDecoration(
+                          color: ColorConstants.grey.withOpacity(0.2),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(
+                                f.image,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText(
+                                  textType: TextType.subtitle,
+                                  title: f.name,
+                                ),
+                                AppText(
+                                  textType: TextType.promocode,
+                                  title: f.price.toString(),
+                                  color: ColorConstants.grey,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 40,
-                            height: 40,
-                            child: Image.network(f.image),
-                          ),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              AppText(
-                                textType: TextType.subtitle,
-                                title: f.name,
-                              ),
-                              AppText(
-                                textType: TextType.promocode,
-                                title: f.price.toString(),
-                                color: ColorConstants.grey,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
                     ),
-                  ),
-                )
-                .toList(),
-          ),
-          Row(
-            children: secondRowItems
-                .map(
-                  (f) => GestureDetector(
-                    child: Container(
-                      margin: const EdgeInsets.all(2.0),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 7.0),
-                      decoration: BoxDecoration(
-                        color: ColorConstants.grey.withOpacity(0.2),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10.0),
+                  )
+                  .toList(),
+            ),
+            Row(
+              children: secondRowItems
+                  .map(
+                    (f) => GestureDetector(
+                      child: Container(
+                        margin: const EdgeInsets.all(2.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 7.0),
+                        decoration: BoxDecoration(
+                          color: ColorConstants.grey.withOpacity(0.2),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(f.image),
+                            ),
+                            const SizedBox(width: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                AppText(
+                                  textType: TextType.subtitle,
+                                  title: f.name,
+                                ),
+                                AppText(
+                                  textType: TextType.promocode,
+                                  title: f.price.toString(),
+                                  color: ColorConstants.grey,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 40,
-                            height: 40,
-                            child: Image.network(f.image),
-                          ),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              AppText(
-                                textType: TextType.subtitle,
-                                title: f.name,
-                              ),
-                              AppText(
-                                textType: TextType.promocode,
-                                title: f.price.toString(),
-                                color: ColorConstants.grey,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
                     ),
-                  ),
-                )
-                .toList(),
-          ),
-        ],
+                  )
+                  .toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

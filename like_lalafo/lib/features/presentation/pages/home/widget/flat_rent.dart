@@ -1,51 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
 
 class FlatRent extends StatelessWidget {
-  const FlatRent({
-    super.key,
-  });
+  const FlatRent({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 178,
+      height: 120,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 20,
+        itemCount: flats.length,
         itemBuilder: (context, index) {
-          return Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Container(
+          final flat = flats[index];
+          return Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Column(
+              children: [
+                Container(
                   width: 100,
                   height: 80,
                   decoration: BoxDecoration(
                     color: ColorConstants.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Center(
-                    child: Text('Item $index'),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      flat.imageUrl ?? '',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 15),
-              Container(
-                width: 100,
-                height: 80,
-                decoration: BoxDecoration(
-                  color: ColorConstants.grey.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(16),
+                Text(
+                  flat.title ?? '',
+                  style: const TextStyle(
+                    color: ColorConstants.black,
+                  ),
                 ),
-                child: Center(
-                  child: Text('Item $index'),
-                ),
-              ),
-            ],
+              ],
+            ),
           );
         },
       ),
     );
   }
 }
+
+class FlatModel {
+  final String? title;
+
+  final String? imageUrl;
+
+  FlatModel(this.title, this.imageUrl);
+}
+
+List<FlatModel> flats = [
+  FlatModel('До 20 тыс сом', AssetConstants.flat.png),
+  FlatModel('Кредит,\nрассрочка', AssetConstants.flat.png),
+  FlatModel('Ремонт', AssetConstants.flat.png),
+  FlatModel('Квартира', AssetConstants.flat.png),
+  FlatModel('Квартира', AssetConstants.flat.png),
+];
