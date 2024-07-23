@@ -51,16 +51,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnBoardingPage(),
       );
     },
-    ParentCategoryRoute.name: (routeData) {
-      final args = routeData.argsAs<ParentCategoryRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ParentCategoryPage(
-          key: args.key,
-          category: args.category,
-        ),
-      );
-    },
     ProfileRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -152,44 +142,6 @@ class OnBoardingRoute extends PageRouteInfo<void> {
   static const String name = 'OnBoardingRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [ParentCategoryPage]
-class ParentCategoryRoute extends PageRouteInfo<ParentCategoryRouteArgs> {
-  ParentCategoryRoute({
-    Key? key,
-    required Category category,
-    List<PageRouteInfo>? children,
-  }) : super(
-          ParentCategoryRoute.name,
-          args: ParentCategoryRouteArgs(
-            key: key,
-            category: category,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'ParentCategoryRoute';
-
-  static const PageInfo<ParentCategoryRouteArgs> page =
-      PageInfo<ParentCategoryRouteArgs>(name);
-}
-
-class ParentCategoryRouteArgs {
-  const ParentCategoryRouteArgs({
-    this.key,
-    required this.category,
-  });
-
-  final Key? key;
-
-  final Category category;
-
-  @override
-  String toString() {
-    return 'ParentCategoryRouteArgs{key: $key, category: $category}';
-  }
 }
 
 /// generated route for
