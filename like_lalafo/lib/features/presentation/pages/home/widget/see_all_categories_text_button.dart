@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
+import 'package:like_lalafo/router/router.dart';
 
 class SeeAllCategoriesTextButton extends StatelessWidget {
   const SeeAllCategoriesTextButton({
@@ -9,12 +11,12 @@ class SeeAllCategoriesTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AppText(
+          const AppText(
             title: 'Категории',
             textType: TextType.subtitle,
             color: ColorConstants.black,
@@ -22,14 +24,19 @@ class SeeAllCategoriesTextButton extends StatelessWidget {
           ),
           Row(
             children: [
-              AppText(
-                title: 'Смотреть все',
-                textType: TextType.promocode,
-                color: ColorConstants.grey,
-                fontWeight: FontWeight.w700,
+              GestureDetector(
+                onTap: () {
+                  context.pushRoute(const CategoryRoute());
+                },
+                child: const AppText(
+                  title: 'Смотреть все',
+                  textType: TextType.promocode,
+                  color: ColorConstants.grey,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-              SizedBox(width: 5),
-              Icon(Icons.arrow_forward_ios_sharp, size: 10)
+              const SizedBox(width: 5),
+              const Icon(Icons.arrow_forward_ios_sharp, size: 10)
             ],
           ),
         ],

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
-import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
+import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/banner.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/categories.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/featured_new_choose_button.dart';
@@ -68,97 +68,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-class Products {
-  final double? price;
-  final double? discountPrice;
-  final String? vacation;
-  final String? description;
-  final String? imageUrl;
-
-  Products(
-      {this.price,
-      this.discountPrice,
-      this.vacation,
-      this.description,
-      this.imageUrl});
-}
-
-List<Products> products = [
-  Products(
-    price: 10000,
-    discountPrice: null,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    vacation: '7 дней',
-    description: '1 комната, Собственник',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: null,
-    vacation: '7 дней',
-    description: '1 комната, Собственник',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: ' 1 комната, Собственник, С мебелью частично',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-  Products(
-    price: 10000,
-    discountPrice: 8000,
-    vacation: '7 дней',
-    description: 'Описание',
-    imageUrl: AssetConstants.mers.jpg,
-  ),
-];

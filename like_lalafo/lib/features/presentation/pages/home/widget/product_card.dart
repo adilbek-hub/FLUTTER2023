@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
-import 'package:like_lalafo/features/presentation/pages/home/home_page.dart';
+import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
 import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
 
 class ProductCard extends StatelessWidget {
