@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/initial_main.dart';
 import 'package:like_lalafo/router/router.dart';
+import 'package:like_lalafo/theme/app_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  Widget widget = await InitialMain.initialMain(const MyApp());
+  runApp(widget);
 }
 
 class MyApp extends StatelessWidget {
@@ -11,12 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppThemeManager.lightTheme,
       routerConfig: AppRouter().config(),
     );
   }

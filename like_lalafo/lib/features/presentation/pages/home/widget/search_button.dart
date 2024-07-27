@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
-import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
+import 'package:like_lalafo/theme/color_constants.dart';
 
 class SearchButton extends StatelessWidget {
   const SearchButton({
+    this.width = 280,
+    this.height = 35,
+    this.title = 'Я ищу...',
     super.key,
   });
+  final double? width;
+  final double? height;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 280,
-      height: 35,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: ColorConstants.grey.withOpacity(0.2),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          SizedBox(width: 10),
-          Icon(
+          const SizedBox(width: 10),
+          const Icon(
             Icons.search,
             color: ColorConstants.grey,
           ),
-          SizedBox(width: 15),
+          const SizedBox(width: 15),
           AppText(
-            title: 'Я ищу...',
+            title: title,
             textType: TextType.subtitle,
             color: ColorConstants.grey,
           ),

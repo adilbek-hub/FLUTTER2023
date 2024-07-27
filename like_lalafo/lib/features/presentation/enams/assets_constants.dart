@@ -4,6 +4,7 @@ enum AssetConstants {
   home,
   advert,
   flat,
+  warning,
 }
 
 extension AssetsExtension on AssetConstants {

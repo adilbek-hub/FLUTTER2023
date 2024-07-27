@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
@@ -11,9 +10,15 @@ import 'package:like_lalafo/features/presentation/pages/home/widget/product_card
 import 'package:like_lalafo/features/presentation/pages/home/widget/search_filter.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/see_all_categories_text_button.dart';
 
-@RoutePage()
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isRecommendedSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +50,16 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   FlatRent(),
-                  FeaturedNewChooseButton(),
                 ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: FeaturedNewChooseButton(
+                onSelectionChanged: (isRecommendedSelected) {
+                  setState(() {
+                    _isRecommendedSelected = isRecommendedSelected;
+                  });
+                },
               ),
             ),
             SliverToBoxAdapter(
@@ -56,9 +69,10 @@ class HomePage extends StatelessWidget {
                   crossAxisCount: 2,
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 4.0,
-                  children: products
-                      .map((product) => ProductCard(product: product))
-                      .toList(),
+                  children:
+                      (_isRecommendedSelected ? recomendedProducts : products)
+                          .map((product) => ProductCard(product: product))
+                          .toList(),
                 ),
               ),
             ),

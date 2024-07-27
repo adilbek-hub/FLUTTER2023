@@ -66,7 +66,7 @@ class NavigationBars extends StatelessWidget {
             enabled: false,
           ),
           NavigationDestination(
-            icon: Icon(Icons.chat),
+            icon: Icon(Icons.email),
             label: 'чаты',
           ),
           NavigationDestination(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
+import 'package:like_lalafo/theme/color_constants.dart';
 
 enum TextType { header, body, title, subtitle, promocode }
 

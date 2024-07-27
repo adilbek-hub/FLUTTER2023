@@ -3,12 +3,22 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/category.dart';
-import 'package:like_lalafo/features/presentation/pages/home/pages/category/parent_category.dart';
-import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
+import 'package:like_lalafo/features/presentation/pages/home/pages/category/category_children.dart';
+import 'package:like_lalafo/theme/color_constants.dart';
 
 @RoutePage()
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key});
+  double calculateTotalPrice(List<Children> children) {
+    double total = 0.0;
+    for (var child in children) {
+      total += child.price;
+      if (child.children != null) {
+        total += calculateTotalPrice(child.children!);
+      }
+    }
+    return total;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +45,22 @@ class CategoryPage extends StatelessWidget {
         itemCount: categories.length,
         itemBuilder: (context, index) {
           final category = categories[index];
+          final categoryTotalPrice =
+              calculateTotalPrice(category.children ?? []);
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: GestureDetector(
               onTap: category.children != null
                   ? () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChildrenPage(
-                                    children: category.children!,
-                                  )));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CategoryChildrenPage(
+                            category: category,
+                            children: category.children!,
+                          ),
+                        ),
+                      );
                     }
                   : null,
               child: Container(
@@ -72,7 +87,7 @@ class CategoryPage extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(category.price.toString()),
+                          Text(categoryTotalPrice.toString()),
                           const SizedBox(width: 10),
                           const Icon(
                             Icons.chevron_right,

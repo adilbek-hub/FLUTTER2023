@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/pages/home/ex.dart';
-import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
+import 'package:like_lalafo/theme/color_constants.dart';
 
 class FloatingAction extends StatelessWidget {
   const FloatingAction({

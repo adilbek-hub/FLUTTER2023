@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/category.dart';
-import 'package:like_lalafo/features/presentation/theme/color_constants.dart';
+import 'package:like_lalafo/theme/color_constants.dart';
 
 class Categories extends StatefulWidget {
   const Categories({
