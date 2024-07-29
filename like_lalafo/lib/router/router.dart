@@ -18,11 +18,10 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: FromHomeRouterRoute.page, initial: false, children: [
             AutoRoute(page: HomeRoute.page, initial: true),
             AutoRoute(page: CategoryRoute.page),
-            // AutoRoute(page: ParentCategoryRoute.page),
           ]),
           AutoRoute(page: FavoriteRoute.page, path: 'favorite', initial: false),
-          AutoRoute(page: ChatsRoute.page, path: 'chats', initial: true),
-          AutoRoute(page: ProfileRoute.page, path: 'profile'),
+          AutoRoute(page: ChatsRoute.page, path: 'chats', initial: false),
+          AutoRoute(page: ProfileRoute.page, path: 'profile', initial: true),
         ]),
       ];
 }

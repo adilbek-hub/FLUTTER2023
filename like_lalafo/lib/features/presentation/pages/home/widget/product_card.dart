@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/vip_view.dart';
 
@@ -20,7 +21,7 @@ class ProductCard extends StatelessWidget {
                   child: SizedBox(
                     width: 180,
                     height: 180,
-                    child: Image.network(
+                    child: Image.asset(
                       product.imageUrl!,
                       fit: BoxFit.cover,
                     ),
@@ -68,8 +69,8 @@ class ProductCard extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 12,
-                  backgroundImage: NetworkImage(
-                    product.imageUrl ?? '',
+                  backgroundImage: AssetImage(
+                    AssetConstants.person.png,
                   ),
                 ),
                 const SizedBox(width: 10),

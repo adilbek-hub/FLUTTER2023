@@ -3,9 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:like_lalafo/features/presentation/pages/home/common.dart';
 
 class WovenPage extends StatelessWidget {
-  const WovenPage({
-    super.key,
-  });
+  const WovenPage({super.key});
 
   static const pattern = [
     WovenGridTile(1),
@@ -31,16 +29,20 @@ class WovenPage extends StatelessWidget {
           (context, index) {
             final tile = pattern[index % pattern.length];
             return Column(
+              crossAxisAlignment:
+                  CrossAxisAlignment.start, // Align text to the left
               children: [
                 ImageTile(
                   index: index,
+                  // Consider using BoxFit.cover or BoxFit.contain here
                   width: (200 * tile.aspectRatio).ceil(),
                   height: 200,
                 ),
-                const SizedBox(height: 8), // Space between image and text
+                const SizedBox(height: 8),
                 Text(
                   'Image description $index',
                   style: const TextStyle(fontSize: 16),
+                  overflow: TextOverflow.ellipsis, // Truncate long text
                 ),
               ],
             );

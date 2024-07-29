@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
+import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/theme/color_constants.dart';
 
 class VipView extends StatelessWidget {
@@ -18,8 +19,8 @@ class VipView extends StatelessWidget {
               borderRadius: BorderRadius.circular(5)),
           child: Row(
             children: [
-              Image.network(
-                'https://png.klev.club/uploads/posts/2024-04/png-klev-club-z2a4-p-korona-narisovannaya-png-15.png',
+              Image.asset(
+                AssetConstants.crown.png,
                 width: 18,
                 color: ColorConstants.yellow,
               ),
@@ -35,8 +36,8 @@ class VipView extends StatelessWidget {
           decoration: BoxDecoration(
               color: ColorConstants.grey.withOpacity(0.8),
               shape: BoxShape.circle),
-          child: Image.network(
-            'https://png.klev.club/uploads/posts/2024-03/png-klev-club-p-gromkogovoritel-png-18.png',
+          child: Image.asset(
+            AssetConstants.gromko.png,
           ),
         ),
       ],

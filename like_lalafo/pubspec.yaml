@@ -67,6 +67,7 @@ flutter:
   assets:
     - assets/jpg/
     - assets/png/
+    - assets/webp/
 
   #   - images/a_dot_ham.jpeg
 

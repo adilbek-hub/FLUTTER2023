@@ -10,6 +10,8 @@ class DefElevatedButton extends StatelessWidget {
   final Color backgroundColor;
   final EdgeInsetsGeometry padding;
   final TextType textType;
+  final double? width;
+  final double? height;
 
   const DefElevatedButton({
     super.key,
@@ -21,22 +23,27 @@ class DefElevatedButton extends StatelessWidget {
     this.textType = TextType.header,
     this.backgroundColor = Colors.blue,
     this.padding = const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+    this.width = double.infinity,
+    this.height = 50.0,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        onPressed: onPressed,
-        style: style ??
-            ElevatedButton.styleFrom(
-              backgroundColor: backgroundColor,
-              padding: padding,
-              textStyle: TextStyle(fontSize: fontSize),
-            ),
-        child: AppText(
-          title: title,
-          textType: textType,
-          color: textColor,
-        ));
+    return SizedBox(
+      width: width,
+      height: height,
+      child: ElevatedButton(
+          onPressed: onPressed,
+          style: style ??
+              ElevatedButton.styleFrom(
+                backgroundColor: backgroundColor,
+                textStyle: TextStyle(fontSize: fontSize),
+              ),
+          child: AppText(
+            title: title,
+            textType: textType,
+            color: textColor,
+          )),
+    );
   }
 }

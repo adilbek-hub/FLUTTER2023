@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
-import 'package:like_lalafo/features/presentation/pages/chat/widget/chat_card.dart';
+import 'package:like_lalafo/features/presentation/pages/chat/widget/chat_list_view.dart';
 import 'package:like_lalafo/features/presentation/pages/chat/widget/notification_menu_text.dart';
 import 'package:like_lalafo/features/presentation/pages/chat/widget/outlined_tap.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
+import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
 
 @RoutePage()
 class ChatsPage extends StatelessWidget {
@@ -46,12 +46,10 @@ class ChatsPage extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 30,
+                  itemCount: products.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      color: ColorConstants.grey.withOpacity(0.2),
-                      child: const ChatCard(),
-                    );
+                    final product = products[index];
+                    return ChatListView(product: product);
                   },
                 ),
               ),
