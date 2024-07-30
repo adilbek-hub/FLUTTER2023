@@ -5,10 +5,10 @@ import 'package:like_lalafo/theme/color_constants.dart';
 class AppThemeManager {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: ColorConstants.white,
+    scaffoldBackgroundColor: const Color.fromARGB(255, 225, 236, 239),
     appBarTheme: const AppBarTheme(
       centerTitle: false,
-      backgroundColor: ColorConstants.white,
+      backgroundColor: Color.fromARGB(255, 225, 236, 239),
       systemOverlayStyle: SystemUiOverlayStyle.dark,
     ),
     cardColor: ColorConstants.white,
