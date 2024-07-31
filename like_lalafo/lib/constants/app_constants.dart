@@ -10,4 +10,5 @@ class AppConstants {
   final String orderNotification = 'orderNotification';
   final String saleNotification = 'saleNotification';
   final String otherNotification = 'otherNotification';
+  final String themeMode = 'themeMode';
 }

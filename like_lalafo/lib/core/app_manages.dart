@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppManager {
@@ -11,12 +12,12 @@ class AppManager {
 
   Future<void> setThemeMode({required ThemeMode themeMode}) async {
     final prefs = await preferences();
-    await prefs.setInt('themeMode', themeMode.index);
+    await prefs.setInt(AppConstants.instance.themeMode, themeMode.index);
   }
 
   Future<ThemeMode?> getThemeMode() async {
     final prefs = await preferences();
-    int? themeModeIndex = prefs.getInt('themeMode');
+    int? themeModeIndex = prefs.getInt(AppConstants.instance.themeMode);
     if (themeModeIndex != null) {
       return ThemeMode.values[themeModeIndex];
     }

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/setting_page/widget/setting_card.dart';
 
 @RoutePage()
@@ -11,12 +12,10 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Настройки',
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-          ),
+        title: AppText(
+          title: 'Настройки',
+          textType: TextType.body,
+          color: Theme.of(context).textTheme.bodyLarge?.color,
         ),
       ),
       body: const Padding(
