@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 class FlatRent extends StatelessWidget {
   const FlatRent({super.key});

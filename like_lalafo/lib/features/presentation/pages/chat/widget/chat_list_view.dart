@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 class ChatListView extends StatelessWidget {
   const ChatListView({

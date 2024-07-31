@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/router/router.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 class SeeAllCategoriesTextButton extends StatelessWidget {
   const SeeAllCategoriesTextButton({

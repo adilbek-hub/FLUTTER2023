@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/basic_widgets/def_elevated_button.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/singin_signup_page/widget/privacy_policy_text.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/singin_signup_page/widget/sign_in_platform.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/singin_signup_page/widget/signin_signup_text_field.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({

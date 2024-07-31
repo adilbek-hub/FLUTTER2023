@@ -35,6 +35,8 @@ enum AssetConstants {
   google,
   vk,
   ok,
+  lalafoLogo,
+  lalafoTextLogo,
 }
 
 extension AssetsExtension on AssetConstants {

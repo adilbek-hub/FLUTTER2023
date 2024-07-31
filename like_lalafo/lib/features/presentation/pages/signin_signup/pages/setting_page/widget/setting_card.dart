@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/setting_page/widget/setting_text.dart';
 import 'package:like_lalafo/router/router.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 class SettingCard extends StatelessWidget {
   const SettingCard({
@@ -25,7 +25,7 @@ class SettingCard extends StatelessWidget {
             SettingText(
                 onTap: () {
                   AutoRouter.of(context).push(
-                    const DarkRoute(),
+                    const ThemeModeRoute(),
                   );
                 },
                 text: 'Темная тема'),

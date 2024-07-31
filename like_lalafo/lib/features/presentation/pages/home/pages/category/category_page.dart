@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/category.dart';
 import 'package:like_lalafo/features/presentation/pages/home/pages/category/category_children.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 @RoutePage()
 class CategoryPage extends StatelessWidget {

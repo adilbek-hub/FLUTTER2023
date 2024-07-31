@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 
 class SignInPlatform extends StatelessWidget {
   const SignInPlatform({

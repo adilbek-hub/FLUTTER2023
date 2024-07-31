@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/singin_signup_page/widget/sign_in_view.dart';
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/singin_signup_page/widget/sign_up_view.dart';
 import 'package:like_lalafo/router/router.dart';
-import 'package:like_lalafo/theme/color_constants.dart';
 
 @RoutePage()
 class SignInSignUpPage extends StatelessWidget {

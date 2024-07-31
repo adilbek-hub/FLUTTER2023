@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AfterSplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AfterSplashPage(),
+      );
+    },
     CategoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -25,12 +31,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ChatsPage(),
-      );
-    },
-    DarkRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DarkPage(),
       );
     },
     FavoriteRoute.name: (routeData) {
@@ -81,7 +81,33 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SignInSignUpPage(),
       );
     },
+    SplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashPage(),
+      );
+    },
+    ThemeModeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ThemeModePage(),
+      );
+    },
   };
+}
+
+/// generated route for
+/// [AfterSplashPage]
+class AfterSplashRoute extends PageRouteInfo<void> {
+  const AfterSplashRoute({List<PageRouteInfo>? children})
+      : super(
+          AfterSplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AfterSplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -108,20 +134,6 @@ class ChatsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ChatsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [DarkPage]
-class DarkRoute extends PageRouteInfo<void> {
-  const DarkRoute({List<PageRouteInfo>? children})
-      : super(
-          DarkRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'DarkRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -234,6 +246,34 @@ class SignInSignUpRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SignInSignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SplashPage]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ThemeModePage]
+class ThemeModeRoute extends PageRouteInfo<void> {
+  const ThemeModeRoute({List<PageRouteInfo>? children})
+      : super(
+          ThemeModeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ThemeModeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
