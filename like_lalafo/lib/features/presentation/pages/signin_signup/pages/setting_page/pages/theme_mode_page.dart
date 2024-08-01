@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/core/theme/theme_notifier.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/basic_widgets/def_elevated_button.dart';
@@ -22,9 +23,11 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? const Color.fromARGB(255, 240, 240, 240)
-          : const Color.fromARGB(255, 240, 240, 240),
+      backgroundColor: getThemeModeColor.brightnessColor(
+        context,
+        lightColor: ColorConstants.white,
+        darkColor: ColorConstants.darkConatinerColor,
+      ),
       appBar: AppBar(
         centerTitle: true,
         title: AppText(
@@ -38,9 +41,11 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.grey[850]
-                    : Colors.white,
+                color: getThemeModeColor.brightnessColor(
+                  context,
+                  lightColor: ColorConstants.darkbgcolor,
+                  darkColor: ColorConstants.darkbgcolor,
+                ),
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),
@@ -94,9 +99,11 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
             flex: 3,
             child: Container(
               width: double.infinity,
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.grey[850]
-                  : Colors.white,
+              color: getThemeModeColor.brightnessColor(
+                context,
+                lightColor: ColorConstants.darkbgcolor,
+                darkColor: ColorConstants.darkbgcolor,
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
@@ -108,15 +115,16 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
                       color: Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      textAlign: TextAlign.center,
-                      'Нам очен важна обратная связь! \nПоделитесь своими впечатлениями \nо темной теме на lalafo.',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontSize: 14,
-                          color: Theme.of(context).brightness == Brightness.dark
-                              ? ColorConstants.grey
-                              : ColorConstants.grey),
-                    ),
+                    AppText(
+                        textAlign: TextAlign.center,
+                        title:
+                            'Нам очен важна обратная связь! \nПоделитесь своими впечатлениями \nо темной теме на lalafo.',
+                        textType: TextType.body,
+                        color: getThemeModeColor.brightnessColor(
+                          context,
+                          lightColor: ColorConstants.black,
+                          darkColor: ColorConstants.darkTextColor,
+                        )),
                     const SizedBox(height: 25),
                     DefElevatedButton(
                       height: 45,

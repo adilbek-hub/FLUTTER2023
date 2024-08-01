@@ -61,6 +61,7 @@ enum AssetConstants {
   camera,
   iphonee,
   banner,
+  rocket,
 }
 
 extension AssetsExtension on AssetConstants {
