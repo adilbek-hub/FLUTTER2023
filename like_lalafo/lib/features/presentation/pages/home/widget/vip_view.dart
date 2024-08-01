@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 
@@ -15,7 +16,11 @@ class VipView extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
           decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 241, 51, 51),
+              color: getThemeModeColor.brightnessColor(
+                context,
+                lightColor: ColorConstants.primary,
+                darkColor: ColorConstants.primary,
+              ),
               borderRadius: BorderRadius.circular(5)),
           child: Row(
             children: [

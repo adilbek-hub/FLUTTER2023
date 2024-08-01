@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 
 class NavigationBars extends StatelessWidget {
   const NavigationBars({
@@ -38,7 +40,11 @@ class NavigationBars extends StatelessWidget {
         }),
       ),
       child: NavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: getThemeModeColor.brightnessColor(
+          context,
+          lightColor: ColorConstants.white,
+          darkColor: ColorConstants.darkConatinerColor,
+        ),
         onDestinationSelected: (index) {
           if (index != 2) {
             if (index > 2) {

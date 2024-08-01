@@ -43,10 +43,10 @@ class AppThemeManager {
 
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: const Color(0xff765827),
+    scaffoldBackgroundColor: ColorConstants.darkbgcolor,
     appBarTheme: const AppBarTheme(
       centerTitle: false,
-      backgroundColor: Color(0xff765827),
+      backgroundColor: ColorConstants.darkbgcolor,
       systemOverlayStyle: SystemUiOverlayStyle.light,
     ),
     cardColor: const Color.fromARGB(255, 18, 18, 18),

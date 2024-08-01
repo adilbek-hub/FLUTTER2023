@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/banner.dart';
@@ -28,30 +29,30 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20),
-                  SearchFilter(),
-                  SizedBox(height: 28),
-                  SeeAllCategoriesTextButton(),
-                  SizedBox(height: 20),
-                  Categories(),
-                  SizedBox(height: 20),
-                  Banners(),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 10),
+                  const SearchFilter(),
+                  const SizedBox(height: 28),
+                  const SeeAllCategoriesTextButton(),
+                  const SizedBox(height: 20),
+                  const Categories(),
+                  const SizedBox(height: 20),
+                  const Banners(),
+                  const SizedBox(height: 30),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: AppText(
                       title: 'Аренда квартир',
                       textType: TextType.subtitle,
-                      color: Colors.black,
+                      color: getThemeModeColor.brighnessTheme(context),
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(height: 20),
-                  FlatRent(),
+                  const SizedBox(height: 20),
+                  const FlatRent(),
                 ],
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 
 class SearchButton extends StatelessWidget {
@@ -19,21 +20,31 @@ class SearchButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: ColorConstants.grey.withOpacity(0.2),
+        color: getThemeModeColor.brightnessColor(context,
+            lightColor: ColorConstants.lightConatinerColor,
+            darkColor: ColorConstants.darkConatinerColor),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
         children: [
           const SizedBox(width: 10),
-          const Icon(
+          Icon(
             Icons.search,
-            color: ColorConstants.grey,
+            color: getThemeModeColor.brightnessColor(
+              context,
+              lightColor: ColorConstants.black,
+              darkColor: ColorConstants.darkTextColor,
+            ),
           ),
           const SizedBox(width: 15),
           AppText(
             title: title,
             textType: TextType.subtitle,
-            color: ColorConstants.grey,
+            color: getThemeModeColor.brightnessColor(
+              context,
+              lightColor: ColorConstants.lightTextColor,
+              darkColor: ColorConstants.darkTextColor,
+            ),
           ),
         ],
       ),

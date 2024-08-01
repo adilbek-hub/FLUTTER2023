@@ -13,9 +13,36 @@ class Banners extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width,
       height: 90,
       color: ColorConstants.grey.withOpacity(0.2),
-      child: Image.asset(
-        AssetConstants.advert.jpg,
-        fit: BoxFit.fill,
+      child: DarkerImage(
+        imageUrl: AssetConstants.banner.webp,
+        darkenValue: 0.2,
+      ),
+    );
+  }
+}
+
+class DarkerImage extends StatelessWidget {
+  final String imageUrl;
+  final double darkenValue;
+
+  const DarkerImage({
+    super.key,
+    required this.imageUrl,
+    required this.darkenValue,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imageUrl),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black.withOpacity(darkenValue),
+            BlendMode.darken,
+          ),
+        ),
       ),
     );
   }

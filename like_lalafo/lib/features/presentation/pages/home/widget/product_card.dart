@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/vip_view.dart';
@@ -39,16 +41,20 @@ class ProductCard extends StatelessWidget {
                     color: Colors.grey,
                     decoration: TextDecoration.lineThrough,
                   )
-                : const TextStyle(
-                    color: Colors.black,
+                : TextStyle(
+                    color: getThemeModeColor.brighnessTheme(context),
                     fontWeight: FontWeight.w700,
                   ),
           ),
         if (product.discountPrice != null)
           Text(
             '${product.discountPrice!} KGS',
-            style: const TextStyle(
-              color: Colors.red,
+            style: TextStyle(
+              color: getThemeModeColor.brightnessColor(
+                context,
+                lightColor: ColorConstants.disLightRed,
+                darkColor: ColorConstants.disLightRed,
+              ),
               fontWeight: FontWeight.w700,
             ),
           ),

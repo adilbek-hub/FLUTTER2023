@@ -1,46 +1,32 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/setting_page/widget/setting_text.dart';
-import 'package:like_lalafo/router/router.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
+import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 
 class SettingCard extends StatelessWidget {
   const SettingCard({
     super.key,
+    this.onTap,
+    this.text,
   });
+  final Function()? onTap;
+  final String? text;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Theme.of(context).brightness == Brightness.dark
-            ? Colors.grey[850]
-            : Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
+    return GestureDetector(
+      onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(left: 16, bottom: 10),
-        child: Column(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SettingText(
-                onTap: () {
-                  AutoRouter.of(context).push(
-                    const ThemeModeRoute(),
-                  );
-                },
-                text: 'Темная тема'),
-            SettingText(onTap: () {}, text: 'Пригласить друзей'),
-            SettingText(onTap: () {}, text: 'Страна'),
-            SettingText(onTap: () {}, text: 'Язык'),
-            SettingText(onTap: () {}, text: 'Изменить пароль'),
-            SettingText(onTap: () {}, text: 'Управление уведомлениями'),
-            SettingText(onTap: () {}, text: 'Помощь'),
-            SettingText(onTap: () {}, text: 'Правовая информация'),
-            SettingText(onTap: () {}, text: 'Правило lalafo'),
-            SettingText(onTap: () {}, text: 'О компании'),
-            SettingText(onTap: () {}, text: 'Контакты'),
-            SettingText(onTap: () {}, text: 'Реклама'),
+            AppText(
+              title: text ?? '',
+              textType: TextType.header,
+              color: getThemeModeColor.brighnessTheme(context),
+              fontWeight: FontWeight.w400,
+            ),
+            const Icon(Icons.chevron_right),
           ],
         ),
       ),

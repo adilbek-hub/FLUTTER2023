@@ -28,7 +28,7 @@ class Category {
 
 List<Category> categories = [
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.car.png,
     name: 'Транспорт',
     price: 0.0,
     children: [
@@ -48,7 +48,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.brush.png,
     name: 'Услуги',
     price: 0.0,
     children: [
@@ -57,7 +57,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.phone.png,
     name: 'Техника и электроника',
     price: 0.0,
     children: [
@@ -66,7 +66,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.ball.png,
     name: 'Спорт и хобби',
     price: 0.0,
     children: [
@@ -75,7 +75,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.vilochnyPogruzchic.png,
     name: 'Оборудования для бизнеса',
     price: 0.0,
     children: [
@@ -84,7 +84,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.picnic.png,
     name: 'Иссык-Куль 2024',
     price: 0.0,
     children: [
@@ -93,7 +93,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.businessCart.webp,
     name: 'Бизнесы на lalafo',
     price: 0.0,
     children: [
@@ -111,7 +111,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.flawerVasa.jpg,
     name: 'Дом и сад',
     price: 0.0,
     children: [
@@ -120,7 +120,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.portfel.png,
     name: 'Работа',
     price: 0.0,
     children: [
@@ -129,7 +129,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.dress.png,
     name: 'Личные вещи',
     price: 0.0,
     children: [
@@ -138,7 +138,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.catcategory.webp,
     name: 'Животные',
     price: 0.0,
     children: [
@@ -147,7 +147,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.toy.webp,
     name: 'Детский мир',
     price: 0.0,
     children: [
@@ -156,7 +156,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.medportfel.webp,
     name: 'Медтовары',
     price: 0.0,
     children: [
@@ -165,7 +165,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    image: AssetConstants.home.png,
+    image: AssetConstants.podarok.png,
     name: 'Находки, отдам даром',
     price: 0.0,
     children: [
@@ -174,9 +174,9 @@ List<Category> categories = [
     ],
   ),
   // Пример без children
-  Category(
-    image: AssetConstants.home.png,
-    name: 'Без подкатегорий',
-    price: 0.0,
-  ),
+  // Category(
+  //   image: AssetConstants.home.png,
+  //   name: 'Без подкатегорий',
+  //   price: 0.0,
+  // ),
 ];

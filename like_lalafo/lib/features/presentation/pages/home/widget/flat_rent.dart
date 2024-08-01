@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 
 class FlatRent extends StatelessWidget {
@@ -34,8 +35,8 @@ class FlatRent extends StatelessWidget {
                 ),
                 Text(
                   flat.title ?? '',
-                  style: const TextStyle(
-                    color: ColorConstants.black,
+                  style: TextStyle(
+                    color: getThemeModeColor.brighnessTheme(context),
                   ),
                 ),
               ],

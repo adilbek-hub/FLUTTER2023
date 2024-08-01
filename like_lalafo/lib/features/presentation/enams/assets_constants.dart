@@ -37,6 +37,30 @@ enum AssetConstants {
   ok,
   lalafoLogo,
   lalafoTextLogo,
+  caravif,
+  brush,
+  ball,
+  vilochnyPogruzchic,
+  picnic,
+  businessCart,
+  flawerVasa,
+  portfel,
+  dress,
+  catcategory,
+  toy,
+  medportfel,
+  podarok,
+  konder,
+  konder2,
+  laptopInRoom,
+  tables,
+  carr,
+  dressInRoom,
+  whiteHome,
+  cat,
+  camera,
+  iphonee,
+  banner,
 }
 
 extension AssetsExtension on AssetConstants {
@@ -44,4 +68,5 @@ extension AssetsExtension on AssetConstants {
   String get png => 'assets/png/$name.png';
   String get jpg => 'assets/jpg/$name.jpg';
   String get webp => 'assets/webp/$name.webp';
+  String get avif => 'assets/gif/$name.avif';
 }

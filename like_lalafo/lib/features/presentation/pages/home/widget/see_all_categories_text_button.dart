@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/router/router.dart';
 
@@ -16,10 +17,10 @@ class SeeAllCategoriesTextButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const AppText(
+          AppText(
             title: 'Категории',
             textType: TextType.subtitle,
-            color: ColorConstants.black,
+            color: getThemeModeColor.brighnessTheme(context),
             fontWeight: FontWeight.w700,
           ),
           Row(
@@ -28,15 +29,27 @@ class SeeAllCategoriesTextButton extends StatelessWidget {
                 onTap: () {
                   context.pushRoute(const CategoryRoute());
                 },
-                child: const AppText(
+                child: AppText(
                   title: 'Смотреть все',
                   textType: TextType.promocode,
-                  color: ColorConstants.grey,
+                  color: getThemeModeColor.brightnessColor(
+                    context,
+                    lightColor: ColorConstants.lightTextColor,
+                    darkColor: ColorConstants.darkTextColor,
+                  ),
                   fontWeight: FontWeight.w700,
                 ),
               ),
               const SizedBox(width: 5),
-              const Icon(Icons.arrow_forward_ios_sharp, size: 10)
+              Icon(
+                Icons.arrow_forward_ios_sharp,
+                size: 10,
+                color: getThemeModeColor.brightnessColor(
+                  context,
+                  lightColor: ColorConstants.lightIconColor,
+                  darkColor: ColorConstants.darkTextColor,
+                ),
+              )
             ],
           ),
         ],

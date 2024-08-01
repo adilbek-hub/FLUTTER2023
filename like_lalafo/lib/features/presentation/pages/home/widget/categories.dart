@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/category.dart';
 
@@ -34,7 +35,11 @@ class _CategoriesState extends State<Categories> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 7.0),
                         decoration: BoxDecoration(
-                          color: ColorConstants.grey.withOpacity(0.2),
+                          color: getThemeModeColor.brightnessColor(
+                            context,
+                            lightColor: ColorConstants.lightConatinerColor,
+                            darkColor: ColorConstants.darkConatinerColor,
+                          ),
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),
                           ),
@@ -53,13 +58,19 @@ class _CategoriesState extends State<Categories> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 AppText(
-                                  textType: TextType.subtitle,
                                   title: f.name,
+                                  textType: TextType.subtitle,
+                                  color:
+                                      getThemeModeColor.brighnessTheme(context),
                                 ),
                                 AppText(
                                   textType: TextType.promocode,
                                   title: f.price.toString(),
-                                  color: ColorConstants.grey,
+                                  color: getThemeModeColor.brightnessColor(
+                                    context,
+                                    lightColor: ColorConstants.lightTextColor,
+                                    darkColor: ColorConstants.darkTextColor,
+                                  ),
                                 ),
                               ],
                             ),
@@ -79,7 +90,11 @@ class _CategoriesState extends State<Categories> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 7.0),
                         decoration: BoxDecoration(
-                          color: ColorConstants.grey.withOpacity(0.2),
+                          color: getThemeModeColor.brightnessColor(
+                            context,
+                            lightColor: ColorConstants.lightConatinerColor,
+                            darkColor: ColorConstants.darkConatinerColor,
+                          ),
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),
                           ),
@@ -96,13 +111,19 @@ class _CategoriesState extends State<Categories> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 AppText(
-                                  textType: TextType.subtitle,
                                   title: f.name,
+                                  textType: TextType.subtitle,
+                                  color:
+                                      getThemeModeColor.brighnessTheme(context),
                                 ),
                                 AppText(
-                                  textType: TextType.promocode,
                                   title: f.price.toString(),
-                                  color: ColorConstants.grey,
+                                  textType: TextType.promocode,
+                                  color: getThemeModeColor.brightnessColor(
+                                    context,
+                                    lightColor: ColorConstants.lightTextColor,
+                                    darkColor: ColorConstants.darkTextColor,
+                                  ),
                                 ),
                               ],
                             ),
