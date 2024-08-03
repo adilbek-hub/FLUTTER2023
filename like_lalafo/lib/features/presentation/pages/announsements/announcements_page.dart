@@ -18,7 +18,83 @@ class AnnouncementsPage extends StatefulWidget {
 }
 
 class _AnnouncementsPageState extends State<AnnouncementsPage> {
+  ///_selectedMedias: Колдонуучу тандаган медиаларды сактайт.
   final List<Media> _selectedMedias = [];
+
+  ///_currentAlbum: Азыркы ачылган альбомду сактайт.
+  AssetPathEntity? _currentAlbum;
+
+  ///_albums: Бардык альбомдорду сактайт.
+  List<AssetPathEntity> _albums = [];
+  void _loadAlbums() async {
+    List<AssetPathEntity> albums = await fetchAlbums();
+    if (albums.isNotEmpty) {
+      setState(() {
+        _currentAlbum = albums.first;
+        _albums = albums;
+      });
+    }
+    _loadMedias();
+  }
+
+  final List<Media> _medias = [];
+  int _lastPage = 0;
+  final int _currentPage = 0;
+
+  void _loadMedias() async {
+    _lastPage = _currentPage;
+    if (_currentAlbum != null) {
+      List<Media> medias =
+          await fetchMedias(album: _currentAlbum!, page: _currentPage);
+      setState(() {
+        _medias.addAll(medias);
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadAlbums();
+    _scrollController.addListener(_loadMoreMedias);
+  }
+
+  final ScrollController _scrollController = ScrollController();
+  void _loadMoreMedias() {
+    if (_scrollController.position.pixels /
+            _scrollController.position.maxScrollExtent >
+        0.33) {
+      if (_currentPage != _lastPage) {
+        _loadMedias();
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_loadMoreMedias);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+/*
+
+4.Колдонуучу тандоолорун иштеп чыгуу:
+
+Колдонуучу медиаларды тандаган сайын тандалгандарды жаңыртып туруу керек.
+ */
+  void _selectedMedia(Media media) {
+    bool isSelected = _selectedMedias
+        .any((element) => element.assetEntity.id == media.assetEntity.id);
+    setState(() {
+      if (isSelected) {
+        _selectedMedias.removeWhere(
+            (element) => element.assetEntity.id == media.assetEntity.id);
+      } else {
+        _selectedMedias.add(media);
+      }
+    });
+  }
 
   Future<void> handleGalerryButton() async {
     final List<Media>? result = await Navigator.push<List<Media>>(
@@ -88,12 +164,25 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
                   }
                 }),
           ),
+          Expanded(
+            child: MediaGridView(
+              medias: _medias,
+              selectedMedias: _selectedMedias,
+              selectedMedia: _selectedMedia,
+              scrollController: _scrollController,
+            ),
+          ),
         ],
       ),
     );
   }
 }
 
+/*
+5.UI түзүү:
+
+Медиа галереяны жана тандалган медиаларды көрсөтүү үчүн тийиштүү UI элементтерин түзүү керек.
+ */
 class GalleryPage extends StatefulWidget {
   const GalleryPage({super.key, required this.selectedMedias});
   final List<Media> selectedMedias;
@@ -103,8 +192,13 @@ class GalleryPage extends StatefulWidget {
 }
 
 class _GalleryPageState extends State<GalleryPage> {
+  ///_selectedMedias: Колдонуучу тандаган медиаларды сактайт.
   final List<Media> _selectedMedias = [];
+
+  ///_currentAlbum: Азыркы ачылган альбомду сактайт.
   AssetPathEntity? _currentAlbum;
+
+  ///_albums: Бардык альбомдорду сактайт.
   List<AssetPathEntity> _albums = [];
   void _loadAlbums() async {
     List<AssetPathEntity> albums = await fetchAlbums();
@@ -158,6 +252,12 @@ class _GalleryPageState extends State<GalleryPage> {
     super.dispose();
   }
 
+/*
+
+4.Колдонуучу тандоолорун иштеп чыгуу:
+
+Колдонуучу медиаларды тандаган сайын тандалгандарды жаңыртып туруу керек.
+ */
   void _selectedMedia(Media media) {
     bool isSelected = _selectedMedias
         .any((element) => element.assetEntity.id == media.assetEntity.id);
@@ -225,6 +325,13 @@ class Media {
   Media({required this.assetEntity, required this.widget});
 }
 
+/*
+ 1. Телефондун сүрөттөрү жана видеолору менен иштөөдө биринчи аткарылуучу кадамдар төмөндөгүдөй:
+
+Уруксаттарды суроо:
+Телефон сүрөттөрүнө жана видеолоруна жетүү үчүн колдонуучудан уруксат алуу керек.
+Тиешелүү уруксаттарды permission_handler пакетин колдонуп суроо керек.
+ */
 Future<void> grandPermission() async {
   try {
     final bool videosGranted = await Permission.videos.isGranted;
@@ -245,6 +352,10 @@ Future<void> grandPermission() async {
   }
 }
 
+/* 2. Альбомдорду алуу:
+
+Колдонуучунун түзмөгүндөгү альбомдорду алуу үчүн photo_manager пакетин колдонуу керек.
+*/
 Future<List<AssetPathEntity>> fetchAlbums() async {
   try {
     await grandPermission();
@@ -256,6 +367,11 @@ Future<List<AssetPathEntity>> fetchAlbums() async {
   }
 }
 
+/*
+3. Медиаларды алуу:
+
+Белгилүү бир альбомдогу медиаларды алуу үчүн дагы photo_manager пакетин колдонуу керек.
+ */
 Future<List<Media>> fetchMedias(
     {required AssetPathEntity album, required int page}) async {
   List<Media> medias = [];
@@ -285,6 +401,11 @@ Future<List<Media>> fetchMedias(
   return medias;
 }
 
+/*
+ 6. Медиа торчосу:
+
+Галереяда медиаларды торчо (grid view) түрүндө көрсөтүү үчүн MediaGridView классын колдонуу керек.
+ */
 class MediaGridView extends StatelessWidget {
   const MediaGridView(
       {super.key,
@@ -319,6 +440,11 @@ class MediaGridView extends StatelessWidget {
   }
 }
 
+/*
+7. Медиа элементтери:
+
+Ар бир медианы торчодо (grid view) көрсөтүү үчүн MediaItem классын колдонуу керек.
+ */
 class MediaItem extends StatelessWidget {
   const MediaItem(
       {super.key,
@@ -380,3 +506,27 @@ class MediaItem extends StatelessWidget {
     );
   }
 }
+
+/*
+8. Колдонмо уруксаттарын манифестке кошуу:
+
+Android манифест файлына керектүү уруксаттарды кошуу керек.
+
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+<uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+<uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+<uses-permission android:name="android.permission.CAMERA"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+IOS уруксаттарды кошуу керек.
+
+	<key>NSCameraUsageDescription</key>
+<string>We need your permission to use the camera</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>We need your permission to access the photo library</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>We need your permission to save photos to your library</string>
+ */
