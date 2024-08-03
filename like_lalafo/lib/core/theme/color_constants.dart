@@ -5,7 +5,7 @@ final class ColorConstants {
   static const Color pink = Color(0xffFFD3BF);
   static const Color black = Color(0xff363636);
   static const Color lightConatinerColor = Color.fromARGB(255, 213, 218, 225);
-  static const Color darkConatinerColor = Color.fromARGB(255, 61, 70, 80);
+  static const Color darkContainerColor = Color.fromARGB(255, 61, 70, 80);
   static const Color lightTextColor = Color.fromARGB(255, 125, 139, 156);
   static const Color darkTextColor = Color.fromARGB(255, 194, 215, 239);
   static const Color lightIconColor = Color.fromARGB(255, 125, 139, 156);

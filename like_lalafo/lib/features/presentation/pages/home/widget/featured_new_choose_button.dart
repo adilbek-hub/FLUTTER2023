@@ -29,7 +29,7 @@ class _FeaturedNewChooseButtonState extends State<FeaturedNewChooseButton> {
               color: getThemeModeColor.brightnessColor(
                 context,
                 lightColor: ColorConstants.lightConatinerColor,
-                darkColor: ColorConstants.darkConatinerColor,
+                darkColor: ColorConstants.darkContainerColor,
               ),
               borderRadius: BorderRadius.circular(8),
             ),

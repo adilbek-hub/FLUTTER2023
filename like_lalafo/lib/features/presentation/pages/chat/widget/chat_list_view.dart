@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/enams/assets_constants.dart';
 import 'package:like_lalafo/features/presentation/pages/home/model/products.dart';
@@ -15,7 +16,9 @@ class ChatListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorConstants.grey.withOpacity(0.2),
+      color: getThemeModeColor.brightnessColor(context,
+          lightColor: Colors.white,
+          darkColor: ColorConstants.darkContainerColor),
       child: Column(
         children: [
           ListTile(

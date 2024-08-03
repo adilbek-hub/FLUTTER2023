@@ -38,7 +38,7 @@ class _CategoriesState extends State<Categories> {
                           color: getThemeModeColor.brightnessColor(
                             context,
                             lightColor: ColorConstants.lightConatinerColor,
-                            darkColor: ColorConstants.darkConatinerColor,
+                            darkColor: ColorConstants.darkContainerColor,
                           ),
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),
@@ -93,7 +93,7 @@ class _CategoriesState extends State<Categories> {
                           color: getThemeModeColor.brightnessColor(
                             context,
                             lightColor: ColorConstants.lightConatinerColor,
-                            darkColor: ColorConstants.darkConatinerColor,
+                            darkColor: ColorConstants.darkContainerColor,
                           ),
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10.0),

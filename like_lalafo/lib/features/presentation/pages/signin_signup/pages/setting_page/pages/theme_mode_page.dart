@@ -25,8 +25,8 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
     return Scaffold(
       backgroundColor: getThemeModeColor.brightnessColor(
         context,
-        lightColor: ColorConstants.white,
-        darkColor: ColorConstants.darkConatinerColor,
+        lightColor: ColorConstants.darkContainerColor,
+        darkColor: ColorConstants.darkContainerColor,
       ),
       appBar: AppBar(
         centerTitle: true,
@@ -43,7 +43,7 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
               decoration: BoxDecoration(
                 color: getThemeModeColor.brightnessColor(
                   context,
-                  lightColor: ColorConstants.darkbgcolor,
+                  lightColor: ColorConstants.white,
                   darkColor: ColorConstants.darkbgcolor,
                 ),
               ),
@@ -101,7 +101,7 @@ class _ThemeModePageState extends State<ThemeModePage> with ThemeModePageMixin {
               width: double.infinity,
               color: getThemeModeColor.brightnessColor(
                 context,
-                lightColor: ColorConstants.darkbgcolor,
+                lightColor: ColorConstants.white,
                 darkColor: ColorConstants.darkbgcolor,
               ),
               child: Padding(

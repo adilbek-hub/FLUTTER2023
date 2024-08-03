@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AfterSplashPage(),
       );
     },
+    AnnouncementsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AnnouncementsPage(),
+      );
+    },
     CategoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -106,6 +112,20 @@ class AfterSplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AfterSplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AnnouncementsPage]
+class AnnouncementsRoute extends PageRouteInfo<void> {
+  const AnnouncementsRoute({List<PageRouteInfo>? children})
+      : super(
+          AnnouncementsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AnnouncementsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

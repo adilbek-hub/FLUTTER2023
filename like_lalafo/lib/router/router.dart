@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/announcements_page.dart';
 import 'package:like_lalafo/features/presentation/pages/chat/chats_page.dart';
 import 'package:like_lalafo/features/presentation/pages/favorite/pages/favorites_page.dart';
 import 'package:like_lalafo/features/presentation/pages/home/from_home_router.dart';
@@ -19,10 +20,12 @@ part "router.gr.dart";
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(page: AnnouncementsRoute.page, initial: true),
         AutoRoute(page: SplashRoute.page, initial: false),
         AutoRoute(page: AfterSplashRoute.page, initial: false),
-        AutoRoute(page: SettingRoute.page, initial: true),
+        AutoRoute(page: SettingRoute.page, initial: false),
         AutoRoute(page: ThemeModeRoute.page, initial: false),
+        AutoRoute(page: ProfileRoute.page, initial: false),
         AutoRoute(page: OnBoardingRoute.page, initial: false, children: [
           AutoRoute(page: FromHomeRouterRoute.page, initial: false, children: [
             AutoRoute(page: HomeRoute.page, initial: false),

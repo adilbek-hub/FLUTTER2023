@@ -30,9 +30,13 @@ class SettingPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
-                  color: ColorConstants.darkConatinerColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                decoration: BoxDecoration(
+                  color: getThemeModeColor.brightnessColor(
+                    context,
+                    lightColor: ColorConstants.white,
+                    darkColor: ColorConstants.darkContainerColor,
+                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Column(
                   children: [

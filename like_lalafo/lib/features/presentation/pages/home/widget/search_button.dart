@@ -22,7 +22,7 @@ class SearchButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: getThemeModeColor.brightnessColor(context,
             lightColor: ColorConstants.lightConatinerColor,
-            darkColor: ColorConstants.darkConatinerColor),
+            darkColor: ColorConstants.darkContainerColor),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(

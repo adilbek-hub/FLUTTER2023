@@ -43,7 +43,7 @@ class NavigationBars extends StatelessWidget {
         backgroundColor: getThemeModeColor.brightnessColor(
           context,
           lightColor: ColorConstants.white,
-          darkColor: ColorConstants.darkConatinerColor,
+          darkColor: ColorConstants.darkContainerColor,
         ),
         onDestinationSelected: (index) {
           if (index != 2) {

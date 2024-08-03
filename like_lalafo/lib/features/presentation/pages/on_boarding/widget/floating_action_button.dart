@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
-import 'package:like_lalafo/features/presentation/pages/home/ex.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/announcements_page.dart';
 
 class FloatingAction extends StatelessWidget {
   const FloatingAction({super.key});
@@ -14,7 +14,7 @@ class FloatingAction extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       onPressed: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const WovenPage()));
+            MaterialPageRoute(builder: (context) => const AnnouncementsPage()));
       },
       child: Icon(
         Icons.add,
