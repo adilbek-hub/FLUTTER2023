@@ -1,11 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+@RoutePage()
 class AnnouncementsPage extends StatefulWidget {
-  const AnnouncementsPage({super.key});
+  const AnnouncementsPage({
+    super.key,
+  });
 
   @override
   _AnnouncementsPageState createState() => _AnnouncementsPageState();
@@ -14,7 +20,7 @@ class AnnouncementsPage extends StatefulWidget {
 class _AnnouncementsPageState extends State<AnnouncementsPage> {
   final List<Media> _selectedMedias = [];
 
-  Future<void> handleFloatingActionButton() async {
+  Future<void> handleGalerryButton() async {
     final List<Media>? result = await Navigator.push<List<Media>>(
       context,
       MaterialPageRoute(
@@ -40,17 +46,50 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
       appBar: AppBar(
         title: const Text('Announcements'),
       ),
-      body: ListView.builder(
-          itemCount: _selectedMedias.length,
-          physics: const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: _selectedMedias[index].widget,
-            );
-          }),
-      floatingActionButton:
-          FloatingActionButton(onPressed: handleFloatingActionButton),
+      body: Column(
+        children: [
+          GestureDetector(
+              onTap: () => handleGalerryButton(),
+              child: Container(
+                color: Colors.grey,
+                height: 100,
+                width: 100,
+                child: const Icon(Icons.copy_sharp),
+              )),
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 30,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  if (index < _selectedMedias.length) {
+                    final Media media = _selectedMedias[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 50,
+                        height: 50,
+                        color: Colors.grey,
+                        child: media.widget,
+                      ),
+                    );
+                  } else {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 50,
+                        height: 50,
+                        color: Colors.grey,
+                      ),
+                    );
+                  }
+                }),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -136,37 +175,44 @@ class _GalleryPageState extends State<GalleryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: DropdownButton<AssetPathEntity>(
-        borderRadius: BorderRadius.circular(16),
-        value: _currentAlbum,
-        items: _albums
-            .map(
-              (e) => DropdownMenuItem<AssetPathEntity>(
-                  value: e, child: Text(e.name.isEmpty ? "0" : e.name)),
-            )
-            .toList(),
-        onChanged: (value) {
-          setState(() {
-            _currentAlbum = value;
-            _lastPage = 0;
-            _lastPage = 0;
-            _medias.clear();
-          });
-          _loadMedias();
-          _scrollController.jumpTo(0.0);
-        },
-      )),
+        actions: [
+          DropdownButton<AssetPathEntity>(
+            borderRadius: BorderRadius.circular(16),
+            value: _currentAlbum,
+            items: _albums
+                .map(
+                  (e) => DropdownMenuItem<AssetPathEntity>(
+                      value: e, child: Text(e.name.isEmpty ? "0" : e.name)),
+                )
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                _currentAlbum = value;
+                _lastPage = 0;
+                _lastPage = 0;
+                _medias.clear();
+              });
+              _loadMedias();
+              _scrollController.jumpTo(0.0);
+            },
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pop(context, _selectedMedias),
+            child: const AppText(
+              title: 'Добавить',
+              textType: TextType.subtitle,
+              color: ColorConstants.green,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(width: 10),
+        ],
+      ),
       body: MediaGridView(
         medias: _medias,
         selectedMedias: _selectedMedias,
         selectedMedia: _selectedMedia,
         scrollController: _scrollController,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context, _selectedMedias);
-        },
-        child: const Icon(Icons.check_rounded),
       ),
     );
   }

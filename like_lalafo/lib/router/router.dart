@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/announcements_page.dart';
 import 'package:like_lalafo/features/presentation/pages/chat/chats_page.dart';
 import 'package:like_lalafo/features/presentation/pages/favorite/pages/favorites_page.dart';
@@ -13,6 +14,7 @@ import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/sett
 import 'package:like_lalafo/features/presentation/pages/signin_signup/pages/singin_signup_page/signin_signup_page.dart';
 import 'package:like_lalafo/features/presentation/pages/splash/after_spash.dart';
 import 'package:like_lalafo/features/presentation/pages/splash/splash_page.dart';
+import 'package:photo_manager/photo_manager.dart';
 
 part "router.gr.dart";
 
