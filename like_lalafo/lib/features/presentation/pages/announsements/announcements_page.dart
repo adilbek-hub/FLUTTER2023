@@ -131,49 +131,78 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Announcements'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.camera_alt),
-            onPressed:
-                _pickImageFromCamera, // Ensure this is correctly referenced
-          ),
-        ],
       ),
       body: Column(
         children: [
-          GestureDetector(
-            onTap: () => handleGalleryButton(),
-            child: Container(
-              color: Colors.grey,
-              height: 100,
-              width: 100,
-              child: const Icon(Icons.copy_sharp),
-            ),
+          Row(
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.grey[350],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.camera_alt,
+                    color: Colors.grey,
+                  ),
+                  onPressed: _pickImageFromCamera,
+                ),
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.grey[350],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.copy_sharp,
+                    color: Colors.grey,
+                  ),
+                  onPressed: () => handleGalleryButton(),
+                ),
+              ),
+            ],
           ),
           SizedBox(
             height: 100,
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: _selectedMedias.length,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                final Media media = _selectedMedias[index];
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    width: 50,
-                    height: 50,
-                    color: Colors.grey,
-                    child: media.widget,
-                  ),
-                );
-              },
-            ),
+                scrollDirection: Axis.horizontal,
+                itemCount: 30,
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  if (index < _selectedMedias.length) {
+                    final Media media = _selectedMedias[index];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 50,
+                        height: 50,
+                        color: Colors.grey,
+                        child: media.widget,
+                      ),
+                    );
+                  } else {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 50,
+                        height: 50,
+                        color: Colors.grey,
+                      ),
+                    );
+                  }
+                }),
           ),
           Expanded(
             child: MediaGridView(
-              medias: _medias,
+              medias: _medias.take(5).toList(),
               selectedMedias: _selectedMedias,
               selectedMedia: _selectedMedia,
               scrollController: _scrollController,
