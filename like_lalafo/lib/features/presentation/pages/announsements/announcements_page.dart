@@ -1,5 +1,9 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -9,43 +13,45 @@ import 'package:transparent_image/transparent_image.dart';
 
 @RoutePage()
 class AnnouncementsPage extends StatefulWidget {
-  const AnnouncementsPage({
-    super.key,
-  });
+  const AnnouncementsPage({super.key});
 
   @override
   _AnnouncementsPageState createState() => _AnnouncementsPageState();
 }
 
 class _AnnouncementsPageState extends State<AnnouncementsPage> {
-  ///_selectedMedias: Колдонуучу тандаган медиаларды сактайт.
   final List<Media> _selectedMedias = [];
-
-  ///_currentAlbum: Азыркы ачылган альбомду сактайт.
   AssetPathEntity? _currentAlbum;
+  final ImagePicker _picker = ImagePicker();
+  final List<Media> _medias = [];
+  int _lastPage = 0;
+  int _currentPage = 0;
+  final ScrollController _scrollController = ScrollController();
 
-  ///_albums: Бардык альбомдорду сактайт.
-  List<AssetPathEntity> _albums = [];
   void _loadAlbums() async {
-    List<AssetPathEntity> albums = await fetchAlbums();
+    List<AssetPathEntity> albums = await PhotoManager.getAssetPathList();
     if (albums.isNotEmpty) {
       setState(() {
         _currentAlbum = albums.first;
-        _albums = albums;
       });
     }
     _loadMedias();
   }
 
-  final List<Media> _medias = [];
-  int _lastPage = 0;
-  final int _currentPage = 0;
-
   void _loadMedias() async {
     _lastPage = _currentPage;
     if (_currentAlbum != null) {
-      List<Media> medias =
-          await fetchMedias(album: _currentAlbum!, page: _currentPage);
+      List<AssetEntity> assets =
+          await _currentAlbum!.getAssetListPaged(page: _currentPage, size: 60);
+      List<Media> medias = await Future.wait(assets.map((asset) async {
+        Uint8List? thumbnailData =
+            await asset.thumbnailDataWithSize(const ThumbnailSize(200, 200));
+        return Media(
+          assetEntity: asset,
+          widget:
+              thumbnailData != null ? Image.memory(thumbnailData) : Container(),
+        );
+      }));
       setState(() {
         _medias.addAll(medias);
       });
@@ -59,14 +65,25 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
     _scrollController.addListener(_loadMoreMedias);
   }
 
-  final ScrollController _scrollController = ScrollController();
   void _loadMoreMedias() {
     if (_scrollController.position.pixels /
             _scrollController.position.maxScrollExtent >
         0.33) {
       if (_currentPage != _lastPage) {
+        _currentPage++;
         _loadMedias();
       }
+    }
+  }
+
+  Future<void> _pickImageFromCamera() async {
+    final XFile? pickedFile =
+        await _picker.pickImage(source: ImageSource.camera);
+    if (pickedFile != null) {
+      final Media media = await Media.fromXFile(pickedFile);
+      setState(() {
+        _selectedMedias.add(media);
+      });
     }
   }
 
@@ -77,12 +94,6 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
     super.dispose();
   }
 
-/*
-
-4.Колдонуучу тандоолорун иштеп чыгуу:
-
-Колдонуучу медиаларды тандаган сайын тандалгандарды жаңыртып туруу керек.
- */
   void _selectedMedia(Media media) {
     bool isSelected = _selectedMedias
         .any((element) => element.assetEntity.id == media.assetEntity.id);
@@ -96,13 +107,12 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
     });
   }
 
-  Future<void> handleGalerryButton() async {
+  Future<void> handleGalleryButton() async {
     final List<Media>? result = await Navigator.push<List<Media>>(
       context,
       MaterialPageRoute(
-          builder: (context) => GalleryPage(
-                selectedMedias: _selectedMedias,
-              )),
+        builder: (context) => GalleryPage(selectedMedias: _selectedMedias),
+      ),
     );
     if (result != null) {
       _updateSelectedMedias(result);
@@ -121,48 +131,45 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Announcements'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.camera_alt),
+            onPressed:
+                _pickImageFromCamera, // Ensure this is correctly referenced
+          ),
+        ],
       ),
       body: Column(
         children: [
           GestureDetector(
-              onTap: () => handleGalerryButton(),
-              child: Container(
-                color: Colors.grey,
-                height: 100,
-                width: 100,
-                child: const Icon(Icons.copy_sharp),
-              )),
+            onTap: () => handleGalleryButton(),
+            child: Container(
+              color: Colors.grey,
+              height: 100,
+              width: 100,
+              child: const Icon(Icons.copy_sharp),
+            ),
+          ),
           SizedBox(
             height: 100,
             child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 30,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  if (index < _selectedMedias.length) {
-                    final Media media = _selectedMedias[index];
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 50,
-                        height: 50,
-                        color: Colors.grey,
-                        child: media.widget,
-                      ),
-                    );
-                  } else {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 50,
-                        height: 50,
-                        color: Colors.grey,
-                      ),
-                    );
-                  }
-                }),
+              scrollDirection: Axis.horizontal,
+              itemCount: _selectedMedias.length,
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                final Media media = _selectedMedias[index];
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    width: 50,
+                    height: 50,
+                    color: Colors.grey,
+                    child: media.widget,
+                  ),
+                );
+              },
+            ),
           ),
           Expanded(
             child: MediaGridView(
@@ -323,6 +330,14 @@ class Media {
   final Widget widget;
 
   Media({required this.assetEntity, required this.widget});
+  static Future<Media> fromXFile(XFile xFile) async {
+    AssetEntity? assetEntity =
+        await PhotoManager.editor.saveImageWithPath(xFile.path, title: '');
+    return Media(
+      assetEntity: assetEntity!,
+      widget: Image.file(File(xFile.path)),
+    );
+  }
 }
 
 /*
