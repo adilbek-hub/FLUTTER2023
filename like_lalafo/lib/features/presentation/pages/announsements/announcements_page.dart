@@ -5,7 +5,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:like_lalafo/core/theme/color_constants.dart';
+import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/widget/media_grid_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
@@ -129,88 +131,203 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Announcements'),
-      ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.grey[350],
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.camera_alt,
-                    color: Colors.grey,
+        appBar: AppBar(
+          centerTitle: true,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.close)),
+          title: AppText(
+            title: 'Объявления',
+            textType: TextType.body,
+            color: getThemeModeColor.brighnessTheme(context),
+          ),
+          actions: const [
+            AppText(
+              title: 'Добавить',
+              textType: TextType.body,
+              color: ColorConstants.green,
+            ),
+            SizedBox(width: 10),
+          ],
+        ),
+        body: Column(children: [
+          LayoutBuilder(
+            builder: (context, constraints) {
+              double containerWidth = (constraints.maxWidth - 6 * 2) / 4;
+              return Wrap(
+                direction: Axis.horizontal,
+                alignment: WrapAlignment.start,
+                spacing: 3.0,
+                runAlignment: WrapAlignment.start,
+                runSpacing: 5.0,
+                children: <Widget>[
+                  // First two containers (Camera and Gallery buttons)
+                  Container(
+                    width: containerWidth,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[350],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.camera_alt,
+                        color: Colors.grey,
+                      ),
+                      onPressed: _pickImageFromCamera,
+                    ),
                   ),
-                  onPressed: _pickImageFromCamera,
-                ),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.grey[350],
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.copy_sharp,
-                    color: Colors.grey,
+                  Container(
+                    width: containerWidth,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[350],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.copy_sharp,
+                        color: Colors.grey,
+                      ),
+                      onPressed: handleGalleryButton,
+                    ),
                   ),
-                  onPressed: () => handleGalleryButton(),
-                ),
-              ),
-            ],
+
+                  ..._medias.take(6).map((media) {
+                    return SizedBox(
+                      width: containerWidth,
+                      height: 100,
+                      child: InkWell(
+                        onTap: () => _selectedMedia(media),
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                              child: Container(
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.15),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: media.widget,
+                              ),
+                            ),
+                            if (_selectedMedias.contains(media))
+                              Positioned.fill(
+                                child: Container(
+                                  color: Colors.black.withOpacity(0.1),
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.check_circle_rounded,
+                                      color: Colors.white,
+                                      size: 30,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: AppText(
+              title: 'Описание объявления',
+              textType: TextType.subtitle,
+              fontWeight: FontWeight.w800,
+              color: getThemeModeColor.brighnessTheme(context),
+            ),
           ),
           SizedBox(
             height: 100,
             child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 30,
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  if (index < _selectedMedias.length) {
-                    final Media media = _selectedMedias[index];
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 50,
-                        height: 50,
-                        color: Colors.grey,
-                        child: media.widget,
-                      ),
-                    );
-                  } else {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 50,
-                        height: 50,
-                        color: Colors.grey,
-                      ),
-                    );
-                  }
-                }),
-          ),
-          Expanded(
-            child: MediaGridView(
-              medias: _medias.take(5).toList(),
-              selectedMedias: _selectedMedias,
-              selectedMedia: _selectedMedia,
-              scrollController: _scrollController,
+              scrollDirection: Axis.horizontal,
+              itemCount: 6, // Only show 6 items here
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                if (index < _selectedMedias.length) {
+                  final Media media = _selectedMedias[index];
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      width: 50,
+                      height: 50,
+                      color: Colors.grey,
+                      child: media.widget,
+                    ),
+                  );
+                } else {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      width: 50,
+                      height: 50,
+                      color: Colors.grey,
+                    ),
+                  );
+                }
+              },
             ),
           ),
-        ],
-      ),
-    );
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                // "Item 0" чоң контейнер
+                Container(
+                  width: 300,
+                  height: 300,
+                  color: Colors.blue,
+                  margin: const EdgeInsets.all(8.0),
+                  child: const Center(
+                    child: Text(
+                      'Item 0',
+                      style: TextStyle(color: Colors.white, fontSize: 24),
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    // Биринчи катар
+                    Row(
+                      children: List.generate(7, (index) {
+                        return Container(
+                          width: 100,
+                          height: 100,
+                          color: Colors.blue[(index % 9 + 1) * 100],
+                          margin: const EdgeInsets.all(8.0),
+                          child: Center(child: Text('Item ${index + 1}')),
+                        );
+                      }),
+                    ),
+                    // Экинчи катар
+                    Row(
+                      children: List.generate(7, (index) {
+                        return Container(
+                          width: 100,
+                          height: 100,
+                          color: Colors.green[(index % 9 + 1) * 100],
+                          margin: const EdgeInsets.all(8.0),
+                          child: Center(child: Text('Item ${index + 8}')),
+                        );
+                      }),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
+        ]));
   }
 }
 
@@ -450,39 +567,6 @@ Future<List<Media>> fetchMedias(
 
 Галереяда медиаларды торчо (grid view) түрүндө көрсөтүү үчүн MediaGridView классын колдонуу керек.
  */
-class MediaGridView extends StatelessWidget {
-  const MediaGridView(
-      {super.key,
-      required this.medias,
-      required this.selectedMedias,
-      required this.selectedMedia,
-      required this.scrollController});
-  final List<Media> medias;
-  final List<Media> selectedMedias;
-  final Function(Media) selectedMedia;
-  final ScrollController scrollController;
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-        controller: scrollController,
-        physics: const BouncingScrollPhysics(),
-        itemCount: medias.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          mainAxisExtent: 200,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-        ),
-        itemBuilder: (context, index) {
-          return MediaItem(
-              media: medias[index],
-              isSelected: selectedMedias.any((element) =>
-                  element.assetEntity.id == medias[index].assetEntity.id),
-              selectMedia: selectedMedia);
-        });
-  }
-}
 
 /*
 7. Медиа элементтери:
@@ -508,6 +592,8 @@ class MediaItem extends StatelessWidget {
           _buildMediaWidget(),
           Positioned.fill(
             child: Container(
+                width: 100,
+                height: 100,
                 color: Colors.black.withOpacity(0.15),
                 child: media.assetEntity.type == AssetType.video
                     ? const Align(
