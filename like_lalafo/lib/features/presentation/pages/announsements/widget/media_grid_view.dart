@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:like_lalafo/features/presentation/pages/announsements/announcements_page.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/widget/media.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/widget/media_item.dart';
 
 class MediaGridView extends StatelessWidget {
   const MediaGridView(
