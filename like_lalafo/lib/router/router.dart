@@ -1,6 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/model/announsemmentmodel.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/pages/announcements_page.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/pages/announsementsubcategory_page.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/pages/annoutsements_category.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/pages/price_page.dart';
 import 'package:like_lalafo/features/presentation/pages/chat/chats_page.dart';
 import 'package:like_lalafo/features/presentation/pages/favorite/pages/favorites_page.dart';
 import 'package:like_lalafo/features/presentation/pages/home/from_home_router.dart';
@@ -22,7 +26,9 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: AnnouncementsRoute.page, initial: false),
-        AutoRoute(page: AnnounSementsCategoryRoute.page, initial: true),
+        AutoRoute(page: AnnounSementsCategoryRoute.page, initial: false),
+        AutoRoute(page: AnnounSementsSubCategoryRoute.page, initial: false),
+        AutoRoute(page: PriceRoute.page, initial: true),
         AutoRoute(page: SplashRoute.page, initial: false),
         AutoRoute(page: AfterSplashRoute.page, initial: false),
         AutoRoute(page: SettingRoute.page, initial: false),

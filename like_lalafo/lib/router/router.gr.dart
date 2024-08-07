@@ -27,6 +27,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AnnounSementsCategoryPage(),
       );
     },
+    AnnounSementsSubCategoryRoute.name: (routeData) {
+      final args = routeData.argsAs<AnnounSementsSubCategoryRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AnnounSementsSubCategoryPage(
+          key: args.key,
+          subCategoryName: args.subCategoryName,
+          subcategory: args.subcategory,
+        ),
+      );
+    },
     AnnouncementsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -73,6 +84,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OnBoardingPage(),
+      );
+    },
+    PriceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PricePage(),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -134,6 +151,50 @@ class AnnounSementsCategoryRoute extends PageRouteInfo<void> {
   static const String name = 'AnnounSementsCategoryRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AnnounSementsSubCategoryPage]
+class AnnounSementsSubCategoryRoute
+    extends PageRouteInfo<AnnounSementsSubCategoryRouteArgs> {
+  AnnounSementsSubCategoryRoute({
+    Key? key,
+    required String subCategoryName,
+    required List<ChildrenAnnounsement> subcategory,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AnnounSementsSubCategoryRoute.name,
+          args: AnnounSementsSubCategoryRouteArgs(
+            key: key,
+            subCategoryName: subCategoryName,
+            subcategory: subcategory,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AnnounSementsSubCategoryRoute';
+
+  static const PageInfo<AnnounSementsSubCategoryRouteArgs> page =
+      PageInfo<AnnounSementsSubCategoryRouteArgs>(name);
+}
+
+class AnnounSementsSubCategoryRouteArgs {
+  const AnnounSementsSubCategoryRouteArgs({
+    this.key,
+    required this.subCategoryName,
+    required this.subcategory,
+  });
+
+  final Key? key;
+
+  final String subCategoryName;
+
+  final List<ChildrenAnnounsement> subcategory;
+
+  @override
+  String toString() {
+    return 'AnnounSementsSubCategoryRouteArgs{key: $key, subCategoryName: $subCategoryName, subcategory: $subcategory}';
+  }
 }
 
 /// generated route for
@@ -244,6 +305,20 @@ class OnBoardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnBoardingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PricePage]
+class PriceRoute extends PageRouteInfo<void> {
+  const PriceRoute({List<PageRouteInfo>? children})
+      : super(
+          PriceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PriceRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
