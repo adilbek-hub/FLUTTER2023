@@ -87,9 +87,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PriceRoute.name: (routeData) {
+      final args = routeData.argsAs<PriceRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PricePage(),
+        child: PricePage(
+          key: args.key,
+          sunCategoryName: args.sunCategoryName,
+        ),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -311,16 +315,39 @@ class OnBoardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PricePage]
-class PriceRoute extends PageRouteInfo<void> {
-  const PriceRoute({List<PageRouteInfo>? children})
-      : super(
+class PriceRoute extends PageRouteInfo<PriceRouteArgs> {
+  PriceRoute({
+    Key? key,
+    required String sunCategoryName,
+    List<PageRouteInfo>? children,
+  }) : super(
           PriceRoute.name,
+          args: PriceRouteArgs(
+            key: key,
+            sunCategoryName: sunCategoryName,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PriceRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PriceRouteArgs> page = PageInfo<PriceRouteArgs>(name);
+}
+
+class PriceRouteArgs {
+  const PriceRouteArgs({
+    this.key,
+    required this.sunCategoryName,
+  });
+
+  final Key? key;
+
+  final String sunCategoryName;
+
+  @override
+  String toString() {
+    return 'PriceRouteArgs{key: $key, sunCategoryName: $sunCategoryName}';
+  }
 }
 
 /// generated route for

@@ -28,13 +28,13 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: AnnouncementsRoute.page, initial: false),
         AutoRoute(page: AnnounSementsCategoryRoute.page, initial: false),
         AutoRoute(page: AnnounSementsSubCategoryRoute.page, initial: false),
-        AutoRoute(page: PriceRoute.page, initial: true),
+        AutoRoute(page: PriceRoute.page, initial: false),
         AutoRoute(page: SplashRoute.page, initial: false),
         AutoRoute(page: AfterSplashRoute.page, initial: false),
         AutoRoute(page: SettingRoute.page, initial: false),
         AutoRoute(page: ThemeModeRoute.page, initial: false),
         AutoRoute(page: ProfileRoute.page, initial: false),
-        AutoRoute(page: OnBoardingRoute.page, initial: false, children: [
+        AutoRoute(page: OnBoardingRoute.page, initial: true, children: [
           AutoRoute(page: FromHomeRouterRoute.page, initial: false, children: [
             AutoRoute(page: HomeRoute.page, initial: false),
             AutoRoute(page: CategoryRoute.page),

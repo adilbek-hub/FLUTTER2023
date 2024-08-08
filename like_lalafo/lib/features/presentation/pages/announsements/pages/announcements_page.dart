@@ -268,11 +268,14 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
             ),
           ),
           const SizedBox(height: 10),
-          SizedBox(
-            height: 100,
-            child: GridViewImagesAdded(
-                scrollController: _scrollController,
-                selectedMedias: _selectedMedias),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: SizedBox(
+              height: 100,
+              child: GridViewImagesAdded(
+                  scrollController: _scrollController,
+                  selectedMedias: _selectedMedias),
+            ),
           ),
           const SizedBox(height: 5),
           Padding(

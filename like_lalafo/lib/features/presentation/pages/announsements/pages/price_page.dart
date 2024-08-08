@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:like_lalafo/core/theme/color_constants.dart';
 import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/widget/kgsusd_currency_button.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/widget/price_field.dart';
 
 @RoutePage()
 class PricePage extends StatefulWidget {
-  const PricePage({super.key});
+  const PricePage({super.key, required this.sunCategoryName});
+  final String sunCategoryName;
 
   @override
   State<PricePage> createState() => _PricePageState();
@@ -14,6 +16,16 @@ class PricePage extends StatefulWidget {
 
 class _PricePageState extends State<PricePage> {
   final ValueNotifier<bool> _isRecommendedSelected = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> _isAmountEntered = ValueNotifier<bool>(false);
+  final TextEditingController _priceController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _priceController.addListener(() {
+      _isAmountEntered.value = _priceController.text.isNotEmpty;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +53,7 @@ class _PricePageState extends State<PricePage> {
             ),
             actions: const [
               AppText(
-                title: 'Далее',
+                title: 'Пропустить',
                 textType: TextType.body,
                 color: Colors.green,
                 fontWeight: FontWeight.w600,
@@ -61,89 +73,98 @@ class _PricePageState extends State<PricePage> {
                     textType: TextType.header,
                     color: getThemeModeColor.brighnessTheme(context),
                   ),
-                  const TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: ColorConstants.grey,
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: ColorConstants.grey,
-                        ),
-                      ),
-                    ),
+                  PriceField(
+                    controller: _priceController,
                   ),
                   const SizedBox(height: 20),
+                  KGSUSDCurrencyButton(
+                    isRecommendedSelected: _isRecommendedSelected,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            height: 50,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(color: Colors.grey, width: 0.2),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 38,
+                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                      border: Border.all(
-                        color: ColorConstants.green,
-                      ),
-                      borderRadius: const BorderRadius.all(Radius.circular(18)),
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              _isRecommendedSelected.value = true;
-                            },
-                            child: ValueListenableBuilder<bool>(
-                              valueListenable: _isRecommendedSelected,
-                              builder: (context, value, child) {
-                                return Container(
-                                  decoration: BoxDecoration(
-                                    color: value ? Colors.green : Colors.white,
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(18),
-                                        bottomLeft: Radius.circular(18)),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: const AppText(
-                                    title: 'KGS',
-                                    textType: TextType.subtitle,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                );
-                              },
+                    child: AppText(
+                      title: widget.sunCategoryName,
+                      textType: TextType.promocode,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: const Border(
+                top: BorderSide(color: Colors.grey, width: 0.2),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(0, 1),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: ValueListenableBuilder<bool>(
+                      valueListenable: _isAmountEntered,
+                      builder: (context, isAmountEntered, child) {
+                        return Container(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.90,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                              color: Colors.green,
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              _isRecommendedSelected.value = false;
-                            },
-                            child: ValueListenableBuilder<bool>(
-                              valueListenable: _isRecommendedSelected,
-                              builder: (context, value, child) {
-                                return Container(
-                                  height: 34,
-                                  decoration: BoxDecoration(
-                                    color: !value ? Colors.green : Colors.white,
-                                    borderRadius: const BorderRadius.only(
-                                        topRight: Radius.circular(18),
-                                        bottomRight: Radius.circular(18)),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: AppText(
-                                    title: 'USD',
-                                    textType: TextType.subtitle,
-                                    fontWeight: FontWeight.bold,
-                                    color: getThemeModeColor
-                                        .brighnessTheme(context),
-                                  ),
-                                );
-                              },
+                          child: Center(
+                            child: Text(
+                              isAmountEntered ? 'Далее' : 'Пропустить',
+                              style: const TextStyle(
+                                fontSize: 15,
+                                color: Colors.green,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -157,7 +178,9 @@ class _PricePageState extends State<PricePage> {
 
   @override
   void dispose() {
+    _priceController.dispose();
     _isRecommendedSelected.dispose();
+    _isAmountEntered.dispose();
     super.dispose();
   }
 }

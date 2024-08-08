@@ -4,7 +4,6 @@ import 'package:like_lalafo/core/theme/color_constants.dart';
 
 class AppThemeManager {
   static ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
     scaffoldBackgroundColor: const Color.fromARGB(255, 232, 233, 233),
     appBarTheme: const AppBarTheme(
       centerTitle: false,
@@ -70,6 +69,8 @@ class AppThemeManager {
       checkColor: WidgetStateProperty.all(ColorConstants.primary),
       fillColor: WidgetStateProperty.all(ColorConstants.darkGrey),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        elevation: 5, backgroundColor: ColorConstants.black),
     navigationBarTheme: NavigationBarThemeData(
       labelTextStyle: WidgetStateProperty.all(
         const TextStyle(
