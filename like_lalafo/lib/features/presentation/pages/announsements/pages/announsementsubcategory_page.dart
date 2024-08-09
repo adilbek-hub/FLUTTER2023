@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/model/announsemmentmodel.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/widget/cardcategory_text.dart';
 import 'package:like_lalafo/features/presentation/pages/home/widget/search_button.dart';
 import 'package:like_lalafo/router/router.dart';
 
@@ -110,24 +111,7 @@ class AnnounSementsSubCategoryPage extends StatelessWidget {
           color: Colors.white,
           border: Border.all(color: Colors.grey, width: 0.2),
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: AppText(
-                  title: subCategoryName,
-                  textType: TextType.promocode,
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: CardCategoryText(subCategoryName: subCategoryName),
       ),
     );
   }

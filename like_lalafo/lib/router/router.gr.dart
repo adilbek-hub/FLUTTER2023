@@ -44,6 +44,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AnnouncementsPage(),
       );
     },
+    AnnounsementviewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AnnounsementviewPage(),
+      );
+    },
     CategoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -211,6 +217,20 @@ class AnnouncementsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AnnouncementsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AnnounsementviewPage]
+class AnnounsementviewRoute extends PageRouteInfo<void> {
+  const AnnounsementviewRoute({List<PageRouteInfo>? children})
+      : super(
+          AnnounsementviewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AnnounsementviewRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/model/announsemmentmodel.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/pages/announcements_page.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/pages/announsementsubcategory_page.dart';
+import 'package:like_lalafo/features/presentation/pages/announsements/pages/announsementview_page.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/pages/annoutsements_category.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/pages/price_page.dart';
 import 'package:like_lalafo/features/presentation/pages/chat/chats_page.dart';
@@ -29,12 +30,13 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: AnnounSementsCategoryRoute.page, initial: false),
         AutoRoute(page: AnnounSementsSubCategoryRoute.page, initial: false),
         AutoRoute(page: PriceRoute.page, initial: false),
+        AutoRoute(page: AnnounsementviewRoute.page, initial: true),
         AutoRoute(page: SplashRoute.page, initial: false),
         AutoRoute(page: AfterSplashRoute.page, initial: false),
         AutoRoute(page: SettingRoute.page, initial: false),
         AutoRoute(page: ThemeModeRoute.page, initial: false),
         AutoRoute(page: ProfileRoute.page, initial: false),
-        AutoRoute(page: OnBoardingRoute.page, initial: true, children: [
+        AutoRoute(page: OnBoardingRoute.page, initial: false, children: [
           AutoRoute(page: FromHomeRouterRoute.page, initial: false, children: [
             AutoRoute(page: HomeRoute.page, initial: false),
             AutoRoute(page: CategoryRoute.page),

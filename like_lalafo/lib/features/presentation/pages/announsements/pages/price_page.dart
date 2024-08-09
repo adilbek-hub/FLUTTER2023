@@ -4,6 +4,7 @@ import 'package:like_lalafo/core/theme/get_theme_mode_color.dart';
 import 'package:like_lalafo/features/presentation/apptext/app_text.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/widget/kgsusd_currency_button.dart';
 import 'package:like_lalafo/features/presentation/pages/announsements/widget/price_field.dart';
+import 'package:like_lalafo/router/router.dart';
 
 @RoutePage()
 class PricePage extends StatefulWidget {
@@ -140,7 +141,8 @@ class _PricePageState extends State<PricePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () =>
+                        context.router.push(const AnnounsementviewRoute()),
                     child: ValueListenableBuilder<bool>(
                       valueListenable: _isAmountEntered,
                       builder: (context, isAmountEntered, child) {
@@ -148,6 +150,7 @@ class _PricePageState extends State<PricePage> {
                           height: 50,
                           width: MediaQuery.of(context).size.width * 0.90,
                           decoration: BoxDecoration(
+                            color: isAmountEntered ? Colors.green : null,
                             borderRadius: BorderRadius.circular(30),
                             border: Border.all(
                               color: Colors.green,
@@ -156,9 +159,11 @@ class _PricePageState extends State<PricePage> {
                           child: Center(
                             child: Text(
                               isAmountEntered ? 'Далее' : 'Пропустить',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.green,
+                                color: isAmountEntered
+                                    ? Colors.white
+                                    : Colors.green,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
